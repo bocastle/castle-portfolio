@@ -35,4 +35,47 @@ body {
   h4 {
     @apply font-semibold text-2xl;
   }
+
+  a {
+    @apply cursor-pointer hover:cursor-pointer;
+  }
+
+  .markdown a {
+    @apply font-mono bg-gray-700 dark:bg-white py-[2px] px-1.5 rounded-md text-xs text-white dark:text-slate-700 hover:bg-slate-700 dark:hover:bg-gray-700;
+  }
+
+  .markdown h1,
+  .markdown h2 {
+    @apply pt-4 pb-2;
+  }
+
+  .markdown h3,
+  .markdown h4 {
+    @apply pt-4 pb-2;
+  }
+
+  strong {
+    @apply font-semibold;
+  }
+
+  em {
+    @apply text-gray-700;
+  }
+
+  code {
+    @apply bg-gray-200 dark:bg-gray-800  py-[2px] px-1.5 rounded-md text-xs font-medium text-teal-300 dark:text-teal-600;
+  }
+
+  blockquote {
+    @apply bg-gray-200 py-4 px-6 my-2 rounded-md w-full dark:bg-gray-800;
+  }
+
+  ul,
+  ol {
+    @apply flex flex-col gap-2 py-2 ml-4 list-outside list-disc;
+  }
+
+  li ul {
+    @apply pt-2;
+  }
 }
