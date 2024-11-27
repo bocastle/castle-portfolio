@@ -19,3 +19,20 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+@layer base {
+  h1 {
+    @apply font-semibold text-5xl py-2;
+  }
+
+  h2 {
+    @apply font-semibold text-4xl py-2;
+  }
+
+  h3 {
+    @apply font-semibold text-3xl;
+  }
+
+  h4 {
+    @apply font-semibold text-2xl;
+  }
+}
