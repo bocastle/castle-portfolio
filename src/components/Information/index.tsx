@@ -3,7 +3,7 @@ import Image from "next/image";
 const Information = () => {
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex md:flex items-center md:items-center mr-4 gap-6">
+      <div className="flex md:flex items-center md:items-center mr-4 gap-6 sm: flex-col mr-0">
         <Image
           src={`${process.env.NEXT_PUBLIC_IMG}/7nxjpqB/image.png`}
           width="200"
@@ -12,7 +12,7 @@ const Information = () => {
           className="object-cover rounded-lg border-[1px] border-gray-400 border-solid w-24 h-24"
         />
         <div className="flex flex-col gap-2">
-          <h1 className="leading-[1.15]">
+          <h1 className="leading-[1.15] sm: text-2xl">
             안녕하세요,
             <br /> 프론트엔드 개발자{" "}
             <span className="font-semibold">김보성</span>
