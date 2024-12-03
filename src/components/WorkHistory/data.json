@@ -1,0 +1,54 @@
+{
+  "title": "경력",
+  "workHistory": [
+    {
+      "id": 0,
+      "name": "DUBU4",
+      "position": "사원/팀원",
+      "period": ["2020.09", "2021.04"],
+      "imgSrc": "X7BCBrw/0-DUBU4.jpg"
+    },
+    {
+      "id": 1,
+      "name": "데브짓수",
+      "position": "사원/팀원",
+      "period": ["2021.04", "2021.12"],
+      "imgSrc": "GkxyZxB/1-devjitsu.jpg"
+    },
+    {
+      "id": 2,
+      "name": "이모라이브",
+      "position": "대리",
+      "period": ["2022.01", "2022.08"],
+      "imgSrc": "gR5KxST/2-emolive.jpg"
+    },
+    {
+      "id": 3,
+      "name": "애니챗",
+      "position": "책임연구원/팀원",
+      "period": ["2023.03", "2023.10"],
+      "imgSrc": "J5q6C1x/3-anychat.png"
+    },
+    {
+      "id": 4,
+      "name": "아이오센트레",
+      "position": "개발부/프로",
+      "period": ["2022.11", "2023.03"],
+      "imgSrc": "N27CBDd/4-iocentre.png"
+    },
+    {
+      "id": 5,
+      "name": "(주)일인치",
+      "position": "프론트엔드",
+      "period": ["2023.03", "2023.10"],
+      "imgSrc": "VY9x9sw/5-danngol.png"
+    },
+    {
+      "id": 6,
+      "name": "링크커넥션",
+      "position": "개발팀",
+      "period": ["2023.10", "2024.12"],
+      "imgSrc": "FbvNCdV/6-linker.png"
+    }
+  ]
+}
