@@ -11,6 +11,6 @@ export const navLinks: {
   {
     key: "WorkHistory",
     name: "WorkHistory",
-    href: "/WorkHistory",
+    href: "/workHistory",
   },
 ];
