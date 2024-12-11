@@ -7,4 +7,4 @@
 3. 슬랙 webhook 추가
 4. 카테고리 생성
 
-포폴링크: <https://castle-portfolio.vercel.app/>
+
