@@ -3,7 +3,7 @@ import Image from "next/image";
 const Information = () => {
   return (
     <div className="justify-center justify-items-center gap-6 items-center md:flex max-sm:flex-col max-sm:justify-items-center">
-      <div>
+      <div className="sm:flex sm:justify-center max-sm:flex max-sm:justify-center">
         <Image
           src={`${process.env.NEXT_PUBLIC_IMG}/7nxjpqB/image.png`}
           width="200"
