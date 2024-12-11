@@ -19,7 +19,7 @@ const Information = () => {
           <div className="flex flex-col gap-2">
             <h1 className="leading-[1.15]">
               안녕하세요,
-              <br /> 프론트엔드 개발자{" "}
+              <br /> 꿈을 항해하는 개발자{" "}
               <span className="font-semibold">김보성</span>
               입니다.
             </h1>
