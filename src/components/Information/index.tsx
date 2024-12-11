@@ -13,7 +13,7 @@ const Information = () => {
         />
       </div>
       <div className="flex flex-col gap-2">
-        <h1 className="leading-[1.15] md:text-5xl sm:text-2xl max-sm:text-2xl">
+        <h1 className="leading-[1.15] md:text-5xl sm:text-3xl max-sm:text-3xl">
           안녕하세요,
           <br /> 꿈을 항해하는 개발자{" "}
           <span className="font-semibold">김보성</span>
