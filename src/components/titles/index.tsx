@@ -6,7 +6,10 @@ const Title = () => {
       {data.title.map((item) => {
         if (item.id === number) {
           return (
-            <span className="text-2xl hidden md:block font-semibold">
+            <span
+              className="text-2xl hidden md:block font-semibold"
+              key={item.id}
+            >
               {item.content}
             </span>
           );
