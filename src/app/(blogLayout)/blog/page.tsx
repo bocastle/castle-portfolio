@@ -1,9 +1,7 @@
-import Information from "@/components/Information";
+import BlogList from "@/components/BlogList";
+import { notionDatabase } from "../api/notion";
 
-import WorkHistory from "@/components/WorkHistory";
-import { notionDatabase } from "./api/notion";
-
-export default async function Home() {
+export default async function BlogPage() {
   let db;
 
   try {
@@ -23,13 +21,13 @@ export default async function Home() {
     console.error("error:::::", error);
   }
 
-  // console.log("db::::", db);
   console.log("db?.results::::", db?.results);
 
+  // const data = await getData("");
+  // console.log("data", data);
   return (
-    <div className="items-center mx-auto p-8 flex flex-col gap-28 md:gap-32 md:my-20 my-4 mb-20 sm:gap-5">
-      <Information />
-      <WorkHistory />
+    <div className="items-center mx-auto p-8 flex flex-col gap-28 my-4 mb-20 md:gap-32 md:my-4 sm:gap-5">
+      <BlogList />
     </div>
   );
 }

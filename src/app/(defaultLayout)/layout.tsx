@@ -1,3 +1,5 @@
+import Title from "@/components/titles";
+
 export default function DefaultLayout({
   children,
 }: {
@@ -5,7 +7,7 @@ export default function DefaultLayout({
 }) {
   return (
     <div>
-      {/* <Title /> */}
+      <Title />
       {children}
     </div>
   );
