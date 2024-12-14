@@ -1,9 +1,20 @@
-interface Props {}
+import { blogList } from "@/app/(blogLayout)/api/types";
 
-const BlogList = ({}: Props) => {
+interface Props {
+  list: blogList[];
+}
+
+const BlogList = ({ list }: Props) => {
+  // console.log("BlogList::", list);
   return (
     <div>
-      <div className="flex flex-col gap-24">BlogList</div>
+      {list.map((item, index) => {
+        return (
+          <div key={item.id} className="flex flex-col gap-24">
+            {item.name}
+          </div>
+        );
+      })}
     </div>
   );
 };
