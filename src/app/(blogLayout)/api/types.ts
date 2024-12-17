@@ -1,4 +1,5 @@
 import {
+  DatabaseObjectResponse,
   PageObjectResponse,
   TextRichTextItemResponse,
 } from "@notionhq/client/build/src/api-endpoints";
@@ -89,6 +90,30 @@ export interface QueryPageResponse
     nextArticleId: {
       type: "number";
       number: number;
+    };
+  };
+}
+
+/** 게시글 태그 */
+export interface BlogTag {
+  id: string;
+  name: string;
+}
+
+export interface DataBaseMetaDataResponse
+  extends Omit<DatabaseObjectResponse, "properties"> {
+  properties: {
+    tags: {
+      type: "multi_select";
+      multi_select: {
+        options: Array<{
+          id: string;
+          name: string;
+          description: string | null;
+        }>;
+      };
+      id: string;
+      name: string;
     };
   };
 }

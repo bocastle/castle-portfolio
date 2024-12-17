@@ -1,7 +1,8 @@
 import { Client } from "@notionhq/client";
 import { NotionAPI } from "notion-client";
 import { cache } from "react";
-import { blogList, QueryPageResponse } from "./types";
+import { NotionDataBaseMetaDataAdapter } from "../utils/adapter";
+import { blogList, DataBaseMetaDataResponse, QueryPageResponse } from "./types";
 
 export const notionDatabase = new Client({
   auth: process.env.NOTION_SECRET,
@@ -55,4 +56,19 @@ export const getPageList = cache(async (): Promise<any[]> => {
     });
   });
   return pageList;
+});
+
+/**
+ * article tag 목록을 조회해오는 함수
+ */
+export const getArticleTagList = cache(async () => {
+  const metaDataResponse = await notionDatabase.databases.retrieve({
+    database_id: process.env.NOTION_DATABASE_ID!,
+  });
+
+  return new NotionDataBaseMetaDataAdapter(
+    metaDataResponse as unknown as DataBaseMetaDataResponse
+  )
+    .convertToTagList()
+    .sort((tag1, tag2) => (tag1.name > tag2.name ? 1 : -1));
 });
