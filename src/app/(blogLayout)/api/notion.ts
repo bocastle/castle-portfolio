@@ -21,9 +21,20 @@ export const getPageList = cache(async (): Promise<any[]> => {
     }
     db = await notionDatabase.databases.query({
       database_id: process.env.NOTION_DATABASE_ID,
+      filter: {
+        // 필터 추가
+        and: [
+          {
+            property: "releasable",
+            checkbox: {
+              equals: true,
+            },
+          },
+        ],
+      },
       sorts: [
         {
-          property: "name", // 정렬의 기준이 될 데이터베이스 속성
+          property: "createdAt", // 정렬의 기준이 될 데이터베이스 속성
           direction: "descending", // 내림차순 : descending, 오름차순 : ascending
         },
       ],
