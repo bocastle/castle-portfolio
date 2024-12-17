@@ -1,6 +1,7 @@
 import BlogList from "@/components/BlogList";
 import { getArticleTagList, getPageList } from "../api/notion";
 import { ArticleFilterTagList } from "./components/ArticleTagList";
+import { ArticleTagTitle } from "./components/ArticleTagTitle";
 
 export interface IBlogPagelist {
   cover: string;
@@ -14,8 +15,11 @@ export default async function BlogPage() {
   console.log("TagList", TagList);
 
   return (
-    <div className="items-center mx-auto p-8 flex flex-col gap-28 my-4 mb-20 md:gap-32 md:my-4 sm:gap-5">
-      <ArticleFilterTagList />
+    <div className="items-center mx-auto p-8 flex flex-col gap-28 my-4 mb-20 md:gap-10 md:my-4 sm:gap-5">
+      <div className="flex flex-col md:gap-5 md:my-4 sm:gap-5">
+        <ArticleTagTitle />
+        <ArticleFilterTagList />
+      </div>
       <BlogList list={List} />
     </div>
   );
