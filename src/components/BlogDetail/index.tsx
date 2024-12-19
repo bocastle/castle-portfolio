@@ -1,22 +1,23 @@
-// "use client";
+"use client";
 
-interface Props {}
+import { NotionRenderer } from "react-notion-x";
 
-const BlogDetail = ({}: Props) => {
-  // console.log("recordMap");
-  // console.log("rootPageId");
+interface Props {
+  recordMap: any;
+  rootPageId: string;
+}
 
+const BlogDetail = ({ recordMap, rootPageId }: Props) => {
   return (
     <div>
-      <div className="flex flex-col gap-24">BlogDetail</div>
-      {/* <NotionRenderer
+      <NotionRenderer
         recordMap={recordMap}
         fullPage={true}
         darkMode={false}
-        rootPageId={_rootPageId}
+        rootPageId={rootPageId}
         // previewImages
         disableHeader
-      /> */}
+      />
     </div>
   );
 };
