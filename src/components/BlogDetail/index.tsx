@@ -9,7 +9,7 @@ interface Props {
 
 const BlogDetail = ({ recordMap, rootPageId }: Props) => {
   return (
-    <div>
+    <div className="w-full max-w-4xl">
       <NotionRenderer
         recordMap={recordMap}
         fullPage={true}
