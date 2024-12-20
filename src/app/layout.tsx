@@ -16,8 +16,16 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "bocastle",
-  description: "bocastle app",
+  title: "castle log",
+  description: "개발과 일상을 공유 합니다.",
+  openGraph: {
+    title: `castle log`,
+    description: "개발과 일상을 공유 합니다.",
+    url: "https://bocelog.vercel.app",
+    siteName: "castle log",
+    locale: "ko_KR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

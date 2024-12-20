@@ -117,3 +117,39 @@ export interface DataBaseMetaDataResponse
     };
   };
 }
+
+export interface ArticlePageHeaderData {
+  /** 게시글 제목 */
+  title: string;
+  /** 게시글 요약 설명 */
+  description: string;
+  /** 게시글 태그 목록 */
+  tagList: BlogTag[];
+  /** 게시글 생성 일자*/
+  createdAt: Date;
+  /** 게시글 썸네일 url */
+  thumbnailUrl: string;
+}
+export interface ArticlePageHeaderDataWithBlur extends ArticlePageHeaderData {
+  blurDataUrl: string;
+}
+/** 모든 게시글 항목에 있는 게시글 */
+export interface AllArticle {
+  /** notion database id property */
+  id: number;
+  /** 게시글 제목 */
+  title: string;
+  /** 게시글 태그 목록 */
+  tagList: BlogTag[];
+  /** 게시글 생성 일자*/
+  createdAt: Date;
+  /** 게시글 썸네일 url */
+  thumbnailUrl: string;
+  /** queried notion page id */
+  pageId: string;
+}
+
+export interface ArticleLinkerData {
+  pageId: AllArticle["pageId"];
+  title: AllArticle["title"];
+}
