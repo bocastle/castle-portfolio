@@ -1,19 +1,18 @@
-import { blogList } from "@/app/(blogLayout)/api/types";
+import { AllArticleWithBlur } from "@/app/(blogLayout)/api/types";
 import Link from "next/link";
 
 interface Props {
-  list: blogList[];
+  list: AllArticleWithBlur[];
 }
 
 const BlogList = ({ list }: Props) => {
   // console.log("BlogList::", list);
   return (
     <div>
-      {list.map((item, index) => {
-        const pageId = item.id;
+      {list.map((item) => {
         return (
-          <Link href={`/blog/${pageId}`} key={item.id}>
-            <div className="flex flex-col gap-24">{item.name}</div>
+          <Link href={`/blog/${item.pageId}`} key={item.pageId}>
+            <div className="flex flex-col gap-24">{item.title}</div>
           </Link>
         );
       })}

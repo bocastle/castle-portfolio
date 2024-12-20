@@ -7,10 +7,11 @@ import { cache } from "react";
 import {
   NotionDataBaseMetaDataAdapter,
   NotionPageAdapter,
+  NotionPageListAdapter,
 } from "../utils/adapter";
 import {
+  AllArticleWithBlur,
   ArticlePageHeaderDataWithBlur,
-  blogList,
   DataBaseMetaDataResponse,
   QueryPageResponse,
 } from "./types";
@@ -24,48 +25,40 @@ export async function getData(rootPageId: string) {
   return await notion.getPage(rootPageId);
 }
 
-export const getPageList = cache(async (): Promise<any[]> => {
-  let db;
-  try {
-    if (!process.env.NOTION_DATABASE_ID) {
-      throw new Error("데이터베이스 아이디가 없습니다.");
-    }
-    db = await notionDatabase.databases.query({
-      database_id: process.env.NOTION_DATABASE_ID,
-      filter: {
-        // 필터 추가
-        and: [
-          {
-            property: "releasable",
-            checkbox: {
-              equals: true,
-            },
-          },
-        ],
-      },
-      sorts: [
+export const getPageList = cache(async (): Promise<AllArticleWithBlur[]> => {
+  const queryResponse = await notionDatabase.databases.query({
+    database_id: process.env.NOTION_DATABASE_ID!,
+    filter: {
+      and: [
         {
-          property: "createdAt", // 정렬의 기준이 될 데이터베이스 속성
-          direction: "descending", // 내림차순 : descending, 오름차순 : ascending
+          property: "releasable",
+          checkbox: {
+            equals: true,
+          },
         },
       ],
-    });
-  } catch (error) {
-    console.error("error:::::", error);
-  }
-  console.log("db?.results", db?.results);
-  let data = db?.results as Array<QueryPageResponse>;
-
-  let pageList: Array<blogList> = [];
-  data.map((item, index) => {
-    pageList.push({
-      cover: null,
-      created_time: item.created_time,
-      id: item.id,
-      name: item.properties.name.title[0].plain_text,
-    });
+    },
+    sorts: [
+      {
+        property: "createdAt",
+        direction: "descending",
+      },
+    ],
   });
-  return pageList;
+  const convertedAllArticleList = new NotionPageListAdapter(
+    queryResponse.results as Array<QueryPageResponse>
+  ).convertToAllArticleList();
+
+  return Promise.all(
+    convertedAllArticleList.map(async ({ thumbnailUrl, pageId, ...rest }) => {
+      return {
+        ...rest,
+        pageId,
+        thumbnailUrl: thumbnailUrl,
+        blurDataUrl: await fetchBlurDataUrl(thumbnailUrl),
+      };
+    })
+  );
 });
 
 /**
