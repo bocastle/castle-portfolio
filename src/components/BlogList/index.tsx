@@ -1,8 +1,8 @@
-import { AllArticleWithBlur } from "@/app/(blogLayout)/api/types";
+import { AllArticle } from "@/app/(blogLayout)/api/types";
 import Link from "next/link";
 
 interface Props {
-  list: AllArticleWithBlur[];
+  list: AllArticle[];
 }
 
 const BlogList = ({ list }: Props) => {

@@ -10,7 +10,7 @@ import {
   NotionPageListAdapter,
 } from "../utils/adapter";
 import {
-  AllArticleWithBlur,
+  AllArticle,
   ArticlePageHeaderDataWithBlur,
   DataBaseMetaDataResponse,
   QueryPageResponse,
@@ -25,7 +25,7 @@ export async function getData(rootPageId: string) {
   return await notion.getPage(rootPageId);
 }
 
-export const getPageList = cache(async (): Promise<AllArticleWithBlur[]> => {
+export const getPageList = cache(async (): Promise<AllArticle[]> => {
   const queryResponse = await notionDatabase.databases.query({
     database_id: process.env.NOTION_DATABASE_ID!,
     filter: {
@@ -45,17 +45,16 @@ export const getPageList = cache(async (): Promise<AllArticleWithBlur[]> => {
       },
     ],
   });
+  console.log("queryResponse.results", queryResponse.results);
   const convertedAllArticleList = new NotionPageListAdapter(
     queryResponse.results as Array<QueryPageResponse>
   ).convertToAllArticleList();
-
   return Promise.all(
     convertedAllArticleList.map(async ({ thumbnailUrl, pageId, ...rest }) => {
       return {
         ...rest,
         pageId,
         thumbnailUrl: thumbnailUrl,
-        blurDataUrl: await fetchBlurDataUrl(thumbnailUrl),
       };
     })
   );
