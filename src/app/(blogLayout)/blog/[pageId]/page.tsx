@@ -1,12 +1,11 @@
 import BlogDetail from "@/components/BlogDetail";
 import { NotionAPI } from "notion-client";
 
-type ArticleDetailPageProps = { params: { pageId: string } };
-
-export default async function ArticleDetailPage({
-  params,
-}: ArticleDetailPageProps) {
-  const { pageId } = await params;
+type Props = {
+  params: Promise<{ pageId: string }>;
+};
+export default async function ArticleDetailPage({ params }: Props) {
+  const pageId = (await params).pageId;
 
   const notion = new NotionAPI();
 
