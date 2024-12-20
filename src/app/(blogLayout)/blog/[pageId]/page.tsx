@@ -7,7 +7,7 @@ export default async function ArticleDetailPage({
   params,
 }: ArticleDetailPageProps) {
   const { pageId } = await params;
-  console.log("pageId:::", pageId);
+
   const notion = new NotionAPI();
 
   const recordMap = await notion.getPage(pageId);
