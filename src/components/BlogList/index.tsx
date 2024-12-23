@@ -19,6 +19,7 @@ const BlogList = ({ list }: Props) => {
           >
             <div className="w-80 h-52 relative">
               <Image
+                unoptimized
                 loading="lazy"
                 src={item.thumbnailUrl}
                 alt="thumbnail"
