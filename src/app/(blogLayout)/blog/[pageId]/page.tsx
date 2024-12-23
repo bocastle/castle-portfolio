@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ArticleDetailPage({ params }: Props) {
   const pageId = (await params).pageId;
-  console.log("pageId", pageId);
+  // console.log("pageId", pageId);
   const notion = new NotionAPI();
 
   const recordMap = await notion.getPage(pageId);
