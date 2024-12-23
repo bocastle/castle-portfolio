@@ -13,6 +13,7 @@
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
     "next": "15.0.3",
+    "next-cloudinary": "^6.16.0",
     "notion-client": "^7.1.5",
     "notion-to-md": "^2.1.0",
     "plaiceholder": "^3.0.0",
