@@ -1,8 +1,10 @@
 import BlogDetail from "@/components/BlogDetail";
 
 import type { Metadata } from "next";
-import { NotionAPI } from "notion-client";
-import { getArticlePageHeaderData } from "../../api/notion";
+import {
+  fetchArticlePageContent,
+  getArticlePageHeaderData,
+} from "../../api/notion";
 type Props = {
   params: Promise<{ pageId: string }>;
 };
@@ -36,12 +38,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ArticleDetailPage({ params }: Props) {
   const pageId = (await params).pageId;
   // console.log("pageId", pageId);
-  const notion = new NotionAPI();
 
-  const recordMap = await notion.getPage(pageId);
+  const { parent } = await fetchArticlePageContent(pageId);
+  console.log("parent", parent);
   return (
     <div className="items-start mx-auto px-80 flex flex-col gap-28 my-4 mb-20 md:gap-10 md:my-4 sm:gap-5">
-      <BlogDetail recordMap={recordMap} rootPageId={pageId} />
+      <BlogDetail content={parent} />
     </div>
   );
 }

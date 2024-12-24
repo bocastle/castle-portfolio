@@ -195,3 +195,10 @@ export interface AllArticleWithBlur extends AllArticle {
   /** blurData url */
   blurDataUrl: string;
 }
+
+export type FileImageBlock = {
+  type: "file";
+  file: {
+    url: string;
+  };
+};

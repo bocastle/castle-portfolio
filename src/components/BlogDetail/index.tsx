@@ -1,23 +1,15 @@
 "use client";
 
-import { NotionRenderer } from "react-notion-x";
+import ReactMarkdown from "react-markdown";
 
 interface Props {
-  recordMap: any;
-  rootPageId: string;
+  content: string;
 }
 
-const BlogDetail = ({ recordMap, rootPageId }: Props) => {
+const BlogDetail = ({ content }: Props) => {
   return (
     <div className="w-full max-w-4xl">
-      <NotionRenderer
-        recordMap={recordMap}
-        fullPage={true}
-        darkMode={false}
-        rootPageId={rootPageId}
-        // previewImages
-        disableHeader
-      />
+      <ReactMarkdown>{content}</ReactMarkdown>
     </div>
   );
 };
