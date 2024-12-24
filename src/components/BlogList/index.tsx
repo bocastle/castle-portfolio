@@ -10,7 +10,7 @@ interface Props {
 const BlogList = ({ list }: Props) => {
   // console.log("BlogList::", list);
   return (
-    <div className="grid grid-cols-2 gap-6">
+    <div className="grid grid-cols-2 max-md:grid-cols-1 max-sm:grid-cols-1 gap-6">
       {list.map((item) => {
         return (
           <Link
