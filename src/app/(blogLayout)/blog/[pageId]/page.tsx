@@ -40,10 +40,10 @@ export default async function ArticleDetailPage({ params }: Props) {
   // console.log("pageId", pageId);
 
   const { parent } = await fetchArticlePageContent(pageId);
-  console.log("parent", parent);
+
   return (
     <div className="items-start mx-auto px-80 flex flex-col gap-28 my-4 mb-20 md:gap-10 md:my-4 sm:gap-5">
-      <BlogDetail content={parent} />
+      <BlogDetail content={parent as string} />
     </div>
   );
 }

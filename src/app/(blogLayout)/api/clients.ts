@@ -8,7 +8,7 @@ export const notionDatabase = new Client({
 
 export const n2m = new NotionToMarkdown({
   notionClient: notionDatabase,
-  config: {
-    separateChildPage: false,
-  },
+  // config: {
+  //   parseChildPages: false,
+  // },
 });
