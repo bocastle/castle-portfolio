@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://bocelog.vercel.app
+
+# Sitemaps
+Sitemap: https://bocelog.vercel.app/sitemap.xml
