@@ -1,6 +1,7 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /exclude
 
 # Host
 Host: https://bocelog.vercel.app
