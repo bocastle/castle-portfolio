@@ -1,10 +1,7 @@
 {
   "functions": {
-    "src/app/(blogLayout)": {
-      "maxDuration": 60
-    },
     "src/app/(blogLayout)/**/*": {
-      "maxDuration": 60
+      "maxDuration": 0
     }
   }
 }
