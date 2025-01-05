@@ -128,7 +128,7 @@ export const getArticlePageHeaderData = (pageId: string) => {
     [cacheKey],
     {
       tags: [cacheKey],
-      revalidate: 10,
+      revalidate: 60,
     }
   )(pageId);
 };
@@ -222,7 +222,7 @@ export const fetchArticlePageContent = (pageId: string) => {
     [cacheKey],
     {
       tags: [cacheKey],
-      revalidate: 10,
+      revalidate: 60,
     }
   )(pageId);
 };
