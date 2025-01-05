@@ -221,6 +221,7 @@ export const fetchArticlePageContent = (pageId: string) => {
     [cacheKey],
     {
       tags: [cacheKey],
+      revalidate: 10,
     }
   )(pageId);
 };
