@@ -1,7 +1,7 @@
 {
   "functions": {
     "src/app/(blogLayout)/**/*": {
-      "maxDuration": 0
+      "maxDuration": 1
     }
   }
 }
