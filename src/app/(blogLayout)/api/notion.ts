@@ -128,6 +128,7 @@ export const getArticlePageHeaderData = (pageId: string) => {
     [cacheKey],
     {
       tags: [cacheKey],
+      revalidate: 10,
     }
   )(pageId);
 };
