@@ -7,7 +7,7 @@ const Title = () => {
         if (item.id === number) {
           return (
             <span
-              className="text-2xl hidden md:block font-semibold"
+              className="text-2xl hidden md:block text-white font-semibold"
               key={item.id}
             >
               {item.content}
