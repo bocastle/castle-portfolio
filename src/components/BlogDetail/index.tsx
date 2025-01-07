@@ -15,7 +15,7 @@ interface Props {
 }
 
 const BlogDetail = ({ content }: Props) => {
-  console.log("content", content);
+  // console.log("content", content);
 
   return (
     <div className="w-full max-w-4xl">

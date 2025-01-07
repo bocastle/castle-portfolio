@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { navLinks } from "../config/config";
 const Navbar = () => {
   const currentPathName = usePathname();
-  console.log("currentPathName", currentPathName);
+  // console.log("currentPathName", currentPathName);
   return (
     <div className="h-2 sticky top-110 md:static md:h-20 md:flex md:justify-between md:items-center md:gap-5 md:px-12 sm:hidden">
       <div className="md:flex sm:hidden max-sm:hidden">
@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className="flex gap-5 md:flex sm:hidden max-sm:hidden">
         {navLinks.map((item, index) => {
           const isUnderlined = currentPathName.includes(item.href);
-          console.log("isUnderlined", isUnderlined);
+          // console.log("isUnderlined", isUnderlined);
           return (
             <Link
               key={`${item.key}${index}`}

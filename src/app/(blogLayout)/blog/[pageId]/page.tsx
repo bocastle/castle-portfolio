@@ -1,10 +1,7 @@
-import BlogDetail from "@/components/BlogDetail";
-
 import type { Metadata } from "next";
-import {
-  fetchArticlePageContent,
-  getArticlePageHeaderData,
-} from "../../api/notion";
+import { getArticlePageHeaderData } from "../../api/notion";
+import PageContent from "./components/PageContent";
+import PageHeader from "./components/PageHeader";
 type Props = {
   params: Promise<{ pageId: string }>;
 };
@@ -37,13 +34,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ArticleDetailPage({ params }: Props) {
   const pageId = (await params).pageId;
-  // console.log("pageId", pageId);
-
-  const { parent } = await fetchArticlePageContent(pageId);
 
   return (
     <div className="text-white items-start mx-auto px-80 flex flex-col gap-28 my-4 mb-20 md:gap-10 md:my-4 sm:gap-5">
-      <BlogDetail content={parent as string} />
+      <PageHeader pageId={pageId} />
+      <PageContent pageId={pageId} />
     </div>
   );
 }

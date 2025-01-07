@@ -226,3 +226,38 @@ export const fetchArticlePageContent = (pageId: string) => {
     }
   )(pageId);
 };
+
+/**
+ * 해당 아티클 페이지의 header 부분의 데이터를 불러오는 함수
+ */
+export const fetchArticlePageHeaderData = (pageId: string) => {
+  const cacheKey = ARTICLE_HEADER(pageId);
+
+  return unstable_cache(
+    async (pageId: string): Promise<ArticlePageHeaderDataWithBlur> => {
+      const pageResponse = await notionDatabase.pages.retrieve({
+        page_id: pageId,
+      });
+
+      const { thumbnailUrl, ...rest } = new NotionPageAdapter(
+        pageResponse as QueryPageResponse
+      ).convertToArticlePageHeaderData();
+
+      const convertedThumbnailUrl = await cloudinaryApi.convertToPermanentImage(
+        thumbnailUrl,
+        `${pageId}_thumbnail`
+      );
+
+      return {
+        ...rest,
+        thumbnailUrl: convertedThumbnailUrl,
+        blurDataUrl: await fetchBlurDataUrl(convertedThumbnailUrl),
+      };
+    },
+    [cacheKey],
+    {
+      tags: [cacheKey],
+      revalidate: 60,
+    }
+  )(pageId);
+};
