@@ -10,7 +10,7 @@ interface Props {
 const BlogList = ({ list }: Props) => {
   // console.log("BlogList::", list);
   return (
-    <div className="grid grid-cols-2 max-md:grid-cols-1 max-sm:grid-cols-1 gap-6">
+    <div className="grid grid-cols-2 max-md:grid-cols-1  max-sm:grid-cols-1 gap-6">
       {list.map((item) => {
         return (
           <Link
@@ -18,7 +18,7 @@ const BlogList = ({ list }: Props) => {
             key={item.pageId}
             className="flex flex-col items-start gap-5"
           >
-            <div className="w-[476px] h-[270px] relative">
+            <div className="w-[476px] h-[270px] relative max-md:w-[300px] max-md:h-[200px]">
               <Image
                 unoptimized
                 loading="lazy"

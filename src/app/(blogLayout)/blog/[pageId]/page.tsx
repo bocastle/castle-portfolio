@@ -37,7 +37,7 @@ export default async function ArticleDetailPage({ params }: Props) {
   const pageId = (await params).pageId;
 
   return (
-    <div className="text-white items-start mx-auto px-80 flex flex-col gap-28 my-4 mb-20 md:gap-10 md:my-4 sm:gap-5">
+    <div className="text-white items-start mx-auto md:px-80 flex flex-col gap-28 my-4 mb-20 md:gap-10 md:my-4 sm:gap-5 max-md:p-1">
       <PageHeader pageId={pageId} />
       <PageContent pageId={pageId} />
       <PageFooter pageId={pageId} />

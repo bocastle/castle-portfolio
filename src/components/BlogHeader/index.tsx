@@ -13,7 +13,7 @@ const BlogHeader = ({ headerItem }: Props) => {
   // console.log("item", item);
 
   return (
-    <div className="flex flex-col items-start w-full max-w-4xl">
+    <div className="flex flex-col items-start w-full max-w-4xl max-md:w-max">
       <h1>{headerItem.title}</h1>
       <span className="mb-6">
         {getYearMonthDay(headerItem.createdAt)}&nbsp;&nbsp;
@@ -29,14 +29,17 @@ const BlogHeader = ({ headerItem }: Props) => {
           </div>
         ))}
       </div>
-
-      <Image
-        unoptimized
-        src={headerItem.thumbnailUrl}
-        alt={headerItem.title}
-        width={980}
-        height={100}
-      />
+      <div className="max-md:w-96">
+        <Image
+          unoptimized
+          src={headerItem.thumbnailUrl}
+          alt={headerItem.title}
+          width={0}
+          height={0}
+          objectFit={"contain"}
+          style={{ width: "100%" }}
+        />
+      </div>
     </div>
   );
 };
