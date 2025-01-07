@@ -1,4 +1,9 @@
-import { ARTICLE_CONTENT, ARTICLE_HEADER } from "@/constants/cache-key";
+import {
+  ARTICLE_CONTENT,
+  ARTICLE_FOOTER,
+  ARTICLE_HEADER,
+} from "@/constants/cache-key";
+import { isNil } from "@/utils/is-nil";
 import {
   GetBlockResponse,
   ImageBlockObjectResponse,
@@ -16,6 +21,7 @@ import { n2m, notionDatabase } from "./clients";
 import { cloudinaryApi } from "./cloudinary";
 import {
   AllArticle,
+  ArticlePageFooterData,
   ArticlePageHeaderDataWithBlur,
   DataBaseMetaDataResponse,
   FileImageBlock,
@@ -252,6 +258,66 @@ export const fetchArticlePageHeaderData = (pageId: string) => {
         ...rest,
         thumbnailUrl: convertedThumbnailUrl,
         blurDataUrl: await fetchBlurDataUrl(convertedThumbnailUrl),
+      };
+    },
+    [cacheKey],
+    {
+      tags: [cacheKey],
+      revalidate: 60,
+    }
+  )(pageId);
+};
+
+/**
+ * 해당 아티클 페이지의 footer 부분의 데이터를 불러오는 함수
+ */
+export const fetchArticlePageFooterData = (pageId: string) => {
+  const cacheKey = ARTICLE_FOOTER(pageId);
+
+  return unstable_cache(
+    async (pageId: string): Promise<ArticlePageFooterData> => {
+      const {
+        properties: {
+          prevArticleId: { number: prevArticleId },
+          nextArticleId: { number: nextArticleId },
+        },
+      } = (await notionDatabase.pages.retrieve({
+        page_id: pageId,
+      })) as QueryPageResponse;
+      console.log("prevArticleId", prevArticleId);
+      console.log("nextArticleId", nextArticleId);
+      const [prevArticlePageData, nextArticlePageData] = await Promise.all(
+        [prevArticleId, nextArticleId].map((articleId) => {
+          if (isNil(articleId)) {
+            return undefined;
+          }
+          return notionDatabase.databases.query({
+            database_id: process.env.NOTION_DATABASE_ID!,
+            filter: {
+              and: [
+                {
+                  property: "ID",
+                  number: {
+                    equals: articleId,
+                  },
+                },
+              ],
+            },
+          });
+        })
+      );
+
+      return {
+        prevArticle: prevArticlePageData
+          ? new NotionPageAdapter(
+              prevArticlePageData?.results[0] as QueryPageResponse
+            ).convertToArticleLinkerData()
+          : undefined,
+        nextArticle: nextArticlePageData
+          ? new NotionPageAdapter(
+              nextArticlePageData?.results[0] as QueryPageResponse
+            ).convertToArticleLinkerData()
+          : undefined,
       };
     },
     [cacheKey],

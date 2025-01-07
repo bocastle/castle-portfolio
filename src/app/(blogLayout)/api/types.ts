@@ -202,3 +202,7 @@ export type FileImageBlock = {
     url: string;
   };
 };
+export interface ArticlePageFooterData {
+  prevArticle?: ArticleLinkerData;
+  nextArticle?: ArticleLinkerData;
+}
