@@ -8,6 +8,7 @@ const Navbar = () => {
 
   const handleToggle = () => {
     console.log("handleToggle 준비");
+    alert("모바일 준비중입니다.");
   };
   return (
     <div className="h-2 sticky flex items-center justify-between top-110 md:static md:h-20 md:flex md:justify-between md:items-center md:gap-5 md:px-12 max-md:h-20 max-md:px-12 max-md:flex max-md:justify-between">
