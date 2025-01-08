@@ -30,7 +30,8 @@ const Navbar = () => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-7 h-7 transition duration-500 stroke-black dark:stroke-white"
+          className="w-7 h-7 transition duration-500 stroke-white dark:stroke-white"
+          // className="w-7 h-7 transition duration-500 stroke-black dark:stroke-white"
         >
           <path
             strokeLinecap="round"
