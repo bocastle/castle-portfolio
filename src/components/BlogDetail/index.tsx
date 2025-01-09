@@ -59,11 +59,11 @@ const BlogDetail = ({ content }: Props) => {
             />
           ),
           pre: (props) => (
-            <pre className="bg-gray-800 p-4 rounded" {...props} />
+            <pre className="bg-gray-800 my-3 rounded" {...props} />
           ),
           code: (props) => (
             <code
-              className="text-sm font-mono bg-gray-800 p-1 rounded"
+              className="text-sm font-mono bg-gray-800 rounded"
               {...props}
             />
           ),
