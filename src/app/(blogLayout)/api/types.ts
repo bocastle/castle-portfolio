@@ -23,6 +23,26 @@ export interface QueryPageResponse
       };
       id: string;
     };
+    category: {
+      type: "multi_select";
+      multi_select: Array<{
+        id: string;
+        name: string;
+        color:
+          | "default"
+          | "gray"
+          | "brown"
+          | "orange"
+          | "yellow"
+          | "green"
+          | "blue"
+          | "purple"
+          | "pink"
+          | "red";
+        description: string | null;
+      }>;
+      id: string;
+    };
     name: {
       type: "title";
       title: Array<TextRichTextItemResponse>;
@@ -94,12 +114,36 @@ export interface QueryPageResponse
   };
 }
 
+/** 게시글 카테고리 */
+export interface BlogCategory {
+  id: string;
+  name: string;
+  description: string | null;
+}
+
+export interface DataBaseCategoryResponse
+  extends Omit<DatabaseObjectResponse, "properties"> {
+  properties: {
+    category: {
+      type: "multi_select";
+      multi_select: {
+        options: Array<{
+          id: string;
+          name: string;
+          description: string | null;
+        }>;
+      };
+      id: string;
+      name: string;
+    };
+  };
+}
+
 /** 게시글 태그 */
 export interface BlogTag {
   id: string;
   name: string;
 }
-
 export interface DataBaseMetaDataResponse
   extends Omit<DatabaseObjectResponse, "properties"> {
   properties: {
@@ -123,6 +167,8 @@ export interface ArticlePageHeaderData {
   title: string;
   /** 게시글 요약 설명 */
   description: string;
+  /** 게시글 카테고리 목록 */
+  categoryList: BlogCategory[];
   /** 게시글 태그 목록 */
   tagList: BlogTag[];
   /** 게시글 생성 일자*/
@@ -139,6 +185,8 @@ export interface AllArticle {
   id: number;
   /** 게시글 제목 */
   title: string;
+  /** 게시글 카테고리 목록 */
+  categoryList: BlogCategory[];
   /** 게시글 태그 목록 */
   tagList: BlogTag[];
   /** 게시글 생성 일자*/
@@ -181,6 +229,8 @@ export interface AllArticle {
   id: number;
   /** 게시글 제목 */
   title: string;
+  /** 게시글 카테고리 목록 */
+  categoryList: BlogCategory[];
   /** 게시글 태그 목록 */
   tagList: BlogTag[];
   /** 게시글 생성 일자*/
@@ -205,28 +255,4 @@ export type FileImageBlock = {
 export interface ArticlePageFooterData {
   prevArticle?: ArticleLinkerData;
   nextArticle?: ArticleLinkerData;
-}
-
-/** 게시글 카테고리 */
-export interface BlogCategory {
-  id: string;
-  name: string;
-}
-
-export interface DataBaseCategoryResponse
-  extends Omit<DatabaseObjectResponse, "properties"> {
-  properties: {
-    category: {
-      type: "select";
-      select: {
-        options: Array<{
-          id: string;
-          name: string;
-          description: string | null;
-        }>;
-      };
-      id: string;
-      name: string;
-    };
-  };
 }

@@ -53,10 +53,11 @@ export const getPageList = cache(async (): Promise<AllArticle[]> => {
       },
     ],
   });
-  // console.log("queryResponse.results", queryResponse.results);
+  console.log("queryResponse.results", queryResponse.results);
   const convertedAllArticleList = new NotionPageListAdapter(
     queryResponse.results as Array<QueryPageResponse>
   ).convertToAllArticleList();
+  console.log("convertedAllArticleList", convertedAllArticleList);
   return Promise.all(
     convertedAllArticleList.map(async ({ thumbnailUrl, pageId, ...rest }) => {
       const convertedThumbnailUrl = await cloudinaryApi.convertToPermanentImage(
@@ -72,15 +73,6 @@ export const getPageList = cache(async (): Promise<AllArticle[]> => {
       };
     })
   );
-  // return Promise.all(
-  //   convertedAllArticleList.map(async ({ thumbnailUrl, pageId, ...rest }) => {
-  //     return {
-  //       ...rest,
-  //       pageId,
-  //       thumbnailUrl: thumbnailUrl,
-  //     };
-  //   })
-  // );
 });
 
 /**
@@ -126,7 +118,6 @@ export const getArticlePageHeaderData = (pageId: string) => {
       const { thumbnailUrl, ...rest } = new NotionPageAdapter(
         pageResponse as QueryPageResponse
       ).convertToArticlePageHeaderData();
-
       return {
         ...rest,
         thumbnailUrl: thumbnailUrl,
@@ -286,8 +277,7 @@ export const fetchArticlePageFooterData = (pageId: string) => {
       } = (await notionDatabase.pages.retrieve({
         page_id: pageId,
       })) as QueryPageResponse;
-      console.log("prevArticleId", prevArticleId);
-      console.log("nextArticleId", nextArticleId);
+
       const [prevArticlePageData, nextArticlePageData] = await Promise.all(
         [prevArticleId, nextArticleId].map((articleId) => {
           if (isNil(articleId)) {
@@ -342,5 +332,7 @@ export const getArticleCategoryList = cache(async () => {
     metaDataResponse as unknown as DataBaseCategoryResponse
   )
     .convertToCategoryList()
-    .sort((category1, category2) => (category1.name > category2.name ? 1 : -1));
+    .sort((category1, category2) =>
+      Number(category1.description) > Number(category2.description) ? 1 : -1
+    );
 });

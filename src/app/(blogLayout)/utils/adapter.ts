@@ -31,12 +31,17 @@ export class NotionPageAdapter {
 
   convertToArticlePageHeaderData(): ArticlePageHeaderData {
     const {
-      properties: { name, description, tags, createdAt, thumbnail },
+      properties: { name, description, category, tags, createdAt, thumbnail },
       created_time,
     } = this.page;
     return {
       title: name.title?.[0]?.plain_text ?? "",
       description: description.rich_text?.[0]?.plain_text ?? "",
+      categoryList: category.multi_select.map(({ id, name, description }) => ({
+        id,
+        name,
+        description,
+      })),
       tagList: tags.multi_select.map(({ id, name }) => ({ id, name })),
       createdAt: new Date(createdAt.date?.start ?? created_time),
       thumbnailUrl: thumbnail?.files?.[0]?.file.url ?? "기본 이미지 url",
@@ -84,11 +89,18 @@ export class NotionPageListAdapter {
     return this.pageList.map(
       ({
         id: pageId,
-        properties: { id, name, createdAt, tags, thumbnail },
+        properties: { id, name, category, createdAt, tags, thumbnail },
         created_time,
       }) => ({
         id: id?.unique_id.number,
         title: name.title?.[0]?.plain_text ?? "",
+        categoryList: category.multi_select.map(
+          ({ id, name, description }) => ({
+            id,
+            name,
+            description,
+          })
+        ),
         tagList: tags.multi_select.map(({ id, name }) => ({ id, name })),
         createdAt: new Date(createdAt.date?.start ?? created_time),
         thumbnailUrl: thumbnail?.files?.[0]?.file.url ?? "기본 이미지 url",
@@ -106,6 +118,6 @@ export class NotionDataBaseCategoryAdapter {
   }
 
   convertToCategoryList(): BlogCategory[] {
-    return this.metaData.properties.category.select.options;
+    return this.metaData.properties.category.multi_select.options;
   }
 }
