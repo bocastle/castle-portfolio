@@ -2,7 +2,9 @@ import {
   AllArticle,
   ArticleLinkerData,
   ArticlePageHeaderData,
+  BlogCategory,
   BlogTag,
+  DataBaseCategoryResponse,
   DataBaseMetaDataResponse,
   FeaturedArticle,
   QueryPageResponse,
@@ -19,6 +21,7 @@ export class NotionDataBaseMetaDataAdapter {
     return this.metaData.properties.tags.multi_select.options;
   }
 }
+
 export class NotionPageAdapter {
   private page: QueryPageResponse;
 
@@ -92,5 +95,17 @@ export class NotionPageListAdapter {
         pageId,
       })
     );
+  }
+}
+
+export class NotionDataBaseCategoryAdapter {
+  private metaData: DataBaseCategoryResponse;
+
+  constructor(metaData: DataBaseCategoryResponse) {
+    this.metaData = metaData;
+  }
+
+  convertToCategoryList(): BlogCategory[] {
+    return this.metaData.properties.category.select.options;
   }
 }

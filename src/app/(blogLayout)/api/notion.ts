@@ -13,6 +13,7 @@ import { unstable_cache } from "next/cache";
 import { getPlaiceholder } from "plaiceholder";
 import { cache } from "react";
 import {
+  NotionDataBaseCategoryAdapter,
   NotionDataBaseMetaDataAdapter,
   NotionPageAdapter,
   NotionPageListAdapter,
@@ -23,6 +24,7 @@ import {
   AllArticle,
   ArticlePageFooterData,
   ArticlePageHeaderDataWithBlur,
+  DataBaseCategoryResponse,
   DataBaseMetaDataResponse,
   FileImageBlock,
   QueryPageResponse,
@@ -327,3 +329,18 @@ export const fetchArticlePageFooterData = (pageId: string) => {
     }
   )(pageId);
 };
+
+/**
+ * article category 목록을 조회해오는 함수
+ */
+export const getArticleCategoryList = cache(async () => {
+  const metaDataResponse = await notionDatabase.databases.retrieve({
+    database_id: process.env.NOTION_DATABASE_ID!,
+  });
+  console.log("metaDataResponse:::", metaDataResponse);
+  return new NotionDataBaseCategoryAdapter(
+    metaDataResponse as unknown as DataBaseCategoryResponse
+  )
+    .convertToCategoryList()
+    .sort((category1, category2) => (category1.name > category2.name ? 1 : -1));
+});

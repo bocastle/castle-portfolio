@@ -206,3 +206,27 @@ export interface ArticlePageFooterData {
   prevArticle?: ArticleLinkerData;
   nextArticle?: ArticleLinkerData;
 }
+
+/** 게시글 카테고리 */
+export interface BlogCategory {
+  id: string;
+  name: string;
+}
+
+export interface DataBaseCategoryResponse
+  extends Omit<DatabaseObjectResponse, "properties"> {
+  properties: {
+    category: {
+      type: "select";
+      select: {
+        options: Array<{
+          id: string;
+          name: string;
+          description: string | null;
+        }>;
+      };
+      id: string;
+      name: string;
+    };
+  };
+}
