@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { getArticlePageHeaderData } from "../../api/notion";
+import {
+  getArticleCategoryList,
+  getArticlePageHeaderData,
+} from "../../api/notion";
+import { ArticleCategory } from "../components/ArticleCategory";
 import PageContent from "./components/PageContent";
 import PageFooter from "./components/PageFooter";
 import PageHeader from "./components/PageHeader";
@@ -35,12 +39,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ArticleDetailPage({ params }: Props) {
   const pageId = (await params).pageId;
-
+  const articleCategoryList = await getArticleCategoryList();
   return (
-    <div className="text-white items-start mx-auto md:px-80 flex flex-col gap-28 my-4 mb-20 md:gap-10 md:my-4 sm:gap-5 max-md:p-1">
-      <PageHeader pageId={pageId} />
-      <PageContent pageId={pageId} />
-      <PageFooter pageId={pageId} />
+    <div className="text-white items-start mx-auto p-8 flex gap-28 my-4 mb-20 md:gap-10 md:my-4 sm:gap-5">
+      <div className="w-1/5 items-center">
+        <ArticleCategory list={articleCategoryList} />
+      </div>
+      <div className="w-3/5 items-start max-md:w-4/5 max-sm:w-4/5 flex flex-col md:gap-5 md:my-4 sm:gap-5">
+        <PageHeader pageId={pageId} />
+        <PageContent pageId={pageId} />
+        <PageFooter pageId={pageId} />
+      </div>
     </div>
   );
 }
