@@ -38,7 +38,7 @@ const BlogList = ({ list }: Props) => {
   console.log("filteredArticleList", filteredArticleList.isMoreArticleLoadable);
 
   return (
-    <div className="grid grid-cols-2 max-xl:grid-cols-1 max-lg:grid-cols-1 max-md:grid-cols-1 max-sm:grid-cols-1 gap-6">
+    <div className="grid grid-cols-2 max-xl:grid-cols-2 max-lg:grid-cols-2 max-md:grid-cols-1 max-sm:grid-cols-1 gap-6">
       {filteredArticleList.filteredArticleList.map((item) => {
         return (
           <Link
@@ -47,7 +47,7 @@ const BlogList = ({ list }: Props) => {
             className="flex flex-col items-start gap-5"
           >
             {/* <div className="w-[476px] h-[270px] relative  max-md:w-[300px] max-md:h-[200px]"> */}
-            <div className="w-[476px] h-[270px] relative max-2xl:w-[370px] max-xl:w-[476px] max-lg:w-[476px] max-md:w-[476px]  max-md:h-[270px]">
+            <div className="w-[476px] h-[270px] relative max-2xl:w-[370px] max-xl:w-80 max-lg:w-96 max-md:w-96 max-md:h-[270px]">
               <Image
                 unoptimized
                 loading="lazy"

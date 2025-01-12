@@ -41,7 +41,7 @@ export default async function ArticleDetailPage({ params }: Props) {
   const pageId = (await params).pageId;
   const articleCategoryList = await getArticleCategoryList();
   return (
-    <div className="text-white items-start mx-auto p-8 flex gap-28 my-4 mb-20 md:gap-10 md:my-4 sm:gap-5 max-lg:items-center max-md:items-center max-sm:items-center">
+    <div className="text-white items-start mx-auto p-8 flex gap-28 my-4 mb-20 md:gap-10 md:my-4 sm:gap-5 max-lg:items-start max-md:items-center max-sm:items-center">
       <div className="w-1/5 items-center max-md:hidden max-sm:hidden">
         <ArticleCategory list={articleCategoryList} />
       </div>
