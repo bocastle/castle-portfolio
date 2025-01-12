@@ -46,14 +46,14 @@ const ArticleLinkCard = ({
           <span
             className={`${
               articleLinkerDataType === "prev" ? "text-left" : "text-right"
-            } text-[14px] font-bold text-slate-400`}
+            } text-sm font-bold text-slate-400`}
           >
             {articleLinkerDataType === "prev" ? "이전" : "다음"}&nbsp;게시글
           </span>
           <span
             className={`${
               articleLinkerDataType === "prev" ? "text-left" : "text-right"
-            } text-[18px] font-semibold text-white`}
+            } text-lg font-semibold text-white`}
           >
             {articleLinkerData.title}
           </span>
