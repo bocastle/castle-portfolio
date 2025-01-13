@@ -26,6 +26,11 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     type: "website",
   },
+  verification: {
+    other: {
+      google: `${process.env.GOOGLE_SITE_VERIFICATION_KEY}`,
+    },
+  },
 };
 
 export default function RootLayout({
