@@ -10,6 +10,14 @@ import {
   QueryPageResponse,
 } from "../api/types";
 
+export class NotionQueryPageResponse {
+  protected page: QueryPageResponse | Array<QueryPageResponse>;
+
+  constructor(page: QueryPageResponse | Array<QueryPageResponse>) {
+    this.page = page;
+  }
+}
+
 export class NotionDataBaseMetaDataAdapter {
   private metaData: DataBaseMetaDataResponse;
 
@@ -22,18 +30,13 @@ export class NotionDataBaseMetaDataAdapter {
   }
 }
 
-export class NotionPageAdapter {
-  private page: QueryPageResponse;
-
-  constructor(page: QueryPageResponse) {
-    this.page = page;
-  }
-
+export class NotionPageAdapter extends NotionQueryPageResponse {
+  private list = this.page as QueryPageResponse;
   convertToArticlePageHeaderData(): ArticlePageHeaderData {
     const {
       properties: { name, description, category, tags, createdAt, thumbnail },
       created_time,
-    } = this.page;
+    } = this.list;
     return {
       title: name.title?.[0]?.plain_text ?? "",
       description: description.rich_text?.[0]?.plain_text ?? "",
@@ -52,7 +55,7 @@ export class NotionPageAdapter {
     const {
       id: pageId,
       properties: { name },
-    } = this.page;
+    } = this.list;
 
     return {
       pageId,
@@ -61,15 +64,11 @@ export class NotionPageAdapter {
   }
 }
 
-export class NotionPageListAdapter {
-  private pageList: Array<QueryPageResponse>;
-
-  constructor(pageList: Array<QueryPageResponse>) {
-    this.pageList = pageList;
-  }
+export class NotionPageListAdapter extends NotionQueryPageResponse {
+  private list = this.page as Array<QueryPageResponse>;
 
   convertToFeaturedArticleList(): FeaturedArticle[] {
-    return this.pageList.map(
+    return this.list.map(
       ({
         id: pageId,
         properties: { id, name, description, createdAt, thumbnail },
@@ -86,7 +85,7 @@ export class NotionPageListAdapter {
   }
 
   convertToAllArticleList(): AllArticle[] {
-    return this.pageList.map(
+    return this.list.map(
       ({
         id: pageId,
         properties: { id, name, category, createdAt, tags, thumbnail },
