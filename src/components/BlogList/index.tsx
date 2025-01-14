@@ -46,7 +46,6 @@ const BlogList = ({ list }: Props) => {
             key={item.pageId}
             className="flex flex-col items-start gap-5"
           >
-            {/* <div className="w-[476px] h-[270px] relative  max-md:w-[300px] max-md:h-[200px]"> */}
             <div className="w-[476px] h-[270px] relative max-2xl:w-[370px] max-xl:w-80 max-lg:w-96 max-md:w-96 max-md:h-[270px]">
               <Image
                 unoptimized
@@ -59,8 +58,8 @@ const BlogList = ({ list }: Props) => {
                 fill
               />
             </div>
-            <div className="gap-4">
-              <div className="flex flex-col gap-24 items-start text-[24px] text-white dark:text-white">
+            <div className="gap-4 w-[476px] max-2xl:w-[370px] max-xl:w-80 max-lg:w-96 max-md:w-96">
+              <div className="items-start overflow-hidden whitespace-nowrap text-ellipsis text-[24px] text-white dark:text-white">
                 {item.title}
               </div>
               <div className="flex flex-col gap-24 items-start text-[14px] text-indigo-300 dark:text-indigo-300">
