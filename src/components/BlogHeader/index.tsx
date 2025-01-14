@@ -36,8 +36,9 @@ const BlogHeader = ({ headerItem }: Props) => {
           alt={headerItem.title}
           width={0}
           height={0}
-          objectFit={"contain"}
+          // objectFit={"contain"}
           style={{ width: "100%" }}
+          priority
         />
       </div>
     </div>

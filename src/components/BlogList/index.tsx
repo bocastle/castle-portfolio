@@ -53,7 +53,6 @@ const BlogList = ({ list }: Props) => {
                 loading="lazy"
                 src={item.thumbnailUrl}
                 alt="thumbnail"
-                objectFit="cover"
                 placeholder="blur"
                 className="rounded-lg hover:rounded-lg hover:border-[1.5px] hover:border-gray-400 after:hover:border-solid after:hover:transition-opacity after:hover:opacity-100 after:hover:duration-700 after:hover:ease-in-out"
                 blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg==" // 추가
