@@ -38,11 +38,7 @@ const BlogDetail = ({ content }: Props) => {
           h3: (props) => <h3 className="text-3xl font-bold" {...props} />,
           h4: (props) => <h4 className="text-3xl font-bold" {...props} />,
           // hr: (props) => <hr className="my-4" {...props} />,
-          img: (props) => (
-            <div>
-              <img {...props} />
-            </div>
-          ),
+          img: (props) => <img {...props} />,
           ul: ({ children }) => <ul className="list-disc">{children}</ul>,
           ol: ({ children }) => <ol className="list-decimal">{children}</ol>,
           li: ({ children }) => (
