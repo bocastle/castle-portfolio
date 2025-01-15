@@ -7,6 +7,6 @@ export default async function sitemap() {
     changeFrequency: "daily",
     priority: 0.5,
   }));
-
+  console.log("[...routes]", [...routes]);
   return [...routes];
 }

@@ -53,11 +53,11 @@ export const getPageList = cache(async (): Promise<AllArticle[]> => {
       },
     ],
   });
-  console.log("queryResponse.results", queryResponse.results);
+  // console.log("queryResponse.results", queryResponse.results);
   const convertedAllArticleList = new NotionPageListAdapter(
     queryResponse.results as Array<QueryPageResponse>
   ).convertToAllArticleList();
-  console.log("convertedAllArticleList", convertedAllArticleList);
+  // console.log("convertedAllArticleList", convertedAllArticleList);
   return Promise.all(
     convertedAllArticleList.map(async ({ thumbnailUrl, pageId, ...rest }) => {
       const convertedThumbnailUrl = await cloudinaryApi.convertToPermanentImage(
