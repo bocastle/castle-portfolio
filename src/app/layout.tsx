@@ -27,12 +27,13 @@ export const metadata: Metadata = {
     type: "website",
   },
   verification: {
+    google: `${process.env.GOOGLE_SITE_VERIFICATION_KEY}`,
     other: {
-      "google-site-verification": `${process.env.GOOGLE_SITE_VERIFICATION_KEY}`,
       "naver-site-verification": `${process.env.NAVER_SITE_VERIFICATION_KEY}`,
     },
   },
 };
+// "google-site-verification": `${process.env.GOOGLE_SITE_VERIFICATION_KEY}`,
 
 export default function RootLayout({
   children,

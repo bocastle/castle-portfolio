@@ -16,6 +16,12 @@ export const metadata: Metadata = {
       url: `${process.env.NEXT_PUBLIC_IMG}/7nxjpqB/image.png`,
     },
   },
+  verification: {
+    google: `${process.env.GOOGLE_SITE_VERIFICATION_KEY}`,
+    other: {
+      "naver-site-verification": `${process.env.NAVER_SITE_VERIFICATION_KEY}`,
+    },
+  },
 };
 
 export default function WorkHistoryPage() {

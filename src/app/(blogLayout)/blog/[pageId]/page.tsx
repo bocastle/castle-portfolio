@@ -34,6 +34,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         url: thumbnailUrl,
       },
     },
+    verification: {
+      google: `${process.env.GOOGLE_SITE_VERIFICATION_KEY}`,
+      other: {
+        "naver-site-verification": `${process.env.NAVER_SITE_VERIFICATION_KEY}`,
+      },
+    },
   };
 }
 
