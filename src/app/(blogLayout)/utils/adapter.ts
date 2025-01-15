@@ -71,13 +71,14 @@ export class NotionPageListAdapter extends NotionQueryPageResponse {
     return this.list.map(
       ({
         id: pageId,
-        properties: { id, name, description, createdAt, thumbnail },
+        properties: { ID, name, description, createdAt, updatedAt, thumbnail },
         created_time,
       }) => ({
-        id: id?.unique_id.number,
+        id: ID?.unique_id.number,
         title: name.title?.[0]?.plain_text ?? "",
         description: description.rich_text?.[0]?.plain_text ?? "",
         createdAt: new Date(createdAt.date?.start ?? created_time),
+        updatedAt: new Date(updatedAt.created_time ?? created_time),
         thumbnailUrl: thumbnail?.files?.[0]?.file.url ?? "기본 이미지 url",
         pageId,
       })
@@ -88,10 +89,18 @@ export class NotionPageListAdapter extends NotionQueryPageResponse {
     return this.list.map(
       ({
         id: pageId,
-        properties: { id, name, category, createdAt, tags, thumbnail },
+        properties: {
+          ID,
+          name,
+          category,
+          createdAt,
+          updatedAt,
+          tags,
+          thumbnail,
+        },
         created_time,
       }) => ({
-        id: id?.unique_id.number,
+        id: ID?.unique_id.number,
         title: name.title?.[0]?.plain_text ?? "",
         categoryList: category.multi_select.map(
           ({ id, name, description }) => ({
@@ -102,6 +111,7 @@ export class NotionPageListAdapter extends NotionQueryPageResponse {
         ),
         tagList: tags.multi_select.map(({ id, name }) => ({ id, name })),
         createdAt: new Date(createdAt.date?.start ?? created_time),
+        updatedAt: new Date(updatedAt.created_time ?? created_time),
         thumbnailUrl: thumbnail?.files?.[0]?.file.url ?? "기본 이미지 url",
         pageId,
       })

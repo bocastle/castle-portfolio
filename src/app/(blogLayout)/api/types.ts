@@ -14,7 +14,7 @@ export interface blogList {
 export interface QueryPageResponse
   extends Omit<PageObjectResponse, "properties"> {
   properties: {
-    id: {
+    ID: {
       type: "unique_id";
       unique_id: {
         prefix: string | null;
@@ -86,8 +86,8 @@ export interface QueryPageResponse
       id: string;
     };
     updatedAt: {
-      type: "last_edited_time";
-      last_edited_time: string;
+      type: "created_time";
+      created_time: string;
       id: string;
     };
     thumbnail: {
@@ -191,6 +191,8 @@ export interface AllArticle {
   tagList: BlogTag[];
   /** 게시글 생성 일자*/
   createdAt: Date;
+  /** 게시글 수정 일자*/
+  updatedAt: Date;
   /** 게시글 썸네일 url */
   thumbnailUrl: string;
   /** queried notion page id */
@@ -212,6 +214,8 @@ export interface FeaturedArticle {
   description: string;
   /** 게시글 생성 일자*/
   createdAt: Date;
+  /** 게시글 수정 일자*/
+  updatedAt: Date;
   /** 게시글 썸네일 url */
   thumbnailUrl: string;
   /** queried notion page id */

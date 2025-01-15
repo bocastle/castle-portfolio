@@ -15,12 +15,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const List = await getPageList();
   const posts: MetadataRoute.Sitemap = List.map((info) => ({
     url: `${URL}/blog/${info.pageId}`,
-    lastModified: new Date(info.createdAt).toISOString().split("T")[0],
+    lastModified: new Date(info.updatedAt).toISOString().split("T")[0],
     changeFrequency: "always",
     priority: 0.5,
   }));
-
-  console.log("[...posts]", [...posts]);
+  // console.log("List", List);
+  // console.log("[...posts]", [...posts]);
   // console.log("[...routes]", [...routes]);
   return [...routes, ...posts];
 }
