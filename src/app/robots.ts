@@ -5,6 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      disallow: "/private/",
     },
     sitemap: "https://bocelog.vercel.app/sitemap.xml",
   };
