@@ -19,7 +19,7 @@ export default async function BlogPage() {
   // console.log("blog", List);
   // console.log("TagList", TagList);
   const articleCategoryList = await getArticleCategoryList();
-  console.log("articleCategoryList", articleCategoryList);
+  // console.log("articleCategoryList", articleCategoryList);
   return (
     <div className="items-start mx-auto p-8 flex gap-28 my-4 mb-20 md:gap-10 md:my-4 sm:gap-5 max-lg:items-center max-md:items-center max-sm:items-center">
       <div className="w-1/5 items-center max-lg:hidden max-md:hidden max-sm:hidden">

@@ -34,8 +34,8 @@ const BlogList = ({ list }: Props) => {
     };
   }, [list, filterBlogTagList, articleSliceLength]);
 
-  console.log("filteredArticleList", filteredArticleList.filteredArticleList);
-  console.log("filteredArticleList", filteredArticleList.isMoreArticleLoadable);
+  // console.log("filteredArticleList", filteredArticleList.filteredArticleList);
+  // console.log("filteredArticleList", filteredArticleList.isMoreArticleLoadable);
 
   return (
     <div className="grid grid-cols-2 max-xl:grid-cols-2 max-lg:grid-cols-2 max-md:grid-cols-1 max-sm:grid-cols-1 gap-6">

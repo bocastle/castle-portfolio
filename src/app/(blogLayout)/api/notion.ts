@@ -327,7 +327,7 @@ export const getArticleCategoryList = cache(async () => {
   const metaDataResponse = await notionDatabase.databases.retrieve({
     database_id: process.env.NOTION_DATABASE_ID!,
   });
-  console.log("metaDataResponse:::", metaDataResponse);
+  // console.log("metaDataResponse:::", metaDataResponse);
   return new NotionDataBaseCategoryAdapter(
     metaDataResponse as unknown as DataBaseCategoryResponse
   )

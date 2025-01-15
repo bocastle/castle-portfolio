@@ -7,7 +7,7 @@ const Navbar = () => {
   // console.log("currentPathName", currentPathName);
 
   const handleToggle = () => {
-    console.log("handleToggle 준비");
+    // console.log("handleToggle 준비");
     alert("모바일 준비중입니다.");
   };
   return (

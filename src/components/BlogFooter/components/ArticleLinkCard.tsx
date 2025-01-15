@@ -9,7 +9,7 @@ const ArticleLinkCard = ({
   articleLinkerDataType,
   articleLinkerData,
 }: Props) => {
-  console.log("articleLinkerData", articleLinkerData);
+  //   console.log("articleLinkerData", articleLinkerData);
 
   return (
     <Link href={`/blog/${articleLinkerData.pageId}`}>
