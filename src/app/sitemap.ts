@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     (route) => ({
       url: `${URL}${route}`,
       lastModified: new Date().toISOString().split("T")[0],
-      changeFrequency: "daily",
+      changeFrequency: "always",
       priority: 0.5,
     })
   );
@@ -19,6 +19,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   //     priority: 0.5,
   //   })
   // );
-
+  console.log("[...routes]", [...routes]);
   return [...routes];
 }
