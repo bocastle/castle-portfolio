@@ -30,10 +30,10 @@ export const metadata: Metadata = {
     google: `${process.env.GOOGLE_SITE_VERIFICATION_KEY}`,
     other: {
       "naver-site-verification": `${process.env.NAVER_SITE_VERIFICATION_KEY}`,
+      "google-adsense-account": `${process.env.GOOGLE_ADSENSE_ACCOUNT}`,
     },
   },
 };
-// "google-site-verification": `${process.env.GOOGLE_SITE_VERIFICATION_KEY}`,
 
 export default function RootLayout({
   children,
