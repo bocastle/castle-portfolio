@@ -53,6 +53,15 @@ export default function RootLayout({
           })(window,document,'script','dataLayer','${GTM_ID}');`}
         {/* End Google Tag Manager  */}
       </Script>
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', '${process.env.GTAG_ID}');
+        `}
+      </Script>
       <body
         className={`bg-slate-900 ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
