@@ -18,9 +18,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  redirects: async () => {
-    return [{ source: "/", destination: "/workHistory", permanent: true }];
-  },
+  // redirects: async () => {
+  //   return [{ source: "/", destination: "/workHistory", permanent: true }];
+  // },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.md/,
