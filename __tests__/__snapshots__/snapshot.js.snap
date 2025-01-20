@@ -1,3 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`not-found 페이지 확인:: 1`] = `
+<div>
+  <div
+    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col justify-items-center items-center gap-8px"
+    role="html"
+  >
+    <span>
+      요청하신 페이지는 진행중입니다.
+    </span>
+    <span>
+      coming soon...
+    </span>
+  </div>
+</div>
+`;
+
 exports[`renders homepage unchanged 1`] = `<div />`;

@@ -1,13 +1,15 @@
 import "@testing-library/jest-dom";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import Page from "../src/app/not-found";
 
 describe("Page", () => {
-  it("renders a heading", () => {
-    render(<></>);
+  it("not-found 페이지 확인", () => {
+    render(<Page />);
 
-    // const heading = screen.getByRole("heading", { level: 1 });
-    const heading = 1;
+    const div = screen.getByRole("html");
+    expect(div).toBeInTheDocument();
+    const div1 = screen.getByText("coming soon...");
 
-    // expect(heading).toBeInTheDocument();
+    expect(div1).toBeInTheDocument();
   });
 });
