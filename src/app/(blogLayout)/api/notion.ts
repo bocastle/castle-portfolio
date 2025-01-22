@@ -22,6 +22,7 @@ import { n2m, notionDatabase } from "./clients";
 import { cloudinaryApi } from "./cloudinary";
 import {
   AllArticle,
+  ArticleCategoryProps,
   ArticlePageFooterData,
   ArticlePageHeaderDataWithBlur,
   DataBaseCategoryResponse,
@@ -336,3 +337,57 @@ export const getArticleCategoryList = cache(async () => {
       Number(category1.description) > Number(category2.description) ? 1 : -1
     );
 });
+
+/**
+ * 카테고리 목록을 조회해오는 함수
+ */
+export const getCategoryList = cache(
+  async ({ categoryName }: ArticleCategoryProps): Promise<AllArticle[]> => {
+    const queryResponse = await notionDatabase.databases.query({
+      database_id: process.env.NOTION_DATABASE_ID!,
+      filter: {
+        and: [
+          {
+            property: "releasable",
+            checkbox: {
+              equals: true,
+            },
+          },
+          {
+            property: "category",
+            multi_select: {
+              contains: categoryName,
+            },
+          },
+        ],
+      },
+      sorts: [
+        {
+          property: "createdAt",
+          direction: "descending",
+        },
+      ],
+    });
+    // console.log("queryResponse.results::", queryResponse.results);
+    const convertedAllArticleList = new NotionPageListAdapter(
+      queryResponse.results as Array<QueryPageResponse>
+    ).convertToAllArticleList();
+    // console.log("convertedAllArticleList", convertedAllArticleList);
+    return Promise.all(
+      convertedAllArticleList.map(async ({ thumbnailUrl, pageId, ...rest }) => {
+        const convertedThumbnailUrl =
+          await cloudinaryApi.convertToPermanentImage(
+            thumbnailUrl,
+            `${pageId}_thumbnail`
+          );
+
+        return {
+          ...rest,
+          pageId,
+          thumbnailUrl: convertedThumbnailUrl,
+          blurDataUrl: await fetchBlurDataUrl(convertedThumbnailUrl),
+        };
+      })
+    );
+  }
+);

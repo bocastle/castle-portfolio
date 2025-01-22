@@ -12,22 +12,20 @@ export const ArticleCategory = ({ list }: Props) => {
     <div className="flex flex-col gap-5 md:flex sm:hidden max-md:hidden">
       <Link
         className="leading-[1.15] md:text-sm sm:text-sm max-sm:text-sm cursor-pointer"
-        href={"/blog"}
+        href={"/categories"}
       >
         <span className="text-white font-bold">전체메뉴</span>
       </Link>
 
       <div className="flex flex-col gap-2">
         {list.map((item) => (
-          <div
+          <Link
             key={item.id}
             className="leading-[1.15] md:text-sm sm:text-sm max-sm:text-sm cursor-pointer"
-            onClick={() => {
-              alert("준비중");
-            }}
+            href={encodeURI(`/categories/${item.name}`)}
           >
             {item.name}
-          </div>
+          </Link>
         ))}
       </div>
     </div>

@@ -26,6 +26,9 @@ export const metadata: Metadata = {
     siteName: "castle log",
     locale: "ko_KR",
     type: "website",
+    images: {
+      url: `${process.env.NEXT_PUBLIC_IMG}/7nxjpqB/image.png`,
+    },
   },
   verification: {
     google: `${process.env.GOOGLE_SITE_VERIFICATION_KEY}`,

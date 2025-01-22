@@ -1,22 +1,16 @@
 import BlogList from "@/components/BlogList";
-import { getPageList } from "../api/notion";
-import { ArticleFilterTagList } from "./components/ArticleTagList";
-import { ArticleTagTitle } from "./components/ArticleTagTitle";
+import { getCategoryList } from "../api/notion";
 
 export interface IBlogPagelist {
   cover: string;
   id: string;
   created_time: string;
 }
-export default async function BlogPage() {
-  const List = await getPageList();
+export default async function CategoriesPage() {
+  const List = await getCategoryList({ categoryName: "" });
 
   return (
     <div className="w-3/5 items-start max-lg:w-full max-md:w-full max-sm:w-full flex flex-col md:gap-5 md:my-4 sm:gap-5 max-lg:items-center max-md:items-center max-sm:items-center">
-      <div>
-        <ArticleTagTitle />
-        <ArticleFilterTagList />
-      </div>
       <BlogList list={List} />
     </div>
   );
@@ -34,6 +28,6 @@ export const revalidate = 60;
 export const dynamicParams = true; // or false, to 404 on unknown paths
 
 export async function generateStaticParams() {
-  const List = await getPageList();
+  const List = await getCategoryList({ categoryName: "" });
   return List;
 }

@@ -260,3 +260,9 @@ export interface ArticlePageFooterData {
   prevArticle?: ArticleLinkerData;
   nextArticle?: ArticleLinkerData;
 }
+
+// 카테고리 선택
+export interface ArticleCategoryProps {
+  /* 게시글 카테고리 */
+  categoryName: string;
+}
