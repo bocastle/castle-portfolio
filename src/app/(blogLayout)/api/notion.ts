@@ -83,7 +83,7 @@ export const getArticleTagList = cache(async () => {
   const metaDataResponse = await notionDatabase.databases.retrieve({
     database_id: process.env.NOTION_DATABASE_ID!,
   });
-
+  // console.log("getArticleTagList::", metaDataResponse);
   return new NotionDataBaseMetaDataAdapter(
     metaDataResponse as unknown as DataBaseMetaDataResponse
   )

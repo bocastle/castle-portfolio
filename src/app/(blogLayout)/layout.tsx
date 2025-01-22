@@ -1,5 +1,5 @@
 import { getArticleCategoryList } from "./api/notion";
-import { ArticleCategory } from "./blog/components/ArticleCategory";
+import { ArticleCategory } from "./components/ArticleCategory";
 
 export default async function BlogLayout({
   children,
