@@ -18,14 +18,16 @@ const GoogleAdSenseComponent = ({ PID, SLOT }: Props) => {
   }, []);
 
   return (
-    <ins
-      className="adsbygoogle"
-      style={{ display: "block" }}
-      data-ad-client={`ca-pub-${PID}`}
-      data-ad-slot={SLOT}
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    />
+    <div className="googleAd-container">
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client={`ca-pub-${PID}`}
+        data-ad-slot={SLOT}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
+    </div>
   );
 };
 export default GoogleAdSenseComponent;
