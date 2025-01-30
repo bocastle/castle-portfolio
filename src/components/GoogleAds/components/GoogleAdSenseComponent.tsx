@@ -6,13 +6,16 @@ declare global {
     adsbygoogle: any;
   }
 }
+interface Props {
+  PID: string;
+  SLOT: string;
+}
 
-export const GoogleAdSenseComponent = () => {
+const GoogleAdSenseComponent = ({ PID, SLOT }: Props) => {
   useEffect(() => {
     (window.adsbygoogle = window.adsbygoogle || []).push({});
   }, []);
-  const PID = process.env.PID;
-  const SLOT = process.env.SLOT;
+
   return (
     <ins
       className="adsbygoogle"
@@ -24,3 +27,4 @@ export const GoogleAdSenseComponent = () => {
     />
   );
 };
+export default GoogleAdSenseComponent;

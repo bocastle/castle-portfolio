@@ -1,4 +1,4 @@
-import { GoogleAdSenseComponent } from "@/components/GoogleAds/components/GoogleAdSenseComponent";
+import GoogleAdSenseComponent from "@/components/GoogleAds/components/GoogleAdSenseComponent";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -48,7 +48,8 @@ export default function RootLayout({
 }>) {
   const GTM_ID = process.env.GTM_ID;
   const GTAG_ID = process.env.GTAG_ID;
-
+  const PID = process.env.PID ?? "";
+  const SLOT = process.env.SLOT ?? "";
   return (
     <html lang="ko">
       {/*  Google Tag Manager  */}
@@ -69,9 +70,9 @@ export default function RootLayout({
           }}
         />
         {/* End Google Tag Manager (noscript)  */}
+        <GoogleAdSenseComponent PID={PID} SLOT={SLOT} />
       </body>
       <GoogleAdSense />
-      <GoogleAdSenseComponent />
     </html>
   );
 }
