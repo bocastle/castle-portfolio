@@ -10,12 +10,11 @@ interface Props {
   SLOT: string;
 }
 
-const GoogleAdSenseComponent = () => {
+const GoogleAdSenseComponent = ({ PID, SLOT }: Props) => {
   //   useEffect(() => {
   //     (window.adsbygoogle = window.adsbygoogle || []).push({});
   //   }, []);
-  const PID = process.env.PID;
-  const SLOT = process.env.SLOT;
+
   return (
     <>
       <ins
