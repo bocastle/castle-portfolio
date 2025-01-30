@@ -71,7 +71,8 @@ export default function RootLayout({
           }}
         />
         {/* End Google Tag Manager (noscript)  */}
-        <GoogleAdSenseComponent PID={PID} SLOT={SLOT} />
+        <GoogleAdSenseComponent />
+        {/* <GoogleAdSenseComponent PID={PID} SLOT={SLOT} /> */}
       </body>
     </html>
   );
