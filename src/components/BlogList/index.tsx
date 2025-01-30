@@ -1,11 +1,14 @@
 "use client";
 
 import { AllArticle } from "@/app/(blogLayout)/api/types";
-import { useArticleFilterStore } from "@/store/article-filter.store";
+import {
+  loadMoreArticle,
+  useArticleFilterStore,
+} from "@/store/article-filter.store";
 import { getDistanceFromToday, getYearMonthDay } from "@/utils/date";
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo } from "react";
+import { useCallback, useMemo, useRef } from "react";
 
 interface Props {
   list: AllArticle[];
@@ -13,7 +16,7 @@ interface Props {
 
 const BlogList = ({ list }: Props) => {
   // console.log("BlogList::", list);
-  // const observer = useRef<IntersectionObserver | null>(null);
+  const observer = useRef<IntersectionObserver | null>(null);
   const { filterBlogTagList, articleSliceLength } = useArticleFilterStore();
   const filteredArticleList = useMemo(() => {
     const filterTagIdSet = new Set(filterBlogTagList.map(({ id }) => id));
@@ -39,30 +42,30 @@ const BlogList = ({ list }: Props) => {
   // console.log("filteredArticleList", filteredArticleList.isMoreArticleLoadable);
 
   // infinite scroll
-  // const lastItemRef = useCallback(
-  //   (node: HTMLDivElement | null) => {
-  //     // console.log("lastItemRef", filteredArticleList.isMoreArticleLoadable);
-  //     if (!filteredArticleList.isMoreArticleLoadable) return;
+  const lastItemRef = useCallback(
+    (node: HTMLDivElement | null) => {
+      // console.log("lastItemRef", filteredArticleList.isMoreArticleLoadable);
+      if (!filteredArticleList.isMoreArticleLoadable) return;
 
-  //     const options: IntersectionObserverInit = {
-  //       root: document.querySelector("#blog_layout_container"),
-  //       rootMargin: "10px", // 컨테이너 마직 추가해서 아이템 올라올때 일찍 오버랩되게
-  //       threshold: 0.5,
-  //     };
-  //     // console.log("options", options);
+      const options: IntersectionObserverInit = {
+        root: document.querySelector("#blog_layout_container"),
+        rootMargin: "10px", // 컨테이너 마직 추가해서 아이템 올라올때 일찍 오버랩되게
+        threshold: 0.5,
+      };
+      // console.log("options", options);
 
-  //     // 무한스크롤 어느 지점에 도달시 페이지넘버 올라가면서 데이터 불러옴.
-  //     if (observer.current) observer.current.disconnect();
-  //     observer.current = new IntersectionObserver((entries, observer) => {
-  //       if (entries[0].isIntersecting) {
-  //         loadMoreArticle();
-  //       }
-  //     }, options);
+      // 무한스크롤 어느 지점에 도달시 페이지넘버 올라가면서 데이터 불러옴.
+      if (observer.current) observer.current.disconnect();
+      observer.current = new IntersectionObserver((entries, observer) => {
+        if (entries[0].isIntersecting) {
+          loadMoreArticle();
+        }
+      }, options);
 
-  //     if (node) observer.current.observe(node);
-  //   },
-  //   [filteredArticleList.isMoreArticleLoadable]
-  // );
+      if (node) observer.current.observe(node);
+    },
+    [filteredArticleList.isMoreArticleLoadable]
+  );
 
   return (
     <div className="grid grid-cols-2 max-xl:grid-cols-2 max-lg:grid-cols-2 max-md:grid-cols-1 max-sm:grid-cols-1 gap-6">
@@ -75,13 +78,13 @@ const BlogList = ({ list }: Props) => {
           >
             <div
               className="w-[476px] h-[270px] relative max-2xl:w-[370px] max-xl:w-80 max-lg:w-96 max-md:w-96 max-md:h-[270px]"
-              // ref={(el) => {
-              //   if (
-              //     index ===
-              //     filteredArticleList.filteredArticleList.length - 1
-              //   )
-              //     lastItemRef(el);
-              // }}
+              ref={(el) => {
+                if (
+                  index ===
+                  filteredArticleList.filteredArticleList.length - 1
+                )
+                  lastItemRef(el);
+              }}
             >
               <Image
                 unoptimized
