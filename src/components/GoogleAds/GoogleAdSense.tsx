@@ -10,10 +10,11 @@ export const GoogleAdSense: FunctionComponent = () => {
 
   return (
     <Script
-      async
-      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-${PID}`}
-      crossOrigin="anonymous"
-      strategy="lazyOnload"
+      async={true}
+      id="Adsense-id"
+      data-ad-client={`ca-pub-${PID}`}
+      strategy="beforeInteractive"
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
     />
   );
 };
