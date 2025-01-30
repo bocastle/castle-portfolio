@@ -52,6 +52,7 @@ export default function RootLayout({
   const SLOT = process.env.SLOT ?? "";
   return (
     <html lang="ko">
+      <GoogleAdSense />
       {/*  Google Tag Manager  */}
       <GoogleTagManager gtmId={`${GTM_ID}`} />
       {/* End Google Tag Manager  */}
@@ -72,7 +73,6 @@ export default function RootLayout({
         {/* End Google Tag Manager (noscript)  */}
         <GoogleAdSenseComponent PID={PID} SLOT={SLOT} />
       </body>
-      <GoogleAdSense />
     </html>
   );
 }
