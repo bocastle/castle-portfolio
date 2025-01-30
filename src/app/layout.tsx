@@ -52,11 +52,13 @@ export default function RootLayout({
   const SLOT = process.env.SLOT ?? "";
   return (
     <html lang="ko">
-      <GoogleAdSense />
-      {/*  Google Tag Manager  */}
-      <GoogleTagManager gtmId={`${GTM_ID}`} />
-      {/* End Google Tag Manager  */}
-      <GoogleAnalytics gaId={`${GTAG_ID}`} />
+      <head>
+        <GoogleAdSense />
+        {/*  Google Tag Manager  */}
+        <GoogleTagManager gtmId={`${GTM_ID}`} />
+        {/* End Google Tag Manager  */}
+        <GoogleAnalytics gaId={`${GTAG_ID}`} />
+      </head>
       <body
         className={`bg-slate-900 ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
