@@ -9,8 +9,8 @@ const WorkHistory = () => {
       <h2 className="text-white">{WorkHistoryList.title}</h2>
       <Divider />
       <div className="flex flex-col gap-24">
-        {[...WorkHistoryList.workHistory].reverse().map((item, index) => (
-          <WorkHistoryItem key={index} {...item} />
+        {[...WorkHistoryList.workHistory].reverse().map((item) => (
+          <WorkHistoryItem key={item.id} {...item} />
         ))}
       </div>
     </div>
