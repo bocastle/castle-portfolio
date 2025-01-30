@@ -4,7 +4,7 @@ import { FunctionComponent } from "react";
 export const GoogleAdSense: FunctionComponent = () => {
   const PID = process.env.PID;
 
-  if (process.env.NODE_ENV !== "production") {
+  if (process.env.NEXT_PUBLIC_NODE_ENV === "dev") {
     return null;
   }
 
