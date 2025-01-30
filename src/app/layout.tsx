@@ -1,8 +1,10 @@
+import { GoogleAdSenseComponent } from "@/components/GoogleAds/components/GoogleAdSenseComponent";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { GoogleAdSense } from "../components/GoogleAds/GoogleAdSense";
 import Navbar from "../components/Navbar";
 import "./globals.css";
 const geistSans = localFont({
@@ -46,13 +48,13 @@ export default function RootLayout({
 }>) {
   const GTM_ID = process.env.GTM_ID;
   const GTAG_ID = process.env.GTAG_ID;
+
   return (
     <html lang="ko">
       {/*  Google Tag Manager  */}
       <GoogleTagManager gtmId={`${GTM_ID}`} />
       {/* End Google Tag Manager  */}
       <GoogleAnalytics gaId={`${GTAG_ID}`} />
-
       <body
         className={`bg-slate-900 ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -68,6 +70,8 @@ export default function RootLayout({
         />
         {/* End Google Tag Manager (noscript)  */}
       </body>
+      <GoogleAdSense />
+      <GoogleAdSenseComponent />
     </html>
   );
 }
