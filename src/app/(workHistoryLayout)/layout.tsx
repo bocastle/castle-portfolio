@@ -1,3 +1,4 @@
+import { ScrollProgress } from "@/components/ScrollProgressbar";
 import Title from "@/components/titles";
 
 export default function DefaultLayout({
@@ -7,6 +8,7 @@ export default function DefaultLayout({
 }) {
   return (
     <div>
+      <ScrollProgress />
       <Title />
       {children}
     </div>

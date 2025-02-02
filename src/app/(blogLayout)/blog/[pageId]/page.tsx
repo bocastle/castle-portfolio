@@ -1,3 +1,4 @@
+import { ScrollProgress } from "@/components/ScrollProgressbar";
 import type { Metadata } from "next";
 import { getArticlePageHeaderData } from "../../api/notion";
 import PageContent from "./components/PageContent";
@@ -45,6 +46,7 @@ export default async function ArticleDetailPage({ params }: Props) {
 
   return (
     <div className="w-3/5 items-start max-md:w-full max-sm:w-full flex flex-col md:gap-5 md:my-4 sm:gap-5 max-lg:items-center max-md:items-center max-sm:items-center">
+      <ScrollProgress />
       <PageHeader pageId={pageId} />
       <PageContent pageId={pageId} />
       <PageFooter pageId={pageId} />
