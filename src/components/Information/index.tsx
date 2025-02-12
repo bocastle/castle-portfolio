@@ -13,7 +13,7 @@ const Information = () => {
         />
       </div>
       <div className="flex flex-col gap-2">
-        <h1 className="text-white leading-[1.15] md:text-5xl sm:text-3xl max-sm:text-3xl">
+        <h1 className="leading-[1.15] md:text-5xl sm:text-3xl max-sm:text-3xl">
           안녕하세요,
           <br /> 꿈을 항해하는 개발자{" "}
           <span className="font-semibold">김보성</span>
@@ -22,7 +22,7 @@ const Information = () => {
         <div className="flex gap-5 items-center mt-4">
           <a
             href="mailto:bocastle1213@gmail.com"
-            className="flex gap-2 items-center hover:scale-110 transition-transform duration-500 hover:text-green-500 hover:fill-green-500 fill-white text-white dark:fill-white dark:hover:fill-green-500"
+            className="flex gap-2 items-center hover:scale-110 transition-transform duration-500 hover:text-green-500 hover:fill-green-500 fill-black dark:fill-white dark:hover:fill-green-500"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +37,7 @@ const Information = () => {
           <a
             href="https://github.com/bocastle"
             target="_blank"
-            className="flex gap-2 items-center transition-transform duration-500 hover:scale-110 hover:text-green-500 hover:fill-green-500 fill-white text-white dark:fill-white dark:hover:fill-green-500"
+            className="flex gap-2 items-center transition-transform duration-500 hover:scale-110 hover:text-green-500 hover:fill-green-500 fill-black  dark:fill-white dark:hover:fill-green-500"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

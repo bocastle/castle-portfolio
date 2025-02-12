@@ -29,10 +29,7 @@ const Navbar = () => {
   return (
     <div className="h-2 sticky flex items-center justify-between top-110 md:static md:h-20 md:flex md:justify-between md:items-center md:gap-5 md:px-12 max-md:h-20 max-md:px-12 max-md:flex max-md:justify-between">
       <div className="flex md:flex">
-        <Link
-          className="italic text-1xl md:block text-white font-black dark:text-yellow-300"
-          href={"/"}
-        >
+        <Link className="italic text-1xl md:block font-black" href={"/"}>
           castle.log
         </Link>
       </div>
@@ -48,7 +45,6 @@ const Navbar = () => {
           strokeWidth={1.5}
           stroke="currentColor"
           className="w-7 h-7 transition duration-500 stroke-white dark:stroke-white"
-          // className="w-7 h-7 transition duration-500 stroke-black dark:stroke-white"
         >
           <path
             strokeLinecap="round"
@@ -58,27 +54,6 @@ const Navbar = () => {
         </svg>
       </button>
       <div className="flex gap-5 md:flex sm:hidden max-md:hidden">
-        {/* <button
-          onClick={toggleTheme}
-          className="p-2 rounded-full bg-gray-200 lihgt:bg-gray-200 dark:bg-gray-800"
-        >
-          {theme === "dark" && (
-            <Image
-              src="/images/moon.svg"
-              alt="dark mode"
-              width={20}
-              height={20}
-            />
-          )}
-          {theme === "light" && (
-            <Image
-              src="/images/sun.svg"
-              alt="dark mode"
-              width={20}
-              height={20}
-            />
-          )}
-        </button> */}
         <button type="button" className="m-0 p-0" onClick={toggleTheme}>
           {theme === "dark" ? (
             <Image
@@ -103,7 +78,7 @@ const Navbar = () => {
             <Link
               key={`${item.key}${index}`}
               href={item.href}
-              className={`italic text-2xl md:block text-white font-semibold ${
+              className={`italic text-2xl md:block font-semibold ${
                 isUnderlined
                   ? "underline decoration-solid underline-offset-8"
                   : ""

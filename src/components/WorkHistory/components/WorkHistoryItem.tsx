@@ -24,14 +24,14 @@ const WorkHistoryItem = ({
           className="object-cover rounded-lg border-[1px] border-GRAY_LIGHT border-solid w-24 h-24"
         />
         <div className="w-48">
-          <h3 className="text-white">{name}</h3>
+          <h3 className="">{name}</h3>
           <div className="flex flex-col">
-            <span className="text-white m-0">{position}</span>
-            <span className="text-white">{`${period[0]} - ${period[1]}`}</span>
+            <span className="m-0">{position}</span>
+            <span>{`${period[0]} - ${period[1]}`}</span>
           </div>
         </div>
       </div>
-      <div className="text-white md:border-gray-400 md:border-solid md:border-l-[1px] md:pl-4 markdown w-full">
+      <div className="md:border-gray-400 md:border-solid md:border-l-[1px] md:pl-4 markdown w-full">
         <ReactMarkdown remarkPlugins={[remarkGfm]}>{file}</ReactMarkdown>
       </div>
     </div>

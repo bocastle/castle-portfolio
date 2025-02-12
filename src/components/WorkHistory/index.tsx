@@ -6,7 +6,7 @@ const WorkHistory = () => {
 
   return (
     <div>
-      <h2 className="text-white">{WorkHistoryList.title}</h2>
+      <h2>{WorkHistoryList.title}</h2>
       <Divider />
       <div className="flex flex-col gap-24">
         {[...WorkHistoryList.workHistory].reverse().map((item) => (

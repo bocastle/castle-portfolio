@@ -32,7 +32,7 @@ const ArticleTagList = ({ articleTagInfo }: Props) => {
     return (
       <div
         onClick={onToggleFilter}
-        className={`w-fit h-auto text-ellipsis cursor-pointer text-[16px] leading-5 font-medium text-black rounded-xl py-1 px-3 flex items-center  hover:bg-stone-50 bg-stone-50`}
+        className={`w-fit h-auto text-ellipsis cursor-pointer text-[16px] leading-5 font-medium dark:text-black rounded-xl py-1 px-3 flex items-center  bg-stone-400 hover:bg-stone-400 dark:hover:bg-stone-50  bark:bg-stone-50`}
       >
         {articleTagInfo.name}
       </div>
@@ -42,7 +42,7 @@ const ArticleTagList = ({ articleTagInfo }: Props) => {
     return (
       <div
         onClick={onToggleFilter}
-        className={`w-fit h-auto text-ellipsis cursor-pointer text-[16px] leading-5 font-medium text-sky-600 dark:text-white rounded-xl py-1 px-3 flex items-center  hover:bg-sky-400/20 bg-sky-400/10`}
+        className={`w-fit h-auto text-ellipsis cursor-pointer text-[16px] leading-5 font-medium  dark:text-white rounded-xl py-1 px-3 flex items-center  hover:bg-stone-400  dark:hover:bg-sky-400/20  bg-gray-400/30 dark:bg-sky-400/10`}
       >
         {articleTagInfo.name}
       </div>

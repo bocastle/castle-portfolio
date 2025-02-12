@@ -14,7 +14,7 @@ export const ArticleCategory = ({ list }: Props) => {
         className="leading-[1.15] md:text-sm sm:text-sm max-sm:text-sm cursor-pointer"
         href={"/categories"}
       >
-        <span className="text-white font-bold">전체메뉴</span>
+        <span className="font-bold">전체메뉴</span>
       </Link>
 
       <div className="flex flex-col gap-2">

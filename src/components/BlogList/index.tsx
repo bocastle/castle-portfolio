@@ -92,16 +92,16 @@ const BlogList = ({ list }: Props) => {
                 src={item.thumbnailUrl}
                 alt="thumbnail"
                 placeholder="blur"
-                className="rounded-lg hover:rounded-lg hover:border-[1.5px] hover:border-gray-400 after:hover:border-solid after:hover:transition-opacity after:hover:opacity-100 after:hover:duration-700 after:hover:ease-in-out"
+                className="rounded-lg border-[1px] border-gray-400 border-solid hover:rounded-lg hover:border-[1px] hover:border-gray-400 after:hover:border-solid after:hover:transition-opacity after:hover:opacity-100 after:hover:duration-700 after:hover:ease-in-out"
                 blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg==" // 추가
                 fill
               />
             </div>
             <div className="gap-4 w-[476px] max-2xl:w-[370px] max-xl:w-80 max-lg:w-96 max-md:w-96">
-              <div className="items-start overflow-hidden whitespace-nowrap text-ellipsis text-[24px] text-white dark:text-white">
+              <div className="items-start overflow-hidden whitespace-nowrap text-ellipsis text-[24px]">
                 {item.title}
               </div>
-              <div className="flex flex-col gap-24 items-start text-[14px] text-indigo-300 dark:text-indigo-300">
+              <div className="flex flex-col gap-24 items-start text-[14px] text-gray-600 dark:text-indigo-300">
                 {getYearMonthDay(item.createdAt)}&nbsp;&nbsp;
                 {getDistanceFromToday(item.createdAt)}
               </div>
@@ -109,7 +109,7 @@ const BlogList = ({ list }: Props) => {
                 {item.tagList.map((tag) => (
                   <div
                     key={tag.id}
-                    className="cursor-pointer text-[16px] leading-5 font-medium text-sky-600 dark:text-white bg-sky-400/10 rounded-full py-1 px-3 flex items-center  hover:bg-sky-400/20"
+                    className="cursor-default text-[16px] leading-5 font-medium bg-gray-400/30 dark:bg-sky-400/10 rounded-full py-1 px-3 flex items-center"
                   >
                     {tag.name}
                   </div>
