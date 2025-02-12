@@ -7,6 +7,7 @@ import localFont from "next/font/local";
 import { GoogleAdSense } from "../components/GoogleAds/GoogleAdSense";
 import Navbar from "../components/Navbar";
 import "./globals.css";
+import ThemeScript from "./ThemeScript";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -51,14 +52,16 @@ export default function RootLayout({
   const PID = process.env.PID ?? "";
   const SLOT = process.env.SLOT ?? "";
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
       <head>
         <GoogleAdSense />
         {/*  Google Tag Manager  */}
         <GoogleTagManager gtmId={`${GTM_ID}`} />
         {/* End Google Tag Manager  */}
         <GoogleAnalytics gaId={`${GTAG_ID}`} />
+        <ThemeScript />
       </head>
+
       <body
         className={`bg-slate-900 ${geistSans.variable} ${geistMono.variable} antialiased`}
       >

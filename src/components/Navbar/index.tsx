@@ -1,8 +1,24 @@
 "use client";
+
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { navLinks } from "../config/config";
+
 const Navbar = () => {
+  const [theme, setTheme] = useState(global.window?.__theme || "light");
+
+  const isDark = theme === "dark";
+
+  const toggleTheme = () => {
+    global.window?.__setPreferredTheme(isDark ? "light" : "dark");
+    setTheme(isDark ? "light" : "dark");
+  };
+
+  useEffect(() => {
+    global.window.__onThemeChange = setTheme;
+  }, []);
   const currentPathName = usePathname();
   // console.log("currentPathName", currentPathName);
 
@@ -14,12 +30,13 @@ const Navbar = () => {
     <div className="h-2 sticky flex items-center justify-between top-110 md:static md:h-20 md:flex md:justify-between md:items-center md:gap-5 md:px-12 max-md:h-20 max-md:px-12 max-md:flex max-md:justify-between">
       <div className="flex md:flex">
         <Link
-          className="italic text-1xl md:block text-white font-black"
+          className="italic text-1xl md:block text-white font-black dark:text-yellow-300"
           href={"/"}
         >
           castle.log
         </Link>
       </div>
+
       <button
         type="button"
         className="m-0 p-0 md:hidden max-md:flex"
@@ -41,6 +58,44 @@ const Navbar = () => {
         </svg>
       </button>
       <div className="flex gap-5 md:flex sm:hidden max-md:hidden">
+        {/* <button
+          onClick={toggleTheme}
+          className="p-2 rounded-full bg-gray-200 lihgt:bg-gray-200 dark:bg-gray-800"
+        >
+          {theme === "dark" && (
+            <Image
+              src="/images/moon.svg"
+              alt="dark mode"
+              width={20}
+              height={20}
+            />
+          )}
+          {theme === "light" && (
+            <Image
+              src="/images/sun.svg"
+              alt="dark mode"
+              width={20}
+              height={20}
+            />
+          )}
+        </button> */}
+        <button type="button" className="m-0 p-0" onClick={toggleTheme}>
+          {theme === "dark" ? (
+            <Image
+              src="/images/moon.svg"
+              alt="dark mode"
+              width={30}
+              height={30}
+            />
+          ) : (
+            <Image
+              src="/images/sun.svg"
+              alt="light mode"
+              width={30}
+              height={30}
+            />
+          )}
+        </button>
         {navLinks.map((item, index) => {
           const isUnderlined = currentPathName.includes(item.href);
           // console.log("isUnderlined", isUnderlined);
