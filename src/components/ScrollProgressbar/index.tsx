@@ -29,10 +29,13 @@ export const ScrollProgress = () => {
   }, [handleScroll]);
   return (
     <div
-      className="w-full h-1 bg-gray-200 fixed top-0 left-0 right-0 z-10"
+      className="w-full h-1 bg-gray-400 dark:bg-gray-200 fixed top-0 left-0 right-0 z-10"
       ref={progressRef}
     >
-      <div className="h-full bg-blue-500" style={{ width: width + "%" }}></div>
+      <div
+        className="h-full bg-yellow-300 dark:bg-blue-500"
+        style={{ width: width + "%" }}
+      ></div>
     </div>
   );
 };
