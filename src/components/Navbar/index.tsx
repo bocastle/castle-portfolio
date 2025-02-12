@@ -8,7 +8,7 @@ const ThemeButton = dynamic(() => import("./components/ThemeButton"), {
   ssr: false,
   loading: () => (
     <div>
-      <span>loading</span>
+      <span>darkMode</span>
     </div>
   ),
 });
