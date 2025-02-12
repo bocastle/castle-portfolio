@@ -6,11 +6,11 @@ import { usePathname } from "next/navigation";
 import { navLinks } from "../config/config";
 const ThemeButton = dynamic(() => import("./components/ThemeButton"), {
   ssr: false,
-  loading: () => (
-    <div>
-      <span>darkMode</span>
-    </div>
-  ),
+  // loading: () => (
+  //   <div>
+  //     <span>darkMode</span>
+  //   </div>
+  // ),
 });
 const Navbar = () => {
   const currentPathName = usePathname();
