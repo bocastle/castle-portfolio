@@ -7,3 +7,4 @@
 3. 슬랙 webhook 추가
 4. 카테고리 생성
 5. google setting(심사중)
+6. git config 테스트
