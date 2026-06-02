@@ -14,8 +14,16 @@ interface Props {
 
 const GoogleAdSenseComponent = ({ PID, SLOT }: Props) => {
   useEffect(() => {
+    if (!PID || !SLOT) {
+      return;
+    }
+
     (window.adsbygoogle = window.adsbygoogle || []).push({});
-  }, []);
+  }, [PID, SLOT]);
+
+  if (!PID || !SLOT) {
+    return null;
+  }
 
   return (
     <ins
