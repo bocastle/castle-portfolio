@@ -1,23 +1,45 @@
-# Handoff Notes
+# 핸드오프 문서
 
-This folder stores continuation notes for multi-session work.
+## 세 줄 요약
 
-Use it when an agent needs to leave enough context for another session to continue without rediscovering the same information.
+- 여러 세션에 걸치는 작업은 이 폴더에 이어받기 문서를 남깁니다.
+- 문서는 한글 Markdown으로 작성하고, 상단에 세 줄 요약을 둡니다.
+- 다른 문서로 넘기지 말고 필요한 맥락을 문서 안에 함께 정리합니다.
 
-Recommended file naming:
+## 목적
+
+이 폴더는 에이전트나 다음 작업 세션이 이전 맥락을 다시 찾지 않고 이어서 작업할 수 있도록 기록을 남기는 공간입니다.
+
+## 파일명 규칙
 
 ```text
 YYYY-MM-DD-topic.md
 ```
 
-Each note should include:
+예시:
 
-- Current branch
-- Goal
-- Context
-- Changed files
-- Verification results
-- Open decisions
-- Next steps
+```text
+2026-06-02-portfolio-blog-projects.md
+2026-06-05-github-blog-source.md
+```
 
-Do not store secrets, tokens, credentials, or private account data here.
+## 문서에 포함할 내용
+
+- 세 줄 요약
+- 현재 브랜치
+- 작업 목표
+- 작업 맥락
+- 변경 파일
+- 검증 결과
+- 남은 결정사항
+- 다음 단계
+- 참고 내용
+
+## 작성 규칙
+
+- 한글로 작성합니다.
+- 확장자는 `.md`를 사용합니다.
+- 문서 상단에는 `세 줄 요약`을 둡니다.
+- 다른 문서를 참조하라는 문장만 남기지 않습니다.
+- 필요한 참고 내용은 문서 안에 요약해서 포함합니다.
+- 비밀값, 토큰, 인증 정보, 개인 계정 정보는 기록하지 않습니다.
