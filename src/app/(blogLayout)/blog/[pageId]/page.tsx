@@ -45,7 +45,7 @@ export default async function ArticleDetailPage({ params }: Props) {
   const pageId = (await params).pageId;
 
   return (
-    <div className="w-3/5 items-start max-md:w-full max-sm:w-full flex flex-col md:gap-5 md:my-4 sm:gap-5 max-lg:items-center max-md:items-center max-sm:items-center">
+    <div className="flex w-full max-w-7xl flex-col items-start md:gap-5 md:my-4 sm:gap-5 max-lg:items-center max-md:w-full max-md:items-center max-sm:w-full max-sm:items-center">
       <ScrollProgress />
       <PageHeader pageId={pageId} />
       <PageContent pageId={pageId} />
