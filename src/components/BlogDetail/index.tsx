@@ -27,9 +27,7 @@ const BlogDetail = ({ content }: Props) => {
         <BlogTableOfContents items={tocItems} />
       </div>
       <aside className="absolute left-full top-0 ml-8 hidden w-64 xl:block">
-        <div className="sticky top-24">
-          <BlogTableOfContents items={tocItems} variant="sidebar" />
-        </div>
+        <BlogTableOfContents items={tocItems} variant="sidebar" />
       </aside>
       {/* {content} */}
       <ReactMarkdown
