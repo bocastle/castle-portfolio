@@ -1,7 +1,7 @@
 import BlogList from "@/components/BlogList";
 import { getPublicImageUrl } from "@/utils/image-url";
 import { Metadata } from "next";
-import { getArticleTagList, getCategoryList } from "../../api/notion";
+import { getArticleTagList, getCategoryList } from "../../api/blog";
 
 type Props = {
   params: Promise<{ categoriesName: string }>;

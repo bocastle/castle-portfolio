@@ -1,7 +1,7 @@
 const URL = "https://bocelog.vercel.app";
 
 import { MetadataRoute } from "next";
-import { getPageList } from "./(blogLayout)/api/notion";
+import { getPageList } from "./(blogLayout)/api/blog";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const routes: MetadataRoute.Sitemap = ["", "/blog", "/workHistory"].map(

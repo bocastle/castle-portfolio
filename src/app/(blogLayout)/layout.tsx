@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { getPublicImageUrl } from "../../utils/image-url";
-import { getArticleCategoryList } from "./api/notion";
+import { getArticleCategoryList } from "./api/blog";
 import { ArticleCategory } from "./components/ArticleCategory";
 export const metadata: Metadata = {
   title: "castle log",

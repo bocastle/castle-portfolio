@@ -1,5 +1,5 @@
 import BlogList from "@/components/BlogList";
-import { getPageList } from "../api/notion";
+import { getPageList } from "../api/blog";
 import { ArticleFilterTagList } from "./components/ArticleTagList";
 import { ArticleTagTitle } from "./components/ArticleTagTitle";
 

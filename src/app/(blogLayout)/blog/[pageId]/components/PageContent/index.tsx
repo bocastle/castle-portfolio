@@ -1,4 +1,4 @@
-import { fetchArticlePageContent } from "@/app/(blogLayout)/api/notion";
+import { fetchArticlePageContent } from "@/app/(blogLayout)/api/blog";
 import BlogDetail from "@/components/BlogDetail";
 
 interface Props {

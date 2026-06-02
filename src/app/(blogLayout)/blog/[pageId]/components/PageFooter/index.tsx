@@ -1,4 +1,4 @@
-import { fetchArticlePageFooterData } from "@/app/(blogLayout)/api/notion";
+import { fetchArticlePageFooterData } from "@/app/(blogLayout)/api/blog";
 import BlogFooter from "@/components/BlogFooter";
 
 interface Props {

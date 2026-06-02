@@ -1,5 +1,5 @@
 import BlogList from "@/components/BlogList";
-import { getCategoryList } from "../api/notion";
+import { getCategoryList } from "../api/blog";
 
 export interface IBlogPagelist {
   cover: string;

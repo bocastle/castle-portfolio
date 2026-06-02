@@ -1,6 +1,6 @@
 import { ScrollProgress } from "@/components/ScrollProgressbar";
 import type { Metadata } from "next";
-import { getArticlePageHeaderData } from "../../api/notion";
+import { getArticlePageHeaderData } from "../../api/blog";
 import PageContent from "./components/PageContent";
 import PageFooter from "./components/PageFooter";
 import PageHeader from "./components/PageHeader";

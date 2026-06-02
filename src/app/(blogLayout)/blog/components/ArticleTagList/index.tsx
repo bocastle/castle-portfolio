@@ -1,4 +1,4 @@
-import { getArticleTagList } from "@/app/(blogLayout)/api/notion";
+import { getArticleTagList } from "@/app/(blogLayout)/api/blog";
 import ArticleTagList from "@/components/ArticleTagList";
 
 export const ArticleFilterTagList = async () => {
