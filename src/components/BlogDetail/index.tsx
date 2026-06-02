@@ -22,80 +22,85 @@ const BlogDetail = ({ content }: Props) => {
   const headingSlug = createHeadingSlugger();
 
   return (
-    <div className="grid w-full max-w-7xl grid-cols-1 xl:grid-cols-[minmax(0,56rem)_16rem] xl:gap-8">
-      <div className="min-w-0">
-        <div className="xl:hidden">
-          <BlogTableOfContents items={tocItems} />
-        </div>
-        {/* {content} */}
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw, rehypeHighlight]}
-          components={{
-            h1: createHeadingComponent("h1", "text-3xl font-bold"),
-            h2: createHeadingComponent("h2", "text-3xl font-bold", headingSlug),
-            h3: createHeadingComponent("h3", "text-3xl font-bold", headingSlug),
-            h4: createHeadingComponent("h4", "text-3xl font-bold"),
-            // hr: (props) => <hr className="my-4" {...props} />,
-            img: (props) => <img {...props} />,
-            ul: ({ children }) => <ul className="list-disc">{children}</ul>,
-            ol: ({ children }) => <ol className="list-decimal">{children}</ol>,
-            li: ({ children }) => (
-              <li className="mb-2">
-                <div>{children}</div>
-              </li>
-            ),
-            a: (props) => (
-              <a
-                className="text-blue-600 dark:text-sky-300 underline"
-                target="_blank"
-                rel="noopener noreferrer"
-                {...props}
-              />
-            ),
-            pre: (props) => (
-              <pre
-                className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 my-3 rounded overflow-x-auto"
-                {...props}
-              />
-            ),
-            code: (props) => (
-              <code
-                className="text-sm font-mono bg-gray-100 dark:bg-gray-900 text-teal-700 dark:text-teal-200 rounded"
-                {...props}
-              />
-            ),
-            p: (props) => <p className="text-lg" {...props} />,
-            table: (props) => (
-              <table className="table-auto w-full border-collapse" {...props} />
-            ),
-            td: (props) => (
-              <td
-                className="border border-gray-300 dark:border-slate-600 p-2"
-                {...props}
-              />
-            ),
-            th: (props) => (
-              <th
-                className="border border-gray-300 dark:border-slate-600 p-2"
-                {...props}
-              />
-            ),
-            blockquote: (props) => (
-              <blockquote
-                className="border-l-4 border-gray-300 dark:border-slate-500 bg-gray-100 dark:bg-slate-800 text-gray-800 dark:text-gray-100 py-3 pl-4 pr-3 rounded-r"
-                {...props}
-              />
-            ),
-          }}
-        >
-          {content}
-        </ReactMarkdown>
+    <div className="w-full max-w-4xl min-w-0">
+      <div className="xl:hidden">
+        <BlogTableOfContents items={tocItems} />
       </div>
-      <aside className="hidden w-64 xl:block">
-        <BlogTableOfContents items={tocItems} variant="sidebar" />
-      </aside>
+      {/* {content} */}
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw, rehypeHighlight]}
+        components={{
+          h1: createHeadingComponent("h1", "text-3xl font-bold"),
+          h2: createHeadingComponent("h2", "text-3xl font-bold", headingSlug),
+          h3: createHeadingComponent("h3", "text-3xl font-bold", headingSlug),
+          h4: createHeadingComponent("h4", "text-3xl font-bold"),
+          // hr: (props) => <hr className="my-4" {...props} />,
+          img: (props) => <img {...props} />,
+          ul: ({ children }) => <ul className="list-disc">{children}</ul>,
+          ol: ({ children }) => <ol className="list-decimal">{children}</ol>,
+          li: ({ children }) => (
+            <li className="mb-2">
+              <div>{children}</div>
+            </li>
+          ),
+          a: (props) => (
+            <a
+              className="text-blue-600 dark:text-sky-300 underline"
+              target="_blank"
+              rel="noopener noreferrer"
+              {...props}
+            />
+          ),
+          pre: (props) => (
+            <pre
+              className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 my-3 rounded overflow-x-auto"
+              {...props}
+            />
+          ),
+          code: (props) => (
+            <code
+              className="text-sm font-mono bg-gray-100 dark:bg-gray-900 text-teal-700 dark:text-teal-200 rounded"
+              {...props}
+            />
+          ),
+          p: (props) => <p className="text-lg" {...props} />,
+          table: (props) => (
+            <table className="table-auto w-full border-collapse" {...props} />
+          ),
+          td: (props) => (
+            <td
+              className="border border-gray-300 dark:border-slate-600 p-2"
+              {...props}
+            />
+          ),
+          th: (props) => (
+            <th
+              className="border border-gray-300 dark:border-slate-600 p-2"
+              {...props}
+            />
+          ),
+          blockquote: (props) => (
+            <blockquote
+              className="border-l-4 border-gray-300 dark:border-slate-500 bg-gray-100 dark:bg-slate-800 text-gray-800 dark:text-gray-100 py-3 pl-4 pr-3 rounded-r"
+              {...props}
+            />
+          ),
+        }}
+      >
+        {content}
+      </ReactMarkdown>
     </div>
+  );
+};
+
+export const BlogTocSidebar = ({ content }: Props) => {
+  const tocItems = useMemo(() => extractBlogTocItems(content), [content]);
+
+  return (
+    <aside className="hidden w-64 xl:block">
+      <BlogTableOfContents items={tocItems} variant="sidebar" />
+    </aside>
   );
 };
 

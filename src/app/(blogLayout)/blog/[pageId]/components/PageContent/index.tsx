@@ -1,14 +1,11 @@
-import { fetchArticlePageContent } from "@/app/(blogLayout)/api/blog";
 import BlogDetail from "@/components/BlogDetail";
 
 interface Props {
-  pageId: string;
+  content: string;
 }
 
-const PageContent = async ({ pageId }: Props) => {
-  //   console.log("pageId", pageId);
-  const { parent } = await fetchArticlePageContent(pageId);
-  return <BlogDetail content={parent as string} />;
+const PageContent = ({ content }: Props) => {
+  return <BlogDetail content={content} />;
 };
 
 export default PageContent;

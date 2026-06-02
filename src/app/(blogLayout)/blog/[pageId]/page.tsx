@@ -1,6 +1,7 @@
 import { ScrollProgress } from "@/components/ScrollProgressbar";
 import type { Metadata } from "next";
-import { getArticlePageHeaderData } from "../../api/blog";
+import { fetchArticlePageContent, getArticlePageHeaderData } from "../../api/blog";
+import { BlogTocSidebar } from "@/components/BlogDetail";
 import PageContent from "./components/PageContent";
 import PageFooter from "./components/PageFooter";
 import PageHeader from "./components/PageHeader";
@@ -43,13 +44,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ArticleDetailPage({ params }: Props) {
   const pageId = (await params).pageId;
+  const { parent } = await fetchArticlePageContent(pageId);
+  const content = parent as string;
 
   return (
-    <div className="flex w-full max-w-7xl flex-col items-start md:gap-5 md:my-4 sm:gap-5 max-lg:items-center max-md:w-full max-md:items-center max-sm:w-full max-sm:items-center">
+    <div className="grid w-full max-w-7xl grid-cols-1 items-start md:my-4 xl:grid-cols-[minmax(0,56rem)_16rem] xl:gap-8 max-lg:justify-items-center max-md:w-full max-sm:w-full">
       <ScrollProgress />
-      <PageHeader pageId={pageId} />
-      <PageContent pageId={pageId} />
-      <PageFooter pageId={pageId} />
+      <div className="flex w-full min-w-0 max-w-4xl flex-col items-start md:gap-5 sm:gap-5 max-lg:items-center max-md:items-center max-sm:items-center">
+        <PageHeader pageId={pageId} />
+        <PageContent content={content} />
+        <PageFooter pageId={pageId} />
+      </div>
+      <BlogTocSidebar content={content} />
     </div>
   );
 }
