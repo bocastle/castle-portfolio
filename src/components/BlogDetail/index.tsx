@@ -22,8 +22,15 @@ const BlogDetail = ({ content }: Props) => {
   const headingSlug = createHeadingSlugger();
 
   return (
-    <div className="w-full max-w-4xl">
-      <BlogTableOfContents items={tocItems} />
+    <div className="relative w-full max-w-4xl xl:max-w-5xl">
+      <div className="xl:hidden">
+        <BlogTableOfContents items={tocItems} />
+      </div>
+      <aside className="absolute left-full top-0 ml-8 hidden w-64 xl:block">
+        <div className="sticky top-24">
+          <BlogTableOfContents items={tocItems} variant="sidebar" />
+        </div>
+      </aside>
       {/* {content} */}
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
@@ -92,7 +99,13 @@ const BlogDetail = ({ content }: Props) => {
   );
 };
 
-const BlogTableOfContents = ({ items }: { items: BlogTocItem[] }) => {
+const BlogTableOfContents = ({
+  items,
+  variant = "inline",
+}: {
+  items: BlogTocItem[];
+  variant?: "inline" | "sidebar";
+}) => {
   if (items.length === 0) {
     return null;
   }
@@ -100,14 +113,26 @@ const BlogTableOfContents = ({ items }: { items: BlogTocItem[] }) => {
   return (
     <nav
       aria-label="글 목차"
-      className="mb-10 rounded-lg border border-gray-200 bg-gray-50 p-5 dark:border-slate-700 dark:bg-slate-900"
+      className={
+        variant === "sidebar"
+          ? "max-h-[calc(100vh-8rem)] overflow-y-auto rounded-lg border border-gray-200 bg-gray-50/95 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900/95"
+          : "mb-10 rounded-lg border border-gray-200 bg-gray-50 p-5 dark:border-slate-700 dark:bg-slate-900"
+      }
     >
-      <h2 className="pb-3 text-xl font-semibold">목차</h2>
+      <h2
+        className={
+          variant === "sidebar"
+            ? "pb-3 text-base font-semibold"
+            : "pb-3 text-xl font-semibold"
+        }
+      >
+        목차
+      </h2>
       <ol className="m-0 flex list-none flex-col gap-2 p-0">
         {items.map((item) => (
           <li key={item.id} className={item.depth === 3 ? "pl-4" : ""}>
             <a
-              className="text-sm text-gray-700 underline-offset-4 hover:text-teal-700 hover:underline dark:text-gray-200 dark:hover:text-teal-300"
+              className="block text-sm leading-6 text-gray-700 underline-offset-4 hover:text-teal-700 hover:underline dark:text-gray-200 dark:hover:text-teal-300"
               href={`#${item.id}`}
             >
               {item.title}
