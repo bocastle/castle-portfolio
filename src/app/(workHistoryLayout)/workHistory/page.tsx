@@ -1,5 +1,6 @@
 import Information from "@/components/Information";
 import WorkHistory from "@/components/WorkHistory";
+import { getPublicImageUrl } from "@/utils/image-url";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     type: "website",
     images: {
-      url: `${process.env.NEXT_PUBLIC_IMG}/7nxjpqB/image.png`,
+      url: getPublicImageUrl("7nxjpqB/image.png"),
     },
   },
   verification: {

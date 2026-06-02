@@ -26,7 +26,7 @@
       "id": 3,
       "name": "애니챗",
       "position": "책임연구원/팀원",
-      "period": ["2023.03", "2023.10"],
+      "period": ["2022.08", "2022.11"],
       "imgSrc": "J5q6C1x/3-anychat.png"
     },
     {
@@ -49,6 +49,13 @@
       "position": "개발팀",
       "period": ["2023.10", "2024.12"],
       "imgSrc": "FbvNCdV/6-linker.png"
+    },
+    {
+      "id": 7,
+      "name": "소프트위즈",
+      "position": "웹팀 과장",
+      "period": ["2025.02", "재직 중"],
+      "imgSrc": "7nxjpqB/image.png"
     }
   ]
 }

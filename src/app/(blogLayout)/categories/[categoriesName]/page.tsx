@@ -1,6 +1,7 @@
 import BlogList from "@/components/BlogList";
+import { getPublicImageUrl } from "@/utils/image-url";
 import { Metadata } from "next";
-import { getCategoryList } from "../../api/notion";
+import { getArticleTagList, getCategoryList } from "../../api/notion";
 
 type Props = {
   params: Promise<{ categoriesName: string }>;
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
       url: "https://bocelog.vercel.app/blog/" + categoryName,
       images: {
-        url: `${process.env.NEXT_PUBLIC_IMG}/7nxjpqB/image.png`,
+        url: getPublicImageUrl("7nxjpqB/image.png"),
       },
     },
     verification: {
@@ -52,8 +53,10 @@ export const revalidate = 60;
 // Next.js will server-render the page on-demand.
 export const dynamicParams = true; // or false, to 404 on unknown paths
 
-export async function generateStaticParams({ params }: Props) {
-  const categoryName = decodeURI((await params).categoriesName);
-  const List = await getCategoryList({ categoryName: categoryName });
-  return List;
+export async function generateStaticParams() {
+  const articleTagList = await getArticleTagList();
+
+  return articleTagList.map((tag) => ({
+    categoriesName: tag.name,
+  }));
 }

@@ -18,20 +18,25 @@
 
 :root {
   color-scheme: light;
-  --color-bg-primary: #fff;
-  --color-text-secondary: ;
+  --background: #ffffff;
+  --foreground: #111827;
+  --color-bg-primary: #ffffff;
+  --color-text-secondary: #4b5563;
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --color-bg-primary: #15232d;
-  --color-text-secondary: #fff;
+  --background: #0f172a;
+  --foreground: #e5e7eb;
+  --color-bg-primary: #0f172a;
+  --color-text-secondary: #cbd5e1;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 150ms ease, color 150ms ease;
 }
 @layer base {
   h1 {
@@ -73,15 +78,15 @@ body {
   }
 
   em {
-    @apply text-gray-700;
+    @apply text-gray-700 dark:text-gray-300;
   }
 
   code {
-    @apply bg-gray-200 dark:bg-gray-800  py-[2px] px-1.5 rounded-md text-xs font-medium text-teal-300 dark:text-teal-600;
+    @apply bg-gray-200 dark:bg-slate-800 py-[2px] px-1.5 rounded-md text-xs font-medium text-teal-700 dark:text-teal-200;
   }
 
   blockquote {
-    @apply bg-gray-200 py-4 px-6 my-2 rounded-md w-full dark:bg-gray-800;
+    @apply bg-gray-200 py-4 px-6 my-2 rounded-md w-full dark:bg-slate-800 dark:text-gray-100;
   }
 
   ul,

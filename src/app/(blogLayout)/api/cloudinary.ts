@@ -2,15 +2,30 @@ import { type UploadApiOptions, v2 as cloudinary } from "cloudinary";
 import https from "https";
 
 class CloudinaryApi {
-  constructor() {
+  private configured = false;
+
+  private configure() {
+    if (this.configured) {
+      return true;
+    }
+
     const cloudinaryUrl = process.env.CLOUDINARY_URL!;
+    const uploadFolder = process.env.CLOUDINARY_UPLOAD_FOLDER;
+
+    if (!cloudinaryUrl || !uploadFolder) {
+      return false;
+    }
+
     const urlRegex =
       /^cloudinary:\/\/([a-z0-9-_]+):([a-z0-9-_]+)@([a-z0-9-_]+)$/i;
+
     if (!urlRegex.test(cloudinaryUrl)) {
-      throw new Error(
-        `Invalid Cloudinary URL provided. It should match ${urlRegex.toString()}`
+      console.warn(
+        `Invalid CLOUDINARY_URL provided. Expected ${urlRegex.toString()}`
       );
+      return false;
     }
+
     const [, apiKey, apiSecret, cloudName] =
       cloudinaryUrl.match(urlRegex) ?? [];
 
@@ -20,6 +35,9 @@ class CloudinaryApi {
       api_secret: apiSecret,
       cloud_name: cloudName,
     });
+
+    this.configured = true;
+    return true;
   }
 
   private downloadImageToBase64(url: string): Promise<string> {
@@ -57,6 +75,10 @@ class CloudinaryApi {
   }
 
   async convertToPermanentImage(notionImageUrl: string, title: string) {
+    if (!this.configure()) {
+      return notionImageUrl;
+    }
+
     const imgBase64 = await this.downloadImageToBase64(notionImageUrl);
     const { url: cloudinaryUrl } = await this.uploadImage(
       `data:image/jpeg;base64,${imgBase64}`,

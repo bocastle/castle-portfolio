@@ -1,3 +1,4 @@
+import { getPublicImageUrl } from "@/utils/image-url";
 import fs from "fs";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
@@ -17,7 +18,7 @@ const WorkHistoryItem = ({
     <div className="flex flex-col md:flex-row gap-6 md:gap-0">
       <div className="flex md:flex-col items-center md:items-start mr-4 gap-6">
         <Image
-          src={`${process.env.NEXT_PUBLIC_IMG}/${imgSrc}`}
+          src={getPublicImageUrl(imgSrc)}
           width="200"
           height="200"
           alt={name}

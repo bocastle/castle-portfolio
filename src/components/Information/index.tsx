@@ -1,3 +1,4 @@
+import { getPublicImageUrl } from "@/utils/image-url";
 import Image from "next/image";
 
 const Information = () => {
@@ -5,7 +6,7 @@ const Information = () => {
     <div className="justify-center justify-items-center gap-6 items-center md:flex max-sm:flex-col max-sm:justify-items-center">
       <div className="sm:flex sm:justify-center max-sm:flex max-sm:justify-center">
         <Image
-          src={`${process.env.NEXT_PUBLIC_IMG}/7nxjpqB/image.png`}
+          src={getPublicImageUrl("7nxjpqB/image.png")}
           width="200"
           height="200"
           alt={"회사명"}
@@ -19,6 +20,11 @@ const Information = () => {
           <span className="font-semibold">김보성</span>
           입니다.
         </h1>
+        <p className="max-w-2xl text-base leading-7 text-gray-600 dark:text-gray-300">
+          React, React Native, Go, Node.js, Java/Spring 기반으로 웹/앱과
+          백엔드를 함께 다루며, 결제/정산/운영 시스템과 AI 개발
+          워크플로우에 관심이 많은 풀스택 개발자입니다.
+        </p>
         <div className="flex gap-5 items-center mt-4">
           <a
             href="mailto:bocastle1213@gmail.com"

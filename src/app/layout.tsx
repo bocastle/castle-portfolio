@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { GoogleAdSense } from "../components/GoogleAds/GoogleAdSense";
 import Navbar from "../components/Navbar";
+import { getPublicImageUrl } from "../utils/image-url";
 import "./globals.css";
 import ThemeScript from "./ThemeScript";
 const geistSans = localFont({
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     type: "website",
     images: {
-      url: `${process.env.NEXT_PUBLIC_IMG}/7nxjpqB/image.png`,
+      url: getPublicImageUrl("7nxjpqB/image.png"),
     },
   },
   verification: {
@@ -55,10 +56,8 @@ export default function RootLayout({
     <html lang="ko" suppressHydrationWarning>
       <head>
         <GoogleAdSense />
-        {/*  Google Tag Manager  */}
-        <GoogleTagManager gtmId={`${GTM_ID}`} />
-        {/* End Google Tag Manager  */}
-        <GoogleAnalytics gaId={`${GTAG_ID}`} />
+        {GTM_ID ? <GoogleTagManager gtmId={GTM_ID} /> : null}
+        {GTAG_ID ? <GoogleAnalytics gaId={GTAG_ID} /> : null}
         <ThemeScript />
       </head>
 
@@ -69,13 +68,13 @@ export default function RootLayout({
         {children}
         <SpeedInsights />
         <Analytics />
-        {/* Google Tag Manager (noscript) */}
-        <noscript
-          dangerouslySetInnerHTML={{
-            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
-          }}
-        />
-        {/* End Google Tag Manager (noscript)  */}
+        {GTM_ID ? (
+          <noscript
+            dangerouslySetInnerHTML={{
+              __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+            }}
+          />
+        ) : null}
         <GoogleAdSenseComponent PID={PID} SLOT={SLOT} />
       </body>
     </html>

@@ -48,18 +48,21 @@ const BlogDetail = ({ content }: Props) => {
           ),
           a: (props) => (
             <a
-              className="text-blue-500 underline"
+              className="text-blue-600 dark:text-sky-300 underline"
               target="_blank"
               rel="noopener noreferrer"
               {...props}
             />
           ),
           pre: (props) => (
-            <pre className="bg-gray-800 my-3 rounded" {...props} />
+            <pre
+              className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 my-3 rounded overflow-x-auto"
+              {...props}
+            />
           ),
           code: (props) => (
             <code
-              className="text-sm font-mono bg-gray-800 rounded"
+              className="text-sm font-mono bg-gray-100 dark:bg-gray-900 text-teal-700 dark:text-teal-200 rounded"
               {...props}
             />
           ),
@@ -68,14 +71,20 @@ const BlogDetail = ({ content }: Props) => {
             <table className="table-auto w-full border-collapse" {...props} />
           ),
           td: (props) => (
-            <td className="border border-gray-300 p-2" {...props} />
+            <td
+              className="border border-gray-300 dark:border-slate-600 p-2"
+              {...props}
+            />
           ),
           th: (props) => (
-            <th className="border border-gray-300 p-2" {...props} />
+            <th
+              className="border border-gray-300 dark:border-slate-600 p-2"
+              {...props}
+            />
           ),
           blockquote: (props) => (
             <blockquote
-              className="border-l-4 border-gray-300 pl-2"
+              className="border-l-4 border-gray-300 dark:border-slate-500 bg-gray-100 dark:bg-slate-800 text-gray-800 dark:text-gray-100 py-3 pl-4 pr-3 rounded-r"
               {...props}
             />
           ),
