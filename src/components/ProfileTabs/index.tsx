@@ -18,10 +18,10 @@ const ProfileTabs = ({ projects, workHistory }: ProfileTabsProps) => {
   const [activeTab, setActiveTab] = useState<TabId>("workHistory");
 
   return (
-    <section className="w-full">
+    <section className="mx-auto w-full max-w-6xl">
       <div
         aria-label="프로필 섹션"
-        className="mb-10 inline-flex w-full rounded-lg border border-gray-300 bg-gray-100 p-1 dark:border-slate-600 dark:bg-slate-800 sm:w-auto"
+        className="mx-auto mb-10 flex w-full rounded-lg border border-gray-300 bg-gray-100 p-1 dark:border-slate-600 dark:bg-slate-800 sm:w-fit"
         role="tablist"
       >
         {tabs.map((tab) => {
