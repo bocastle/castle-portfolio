@@ -1,14 +1,16 @@
 "use client";
 
 import "highlight.js/styles/base16/dracula.min.css";
+import { isValidElement, ReactNode, useMemo } from "react";
 import ReactMarkdown from "react-markdown";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeHighlight from "rehype-highlight";
 import rehypeRaw from "rehype-raw";
-import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
-import remarkRehype from "remark-rehype";
-import remarkToc from "remark-toc";
+import {
+  type BlogTocItem,
+  createHeadingSlugger,
+  extractBlogTocItems,
+} from "./toc";
 
 interface Props {
   content: string;
@@ -16,27 +18,21 @@ interface Props {
 
 const BlogDetail = ({ content }: Props) => {
   // console.log("content", content);
+  const tocItems = useMemo(() => extractBlogTocItems(content), [content]);
+  const headingSlug = createHeadingSlugger();
 
   return (
     <div className="w-full max-w-4xl">
+      <BlogTableOfContents items={tocItems} />
       {/* {content} */}
       <ReactMarkdown
-        remarkPlugins={[
-          remarkGfm,
-          [remarkToc, { tight: false, heading: "목차" }],
-          remarkRehype,
-        ]}
-        rehypePlugins={[
-          rehypeRaw,
-          rehypeHighlight,
-          rehypeSlug,
-          rehypeAutolinkHeadings,
-        ]}
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw, rehypeHighlight]}
         components={{
-          h1: (props) => <h1 className="text-3xl font-bold" {...props} />,
-          h2: (props) => <h2 className="text-3xl font-bold" {...props} />,
-          h3: (props) => <h3 className="text-3xl font-bold" {...props} />,
-          h4: (props) => <h4 className="text-3xl font-bold" {...props} />,
+          h1: createHeadingComponent("h1", "text-3xl font-bold"),
+          h2: createHeadingComponent("h2", "text-3xl font-bold", headingSlug),
+          h3: createHeadingComponent("h3", "text-3xl font-bold", headingSlug),
+          h4: createHeadingComponent("h4", "text-3xl font-bold"),
           // hr: (props) => <hr className="my-4" {...props} />,
           img: (props) => <img {...props} />,
           ul: ({ children }) => <ul className="list-disc">{children}</ul>,
@@ -94,6 +90,74 @@ const BlogDetail = ({ content }: Props) => {
       </ReactMarkdown>
     </div>
   );
+};
+
+const BlogTableOfContents = ({ items }: { items: BlogTocItem[] }) => {
+  if (items.length === 0) {
+    return null;
+  }
+
+  return (
+    <nav
+      aria-label="글 목차"
+      className="mb-10 rounded-lg border border-gray-200 bg-gray-50 p-5 dark:border-slate-700 dark:bg-slate-900"
+    >
+      <h2 className="pb-3 text-xl font-semibold">목차</h2>
+      <ol className="m-0 flex list-none flex-col gap-2 p-0">
+        {items.map((item) => (
+          <li key={item.id} className={item.depth === 3 ? "pl-4" : ""}>
+            <a
+              className="text-sm text-gray-700 underline-offset-4 hover:text-teal-700 hover:underline dark:text-gray-200 dark:hover:text-teal-300"
+              href={`#${item.id}`}
+            >
+              {item.title}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
+};
+
+const createHeadingComponent = (
+  Tag: "h1" | "h2" | "h3" | "h4",
+  className: string,
+  slug?: ReturnType<typeof createHeadingSlugger>
+) => {
+  const Heading = ({
+    children,
+    ...props
+  }: {
+    children?: ReactNode;
+    [key: string]: unknown;
+  }) => {
+    const title = textFromReactNode(children);
+    const id = slug && title.length > 0 ? slug(title) : undefined;
+
+    return (
+      <Tag className={className} id={id} {...props}>
+        {children}
+      </Tag>
+    );
+  };
+
+  return Heading;
+};
+
+const textFromReactNode = (node: ReactNode): string => {
+  if (typeof node === "string" || typeof node === "number") {
+    return String(node);
+  }
+
+  if (Array.isArray(node)) {
+    return node.map(textFromReactNode).join("");
+  }
+
+  if (isValidElement<{ children?: ReactNode }>(node)) {
+    return textFromReactNode(node.props.children);
+  }
+
+  return "";
 };
 
 export default BlogDetail;
