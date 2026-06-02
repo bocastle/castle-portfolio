@@ -1,0 +1,55 @@
+{
+  "title": "개인 프로젝트",
+  "projects": [
+    {
+      "id": "castlecms",
+      "name": "castleCms",
+      "type": "개인 프로젝트 / 풀스택 CMS / AI 활용 개발",
+      "period": "2026.06",
+      "summary": "Next.js와 Spring Boot 기반으로 개발한 개인 CMS 프로젝트입니다. 게시글, 미디어, 조직, 사용자, 외부 API 클라이언트 관리 기능을 구현했으며, 관리자 인증과 API Key 기반 외부 연동 구조를 설계했습니다.",
+      "description": "기능 범위, 화면 구조, API 흐름, 인증 방식, 데이터 모델을 직접 설계했고, Cursor와 Codex를 활용해 코드 작성, 리팩터링, 테스트 케이스 정리를 진행했습니다. 생성된 코드는 직접 검토하고 빌드와 테스트를 통해 검증했습니다.",
+      "highlights": [
+        "관리자 로그인과 Bearer token 기반 인증 구조 구현",
+        "게시글 임시저장/발행, SEO, 대표 이미지, 본문 HTML 관리 기능 구현",
+        "조직, 사용자, 역할 기반 접근과 조직 범위 데이터 분리",
+        "외부 API 클라이언트 발급, API Key 해시 저장, 폐기, 인증 필터 구현",
+        "README, 더미 스크린샷, 샘플 데이터 정리와 public 전환 전 보안 점검"
+      ],
+      "techStack": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Java",
+        "Spring Boot",
+        "Spring Security",
+        "JPA",
+        "Flyway",
+        "SQL",
+        "Gradle",
+        "Jest",
+        "JUnit",
+        "Cursor",
+        "Codex"
+      ],
+      "screenshots": [
+        {
+          "src": "/images/projects/castlecms/login.png",
+          "alt": "castleCms 로그인 화면"
+        },
+        {
+          "src": "/images/projects/castlecms/dashboard-posts-media.png",
+          "alt": "castleCms 게시글과 미디어 관리 화면"
+        },
+        {
+          "src": "/images/projects/castlecms/organizations-users.png",
+          "alt": "castleCms 조직과 사용자 관리 화면"
+        },
+        {
+          "src": "/images/projects/castlecms/external-api-clients.png",
+          "alt": "castleCms 외부 API 클라이언트 관리 화면"
+        }
+      ],
+      "repositoryNote": "GitHub private repository. 요청 시 공유 가능"
+    }
+  ]
+}
