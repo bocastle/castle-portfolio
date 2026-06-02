@@ -15,5 +15,3 @@ exports[`not-found 페이지 확인:: 1`] = `
   </div>
 </div>
 `;
-
-exports[`renders homepage unchanged 1`] = `<div />`;
