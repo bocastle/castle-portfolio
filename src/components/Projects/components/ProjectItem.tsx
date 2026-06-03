@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 import { Project } from "../types";
 
 const ProjectItem = ({
@@ -12,10 +15,9 @@ const ProjectItem = ({
   screenshots,
   repositoryNote,
 }: Project) => {
-  const heroScreenshot = screenshots[1] ?? screenshots[0];
-  const detailScreenshots = screenshots.filter(
-    (screenshot) => screenshot.src !== heroScreenshot?.src
-  );
+  const initialScreenshot = screenshots[1] ?? screenshots[0];
+  const [selectedScreenshot, setSelectedScreenshot] =
+    useState(initialScreenshot);
 
   return (
     <article className="grid gap-6 md:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)]">
@@ -58,26 +60,46 @@ const ProjectItem = ({
         </p>
       </div>
       <div className="flex flex-col gap-3">
-        {heroScreenshot ? (
-          <Image
-            src={heroScreenshot.src}
-            width={1280}
-            height={980}
-            alt={heroScreenshot.alt}
-            className="aspect-[4/3] w-full rounded-lg border border-gray-300 object-cover object-top dark:border-slate-600"
-            priority={false}
-          />
+        {selectedScreenshot ? (
+          <a
+            href={selectedScreenshot.src}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${selectedScreenshot.alt} 원본 이미지 새 창으로 보기`}
+            className="group block"
+          >
+            <Image
+              src={selectedScreenshot.src}
+              width={1280}
+              height={980}
+              alt={selectedScreenshot.alt}
+              className="aspect-[4/3] w-full rounded-lg border border-gray-300 object-cover object-top transition group-hover:brightness-95 dark:border-slate-600"
+              priority={false}
+            />
+          </a>
         ) : null}
         <div className="grid grid-cols-3 gap-3">
-          {detailScreenshots.map((screenshot) => (
-            <Image
+          {screenshots.map((screenshot) => (
+            <button
               key={screenshot.src}
-              src={screenshot.src}
-              width={480}
-              height={320}
-              alt={screenshot.alt}
-              className="aspect-[4/3] w-full rounded-md border border-gray-300 object-cover object-top dark:border-slate-600"
-            />
+              type="button"
+              aria-label={`${screenshot.alt} 크게 보기`}
+              aria-pressed={selectedScreenshot?.src === screenshot.src}
+              onClick={() => setSelectedScreenshot(screenshot)}
+              className="rounded-md text-left focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-950"
+            >
+              <Image
+                src={screenshot.src}
+                width={480}
+                height={320}
+                alt={screenshot.alt}
+                className={`aspect-[4/3] w-full rounded-md border object-cover object-top transition ${
+                  selectedScreenshot?.src === screenshot.src
+                    ? "border-teal-500 ring-2 ring-teal-400"
+                    : "border-gray-300 hover:border-teal-400 dark:border-slate-600"
+                }`}
+              />
+            </button>
           ))}
         </div>
       </div>
