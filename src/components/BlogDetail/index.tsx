@@ -98,7 +98,7 @@ export const BlogTocSidebar = ({ content }: Props) => {
   const tocItems = useMemo(() => extractBlogTocItems(content), [content]);
 
   return (
-    <aside className="hidden w-64 xl:block">
+    <aside className="hidden w-64 self-start xl:block">
       <BlogTableOfContents items={tocItems} variant="sidebar" />
     </aside>
   );
@@ -120,7 +120,7 @@ const BlogTableOfContents = ({
       aria-label="글 목차"
       className={
         variant === "sidebar"
-          ? "max-h-[calc(100vh-8rem)] overflow-y-auto rounded-lg border border-gray-200 bg-gray-50/95 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900/95"
+          ? "static rounded-lg border border-gray-200 bg-gray-50/95 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900/95"
           : "mb-10 rounded-lg border border-gray-200 bg-gray-50 p-5 dark:border-slate-700 dark:bg-slate-900"
       }
     >
