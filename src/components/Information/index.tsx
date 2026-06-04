@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Information = () => {
   return (
-    <div className="justify-center justify-items-center gap-6 items-center md:flex max-sm:flex-col max-sm:justify-items-center">
+    <div className="w-full justify-center justify-items-center gap-6 items-center md:flex max-sm:flex-col max-sm:justify-items-center">
       <div className="sm:flex sm:justify-center max-sm:flex max-sm:justify-center">
         <Image
           src={getPublicImageUrl("7nxjpqB/image.png")}
@@ -13,14 +13,15 @@ const Information = () => {
           className="object-cover rounded-lg border-[1px] border-gray-400 border-solid w-24 h-24"
         />
       </div>
-      <div className="flex flex-col gap-2">
-        <h1 className="leading-[1.15] md:text-5xl sm:text-3xl max-sm:text-3xl">
+      <div className="flex w-full min-w-0 max-w-full flex-col gap-2 max-sm:max-w-xs md:w-auto">
+        <h1 className="max-w-full break-keep leading-[1.15] md:text-5xl sm:text-3xl max-sm:text-[1.75rem]">
           안녕하세요,
           <br /> 꿈을 항해하는 개발자{" "}
+          <br className="sm:hidden" />
           <span className="font-semibold">김보성</span>
           입니다.
         </h1>
-        <p className="max-w-2xl text-base leading-7 text-gray-600 dark:text-gray-300">
+        <p className="w-full max-w-full break-words text-base leading-7 text-gray-600 dark:text-gray-300 sm:max-w-2xl">
           React, React Native, Go, Node.js, Java/Spring 기반으로 웹/앱과
           백엔드를 함께 다루며, 결제/정산/운영 시스템과 AI 개발
           워크플로우에 관심이 많은 풀스택 개발자입니다.
