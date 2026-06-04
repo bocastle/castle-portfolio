@@ -43,3 +43,6 @@ next-env.d.ts
 
 # local documentation workspace settings
 docs/.obsidian/
+
+# local brainstorming companion output
+.superpowers/
