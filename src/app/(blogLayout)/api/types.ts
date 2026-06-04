@@ -144,6 +144,8 @@ export interface BlogTag {
   id: string;
   name: string;
 }
+
+export type BlogArticleSource = "notion" | "github";
 export interface DataBaseMetaDataResponse
   extends Omit<DatabaseObjectResponse, "properties"> {
   properties: {
@@ -175,6 +177,7 @@ export interface ArticlePageHeaderData {
   createdAt: Date;
   /** 게시글 썸네일 url */
   thumbnailUrl: string;
+  source?: BlogArticleSource;
 }
 export interface ArticlePageHeaderDataWithBlur extends ArticlePageHeaderData {
   blurDataUrl: string;
@@ -197,6 +200,7 @@ export interface AllArticle {
   thumbnailUrl: string;
   /** queried notion page id */
   pageId: string;
+  source?: BlogArticleSource;
 }
 
 export interface ArticleLinkerData {

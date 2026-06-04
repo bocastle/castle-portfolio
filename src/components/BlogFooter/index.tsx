@@ -9,8 +9,6 @@ interface Props {
 }
 
 const BlogFooter = ({ footerItem }: Props) => {
-  console.log("footerItem", footerItem);
-
   return (
     <section className="grid grid-cols-2 w-full max-w-4xl gap-3">
       {footerItem.prevArticle ? (

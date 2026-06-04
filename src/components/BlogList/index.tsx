@@ -70,6 +70,13 @@ const BlogList = ({ list }: Props) => {
   return (
     <div className="grid grid-cols-2 max-xl:grid-cols-2 max-lg:grid-cols-2 max-md:grid-cols-1 max-sm:grid-cols-1 gap-6">
       {filteredArticleList.filteredArticleList.map((item, index) => {
+        const sourceLabel =
+          item.source === "github"
+            ? "GitHub"
+            : item.source === "notion"
+              ? "Notion"
+              : undefined;
+
         return (
           <Link
             href={`/blog/${item.pageId}`}
@@ -98,6 +105,11 @@ const BlogList = ({ list }: Props) => {
               />
             </div>
             <div className="gap-4 w-[476px] max-2xl:w-[370px] max-xl:w-80 max-lg:w-96 max-md:w-96">
+              {sourceLabel ? (
+                <span className="mb-2 inline-flex rounded-md border border-teal-500/40 px-2 py-0.5 text-xs font-semibold text-teal-700 dark:text-teal-300">
+                  {sourceLabel}
+                </span>
+              ) : null}
               <div className="items-start overflow-hidden whitespace-nowrap text-ellipsis text-[24px]">
                 {item.title}
               </div>

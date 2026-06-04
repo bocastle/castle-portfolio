@@ -13,10 +13,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
   );
 
-  if (!process.env.NOTION_SECRET || !process.env.NOTION_DATABASE_ID) {
-    return routes;
-  }
-
   const List = await getPageList();
   const posts: MetadataRoute.Sitemap = List.map((info) => ({
     url: `${URL}/blog/${info.pageId}`,
