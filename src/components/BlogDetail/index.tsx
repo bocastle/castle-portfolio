@@ -29,7 +29,7 @@ const BlogDetail = ({ content }: Props) => {
       {/* {content} */}
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeRaw, rehypeHighlight]}
+        rehypePlugins={[rehypeRaw, [rehypeHighlight, { ignoreMissing: true }]]}
         components={{
           h1: createHeadingComponent("h1", "text-3xl font-bold"),
           h2: createHeadingComponent("h2", "text-3xl font-bold", headingSlug),

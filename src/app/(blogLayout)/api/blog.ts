@@ -1,3 +1,4 @@
+import * as githubLogsBlogSource from "./github-logs";
 import * as githubMarkdownBlogSource from "./github-markdown";
 import * as notionBlogSource from "./notion";
 import {
@@ -65,44 +66,58 @@ const fallbackArticleContent = () => ({
 });
 
 export const getPageList = async (): Promise<AllArticle[]> => {
-  const [notionPageList, githubPageList] = await Promise.all([
-    safeRead(
-      () => notionBlogSource.getPageList(),
-      [] as AllArticle[],
-      "Failed to fetch Notion page list from blog facade"
-    ),
-    safeRead(
-      () => githubMarkdownBlogSource.getPageList(),
-      [] as AllArticle[],
-      "Failed to fetch GitHub Markdown page list from blog facade"
-    ),
-  ]);
+  const [notionPageList, githubPageList, githubLogsPageList] =
+    await Promise.all([
+      safeRead(
+        () => notionBlogSource.getPageList(),
+        [] as AllArticle[],
+        "Failed to fetch Notion page list from blog facade"
+      ),
+      safeRead(
+        () => githubMarkdownBlogSource.getPageList(),
+        [] as AllArticle[],
+        "Failed to fetch GitHub Markdown page list from blog facade"
+      ),
+      safeRead(
+        () => githubLogsBlogSource.getPageList(),
+        [] as AllArticle[],
+        "Failed to fetch GitHub logs page list from blog facade"
+      ),
+    ]);
 
   return sortArticleList([
     ...withSource(notionPageList, "notion"),
     ...withSource(githubPageList, "github"),
+    ...withSource(githubLogsPageList, "github"),
   ]);
 };
 
 export const getCategoryList = async ({
   categoryName,
 }: ArticleCategoryProps): Promise<AllArticle[]> => {
-  const [notionCategoryList, githubCategoryList] = await Promise.all([
-    safeRead(
-      () => notionBlogSource.getCategoryList({ categoryName }),
-      [] as AllArticle[],
-      "Failed to fetch Notion category list from blog facade"
-    ),
-    safeRead(
-      () => githubMarkdownBlogSource.getCategoryList({ categoryName }),
-      [] as AllArticle[],
-      "Failed to fetch GitHub Markdown category list from blog facade"
-    ),
-  ]);
+  const [notionCategoryList, githubCategoryList, githubLogsCategoryList] =
+    await Promise.all([
+      safeRead(
+        () => notionBlogSource.getCategoryList({ categoryName }),
+        [] as AllArticle[],
+        "Failed to fetch Notion category list from blog facade"
+      ),
+      safeRead(
+        () => githubMarkdownBlogSource.getCategoryList({ categoryName }),
+        [] as AllArticle[],
+        "Failed to fetch GitHub Markdown category list from blog facade"
+      ),
+      safeRead(
+        () => githubLogsBlogSource.getCategoryList({ categoryName }),
+        [] as AllArticle[],
+        "Failed to fetch GitHub logs category list from blog facade"
+      ),
+    ]);
 
   const mergedList = sortArticleList([
     ...withSource(notionCategoryList, "notion"),
     ...withSource(githubCategoryList, "github"),
+    ...withSource(githubLogsCategoryList, "github"),
   ]);
 
   if (!categoryName) {
@@ -115,24 +130,34 @@ export const getCategoryList = async ({
 };
 
 export const getArticleCategoryList = async (): Promise<BlogCategory[]> => {
-  const [notionCategoryList, githubCategoryList] = await Promise.all([
-    safeRead(
-      () => notionBlogSource.getArticleCategoryList(),
-      [] as BlogCategory[],
-      "Failed to fetch Notion article categories from blog facade"
-    ),
-    safeRead(
-      () => githubMarkdownBlogSource.getArticleCategoryList(),
-      [] as BlogCategory[],
-      "Failed to fetch GitHub Markdown article categories from blog facade"
-    ),
-  ]);
+  const [notionCategoryList, githubCategoryList, githubLogsCategoryList] =
+    await Promise.all([
+      safeRead(
+        () => notionBlogSource.getArticleCategoryList(),
+        [] as BlogCategory[],
+        "Failed to fetch Notion article categories from blog facade"
+      ),
+      safeRead(
+        () => githubMarkdownBlogSource.getArticleCategoryList(),
+        [] as BlogCategory[],
+        "Failed to fetch GitHub Markdown article categories from blog facade"
+      ),
+      safeRead(
+        () => githubLogsBlogSource.getArticleCategoryList(),
+        [] as BlogCategory[],
+        "Failed to fetch GitHub logs article categories from blog facade"
+      ),
+    ]);
 
-  return uniqueByName([...notionCategoryList, ...githubCategoryList]);
+  return uniqueByName([
+    ...notionCategoryList,
+    ...githubCategoryList,
+    ...githubLogsCategoryList,
+  ]);
 };
 
 export const getArticleTagList = async (): Promise<BlogTag[]> => {
-  const [notionTagList, githubTagList] = await Promise.all([
+  const [notionTagList, githubTagList, githubLogsTagList] = await Promise.all([
     safeRead(
       () => notionBlogSource.getArticleTagList(),
       [] as BlogTag[],
@@ -143,12 +168,21 @@ export const getArticleTagList = async (): Promise<BlogTag[]> => {
       [] as BlogTag[],
       "Failed to fetch GitHub Markdown article tags from blog facade"
     ),
+    safeRead(
+      () => githubLogsBlogSource.getArticleTagList(),
+      [] as BlogTag[],
+      "Failed to fetch GitHub logs article tags from blog facade"
+    ),
   ]);
 
-  return uniqueByName([...notionTagList, ...githubTagList]);
+  return uniqueByName([...notionTagList, ...githubTagList, ...githubLogsTagList]);
 };
 
 export const getArticlePageHeaderData = async (pageId: string) => {
+  if (githubLogsBlogSource.isGitHubLogsPageId(pageId)) {
+    return githubLogsBlogSource.getArticlePageHeaderData(pageId);
+  }
+
   if (githubMarkdownBlogSource.isGitHubMarkdownPageId(pageId)) {
     return githubMarkdownBlogSource.getArticlePageHeaderData(pageId);
   }
@@ -162,6 +196,10 @@ export const getArticlePageHeaderData = async (pageId: string) => {
 };
 
 export const fetchArticlePageHeaderData = async (pageId: string) => {
+  if (githubLogsBlogSource.isGitHubLogsPageId(pageId)) {
+    return githubLogsBlogSource.fetchArticlePageHeaderData(pageId);
+  }
+
   if (githubMarkdownBlogSource.isGitHubMarkdownPageId(pageId)) {
     return githubMarkdownBlogSource.fetchArticlePageHeaderData(pageId);
   }
@@ -175,6 +213,10 @@ export const fetchArticlePageHeaderData = async (pageId: string) => {
 };
 
 export const fetchArticlePageContent = async (pageId: string) => {
+  if (githubLogsBlogSource.isGitHubLogsPageId(pageId)) {
+    return githubLogsBlogSource.fetchArticlePageContent(pageId);
+  }
+
   if (githubMarkdownBlogSource.isGitHubMarkdownPageId(pageId)) {
     return githubMarkdownBlogSource.fetchArticlePageContent(pageId);
   }
@@ -189,6 +231,10 @@ export const fetchArticlePageContent = async (pageId: string) => {
 export const fetchArticlePageFooterData = async (
   pageId: string
 ): Promise<ArticlePageFooterData> => {
+  if (githubLogsBlogSource.isGitHubLogsPageId(pageId)) {
+    return githubLogsBlogSource.fetchArticlePageFooterData(pageId);
+  }
+
   if (githubMarkdownBlogSource.isGitHubMarkdownPageId(pageId)) {
     return githubMarkdownBlogSource.fetchArticlePageFooterData(pageId);
   }

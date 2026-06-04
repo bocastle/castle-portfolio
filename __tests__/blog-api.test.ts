@@ -10,6 +10,7 @@ process.env.GITHUB_MARKDOWN_BLOG_DIR = path.join(
   "fixtures",
   "blog-markdown"
 );
+process.env.GITHUB_LOGS_BLOG_ENABLED = "false";
 
 const notionArticle: AllArticle = {
   id: 1,

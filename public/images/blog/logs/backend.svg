@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Backend article thumbnail</title>
+  <desc id="desc">Server, API, and database blocks connected in a restrained technical layout.</desc>
+  <rect width="1200" height="675" fill="#f7faf8"/>
+  <rect x="88" y="72" width="1024" height="531" rx="28" fill="#10231f"/>
+  <rect x="142" y="132" width="234" height="128" rx="18" fill="#25d0ab"/>
+  <rect x="483" y="132" width="234" height="128" rx="18" fill="#f2c14e"/>
+  <rect x="824" y="132" width="234" height="128" rx="18" fill="#e9f4ef"/>
+  <rect x="142" y="392" width="916" height="104" rx="18" fill="#17352f"/>
+  <path d="M376 196h107M717 196h107M600 260v132" fill="none" stroke="#e9f4ef" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="600" cy="196" r="18" fill="#e9f4ef"/>
+  <circle cx="600" cy="392" r="18" fill="#25d0ab"/>
+  <text x="142" y="560" fill="#e9f4ef" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="700">Backend Notes</text>
+  <text x="172" y="211" fill="#10231f" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">API</text>
+  <text x="523" y="211" fill="#10231f" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Service</text>
+  <text x="872" y="211" fill="#10231f" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">DB</text>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">JavaScript article thumbnail</title>
+  <desc id="desc">JavaScript runtime card with asynchronous task queue shapes.</desc>
+  <rect width="1200" height="675" fill="#fbf7e8"/>
+  <rect x="90" y="76" width="1020" height="523" rx="30" fill="#24221a"/>
+  <rect x="152" y="148" width="304" height="304" rx="24" fill="#f7df1e"/>
+  <text x="214" y="352" fill="#24221a" font-family="Inter, Arial, sans-serif" font-size="150" font-weight="800">JS</text>
+  <rect x="556" y="156" width="400" height="74" rx="18" fill="#fff4b8"/>
+  <rect x="556" y="284" width="400" height="74" rx="18" fill="#8ee6d2"/>
+  <rect x="556" y="412" width="400" height="74" rx="18" fill="#f4a261"/>
+  <path d="M956 193h62M956 321h62M956 449h62" fill="none" stroke="#fbf7e8" stroke-width="10" stroke-linecap="round"/>
+  <text x="152" y="548" fill="#fbf7e8" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="700">JavaScript Notes</text>
+</svg>
