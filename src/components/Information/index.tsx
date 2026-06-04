@@ -9,22 +9,23 @@ const Information = () => {
           src={getPublicImageUrl("7nxjpqB/image.png")}
           width="200"
           height="200"
-          alt={"회사명"}
+          alt={"김보성 프로필 이미지"}
           className="object-cover rounded-lg border-[1px] border-gray-400 border-solid w-24 h-24"
         />
       </div>
-      <div className="flex w-full min-w-0 max-w-full flex-col gap-2 max-sm:max-w-xs md:w-auto">
+      <div className="flex w-full min-w-0 max-w-full flex-col gap-2 max-sm:max-w-[18rem] md:w-auto">
         <h1 className="max-w-full break-keep leading-[1.15] md:text-5xl sm:text-3xl max-sm:text-[1.75rem]">
           안녕하세요,
-          <br /> 꿈을 항해하는 개발자{" "}
+          <br /> 서비스를 끝까지 다루는{" "}
           <br className="sm:hidden" />
-          <span className="font-semibold">김보성</span>
+          <span className="font-semibold">풀스택 개발자 김보성</span>
           입니다.
         </h1>
-        <p className="w-full max-w-full break-words text-base leading-7 text-gray-600 dark:text-gray-300 sm:max-w-2xl">
+        <p className="w-full max-w-full break-words text-base leading-7 text-gray-600 dark:text-gray-300 max-sm:text-[0.95rem] sm:max-w-2xl">
           React, React Native, Go, Node.js, Java/Spring 기반으로 웹/앱과
-          백엔드를 함께 다루며, 결제/정산/운영 시스템과 AI 개발
-          워크플로우에 관심이 많은 풀스택 개발자입니다.
+          백엔드를 함께 다룹니다. 결제/정산/운영 시스템과 배포 흐름을
+          이해하고, AI 개발 도구로 레거시 분석과 검증 속도를 높이고
+          있습니다.
         </p>
         <div className="flex gap-5 items-center mt-4">
           <a
