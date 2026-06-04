@@ -8,10 +8,10 @@ describe("Projects", () => {
     expect(screen.getByRole("heading", { name: "개인 프로젝트" })).toBeInTheDocument();
     expect(screen.getByText("castleCms")).toBeInTheDocument();
     expect(
-      screen.getByText(/Next\.js와 Spring Boot 기반으로 만든 풀스택 CMS 프로젝트/)
+      screen.getByText(/Next\.js와 Spring Boot로 만든 운영형 풀스택 CMS/)
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/운영형 관리자 도구의 핵심 흐름을 구현했습니다/)
+      screen.getByText(/요구사항을 기능 단위로 나누고 화면 구조, API 계약, 권한 모델/)
     ).toBeInTheDocument();
   });
 });

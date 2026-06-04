@@ -1,6 +1,15 @@
 import { getPublicImageUrl } from "@/utils/image-url";
 import Image from "next/image";
 
+const focusKeywords = [
+  "React/React Native",
+  "Go/Node.js",
+  "Java/Spring",
+  "SQL",
+  "CI/CD와 운영",
+  "Cursor/Codex",
+];
+
 const Information = () => {
   return (
     <div className="w-full justify-center justify-items-center gap-6 items-center md:flex max-sm:flex-col max-sm:justify-items-center">
@@ -22,11 +31,21 @@ const Information = () => {
           입니다.
         </h1>
         <p className="w-full max-w-full break-words text-base leading-7 text-gray-600 dark:text-gray-300 max-sm:text-[0.95rem] sm:max-w-2xl">
-          React, React Native, Go, Node.js, Java/Spring 기반으로 웹/앱과
-          백엔드를 함께 다룹니다. 결제/정산/운영 시스템과 배포 흐름을
-          이해하고, AI 개발 도구로 레거시 분석과 검증 속도를 높이고
-          있습니다.
+          웹/앱 프론트엔드와 백엔드 API, SQL 기반 운영 데이터를 함께
+          다룹니다. 결제/정산/운영 시스템과 배포 흐름을 연결해 보고,
+          AI 개발 도구는 요구사항 분해와 레거시 분석, 테스트 검증 속도를
+          높이는 방식으로 활용합니다.
         </p>
+        <ul className="flex max-w-2xl flex-wrap gap-2 text-sm text-gray-700 dark:text-gray-200">
+          {focusKeywords.map((keyword) => (
+            <li
+              key={keyword}
+              className="rounded-md border border-gray-300 bg-gray-50 px-2.5 py-1 dark:border-slate-600 dark:bg-slate-800"
+            >
+              {keyword}
+            </li>
+          ))}
+        </ul>
         <div className="flex gap-5 items-center mt-4">
           <a
             href="mailto:bocastle1213@gmail.com"

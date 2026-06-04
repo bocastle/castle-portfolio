@@ -17,6 +17,7 @@ const DEFAULT_BLUR_DATA_URL =
 type MarkdownFrontmatter = {
   title: string;
   description: string;
+  slug: string;
   createdAt: string;
   updatedAt: string;
   category: string[];
@@ -96,6 +97,7 @@ const parseMarkdownWithFrontmatter = (
     frontmatter: {
       title,
       description: toRequiredString(parsed.description),
+      slug: toRequiredString(parsed.slug),
       createdAt,
       updatedAt: toRequiredString(parsed.updatedAt) || createdAt,
       category: toStringArray(parsed.category),
@@ -203,10 +205,12 @@ const toTokenId = (prefix: string, name: string) =>
 const toArticleNumericId = (pageId: string) =>
   pageId.split("").reduce((hash, char) => hash + char.charCodeAt(0), 0);
 
-const toPageId = (fileSlug: string) =>
-  fileSlug.startsWith(GITHUB_PAGE_ID_PREFIX)
-    ? fileSlug
-    : `${GITHUB_PAGE_ID_PREFIX}${toSafeSlug(fileSlug)}`;
+const toPageId = (record: MarkdownArticleRecord) => {
+  const slug = record.frontmatter.slug || record.fileSlug;
+  return slug.startsWith(GITHUB_PAGE_ID_PREFIX)
+    ? slug
+    : `${GITHUB_PAGE_ID_PREFIX}${toSafeSlug(slug)}`;
+};
 
 const toCategory = (name: string): BlogCategory => ({
   id: toTokenId("github-category", name),
@@ -220,7 +224,7 @@ const toTag = (name: string): BlogTag => ({
 });
 
 const toAllArticle = (record: MarkdownArticleRecord): AllArticle => {
-  const pageId = toPageId(record.fileSlug);
+  const pageId = toPageId(record);
 
   return {
     id: toArticleNumericId(pageId),
@@ -250,7 +254,7 @@ const toArticleHeader = (
 
 const findRecordByPageId = async (pageId: string) => {
   const records = await readMarkdownArticleRecords();
-  const record = records.find((item) => toPageId(item.fileSlug) === pageId);
+  const record = records.find((item) => toPageId(item) === pageId);
 
   if (!record) {
     throw new Error(`GitHub Markdown article not found: ${pageId}`);

@@ -87,17 +87,22 @@ describe("blog api facade", () => {
     });
 
     expect(pageList.map((article) => article.title)).toEqual([
+      "풀스택 개발자로 서비스 운영 흐름 다루기",
       "Codex로 포트폴리오 QA 자동화하기",
       "Notion에서 작성한 글",
     ]);
     expect(tagList.map((tag) => tag.name)).toEqual([
+      "AI 개발",
       "Codex",
+      "Fullstack",
       "Next.js",
       "QA",
+      "운영",
     ]);
     expect(categoryList.map((category) => category.name)).toEqual([
       "AI 개발",
       "개발",
+      "커리어",
     ]);
     expect(githubCategoryList.map((article) => article.pageId)).toEqual([
       "github-codex-workflow",
