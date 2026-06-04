@@ -1,3 +1,6 @@
+"use client";
+
+import { trackEvent } from "@/utils/analytics";
 import { getPublicImageUrl } from "@/utils/image-url";
 import Image from "next/image";
 
@@ -53,6 +56,12 @@ const Information = () => {
         <div className="mt-1 flex flex-wrap items-center justify-center gap-3 md:justify-start">
           <a
             href="mailto:bocastle1213@gmail.com"
+            onClick={() =>
+              trackEvent("Contact Click", {
+                channel: "mail",
+                location: "home_profile",
+              })
+            }
             className="inline-flex min-h-10 items-center gap-2 rounded-full border border-gray-300 bg-white px-4 text-sm font-semibold fill-black text-gray-800 transition-colors hover:border-green-500 hover:text-green-600 hover:fill-green-600 dark:border-slate-600 dark:bg-slate-800 dark:fill-white dark:text-gray-100 dark:hover:border-green-400 dark:hover:text-green-400 dark:hover:fill-green-400"
           >
             <svg
@@ -69,6 +78,12 @@ const Information = () => {
             href="https://github.com/bocastle"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() =>
+              trackEvent("Contact Click", {
+                channel: "github",
+                location: "home_profile",
+              })
+            }
             className="inline-flex min-h-10 items-center gap-2 rounded-full border border-gray-300 bg-white px-4 text-sm font-semibold fill-black text-gray-800 transition-colors hover:border-green-500 hover:text-green-600 hover:fill-green-600 dark:border-slate-600 dark:bg-slate-800 dark:fill-white dark:text-gray-100 dark:hover:border-green-400 dark:hover:text-green-400 dark:hover:fill-green-400"
           >
             <svg

@@ -1,5 +1,6 @@
 "use client";
 
+import { trackEvent } from "@/utils/analytics";
 import { ReactNode, useState } from "react";
 
 type TabId = "workHistory" | "projects";
@@ -16,6 +17,13 @@ type ProfileTabsProps = {
 
 const ProfileTabs = ({ projects, workHistory }: ProfileTabsProps) => {
   const [activeTab, setActiveTab] = useState<TabId>("workHistory");
+  const handleTabClick = (tab: (typeof tabs)[number]) => {
+    setActiveTab(tab.id);
+    trackEvent("Profile Tab Click", {
+      tab: tab.id,
+      label: tab.label,
+    });
+  };
 
   return (
     <section className="mx-auto w-full max-w-6xl">
@@ -38,7 +46,7 @@ const ProfileTabs = ({ projects, workHistory }: ProfileTabsProps) => {
                   : "text-gray-600 hover:bg-white/70 hover:text-gray-950 dark:text-gray-300 dark:hover:bg-slate-700 dark:hover:text-white"
               }`}
               id={`${tab.id}-tab`}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => handleTabClick(tab)}
               role="tab"
               type="button"
             >

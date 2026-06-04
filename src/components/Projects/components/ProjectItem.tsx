@@ -1,5 +1,6 @@
 "use client";
 
+import { trackEvent } from "@/utils/analytics";
 import Image from "next/image";
 import { useState } from "react";
 import { Project } from "../types";
@@ -66,6 +67,12 @@ const ProjectItem = ({
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${selectedScreenshot.alt} 원본 이미지 새 창으로 보기`}
+            onClick={() =>
+              trackEvent("Project Image Open", {
+                project: name,
+                image: selectedScreenshot.alt,
+              })
+            }
             className="group block"
           >
             <Image
@@ -85,7 +92,13 @@ const ProjectItem = ({
               type="button"
               aria-label={`${screenshot.alt} 크게 보기`}
               aria-pressed={selectedScreenshot?.src === screenshot.src}
-              onClick={() => setSelectedScreenshot(screenshot)}
+              onClick={() => {
+                setSelectedScreenshot(screenshot);
+                trackEvent("Project Screenshot Select", {
+                  project: name,
+                  image: screenshot.alt,
+                });
+              }}
               className="rounded-md text-left focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-950"
             >
               <Image

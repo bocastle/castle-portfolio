@@ -6,6 +6,7 @@ import {
   removeFilterBlogTag,
   useArticleFilterStore,
 } from "@/store/article-filter.store";
+import { trackEvent } from "@/utils/analytics";
 
 interface Props {
   articleTagInfo: BlogTag;
@@ -21,6 +22,11 @@ const ArticleTagList = ({ articleTagInfo }: Props) => {
   );
 
   const onToggleFilter = () => {
+    trackEvent("Blog Tag Toggle", {
+      tag: articleTagInfo.name,
+      selected: !isSelected,
+    });
+
     if (isSelected) {
       return removeFilterBlogTag(articleTagInfo);
     }

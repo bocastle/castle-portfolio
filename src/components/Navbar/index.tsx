@@ -1,29 +1,39 @@
 "use client";
 
+import { trackEvent } from "@/utils/analytics";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navLinks } from "../config/config";
+
 const ThemeButton = dynamic(() => import("./components/ThemeButton"), {
   ssr: false,
-  // loading: () => (
-  //   <div>
-  //     <span>darkMode</span>
-  //   </div>
-  // ),
 });
+
 const Navbar = () => {
   const currentPathName = usePathname();
-  // console.log("currentPathName", currentPathName);
 
   const handleToggle = () => {
-    // console.log("handleToggle 준비");
-    alert("모바일 준비중입니다.");
+    trackEvent("Mobile Menu Click", {
+      path: currentPathName,
+    });
+    alert("모바일 메뉴는 준비중입니다.");
   };
+
   return (
     <div className="h-2 sticky flex items-center justify-between top-110 md:static md:h-20 md:flex md:justify-between md:items-center md:gap-5 md:px-12 max-md:h-20 max-md:px-12 max-md:flex max-md:justify-between">
       <div className="flex md:flex">
-        <Link className="italic text-1xl md:block font-black" href={"/"}>
+        <Link
+          className="italic text-1xl md:block font-black"
+          href="/"
+          onClick={() =>
+            trackEvent("Nav Click", {
+              label: "castle.log",
+              href: "/",
+              from: currentPathName,
+            })
+          }
+        >
           castle.log
         </Link>
       </div>
@@ -51,11 +61,18 @@ const Navbar = () => {
         <ThemeButton />
         {navLinks.map((item, index) => {
           const isUnderlined = currentPathName.includes(item.href);
-          // console.log("isUnderlined", isUnderlined);
+
           return (
             <Link
               key={`${item.key}${index}`}
               href={item.href}
+              onClick={() =>
+                trackEvent("Nav Click", {
+                  label: item.name,
+                  href: item.href,
+                  from: currentPathName,
+                })
+              }
               className={`italic text-2xl md:block font-semibold ${
                 isUnderlined
                   ? "underline decoration-solid underline-offset-8"

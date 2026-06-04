@@ -1,6 +1,7 @@
 "use client";
 
 import { BlogCategory } from "@/app/(blogLayout)/api/types";
+import { trackEvent } from "@/utils/analytics";
 import Link from "next/link";
 
 interface Props {
@@ -13,6 +14,11 @@ export const ArticleCategory = ({ list }: Props) => {
       <Link
         className="leading-[1.15] md:text-sm sm:text-sm max-sm:text-sm cursor-pointer"
         href={"/categories"}
+        onClick={() =>
+          trackEvent("Blog Category Click", {
+            category: "all",
+          })
+        }
       >
         <span className="font-bold">전체메뉴</span>
       </Link>
@@ -23,6 +29,11 @@ export const ArticleCategory = ({ list }: Props) => {
             key={item.id}
             className="leading-[1.15] md:text-sm sm:text-sm max-sm:text-sm cursor-pointer"
             href={encodeURI(`/categories/${item.name}`)}
+            onClick={() =>
+              trackEvent("Blog Category Click", {
+                category: item.name,
+              })
+            }
           >
             {item.name}
           </Link>

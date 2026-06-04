@@ -1,4 +1,5 @@
 import GoogleAdSenseComponent from "@/components/GoogleAds/components/GoogleAdSenseComponent";
+import CampaignTracker from "@/components/Analytics/CampaignTracker";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -68,6 +69,7 @@ export default function RootLayout({
         {children}
         <SpeedInsights />
         <Analytics />
+        <CampaignTracker />
         {GTM_ID ? (
           <noscript
             dangerouslySetInnerHTML={{

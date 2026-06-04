@@ -5,6 +5,7 @@ import {
   loadMoreArticle,
   useArticleFilterStore,
 } from "@/store/article-filter.store";
+import { trackEvent } from "@/utils/analytics";
 import { getDistanceFromToday, getYearMonthDay } from "@/utils/date";
 import Image from "next/image";
 import Link from "next/link";
@@ -81,6 +82,13 @@ const BlogList = ({ list }: Props) => {
           <Link
             href={`/blog/${item.pageId}`}
             key={item.pageId}
+            onClick={() =>
+              trackEvent("Blog Article Click", {
+                pageId: item.pageId,
+                source: item.source ?? "unknown",
+                title: item.title,
+              })
+            }
             className="flex flex-col items-start gap-5"
           >
             <div
