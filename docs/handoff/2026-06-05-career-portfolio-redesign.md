@@ -10,6 +10,10 @@
 
 - 브랜치: `main`
 - 원격: `origin/main`
+- 원격 반영 완료 커밋:
+  - `5c0bb1b Refine portfolio for career search`
+  - `ca9b4b1 Update portfolio spec for resume PDF`
+  - `be3c201 Add career portfolio redesign spec`
 - 기준 문서:
   - `docs/superpowers/specs/2026-06-05-career-portfolio-redesign-design.md`
 
@@ -54,28 +58,51 @@
 
 ## 검증 결과
 
-현재까지 확인한 항목:
+최종 확인한 항목:
 
-- `tsc --noEmit` 통과
-- `next build` 통과
-- `jest --runInBand` 통과
+- `git diff --check` 통과
+- `node .\node_modules\typescript\bin\tsc --noEmit` 통과
+- `node .\node_modules\jest\bin\jest.js --runInBand` 통과
+- `node .\node_modules\next\dist\bin\next build` 통과
 - 로컬 Next 서버에서 `/resume/kim-bosung.pdf` HTTP 200 확인
 - `portfolio-browser-qa.spec.ts`, `work-history-tabs.spec.ts` Playwright E2E 통과
+
+최종 Playwright 결과:
+
+- `portfolio-browser-qa.spec.ts`: 3개 통과
+- `work-history-tabs.spec.ts`: 1개 통과
+- 총 4개 통과
+
+최종 Jest 결과:
+
+- 10 suites 통과
+- 18 tests 통과
+- 1 snapshot 통과
 
 주의:
 
 - `next build` 중 Webpack cache snapshot 경고가 출력될 수 있으나 production build는 성공한다.
 - in-app Browser 제어용 `node_repl` 도구가 이 세션에 노출되지 않아 실제 화면 검증은 터미널 Playwright로 수행했다.
+- 로컬 production 서버는 확인용으로 `http://127.0.0.1:3000/`에서 실행했다.
 
 ## 현재 로컬 주의사항
 
-작업 트리에 기존 `package-lock.json` 변경이 남아 있다.
+`5c0bb1b` 푸시 후 작업 트리에 기존 `package-lock.json` 변경만 남아 있다.
 
 변경 내용:
 
 - `fsevents` 항목의 `"dev": true` 한 줄 삭제
 
 이 작업 범위와 무관하므로 커밋에 포함하지 않는다. 사용자가 의도한 install 결과인지 별도로 확인해야 한다.
+
+다음 개발자가 시작할 때 권장 확인:
+
+```text
+git status -sb
+git pull origin main
+```
+
+`package-lock.json` 변경은 사용자 설치 작업의 결과일 수 있으므로, 이어받는 개발자는 임의로 되돌리기 전에 사용자에게 확인한다.
 
 ## 다음 단계
 
