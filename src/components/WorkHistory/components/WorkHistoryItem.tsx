@@ -22,7 +22,7 @@ const WorkHistoryItem = ({
           width="200"
           height="200"
           alt={name}
-          className="object-cover rounded-lg border-[1px] border-GRAY_LIGHT border-solid w-24 h-24"
+          className="h-24 w-36 rounded-lg border border-GRAY_LIGHT border-solid bg-white object-contain p-1"
         />
         <div className="w-48">
           <h3 className="">{name}</h3>
