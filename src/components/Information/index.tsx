@@ -1,103 +1,157 @@
 "use client";
 
 import { trackEvent } from "@/utils/analytics";
-import { getPublicImageUrl } from "@/utils/image-url";
-import Image from "next/image";
 
 const focusKeywords = [
-  "React/React Native",
-  "Go/Node.js",
-  "Java/Spring",
-  "SQL",
-  "CI/CD와 운영",
-  "Cursor/Codex",
+  "Go/Node.js/Spring API",
+  "React/Next.js 화면",
+  "SQL 운영 데이터",
+  "결제/정산/CRM",
+  "배포/QA 검증",
+  "Codex/Cursor 활용",
+];
+
+const proofPoints = [
+  {
+    label: "최근 도메인",
+    value: "CRM, 결제, 정산, 관리자 포털",
+  },
+  {
+    label: "주력 범위",
+    value: "API, 화면, SQL, 배포/운영 검증",
+  },
+  {
+    label: "AI 활용",
+    value: "요구사항 분해, 변경 영향 분석, QA 문서화",
+  },
 ];
 
 const Information = () => {
   return (
-    <section className="mx-auto grid w-full max-w-6xl items-center gap-8 px-0 py-8 sm:px-2 md:grid-cols-[8rem_minmax(0,1fr)] md:gap-10 md:py-10 lg:grid-cols-[10rem_minmax(0,1fr)] lg:gap-12 lg:py-14">
-      <div className="flex justify-center md:justify-end md:self-start md:pt-2">
-        <Image
-          src={getPublicImageUrl("7nxjpqB/image.png")}
-          width="200"
-          height="200"
-          alt={"김보성 프로필 이미지"}
-          className="h-28 w-28 rounded-2xl border border-gray-300 object-cover shadow-sm dark:border-slate-600 sm:h-32 sm:w-32 lg:h-36 lg:w-36"
-        />
-      </div>
-      <div className="flex w-full min-w-0 max-w-4xl flex-col gap-5 text-center md:text-left">
-        <h1 className="max-w-full break-keep py-0 text-[2rem] font-semibold leading-tight tracking-normal sm:text-4xl md:text-5xl">
-          안녕하세요,
-          <br />
-          서비스를 끝까지 다루는{" "}
-          <br className="sm:hidden" />
-          <span className="font-semibold">풀스택 개발자 김보성</span>
-          입니다.
-        </h1>
-        <p className="w-full max-w-3xl break-keep text-base leading-7 text-gray-600 dark:text-gray-300 max-sm:text-[0.95rem]">
-          웹/앱 프론트엔드와 백엔드 API, SQL 기반 운영 데이터를 함께
-          다룹니다. 결제/정산/운영 시스템과 배포 흐름을 연결해 보고,
-          AI 개발 도구는 요구사항 분해와 레거시 분석, 테스트 검증 속도를
-          높이는 방식으로 활용합니다.
-        </p>
-        <ul
-          aria-label="핵심 기술과 업무 키워드"
-          className="m-0 flex max-w-3xl list-none flex-row flex-wrap justify-center gap-2 p-0 text-sm text-gray-700 dark:text-gray-200 md:justify-start"
-        >
-          {focusKeywords.map((keyword) => (
-            <li
-              key={keyword}
-              className="inline-flex min-h-9 items-center rounded-full border border-gray-300 bg-white px-4 py-1.5 font-medium shadow-sm dark:border-slate-600 dark:bg-slate-800/80"
-            >
-              {keyword}
-            </li>
-          ))}
-        </ul>
-        <div className="mt-1 flex flex-wrap items-center justify-center gap-3 md:justify-start">
-          <a
-            href="mailto:bocastle1213@gmail.com"
-            onClick={() =>
-              trackEvent("Contact Click", {
-                channel: "mail",
-                location: "home_profile",
-              })
-            }
-            className="inline-flex min-h-10 items-center gap-2 rounded-full border border-gray-300 bg-white px-4 text-sm font-semibold fill-black text-gray-800 transition-colors hover:border-green-500 hover:text-green-600 hover:fill-green-600 dark:border-slate-600 dark:bg-slate-800 dark:fill-white dark:text-gray-100 dark:hover:border-green-400 dark:hover:text-green-400 dark:hover:fill-green-400"
+    <section className="mx-auto grid w-full max-w-6xl items-start gap-8 px-0 py-8 sm:px-2 lg:grid-cols-[minmax(0,1fr)_21rem] lg:gap-10 lg:py-12">
+      <div className="grid min-w-0 gap-7 md:grid-cols-[8rem_minmax(0,1fr)] md:gap-10 lg:grid-cols-[9rem_minmax(0,1fr)]">
+        <div className="flex justify-center md:justify-end md:self-start md:pt-2">
+          <div
+            aria-label="김보성 프로필 마크"
+            className="grid h-28 w-28 place-items-center rounded-lg border border-teal-300 bg-white shadow-sm dark:border-teal-700 dark:bg-slate-950 sm:h-32 sm:w-32 lg:h-36 lg:w-36"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 .02c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.99 6.98l-6.99 5.666-6.991-5.666h13.981zm.01 10h-14v-8.505l7 5.673 7-5.672v8.504z" />
-            </svg>
-            <p>Mail</p>
-          </a>
-          <a
-            href="https://github.com/bocastle"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() =>
-              trackEvent("Contact Click", {
-                channel: "github",
-                location: "home_profile",
-              })
-            }
-            className="inline-flex min-h-10 items-center gap-2 rounded-full border border-gray-300 bg-white px-4 text-sm font-semibold fill-black text-gray-800 transition-colors hover:border-green-500 hover:text-green-600 hover:fill-green-600 dark:border-slate-600 dark:bg-slate-800 dark:fill-white dark:text-gray-100 dark:hover:border-green-400 dark:hover:text-green-400 dark:hover:fill-green-400"
+            <div className="text-center">
+              <span className="block text-3xl font-semibold text-teal-700 dark:text-teal-300 sm:text-4xl">
+                KB
+              </span>
+              <span className="mt-1 block text-[0.65rem] font-semibold uppercase text-gray-500 dark:text-gray-300">
+                Full-stack
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="flex w-full min-w-0 max-w-4xl flex-col gap-5 text-center md:text-left">
+          <p className="m-0 text-sm font-semibold text-teal-700 dark:text-teal-300">
+            운영/결제/관리자 도구 경험이 있는 풀스택 개발자
+          </p>
+          <h1 className="max-w-full break-keep py-0 text-[2rem] font-semibold leading-tight tracking-normal sm:text-4xl md:text-5xl">
+            김보성,
+            <br />
+            서비스 흐름을 끝까지 연결하는 풀스택 개발자입니다.
+          </h1>
+          <p className="w-full max-w-3xl break-keep text-base leading-7 text-gray-600 dark:text-gray-300 max-sm:text-[0.95rem]">
+            Go/Node.js/Spring 기반 API, React/Next.js 화면, SQL 운영 데이터를
+            함께 다룹니다. 결제/정산/CRM/관리자 도구의 기능 설계와 배포
+            검증 경험을 바탕으로, AI 개발 도구는 요구사항 분해와 변경 영향
+            분석, QA 문서화 속도를 높이는 방식으로 활용합니다.
+          </p>
+          <ul
+            aria-label="핵심 기술과 업무 키워드"
+            className="m-0 flex max-w-3xl list-none flex-row flex-wrap justify-center gap-2 p-0 text-sm text-gray-700 dark:text-gray-200 md:justify-start"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
+            {focusKeywords.map((keyword) => (
+              <li
+                key={keyword}
+                className="inline-flex min-h-9 items-center rounded-full border border-gray-300 bg-white px-4 py-1.5 font-medium shadow-sm dark:border-slate-600 dark:bg-slate-800/80"
+              >
+                {keyword}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-1 flex flex-wrap items-center justify-center gap-3 md:justify-start">
+            <a
+              href="/resume/kim-bosung.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                trackEvent("Resume Click", {
+                  location: "home_profile",
+                })
+              }
+              className="inline-flex min-h-10 items-center gap-2 rounded-full border border-teal-500 bg-teal-600 px-4 text-sm font-semibold text-white transition-colors hover:bg-teal-700 dark:border-teal-400 dark:bg-teal-500 dark:text-slate-950 dark:hover:bg-teal-400"
             >
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-            </svg>
-            <p>GitHub</p>
-          </a>
+              <span aria-hidden="true">PDF</span>
+              <span>이력서 보기</span>
+            </a>
+            <a
+              href="mailto:bocastle1213@gmail.com"
+              onClick={() =>
+                trackEvent("Contact Click", {
+                  channel: "mail",
+                  location: "home_profile",
+                })
+              }
+              className="inline-flex min-h-10 items-center gap-2 rounded-full border border-gray-300 bg-white px-4 text-sm font-semibold fill-black text-gray-800 transition-colors hover:border-green-500 hover:text-green-600 hover:fill-green-600 dark:border-slate-600 dark:bg-slate-800 dark:fill-white dark:text-gray-100 dark:hover:border-green-400 dark:hover:text-green-400 dark:hover:fill-green-400"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 .02c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.99 6.98l-6.99 5.666-6.991-5.666h13.981zm.01 10h-14v-8.505l7 5.673 7-5.672v8.504z" />
+              </svg>
+              <p>Mail</p>
+            </a>
+            <a
+              href="https://github.com/bocastle"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                trackEvent("Contact Click", {
+                  channel: "github",
+                  location: "home_profile",
+                })
+              }
+              className="inline-flex min-h-10 items-center gap-2 rounded-full border border-gray-300 bg-white px-4 text-sm font-semibold fill-black text-gray-800 transition-colors hover:border-green-500 hover:text-green-600 hover:fill-green-600 dark:border-slate-600 dark:bg-slate-800 dark:fill-white dark:text-gray-100 dark:hover:border-green-400 dark:hover:text-green-400 dark:hover:fill-green-400"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+              <p>GitHub</p>
+            </a>
+          </div>
         </div>
       </div>
+
+      <aside className="w-full rounded-lg border border-gray-300 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900/80">
+        <h2 className="py-0 text-lg font-semibold">Hiring Snapshot</h2>
+        <dl className="mt-4 divide-y divide-gray-200 dark:divide-slate-700">
+          {proofPoints.map((point) => (
+            <div
+              key={point.label}
+              className="grid gap-1 py-3 first:pt-0 last:pb-0"
+            >
+              <dt className="text-xs font-semibold uppercase text-teal-700 dark:text-teal-300">
+                {point.label}
+              </dt>
+              <dd className="mt-1 text-sm leading-6 text-gray-700 dark:text-gray-200">
+                {point.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </aside>
     </section>
   );
 };

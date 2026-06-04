@@ -1,20 +1,21 @@
 import { expect, test } from "@playwright/test";
 
 test.describe("portfolio browser QA", () => {
-  test("개인 프로젝트 탭, 이미지 갤러리, 원본 이미지 새 창을 확인한다", async ({
+  test("대표 프로젝트 노출, 이미지 갤러리, 원본 이미지 새 창을 확인한다", async ({
     page,
   }) => {
     await page.goto("/");
 
-    await page.locator("#projects-tab").click();
-    await expect(page.locator("#projects-panel")).toContainText("castleCms");
+    await expect(page.getByRole("heading", { name: "castleCms" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "AI 협업 기반 포트폴리오 개선" })).toBeVisible();
 
-    const mainImageLink = page
-      .locator('#projects-panel a[target="_blank"]')
+    const projectArticle = page.locator("article").filter({ hasText: "castleCms" }).first();
+    const mainImageLink = projectArticle
+      .locator('a[target="_blank"][href*="/images/projects/castlecms/"]')
       .first();
     const beforeHref = await mainImageLink.getAttribute("href");
 
-    await page.locator('#projects-panel button[aria-pressed="false"]').first().click();
+    await projectArticle.locator('button[aria-pressed="false"]').first().click();
 
     await expect
       .poll(() => mainImageLink.getAttribute("href"))

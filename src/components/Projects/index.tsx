@@ -8,9 +8,18 @@ const Projects = () => {
 
   return (
     <section className="w-full">
-      <h2>{data.title}</h2>
+      <p className="m-0 text-sm font-semibold text-teal-700 dark:text-teal-300">
+        Selected Projects
+      </p>
+      <h2 className="py-1 text-3xl font-semibold md:text-4xl">
+        {data.title}
+      </h2>
+      <p className="mt-2 max-w-3xl text-base leading-7 text-gray-600 dark:text-gray-300">
+        실무에서 다룬 운영/권한/연동 경험을 개인 프로젝트와 개발 프로세스
+        개선 사례로 확장했습니다.
+      </p>
       <Divider />
-      <div className="flex flex-col gap-20">
+      <div className="flex flex-col gap-8">
         {projects.map((project) => (
           <ProjectItem key={project.id} {...project} />
         ))}

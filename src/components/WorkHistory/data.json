@@ -6,56 +6,103 @@
       "name": "DUBU4",
       "position": "사원/팀원",
       "period": ["2020.09", "2021.04"],
-      "imgSrc": "X7BCBrw/0-DUBU4.jpg"
+      "imgSrc": "X7BCBrw/0-DUBU4.jpg",
+      "summary": "초기 실무 개발 경험을 쌓으며 웹 서비스 기능 구현과 협업 흐름을 익혔습니다.",
+      "domain": "웹 서비스 개발",
+      "techStack": ["JavaScript", "HTML", "CSS"],
+      "topHighlights": ["웹 서비스 기능 구현", "실무 협업 프로세스 경험"]
     },
     {
       "id": 1,
       "name": "데브짓수",
       "position": "사원/팀원",
       "period": ["2021.04", "2021.12"],
-      "imgSrc": "GkxyZxB/1-devjitsu.jpg"
+      "imgSrc": "GkxyZxB/1-devjitsu.jpg",
+      "summary": "서비스 화면과 API 연동 업무를 수행하며 프론트엔드 개발 역량을 확장했습니다.",
+      "domain": "웹 프론트엔드",
+      "techStack": ["React", "JavaScript", "API 연동"],
+      "topHighlights": ["서비스 화면 구현", "API 연동과 상태 처리"]
     },
     {
       "id": 2,
       "name": "이모라이브",
       "position": "대리",
       "period": ["2022.01", "2022.08"],
-      "imgSrc": "gR5KxST/2-emolive.jpg"
+      "imgSrc": "gR5KxST/2-emolive.jpg",
+      "summary": "라이브 서비스 화면 개발과 운영 대응을 경험했습니다.",
+      "domain": "라이브 서비스",
+      "techStack": ["React", "JavaScript", "운영 대응"],
+      "topHighlights": ["라이브 서비스 화면 개발", "운영 이슈 대응 경험"]
     },
     {
       "id": 3,
       "name": "애니챗",
       "position": "책임연구원/팀원",
       "period": ["2022.08", "2022.11"],
-      "imgSrc": "J5q6C1x/3-anychat.png"
+      "imgSrc": "J5q6C1x/3-anychat.png",
+      "summary": "커뮤니케이션 서비스의 화면 개발과 기능 개선 업무를 수행했습니다.",
+      "domain": "커뮤니케이션 서비스",
+      "techStack": ["React", "JavaScript", "UI 개선"],
+      "topHighlights": ["서비스 화면 개발", "기능 개선 대응"]
     },
     {
       "id": 4,
       "name": "아이오센트레",
       "position": "개발부/프로",
       "period": ["2022.11", "2023.03"],
-      "imgSrc": "N27CBDd/4-iocentre.png"
+      "imgSrc": "N27CBDd/4-iocentre.png",
+      "summary": "운영 서비스 개발과 유지보수 업무를 수행했습니다.",
+      "domain": "운영 서비스",
+      "techStack": ["React", "JavaScript", "운영 유지보수"],
+      "topHighlights": ["운영 서비스 개발", "유지보수와 기능 개선"]
     },
     {
       "id": 5,
       "name": "(주)일인치",
       "position": "프론트엔드",
       "period": ["2023.03", "2023.10"],
-      "imgSrc": "VY9x9sw/5-danngol.png"
+      "imgSrc": "VY9x9sw/5-danngol.png",
+      "summary": "소스 접근이 제한된 WebView 운영 앱을 분석해 React Native 앱 구조로 재구현했습니다.",
+      "domain": "React Native 앱 / 로컬 커머스",
+      "featured": true,
+      "techStack": ["React Native", "Redux", "TypeScript", "Google Play Console", "Apple App Center"],
+      "topHighlights": [
+        "기존 WebView 앱의 화면과 기능 동작을 분석해 React Native로 재구현",
+        "게시글, 이미지 업로드, 소셜 로그인, 지도 WebView, 딥링크, 결제 기능 구현",
+        "Google Play Console과 Apple App Center 기반 배포/테스트 대응"
+      ]
     },
     {
       "id": 6,
       "name": "링크커넥션",
       "position": "개발팀",
       "period": ["2023.10", "2024.12"],
-      "imgSrc": "FbvNCdV/6-linker.png"
+      "imgSrc": "FbvNCdV/6-linker.png",
+      "summary": "병원 운영 솔루션의 React 화면과 API 연동을 구현하고 Node.js 기능을 Spring Boot 구조로 마이그레이션했습니다.",
+      "domain": "병원 운영 솔루션 / 배포 운영",
+      "featured": true,
+      "techStack": ["React", "Next.js", "Redux", "React Query", "Node.js", "Spring Boot", "GitHub Actions", "AWS CloudFront"],
+      "topHighlights": [
+        "예약, 전문 차트, 직원 관리, 내원 현황 분석 등 병원 운영 화면과 API 연동 구현",
+        "Node.js 기반 백엔드 기능을 Spring Boot 기반 구조로 마이그레이션",
+        "GitHub Actions, CloudFront 캐시 무효화, Slack Webhook 기반 운영 배포 대응"
+      ]
     },
     {
       "id": 7,
       "name": "소프트위즈",
       "position": "웹팀 과장",
       "period": ["2025.02", "재직 중"],
-      "imgSrc": "/images/work-history/softwiz-logo.png"
+      "imgSrc": "/images/work-history/softwiz-logo.png",
+      "summary": "Go 기반 CRM 멀티 모듈에서 결제수단, 정산, 보안, 다국어 관리, 배포 자동화까지 운영 흐름을 연결해 개발했습니다.",
+      "domain": "CRM / 결제 / 정산 / 관리자 포털",
+      "featured": true,
+      "techStack": ["Go", "Gin", "MySQL", "MariaDB", "Redis", "JavaScript", "Jenkins", "Bash", "Codex", "Cursor"],
+      "topHighlights": [
+        "STICPAY E-Wallet 신규 결제수단 도입: DB, gateway, clientapi, clientportal, officeportal 흐름 설계와 구현",
+        "Cellxpert 파트너 정산 수동 실행 안정화: 권한, PRD 제한, readiness check, 중복 실행 방지 적용",
+        "소유권 검증, 2FA/비밀번호 재설정, Gateway DEV 배포 자동화와 SHA 기반 런타임 검증"
+      ]
     }
   ]
 }
