@@ -1,4 +1,6 @@
 import Information from "@/components/Information";
+import ProfileTabs from "@/components/ProfileTabs";
+import Projects from "@/components/Projects";
 import WorkHistory from "@/components/WorkHistory";
 import { getPublicImageUrl } from "@/utils/image-url";
 import { Metadata } from "next";
@@ -30,7 +32,7 @@ export default function WorkHistoryPage() {
   return (
     <div className="items-center mx-auto p-8 flex flex-col gap-28 my-4 mb-20 md:gap-32 md:my-20 sm:gap-5">
       <Information />
-      <WorkHistory />
+      <ProfileTabs projects={<Projects />} workHistory={<WorkHistory />} />
     </div>
   );
 }
