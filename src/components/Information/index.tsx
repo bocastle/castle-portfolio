@@ -12,44 +12,48 @@ const focusKeywords = [
 
 const Information = () => {
   return (
-    <div className="w-full justify-center justify-items-center gap-6 items-center md:flex max-sm:flex-col max-sm:justify-items-center">
-      <div className="sm:flex sm:justify-center max-sm:flex max-sm:justify-center">
+    <section className="mx-auto grid w-full max-w-6xl items-center gap-8 px-0 py-8 sm:px-2 md:grid-cols-[8rem_minmax(0,1fr)] md:gap-10 md:py-10 lg:grid-cols-[10rem_minmax(0,1fr)] lg:gap-12 lg:py-14">
+      <div className="flex justify-center md:justify-end md:self-start md:pt-2">
         <Image
           src={getPublicImageUrl("7nxjpqB/image.png")}
           width="200"
           height="200"
           alt={"김보성 프로필 이미지"}
-          className="object-cover rounded-lg border-[1px] border-gray-400 border-solid w-24 h-24"
+          className="h-28 w-28 rounded-2xl border border-gray-300 object-cover shadow-sm dark:border-slate-600 sm:h-32 sm:w-32 lg:h-36 lg:w-36"
         />
       </div>
-      <div className="flex w-full min-w-0 max-w-full flex-col gap-2 max-sm:max-w-[18rem] md:w-auto">
-        <h1 className="max-w-full break-keep leading-[1.15] md:text-5xl sm:text-3xl max-sm:text-[1.75rem]">
+      <div className="flex w-full min-w-0 max-w-4xl flex-col gap-5 text-center md:text-left">
+        <h1 className="max-w-full break-keep py-0 text-[2rem] font-semibold leading-tight tracking-normal sm:text-4xl md:text-5xl">
           안녕하세요,
-          <br /> 서비스를 끝까지 다루는{" "}
+          <br />
+          서비스를 끝까지 다루는{" "}
           <br className="sm:hidden" />
           <span className="font-semibold">풀스택 개발자 김보성</span>
           입니다.
         </h1>
-        <p className="w-full max-w-full break-words text-base leading-7 text-gray-600 dark:text-gray-300 max-sm:text-[0.95rem] sm:max-w-2xl">
+        <p className="w-full max-w-3xl break-keep text-base leading-7 text-gray-600 dark:text-gray-300 max-sm:text-[0.95rem]">
           웹/앱 프론트엔드와 백엔드 API, SQL 기반 운영 데이터를 함께
           다룹니다. 결제/정산/운영 시스템과 배포 흐름을 연결해 보고,
           AI 개발 도구는 요구사항 분해와 레거시 분석, 테스트 검증 속도를
           높이는 방식으로 활용합니다.
         </p>
-        <ul className="flex max-w-2xl flex-wrap gap-2 text-sm text-gray-700 dark:text-gray-200">
+        <ul
+          aria-label="핵심 기술과 업무 키워드"
+          className="m-0 flex max-w-3xl list-none flex-row flex-wrap justify-center gap-2 p-0 text-sm text-gray-700 dark:text-gray-200 md:justify-start"
+        >
           {focusKeywords.map((keyword) => (
             <li
               key={keyword}
-              className="rounded-md border border-gray-300 bg-gray-50 px-2.5 py-1 dark:border-slate-600 dark:bg-slate-800"
+              className="inline-flex min-h-9 items-center rounded-full border border-gray-300 bg-white px-4 py-1.5 font-medium shadow-sm dark:border-slate-600 dark:bg-slate-800/80"
             >
               {keyword}
             </li>
           ))}
         </ul>
-        <div className="flex gap-5 items-center mt-4">
+        <div className="mt-1 flex flex-wrap items-center justify-center gap-3 md:justify-start">
           <a
             href="mailto:bocastle1213@gmail.com"
-            className="flex gap-2 items-center hover:scale-110 transition-transform duration-500 hover:text-green-500 hover:fill-green-500 fill-black dark:fill-white dark:hover:fill-green-500"
+            className="inline-flex min-h-10 items-center gap-2 rounded-full border border-gray-300 bg-white px-4 text-sm font-semibold fill-black text-gray-800 transition-colors hover:border-green-500 hover:text-green-600 hover:fill-green-600 dark:border-slate-600 dark:bg-slate-800 dark:fill-white dark:text-gray-100 dark:hover:border-green-400 dark:hover:text-green-400 dark:hover:fill-green-400"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +68,8 @@ const Information = () => {
           <a
             href="https://github.com/bocastle"
             target="_blank"
-            className="flex gap-2 items-center transition-transform duration-500 hover:scale-110 hover:text-green-500 hover:fill-green-500 fill-black  dark:fill-white dark:hover:fill-green-500"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-10 items-center gap-2 rounded-full border border-gray-300 bg-white px-4 text-sm font-semibold fill-black text-gray-800 transition-colors hover:border-green-500 hover:text-green-600 hover:fill-green-600 dark:border-slate-600 dark:bg-slate-800 dark:fill-white dark:text-gray-100 dark:hover:border-green-400 dark:hover:text-green-400 dark:hover:fill-green-400"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +83,7 @@ const Information = () => {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
