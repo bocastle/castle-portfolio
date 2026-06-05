@@ -23,7 +23,7 @@ export const featuredWritings = [
       "조회 코드가 실제 SQL과 성능 문제로 이어지는 흐름을 추적하고 최적화 선택지를 정리",
   },
   {
-    focus: "풀스택 연결",
+    focus: "풀스택",
     title: "Spring Boot와 Next.js 캐시 정리",
     href: "/blog/logs-spring-next-cache",
     description:
@@ -53,7 +53,7 @@ interface FeaturedWritingProps {
 }
 
 const DEFAULT_DESCRIPTION =
-  "운영/배포, 장애 대응, 성능, 풀스택 연결, 품질 검증, AI 협업 흐름을 보여주는 글을 먼저 배치했습니다.";
+  "운영/배포, 장애 대응, 성능, 풀스택, 품질 검증, AI 협업을 보여주는 글을 먼저 배치했습니다.";
 
 const FeaturedWriting = ({
   eyebrow = "기술 글",

@@ -30,7 +30,9 @@ describe("FeaturedWriting", () => {
       screen.getByText("Codex로 포트폴리오 QA 자동화하기")
     ).toBeInTheDocument();
     expect(screen.getByText("운영/배포")).toBeInTheDocument();
+    expect(screen.getByText("풀스택")).toBeInTheDocument();
     expect(screen.getByText("품질/테스트")).toBeInTheDocument();
+    expect(screen.queryByText("풀스택 연결")).not.toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: "CI/CD 파이프라인 정리 글 보기" })
     ).toHaveAttribute("href", "/blog/logs-cicd-pipeline");

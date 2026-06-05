@@ -31,6 +31,11 @@ test.describe("portfolio browser QA", () => {
     ).toBeVisible();
     await expect(
       page
+        .getByRole("link", { name: "Spring Boot와 Next.js 캐시 정리 글 보기" })
+        .getByText("풀스택", { exact: true })
+    ).toBeVisible();
+    await expect(
+      page
         .getByRole("link", { name: "테스트하기 쉬운 코드의 조건 글 보기" })
         .getByText("품질/테스트", { exact: true })
     ).toBeVisible();

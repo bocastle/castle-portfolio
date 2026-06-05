@@ -17,7 +17,7 @@ export default async function BlogPage() {
       <FeaturedWriting
         eyebrow="추천 글"
         title="먼저 볼 글"
-        description="운영/배포, 장애 대응, 성능, 풀스택 연결, 품질 검증, AI 협업 흐름을 보여주는 글을 먼저 모았습니다."
+        description="운영/배포, 장애 대응, 성능, 풀스택, 품질 검증, AI 협업을 보여주는 글을 먼저 모았습니다."
         className="w-full"
       />
       <div className="w-full">

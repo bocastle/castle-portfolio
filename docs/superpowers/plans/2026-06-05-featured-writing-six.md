@@ -57,7 +57,7 @@ Add compact labels:
 운영/배포
 장애 대응
 성능/DB
-풀스택 연결
+풀스택
 품질/테스트
 AI QA
 ```
