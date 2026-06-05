@@ -41,11 +41,11 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     slug: "cicd-pipeline",
     title: "CI/CD 파이프라인 정리",
     description:
-      "빌드, 테스트, 배포 흐름을 운영 관점에서 정리한 CI/CD 파이프라인 글입니다.",
+      "코드 변경이 테스트와 배포를 거쳐 서비스에 반영되는 흐름을 운영 관점에서 정리했습니다.",
     createdAt: "2026-06-04",
     updatedAt: "2026-06-04",
     category: ["Backend"],
-    tags: ["CI/CD", "Deployment", "Backend"],
+    tags: ["CI/CD", "Deployment", "Operations"],
     thumbnailUrl: THUMBNAILS.backend,
   },
   {
@@ -54,11 +54,11 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     slug: "api-gateway",
     title: "API Gateway 정리",
     description:
-      "API Gateway가 필요한 이유와 인증, 라우팅, 운영 흐름을 정리한 글입니다.",
+      "인증, 라우팅, 트래픽 제어를 한 지점에서 다루는 API Gateway의 역할을 서비스 구조 관점에서 정리했습니다.",
     createdAt: "2026-06-03",
     updatedAt: "2026-06-03",
     category: ["Backend"],
-    tags: ["API", "Gateway", "Backend"],
+    tags: ["API", "Gateway", "Architecture"],
     thumbnailUrl: THUMBNAILS.backend,
   },
   {
@@ -67,11 +67,11 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     slug: "cors",
     title: "CORS 정리",
     description:
-      "브라우저와 백엔드 API 사이에서 자주 마주치는 CORS 동작과 대응을 정리한 글입니다.",
+      "브라우저와 백엔드 API가 만나는 지점에서 CORS가 왜 발생하고 어떻게 검증해야 하는지 정리했습니다.",
     createdAt: "2026-06-02",
     updatedAt: "2026-06-02",
     category: ["Backend"],
-    tags: ["CORS", "API", "Web"],
+    tags: ["CORS", "API", "Browser"],
     thumbnailUrl: THUMBNAILS.backend,
   },
   {
@@ -80,11 +80,11 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     slug: "db-replication",
     title: "DB Replication 정리",
     description:
-      "MySQL InnoDB 중심으로 읽기 복제와 장애 대응 구조를 정리한 글입니다.",
+      "MySQL InnoDB 기준으로 읽기 분산, 복제 지연, 장애 대응을 함께 고려하는 데이터 운영 구조를 정리했습니다.",
     createdAt: "2026-06-01",
     updatedAt: "2026-06-01",
     category: ["Backend"],
-    tags: ["Database", "MySQL", "Replication"],
+    tags: ["Database", "MySQL", "Reliability"],
     thumbnailUrl: THUMBNAILS.backend,
   },
   {
@@ -93,11 +93,11 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     slug: "jpa-n-plus-one",
     title: "JPA N+1 문제",
     description:
-      "JPA에서 N+1 문제가 생기는 흐름과 조회 최적화 방향을 정리한 글입니다.",
+      "JPA 조회 코드가 실제 SQL과 성능 문제로 이어지는 흐름을 추적하고 최적화 선택지를 정리했습니다.",
     createdAt: "2026-05-31",
     updatedAt: "2026-05-31",
     category: ["Backend"],
-    tags: ["JPA", "Database", "Spring"],
+    tags: ["JPA", "Database", "Performance"],
     thumbnailUrl: THUMBNAILS.backend,
   },
   {
@@ -106,11 +106,11 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     slug: "database-index",
     title: "데이터베이스 인덱스 정리",
     description:
-      "쿼리 성능과 실행 계획을 이해하기 위한 데이터베이스 인덱스 정리 글입니다.",
+      "쿼리 성능을 실행 계획과 데이터 접근 패턴으로 설명하기 위해 인덱스 선택 기준을 정리했습니다.",
     createdAt: "2026-05-30",
     updatedAt: "2026-05-30",
     category: ["Backend"],
-    tags: ["Database", "Index", "SQL"],
+    tags: ["Database", "Index", "Performance"],
     thumbnailUrl: THUMBNAILS.backend,
   },
   {
@@ -119,11 +119,11 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     slug: "spring-transaction-aop",
     title: "스프링 트랜잭션 AOP 동작 흐름 정리",
     description:
-      "Spring 트랜잭션이 프록시와 AOP를 통해 적용되는 흐름을 정리한 글입니다.",
+      "Spring 트랜잭션이 프록시와 AOP를 통해 적용되는 흐름을 코드 구조와 장애 분석 관점에서 정리했습니다.",
     createdAt: "2026-05-29",
     updatedAt: "2026-05-29",
     category: ["Backend"],
-    tags: ["Spring", "Transaction", "AOP"],
+    tags: ["Spring", "Transaction", "Architecture"],
     thumbnailUrl: THUMBNAILS.backend,
   },
   {
@@ -132,11 +132,11 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     slug: "external-service-failure",
     title: "외부 서비스 장애 대응 전략 정리",
     description:
-      "외부 API 장애가 서비스 전체 장애로 번지지 않도록 대응하는 전략을 정리한 글입니다.",
+      "외부 API 장애가 서비스 전체 장애로 번지지 않도록 타임아웃, 재시도, fallback 기준을 정리했습니다.",
     createdAt: "2026-05-28",
     updatedAt: "2026-05-28",
     category: ["Backend"],
-    tags: ["Resilience", "API", "Operations"],
+    tags: ["Resilience", "API", "Reliability"],
     thumbnailUrl: THUMBNAILS.backend,
   },
   {
@@ -145,11 +145,11 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     slug: "rate-limiting",
     title: "Rate Limiting 정리",
     description:
-      "트래픽 제어와 API 보호를 위한 Rate Limiting 개념과 적용 포인트를 정리한 글입니다.",
+      "트래픽 급증과 남용을 제어하기 위한 Rate Limiting 전략을 API 보호와 운영 안정성 관점에서 정리했습니다.",
     createdAt: "2026-05-27",
     updatedAt: "2026-05-27",
     category: ["Backend"],
-    tags: ["Rate Limiting", "API", "Operations"],
+    tags: ["Rate Limiting", "API", "Reliability"],
     thumbnailUrl: THUMBNAILS.backend,
   },
   {
@@ -158,11 +158,11 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     slug: "optimistic-pessimistic-lock",
     title: "낙관적 락과 비관적 락 정리",
     description:
-      "동시성 제어에서 낙관적 락과 비관적 락을 어떻게 선택하는지 정리한 글입니다.",
+      "동시성 충돌 가능성과 사용자 경험을 함께 보며 낙관적 락과 비관적 락 선택 기준을 정리했습니다.",
     createdAt: "2026-05-26",
     updatedAt: "2026-05-26",
     category: ["Backend"],
-    tags: ["Database", "Lock", "Concurrency"],
+    tags: ["Database", "Concurrency", "Consistency"],
     thumbnailUrl: THUMBNAILS.backend,
   },
   {
@@ -171,11 +171,11 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     slug: "react-query-server-state",
     title: "React Query와 서버 상태 관리 정리",
     description:
-      "프론트엔드에서 서버 상태, 캐시, 재요청 흐름을 다루는 방식을 정리한 글입니다.",
+      "프론트엔드에서 서버 상태를 화면 상태와 분리하고 캐시, 재요청, 동기화 흐름을 설계하는 기준을 정리했습니다.",
     createdAt: "2026-05-25",
     updatedAt: "2026-05-25",
     category: ["Frontend"],
-    tags: ["React", "React Query", "Cache"],
+    tags: ["React", "React Query", "State"],
     thumbnailUrl: THUMBNAILS.frontend,
   },
   {
@@ -184,11 +184,11 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     slug: "ssr-csr",
     title: "SSR과 CSR 정리",
     description:
-      "렌더링 위치와 사용자 경험, SEO 관점에서 SSR과 CSR을 비교한 글입니다.",
+      "렌더링 위치가 초기 표시 속도, SEO, 사용자 경험에 주는 영향을 SSR과 CSR 비교로 정리했습니다.",
     createdAt: "2026-05-24",
     updatedAt: "2026-05-24",
     category: ["Frontend"],
-    tags: ["SSR", "CSR", "Next.js"],
+    tags: ["SSR", "CSR", "Rendering"],
     thumbnailUrl: THUMBNAILS.frontend,
   },
   {
@@ -197,7 +197,7 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     slug: "browser-rendering",
     title: "브라우저 렌더링 과정 정리",
     description:
-      "HTML, CSS, JavaScript가 화면으로 그려지는 브라우저 렌더링 과정을 정리한 글입니다.",
+      "HTML, CSS, JavaScript가 화면으로 그려지는 과정을 성능 병목과 사용자 체감 속도 관점에서 정리했습니다.",
     createdAt: "2026-05-23",
     updatedAt: "2026-05-23",
     category: ["Frontend"],
@@ -210,11 +210,11 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     slug: "react-error-boundary",
     title: "React Error Boundary 정리",
     description:
-      "React 컴포넌트 오류 격리와 복구 UI를 위한 Error Boundary를 정리한 글입니다.",
+      "React 화면 오류가 전체 서비스 중단처럼 보이지 않도록 Error Boundary와 복구 UI 기준을 정리했습니다.",
     createdAt: "2026-05-22",
     updatedAt: "2026-05-22",
     category: ["Frontend"],
-    tags: ["React", "Error Boundary", "UI"],
+    tags: ["React", "Error Boundary", "Reliability"],
     thumbnailUrl: THUMBNAILS.frontend,
   },
   {
@@ -223,7 +223,7 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     slug: "spring-next-cache",
     title: "Spring Boot와 Next.js 캐시 정리",
     description:
-      "백엔드와 Next.js 사이에서 캐시 정책을 함께 봐야 하는 이유를 정리한 글입니다.",
+      "Spring Boot API와 Next.js 화면 사이에서 캐시 정책을 함께 맞춰야 하는 이유와 검증 포인트를 정리했습니다.",
     createdAt: "2026-05-21",
     updatedAt: "2026-05-21",
     category: ["Frontend"],
@@ -236,7 +236,7 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     slug: "nextjs-architecture",
     title: "Next.js 아키텍처 설명",
     description:
-      "Next.js 애플리케이션 구조와 렌더링 흐름을 아키텍처 관점에서 정리한 글입니다.",
+      "Next.js 애플리케이션의 라우팅, 서버/클라이언트 경계, 렌더링 흐름을 구조 관점에서 정리했습니다.",
     createdAt: "2026-05-20",
     updatedAt: "2026-05-20",
     category: ["Frontend"],
@@ -249,11 +249,11 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     slug: "web-accessibility",
     title: "웹 접근성(a11y) 정리",
     description:
-      "사용자가 놓치지 않도록 웹 접근성의 핵심 기준과 개선 방향을 정리한 글입니다.",
+      "웹 접근성을 시각적 완성도뿐 아니라 사용 흐름의 기본 품질로 보고 핵심 개선 기준을 정리했습니다.",
     createdAt: "2026-05-19",
     updatedAt: "2026-05-19",
     category: ["Frontend"],
-    tags: ["Accessibility", "HTML", "Frontend"],
+    tags: ["Accessibility", "UX", "Frontend"],
     thumbnailUrl: THUMBNAILS.frontend,
   },
   {
@@ -262,11 +262,11 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     slug: "zendesk-i18n-js",
     title: "Zendesk Guide 다국어 처리 정리",
     description:
-      "Zendesk Guide 테마에서 i18n JSON fetch 제약을 우회한 운영형 다국어 처리 기록입니다.",
+      "Zendesk Guide 운영 환경에서 JSON fetch 제약을 만났을 때 JS 기반 다국어 처리로 우회한 실무 기록입니다.",
     createdAt: "2026-05-18",
     updatedAt: "2026-05-18",
     category: ["DevOps"],
-    tags: ["Zendesk", "i18n", "JavaScript"],
+    tags: ["Zendesk", "i18n", "Operations"],
     thumbnailUrl: THUMBNAILS.devops,
   },
   {
@@ -275,11 +275,11 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     slug: "testable-code",
     title: "테스트하기 쉬운 코드의 조건",
     description:
-      "테스트 가능성을 높이는 코드 구조와 의존성 분리 기준을 정리한 글입니다.",
+      "기능을 빨리 만드는 것보다 오래 검증 가능한 구조를 만들기 위한 의존성 분리와 테스트 기준을 정리했습니다.",
     createdAt: "2026-05-17",
     updatedAt: "2026-05-17",
     category: ["DevOps"],
-    tags: ["Testing", "Quality", "Frontend"],
+    tags: ["Testing", "Quality", "Architecture"],
     thumbnailUrl: THUMBNAILS.devops,
   },
   {
@@ -288,11 +288,11 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     slug: "async-mutex",
     title: "async-mutex를 사용한 뮤텍스 설명",
     description:
-      "JavaScript 비동기 흐름에서 mutex가 필요한 상황과 사용법을 정리한 글입니다.",
+      "JavaScript 비동기 작업에서 동시에 실행되면 안 되는 흐름을 제어하기 위한 mutex 사용 기준을 정리했습니다.",
     createdAt: "2026-05-16",
     updatedAt: "2026-05-16",
     category: ["JavaScript"],
-    tags: ["JavaScript", "Concurrency", "Mutex"],
+    tags: ["JavaScript", "Concurrency", "Consistency"],
     thumbnailUrl: THUMBNAILS.javascript,
   },
   {
@@ -301,7 +301,7 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     slug: "goroutine",
     title: "goroutine(고루틴)",
     description:
-      "Go 언어의 경량 동시성 실행 단위인 goroutine 개념을 정리한 글입니다.",
+      "Go의 goroutine을 단순 문법이 아니라 서버 작업 분산과 동시성 설계 관점에서 정리했습니다.",
     createdAt: "2026-05-15",
     updatedAt: "2026-05-15",
     category: ["Go"],
