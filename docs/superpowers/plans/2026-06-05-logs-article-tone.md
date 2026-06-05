@@ -44,5 +44,5 @@
 
 - [x] `logs` 레포에서 변경 파일이 5개인지 확인한다.
 - [x] `logs` 레포를 커밋하고 `origin/main`에 푸시한다.
-- [ ] `castle-portfolio` 문서 변경을 커밋하고 `origin/dev`, `origin/main`에 푸시한다.
-- [ ] 공개 `/blog/logs-*` URL 중 최소 2개가 200으로 응답하는지 확인한다.
+- [x] `castle-portfolio` 문서 변경을 커밋하고 `origin/dev`, `origin/main`에 푸시한다.
+- [x] 공개 `/blog/logs-*` URL 중 최소 2개가 200으로 응답하는지 확인한다.
