@@ -37,6 +37,8 @@ src/app/(blogLayout)/api/github-logs.ts
 https://raw.githubusercontent.com/bocastle/logs/main/<path>
 ```
 
+포트폴리오는 원본 Markdown 본문을 별도로 덮어쓰지 않는다. 본문 톤을 수정해야 할 때는 `bocastle/logs` 원본 레포에서 고치고, 포트폴리오에서는 메타데이터와 검수 기록만 맞춘다.
+
 ## URL 규칙
 
 `slug` 앞에 `logs-` prefix가 붙는다.
@@ -100,5 +102,7 @@ public/images/blog/logs/go.svg
 - 풀스택: Spring Boot와 Next.js 캐시 전략
 - 품질/테스트: 테스트하기 쉬운 코드의 조건
 - AI QA: Codex로 포트폴리오 QA 자동화하기
+
+2026-06-05에는 `bocastle/logs` 원본 상단 글 5개의 도입부와 섹션명을 개발 블로그 톤으로 정리했다. `Codex로 포트폴리오 QA 자동화하기`는 포트폴리오 내부 Markdown 글이므로 별도 원본 레포 수정 대상이 아니다.
 
 공개 글 품질 검수 결과는 `docs/blog/logs-quality-review.md`에 기록한다.
