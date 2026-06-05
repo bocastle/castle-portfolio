@@ -20,6 +20,6 @@ describe("Information", () => {
       "href",
       "/resume/kim-bosung.pdf"
     );
-    expect(screen.getByText("Hiring Snapshot")).toBeInTheDocument();
+    expect(screen.getByText("채용 요약")).toBeInTheDocument();
   });
 });

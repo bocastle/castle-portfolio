@@ -25,7 +25,7 @@ const BuildLog = () => {
   return (
     <section className="mx-auto w-full max-w-6xl">
       <p className="m-0 text-sm font-semibold text-teal-700 dark:text-teal-300">
-        Build Log
+        개선 기록
       </p>
       <h2 className="py-1 text-3xl font-semibold md:text-4xl">
         포트폴리오 개선 기록

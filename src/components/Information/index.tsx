@@ -135,7 +135,7 @@ const Information = () => {
       </div>
 
       <aside className="w-full rounded-lg border border-gray-300 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900/80">
-        <h2 className="py-0 text-lg font-semibold">Hiring Snapshot</h2>
+        <h2 className="py-0 text-lg font-semibold">채용 요약</h2>
         <dl className="mt-4 divide-y divide-gray-200 dark:divide-slate-700">
           {proofPoints.map((point) => (
             <div

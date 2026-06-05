@@ -31,7 +31,7 @@ const FeaturedWriting = () => {
   return (
     <section className="mx-auto w-full max-w-6xl">
       <p className="m-0 text-sm font-semibold text-teal-700 dark:text-teal-300">
-        Technical Writing
+        기술 글
       </p>
       <h2 className="py-1 text-3xl font-semibold md:text-4xl">
         대표 글

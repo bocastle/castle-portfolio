@@ -9,7 +9,7 @@ const Projects = () => {
   return (
     <section className="w-full">
       <p className="m-0 text-sm font-semibold text-teal-700 dark:text-teal-300">
-        Selected Projects
+        대표 프로젝트
       </p>
       <h2 className="py-1 text-3xl font-semibold md:text-4xl">
         {data.title}
