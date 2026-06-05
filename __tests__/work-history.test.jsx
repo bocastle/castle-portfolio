@@ -16,7 +16,7 @@ describe("WorkHistory", () => {
 
     expect(
       screen.getByText(
-        /최근 경력부터 서비스 도메인, 맡은 역할, 기술 스택과 운영\/배포 경험/
+        /최근 경력인 소프트위즈와 직전 링크커넥션을 먼저 보여주고/
       )
     ).toBeInTheDocument();
     expect(screen.queryByText("실무 경력")).not.toBeInTheDocument();

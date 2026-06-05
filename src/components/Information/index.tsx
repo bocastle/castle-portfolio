@@ -3,26 +3,26 @@
 import { trackEvent } from "@/utils/analytics";
 
 const focusKeywords = [
-  "Go/Node.js/Spring API",
-  "React/Next.js 화면",
+  "Go/Node.js/Java/Spring",
+  "React/React Native/Next.js",
   "SQL 운영 데이터",
   "결제/정산/CRM",
-  "배포/QA 검증",
-  "Codex/Cursor 활용",
+  "CI/CD/운영 검증",
+  "Codex/Cursor 워크플로우",
 ];
 
 const proofPoints = [
   {
-    label: "최근 도메인",
+    label: "최근 업무 도메인",
     value: "CRM, 결제, 정산, 관리자 포털",
   },
   {
     label: "주력 범위",
-    value: "API, 화면, SQL, 배포/운영 검증",
+    value: "웹/앱 화면, API, SQL, CI/CD/운영",
   },
   {
-    label: "AI 활용",
-    value: "요구사항 분해, 변경 영향 분석, QA 문서화",
+    label: "AI 협업 방식",
+    value: "레거시 분석, 변경 영향 확인, 테스트/QA",
   },
 ];
 
@@ -47,18 +47,19 @@ const Information = () => {
         </div>
         <div className="flex w-full min-w-0 max-w-4xl flex-col gap-5 text-center md:text-left">
           <p className="m-0 text-sm font-semibold text-teal-700 dark:text-teal-300">
-            운영/결제/관리자 도구 경험이 있는 풀스택 개발자
+            웹/앱과 백엔드를 함께 다루는 풀스택 개발자
           </p>
           <h1 className="max-w-full break-keep py-0 text-[2rem] font-semibold leading-tight tracking-normal sm:text-4xl md:text-5xl">
             김보성,
             <br />
-            서비스 흐름을 끝까지 연결하는 풀스택 개발자입니다.
+            서비스를 끝까지 다루는 풀스택 개발자입니다.
           </h1>
           <p className="w-full max-w-3xl break-keep text-base leading-7 text-gray-600 dark:text-gray-300 max-sm:text-[0.95rem]">
-            Go/Node.js/Spring 기반 API, React/Next.js 화면, SQL 운영 데이터를
-            함께 다룹니다. 결제/정산/CRM/관리자 도구의 기능 설계와 배포
-            검증 경험을 바탕으로, AI 개발 도구는 요구사항 분해와 변경 영향
-            분석, QA 문서화 속도를 높이는 방식으로 활용합니다.
+            React/React Native/Next.js 화면과 Go/Node.js/Java/Spring 기반 API,
+            SQL 운영 데이터를 함께 다룹니다. 결제/정산/CRM/관리자 도구에서
+            기능 설계, 배포, 운영 이슈 분석까지 이어지는 흐름을 경험했고,
+            Codex/Cursor는 레거시 분석, 변경 영향 확인, 테스트/QA 속도를
+            높이는 도구로 활용합니다.
           </p>
           <ul
             aria-label="핵심 기술과 업무 키워드"

@@ -17,7 +17,10 @@ describe("Projects", () => {
     expect(screen.getByText("AI 협업 기반 포트폴리오 개선")).toBeInTheDocument();
     expect(screen.getAllByText(/개발 프로세스 개선 사례/).length).toBeGreaterThan(0);
     expect(screen.getAllByText("검증 기록").length).toBeGreaterThan(0);
+    expect(screen.getByText(/포트폴리오를 운영 가능한 서비스처럼 개선/)).toBeInTheDocument();
     expect(screen.queryByText("코드/구조 설명 가능")).not.toBeInTheDocument();
     expect(screen.queryByText(/설명 가능/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/실무 경력/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/이직용 제품/)).not.toBeInTheDocument();
   });
 });
