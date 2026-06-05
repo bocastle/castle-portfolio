@@ -7,7 +7,7 @@ const WorkHistory = () => {
   return (
     <section className="w-full">
       <p className="m-0 text-sm font-semibold text-teal-700 dark:text-teal-300">
-        Recent Work Evidence
+        실무 경력
       </p>
       <h2 className="py-1 text-3xl font-semibold md:text-4xl">
         {WorkHistoryList.title}

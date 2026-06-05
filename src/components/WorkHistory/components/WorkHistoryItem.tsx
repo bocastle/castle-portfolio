@@ -33,6 +33,11 @@ const WorkHistoryItem = ({
 }: WorkHistorProps) => {
   const filePath = `./public/markdown/workHistory/${id}.md`;
   const file = stripLeadingHeading(fs.readFileSync(filePath, "utf8"));
+  const careerBadge = featured
+    ? period[1] === "재직 중"
+      ? "재직 중"
+      : "최근 경력"
+    : null;
 
   return (
     <article
@@ -54,9 +59,9 @@ const WorkHistoryItem = ({
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
             <h3 className="py-0 text-2xl font-semibold">{name}</h3>
-            {featured ? (
+            {careerBadge ? (
               <span className="rounded-full bg-teal-600 px-2.5 py-1 text-xs font-semibold text-white dark:bg-teal-400 dark:text-slate-950">
-                핵심 경력
+                {careerBadge}
               </span>
             ) : null}
           </div>
