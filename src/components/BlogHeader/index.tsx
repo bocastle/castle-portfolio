@@ -1,6 +1,7 @@
 "use client";
 
 import { ArticlePageHeaderDataWithBlur } from "@/app/(blogLayout)/api/types";
+import { getBlogTagLabel } from "@/utils/blog-labels";
 import { getDistanceFromToday, getYearMonthDay } from "@/utils/date";
 import "highlight.js/styles/base16/dracula.min.css";
 import Image from "next/image";
@@ -36,7 +37,7 @@ const BlogHeader = ({ headerItem }: Props) => {
             key={tag.id}
             className="cursor-default text-[16px] leading-5 font-medium bg-gray-400/30 dark:bg-sky-400/10 rounded-full py-1 px-3 flex items-center "
           >
-            {tag.name}
+            {getBlogTagLabel(tag.name)}
           </div>
         ))}
       </div>

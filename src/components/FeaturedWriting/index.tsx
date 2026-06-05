@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const writings = [
+export const featuredWritings = [
   {
     focus: "운영/배포",
     title: "CI/CD 파이프라인 정리",
@@ -45,21 +45,35 @@ const writings = [
   },
 ];
 
-const FeaturedWriting = () => {
+interface FeaturedWritingProps {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  className?: string;
+}
+
+const DEFAULT_DESCRIPTION =
+  "운영/배포, 장애 대응, 성능, 풀스택 연결, 품질 검증, AI 협업 흐름을 보여주는 글을 먼저 배치했습니다.";
+
+const FeaturedWriting = ({
+  eyebrow = "기술 글",
+  title = "대표 글",
+  description = DEFAULT_DESCRIPTION,
+  className = "mx-auto w-full max-w-6xl",
+}: FeaturedWritingProps) => {
   return (
-    <section className="mx-auto w-full max-w-6xl">
+    <section className={className}>
       <p className="m-0 text-sm font-semibold text-teal-700 dark:text-teal-300">
-        기술 글
+        {eyebrow}
       </p>
       <h2 className="py-1 text-3xl font-semibold md:text-4xl">
-        대표 글
+        {title}
       </h2>
       <p className="mt-2 max-w-3xl text-base leading-7 text-gray-600 dark:text-gray-300">
-        운영/배포, 장애 대응, 성능, 풀스택 연결, 품질 검증, AI 협업
-        흐름을 보여주는 글을 먼저 배치했습니다.
+        {description}
       </p>
       <div className="mt-6 grid gap-3 md:grid-cols-2">
-        {writings.map((writing) => (
+        {featuredWritings.map((writing) => (
           <Link
             key={writing.href}
             href={writing.href}

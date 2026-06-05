@@ -9,6 +9,14 @@ describe("FeaturedWriting", () => {
     const links = screen.getAllByRole("link");
 
     expect(links).toHaveLength(6);
+    expect(links.map((link) => link.getAttribute("href"))).toEqual([
+      "/blog/logs-cicd-pipeline",
+      "/blog/logs-external-service-failure",
+      "/blog/logs-jpa-n-plus-one",
+      "/blog/logs-spring-next-cache",
+      "/blog/logs-testable-code",
+      "/blog/github-codex-portfolio-qa",
+    ]);
     expect(screen.getByText("CI/CD 파이프라인 정리")).toBeInTheDocument();
     expect(
       screen.getByText("외부 서비스 장애 대응 전략 정리")
@@ -31,5 +39,19 @@ describe("FeaturedWriting", () => {
         name: "Codex로 포트폴리오 QA 자동화하기 글 보기",
       })
     ).toHaveAttribute("href", "/blog/github-codex-portfolio-qa");
+  });
+
+  it("can adjust copy for the blog list page", () => {
+    render(
+      <FeaturedWriting
+        eyebrow="추천 글"
+        title="먼저 볼 글"
+        description="블로그 상단 추천 글 설명"
+      />
+    );
+
+    expect(screen.getByText("추천 글")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "먼저 볼 글" })).toBeInTheDocument();
+    expect(screen.getByText("블로그 상단 추천 글 설명")).toBeInTheDocument();
   });
 });

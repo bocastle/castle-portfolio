@@ -2,6 +2,7 @@
 
 import { BlogCategory } from "@/app/(blogLayout)/api/types";
 import { trackEvent } from "@/utils/analytics";
+import { getBlogCategoryLabel } from "@/utils/blog-labels";
 import Link from "next/link";
 
 interface Props {
@@ -32,10 +33,11 @@ export const ArticleCategory = ({ list }: Props) => {
             onClick={() =>
               trackEvent("Blog Category Click", {
                 category: item.name,
+                categoryLabel: getBlogCategoryLabel(item.name),
               })
             }
           >
-            {item.name}
+            {getBlogCategoryLabel(item.name)}
           </Link>
         ))}
       </div>

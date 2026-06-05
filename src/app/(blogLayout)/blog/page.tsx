@@ -1,4 +1,5 @@
 import BlogList from "@/components/BlogList";
+import FeaturedWriting from "@/components/FeaturedWriting";
 import { getPageList } from "../api/blog";
 import { ArticleFilterTagList } from "./components/ArticleTagList";
 import { ArticleTagTitle } from "./components/ArticleTagTitle";
@@ -12,8 +13,14 @@ export default async function BlogPage() {
   const List = await getPageList();
 
   return (
-    <div className="w-3/5 items-start max-lg:w-full max-md:w-full max-sm:w-full flex flex-col md:gap-5 md:my-4 sm:gap-5 max-lg:items-center max-md:items-center max-sm:items-center">
-      <div>
+    <div className="w-3/5 items-start max-lg:w-full max-md:w-full max-sm:w-full flex flex-col gap-10 md:my-4 max-lg:items-center max-md:items-center max-sm:items-center">
+      <FeaturedWriting
+        eyebrow="추천 글"
+        title="먼저 볼 글"
+        description="운영/배포, 장애 대응, 성능, 풀스택 연결, 품질 검증, AI 협업 흐름을 보여주는 글을 먼저 모았습니다."
+        className="w-full"
+      />
+      <div className="w-full">
         <ArticleTagTitle />
         <ArticleFilterTagList />
       </div>

@@ -117,7 +117,7 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     order: 7,
     path: "백엔드 면접준비/스프링 트랜잭션 AOP 동작 흐름 정리.md",
     slug: "spring-transaction-aop",
-    title: "스프링 트랜잭션 AOP 동작 흐름 정리",
+    title: "Spring 트랜잭션과 AOP 적용 흐름",
     description:
       "Spring 트랜잭션이 프록시와 AOP를 통해 적용되는 흐름을 코드 구조와 장애 분석 관점에서 정리했습니다.",
     createdAt: "2026-05-29",
@@ -143,7 +143,7 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     order: 9,
     path: "백엔드 면접준비/Rate Limiting 정리.md",
     slug: "rate-limiting",
-    title: "Rate Limiting 정리",
+    title: "Rate Limiting으로 API 보호하기",
     description:
       "트래픽 급증과 남용을 제어하기 위한 Rate Limiting 전략을 API 보호와 운영 안정성 관점에서 정리했습니다.",
     createdAt: "2026-05-27",
@@ -182,7 +182,7 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     order: 12,
     path: "프론트 면접준비/SSR과 CSR 정리.md",
     slug: "ssr-csr",
-    title: "SSR과 CSR 정리",
+    title: "SSR/CSR 렌더링 전략 비교",
     description:
       "렌더링 위치가 초기 표시 속도, SEO, 사용자 경험에 주는 영향을 SSR과 CSR 비교로 정리했습니다.",
     createdAt: "2026-05-24",
@@ -234,7 +234,7 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     order: 16,
     path: "프론트 면접준비/Next.js 아키텍처 설명.md",
     slug: "nextjs-architecture",
-    title: "Next.js 아키텍처 설명",
+    title: "Next.js 렌더링 경계와 아키텍처",
     description:
       "Next.js 애플리케이션의 라우팅, 서버/클라이언트 경계, 렌더링 흐름을 구조 관점에서 정리했습니다.",
     createdAt: "2026-05-20",
@@ -260,7 +260,7 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     order: 18,
     path: "DevOps/Zendesk Guide 테마에서 i18n.json fetch가 막힐 때 JSON 대신 JS로 다국어 처리하기.md",
     slug: "zendesk-i18n-js",
-    title: "Zendesk Guide 다국어 처리 정리",
+    title: "Zendesk Guide i18n fetch 제약 우회 기록",
     description:
       "Zendesk Guide 운영 환경에서 JSON fetch 제약을 만났을 때 JS 기반 다국어 처리로 우회한 실무 기록입니다.",
     createdAt: "2026-05-18",
@@ -286,7 +286,7 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     order: 20,
     path: "JavaScript/async-mutex를 사용한 간단한 뮤텍스(Mutex) 설명.md",
     slug: "async-mutex",
-    title: "async-mutex를 사용한 뮤텍스 설명",
+    title: "async-mutex로 비동기 경쟁 제어하기",
     description:
       "JavaScript 비동기 작업에서 동시에 실행되면 안 되는 흐름을 제어하기 위한 mutex 사용 기준을 정리했습니다.",
     createdAt: "2026-05-16",
@@ -299,7 +299,7 @@ const LOGS_ARTICLES: GitHubLogsArticleMeta[] = [
     order: 21,
     path: "Go/goroutine(고루틴).md",
     slug: "goroutine",
-    title: "goroutine(고루틴)",
+    title: "Go goroutine 동시성 설계 정리",
     description:
       "Go의 goroutine을 단순 문법이 아니라 서버 작업 분산과 동시성 설계 관점에서 정리했습니다.",
     createdAt: "2026-05-15",

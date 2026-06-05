@@ -1,7 +1,7 @@
 import BlogList from "@/components/BlogList";
 import { getPublicImageUrl } from "@/utils/image-url";
 import { Metadata } from "next";
-import { getArticleTagList, getCategoryList } from "../../api/blog";
+import { getArticleCategoryList, getCategoryList } from "../../api/blog";
 
 type Props = {
   params: Promise<{ categoriesName: string }>;
@@ -21,7 +21,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: title,
       locale: "ko_KR",
       type: "website",
-      url: "https://bocelog.vercel.app/blog/" + categoryName,
+      url:
+        "https://bocelog.vercel.app/categories/" +
+        encodeURIComponent(categoryName),
       images: {
         url: getPublicImageUrl("7nxjpqB/image.png"),
       },
@@ -54,9 +56,9 @@ export const revalidate = 60;
 export const dynamicParams = true; // or false, to 404 on unknown paths
 
 export async function generateStaticParams() {
-  const articleTagList = await getArticleTagList();
+  const articleCategoryList = await getArticleCategoryList();
 
-  return articleTagList.map((tag) => ({
-    categoriesName: tag.name,
+  return articleCategoryList.map((category) => ({
+    categoriesName: category.name,
   }));
 }

@@ -6,6 +6,7 @@ import {
   useArticleFilterStore,
 } from "@/store/article-filter.store";
 import { trackEvent } from "@/utils/analytics";
+import { getBlogTagLabel } from "@/utils/blog-labels";
 import { getDistanceFromToday, getYearMonthDay } from "@/utils/date";
 import Image from "next/image";
 import Link from "next/link";
@@ -131,7 +132,7 @@ const BlogList = ({ list }: Props) => {
                     key={tag.id}
                     className="cursor-default text-[16px] leading-5 font-medium bg-gray-400/30 dark:bg-sky-400/10 rounded-full py-1 px-3 flex items-center"
                   >
-                    {tag.name}
+                    {getBlogTagLabel(tag.name)}
                   </div>
                 ))}
               </div>

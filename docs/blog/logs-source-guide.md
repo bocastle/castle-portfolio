@@ -29,6 +29,8 @@ src/app/(blogLayout)/api/github-logs.ts
 - 태그
 - 카테고리별 썸네일
 
+카테고리와 태그의 `name`은 필터와 URL에 쓰이는 안정적인 원본 값으로 유지한다. 화면에 보이는 한글 표시명은 `src/utils/blog-labels.ts`에서 관리한다.
+
 본문은 아래 형식의 raw URL에서 읽는다.
 
 ```text
@@ -84,9 +86,9 @@ public/images/blog/logs/go.svg
 
 현재는 대표글 21개를 공개한다.
 
-- Backend: CI/CD, API Gateway, CORS, DB Replication, JPA N+1, 인덱스, Spring Transaction, 외부 서비스 장애 대응, Rate Limiting, Lock
-- Frontend: React Query, SSR/CSR, 브라우저 렌더링, React Error Boundary, Spring Boot와 Next.js 캐시, Next.js 아키텍처, 웹 접근성
-- DevOps: Zendesk i18n, 테스트하기 쉬운 코드
+- Backend: CI/CD, API Gateway, CORS, DB Replication, JPA N+1, 인덱스, Spring 트랜잭션/AOP, 외부 서비스 장애 대응, Rate Limiting, Lock
+- Frontend: React Query, SSR/CSR, 브라우저 렌더링, React Error Boundary, Spring Boot와 Next.js 캐시, Next.js 렌더링 경계, 웹 접근성
+- DevOps: Zendesk i18n fetch 제약 우회, 테스트하기 쉬운 코드
 - JavaScript: async-mutex
 - Go: goroutine
 
@@ -98,3 +100,5 @@ public/images/blog/logs/go.svg
 - 풀스택 연결: Spring Boot와 Next.js 캐시 정리
 - 품질/테스트: 테스트하기 쉬운 코드의 조건
 - AI QA: Codex로 포트폴리오 QA 자동화하기
+
+공개 글 품질 검수 결과는 `docs/blog/logs-quality-review.md`에 기록한다.

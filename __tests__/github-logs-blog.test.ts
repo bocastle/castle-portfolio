@@ -71,4 +71,28 @@ describe("github logs blog source", () => {
     expect(logsBlog.isGitHubLogsPageId("logs-jpa-n-plus-one")).toBe(true);
     expect(logsBlog.isGitHubLogsPageId("github-codex-workflow")).toBe(false);
   });
+
+  it("keeps the public logs metadata polished for portfolio readers", async () => {
+    const logsBlog = await import("../src/app/(blogLayout)/api/github-logs");
+
+    const pageList = await logsBlog.getPageList();
+    const pageIds = pageList.map((article) => article.pageId);
+    const mojibakePattern = /[�]|Ã|ì|í|ê|ë|諛|硫|媛|濡/;
+
+    expect(new Set(pageIds).size).toBe(pageIds.length);
+    expect(pageList).toHaveLength(21);
+
+    for (const article of pageList) {
+      expect(article.pageId).toMatch(/^logs-[a-z0-9-]+$/);
+      expect(article.title).not.toMatch(mojibakePattern);
+      expect(article.title.length).toBeGreaterThanOrEqual(6);
+      expect(article.thumbnailUrl).toMatch(/^\/images\/blog\/logs\//);
+      expect(article.tagList.length).toBeGreaterThanOrEqual(2);
+
+      const header = await logsBlog.fetchArticlePageHeaderData(article.pageId);
+      expect(header.description).not.toMatch(mojibakePattern);
+      expect(header.description.length).toBeGreaterThanOrEqual(30);
+      expect(header.description.length).toBeLessThanOrEqual(120);
+    }
+  });
 });

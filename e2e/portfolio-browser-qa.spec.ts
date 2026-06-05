@@ -76,6 +76,19 @@ test.describe("portfolio browser QA", () => {
     await expect(page.locator('[id="확인한-흐름"]')).toBeVisible();
   });
 
+  test("블로그 목록은 추천 글 다음 전체 글을 보여준다", async ({ page }) => {
+    await page.goto("/blog");
+
+    await expect(page.getByRole("heading", { name: "먼저 볼 글" })).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: "CI/CD 파이프라인 정리 글 보기" })
+    ).toHaveAttribute("href", "/blog/logs-cicd-pipeline");
+    await expect(page.getByText("전체 글", { exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "블로그 글" })).toBeVisible();
+    await expect(page.getByText("배포", { exact: true }).first()).toBeVisible();
+    await expect(page.getByText("성능", { exact: true }).first()).toBeVisible();
+  });
+
   test("모바일 홈과 다크모드 홈 화면을 캡처한다", async ({ browser }, testInfo) => {
     const mobilePage = await browser.newPage({
       viewport: { width: 390, height: 844 },
