@@ -15,8 +15,9 @@ const Projects = () => {
         {data.title}
       </h2>
       <p className="mt-2 max-w-3xl text-base leading-7 text-gray-600 dark:text-gray-300">
-        실무에서 다룬 운영/권한/연동 경험을 개인 프로젝트와 개발 프로세스
-        개선 사례로 확장했습니다.
+        실무에서 다룬 운영, 권한, 외부 연동 경험을 개인 프로젝트와
+        포트폴리오 개선 과정으로 확장하고, 테스트와 배포 확인까지
+        기록했습니다.
       </p>
       <Divider />
       <div className="flex flex-col gap-8">
