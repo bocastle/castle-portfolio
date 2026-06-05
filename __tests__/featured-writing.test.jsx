@@ -17,13 +17,13 @@ describe("FeaturedWriting", () => {
       "/blog/logs-testable-code",
       "/blog/github-codex-portfolio-qa",
     ]);
-    expect(screen.getByText("CI/CD 파이프라인 정리")).toBeInTheDocument();
+    expect(screen.getByText("CI/CD 파이프라인 운영 흐름")).toBeInTheDocument();
     expect(
-      screen.getByText("외부 서비스 장애 대응 전략 정리")
+      screen.getByText("외부 서비스 장애 대응 전략")
     ).toBeInTheDocument();
-    expect(screen.getByText("JPA N+1 문제")).toBeInTheDocument();
+    expect(screen.getByText("JPA N+1 쿼리 성능 개선")).toBeInTheDocument();
     expect(
-      screen.getByText("Spring Boot와 Next.js 캐시 정리")
+      screen.getByText("Spring Boot와 Next.js 캐시 전략")
     ).toBeInTheDocument();
     expect(screen.getByText("테스트하기 쉬운 코드의 조건")).toBeInTheDocument();
     expect(
@@ -34,7 +34,7 @@ describe("FeaturedWriting", () => {
     expect(screen.getByText("품질/테스트")).toBeInTheDocument();
     expect(screen.queryByText("풀스택 연결")).not.toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: "CI/CD 파이프라인 정리 글 보기" })
+      screen.getByRole("link", { name: "CI/CD 파이프라인 운영 흐름 글 보기" })
     ).toHaveAttribute("href", "/blog/logs-cicd-pipeline");
     expect(
       screen.getByRole("link", {

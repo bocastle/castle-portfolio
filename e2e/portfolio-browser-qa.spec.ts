@@ -5,10 +5,10 @@ test.describe("portfolio browser QA", () => {
     await page.goto("/");
 
     const featuredWritingLinks = [
-      ["CI/CD 파이프라인 정리", "/blog/logs-cicd-pipeline"],
-      ["외부 서비스 장애 대응 전략 정리", "/blog/logs-external-service-failure"],
-      ["JPA N+1 문제", "/blog/logs-jpa-n-plus-one"],
-      ["Spring Boot와 Next.js 캐시 정리", "/blog/logs-spring-next-cache"],
+      ["CI/CD 파이프라인 운영 흐름", "/blog/logs-cicd-pipeline"],
+      ["외부 서비스 장애 대응 전략", "/blog/logs-external-service-failure"],
+      ["JPA N+1 쿼리 성능 개선", "/blog/logs-jpa-n-plus-one"],
+      ["Spring Boot와 Next.js 캐시 전략", "/blog/logs-spring-next-cache"],
       ["테스트하기 쉬운 코드의 조건", "/blog/logs-testable-code"],
       ["Codex로 포트폴리오 QA 자동화하기", "/blog/github-codex-portfolio-qa"],
     ];
@@ -21,17 +21,17 @@ test.describe("portfolio browser QA", () => {
 
     await expect(
       page
-        .getByRole("link", { name: "CI/CD 파이프라인 정리 글 보기" })
+        .getByRole("link", { name: "CI/CD 파이프라인 운영 흐름 글 보기" })
         .getByText("운영/배포", { exact: true })
     ).toBeVisible();
     await expect(
       page
-        .getByRole("link", { name: "외부 서비스 장애 대응 전략 정리 글 보기" })
+        .getByRole("link", { name: "외부 서비스 장애 대응 전략 글 보기" })
         .getByText("장애 대응", { exact: true })
     ).toBeVisible();
     await expect(
       page
-        .getByRole("link", { name: "Spring Boot와 Next.js 캐시 정리 글 보기" })
+        .getByRole("link", { name: "Spring Boot와 Next.js 캐시 전략 글 보기" })
         .getByText("풀스택", { exact: true })
     ).toBeVisible();
     await expect(
@@ -86,7 +86,7 @@ test.describe("portfolio browser QA", () => {
 
     await expect(page.getByRole("heading", { name: "먼저 볼 글" })).toBeVisible();
     await expect(
-      page.getByRole("link", { name: "CI/CD 파이프라인 정리 글 보기" })
+      page.getByRole("link", { name: "CI/CD 파이프라인 운영 흐름 글 보기" })
     ).toHaveAttribute("href", "/blog/logs-cicd-pipeline");
     await expect(page.getByText("전체 글", { exact: true })).toBeVisible();
     await expect(page.getByRole("heading", { name: "블로그 글" })).toBeVisible();

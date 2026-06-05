@@ -30,7 +30,7 @@ describe("FeaturedWriting", () => {
     const links = screen.getAllByRole("link");
 
     expect(links).toHaveLength(6);
-    expect(screen.getByText("CI/CD 파이프라인 정리")).toBeInTheDocument();
+    expect(screen.getByText("CI/CD 파이프라인 운영 흐름")).toBeInTheDocument();
     expect(screen.getByText("테스트하기 쉬운 코드의 조건")).toBeInTheDocument();
   });
 });
@@ -41,10 +41,10 @@ describe("FeaturedWriting", () => {
 Use six fixed entries:
 
 ```text
-CI/CD 파이프라인 정리
-외부 서비스 장애 대응 전략 정리
-JPA N+1 문제
-Spring Boot와 Next.js 캐시 정리
+CI/CD 파이프라인 운영 흐름
+외부 서비스 장애 대응 전략
+JPA N+1 쿼리 성능 개선
+Spring Boot와 Next.js 캐시 전략
 테스트하기 쉬운 코드의 조건
 Codex로 포트폴리오 QA 자동화하기
 ```

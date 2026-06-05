@@ -5,7 +5,7 @@ test("GitHub logs JPA post renders with TOC", async ({ page }) => {
 
   await expect(
     page.getByRole("heading", {
-      name: "JPA N+1 문제",
+      name: "JPA N+1 쿼리 성능 개선",
       level: 1,
     })
   ).toBeVisible();
