@@ -22,7 +22,7 @@ jest.mock("../src/app/(blogLayout)/blog/components/ArticleTagTitle", () => ({
   ArticleTagTitle: () => (
     <div>
       <p>전체 글</p>
-      <h1>블로그 글</h1>
+      <h1>글 목록</h1>
     </div>
   ),
 }));
@@ -39,8 +39,8 @@ describe("BlogPage", () => {
   it("shows curated writing before the all-article list", async () => {
     render(await BlogPage());
 
-    const featuredHeading = screen.getByRole("heading", { name: "먼저 볼 글" });
-    const allArticleHeading = screen.getByRole("heading", { name: "블로그 글" });
+    const featuredHeading = screen.getByRole("heading", { name: "먼저 읽어볼 글" });
+    const allArticleHeading = screen.getByRole("heading", { name: "글 목록" });
     const allArticleList = screen.getByTestId("all-article-list");
 
     expect(screen.getByText("전체 글", { exact: true })).toBeInTheDocument();

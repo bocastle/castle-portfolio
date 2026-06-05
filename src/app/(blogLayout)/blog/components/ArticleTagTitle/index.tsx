@@ -5,7 +5,7 @@ export const ArticleTagTitle = async () => {
         전체 글
       </p>
       <h1 className="leading-[1.15] md:text-5xl sm:text-3xl max-sm:text-3xl">
-        <span className="font-semibold">블로그 글</span>
+        <span className="font-semibold">글 목록</span>
       </h1>
     </div>
   );

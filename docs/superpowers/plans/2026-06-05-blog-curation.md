@@ -20,7 +20,7 @@
 
 - [x] Export the curated writing list and add copy props to `FeaturedWriting`.
 - [x] Render `FeaturedWriting` at the top of `/blog`.
-- [x] Add `전체 글` / `블로그 글` heading before the full list.
+- [x] Add `전체 글` / `글 목록` heading before the full list.
 - [x] Test exact six hrefs and ordering before the all-article list.
 
 ### Task 2: Localize Category And Tag Display

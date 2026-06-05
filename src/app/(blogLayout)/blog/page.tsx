@@ -15,9 +15,9 @@ export default async function BlogPage() {
   return (
     <div className="w-3/5 items-start max-lg:w-full max-md:w-full max-sm:w-full flex flex-col gap-10 md:my-4 max-lg:items-center max-md:items-center max-sm:items-center">
       <FeaturedWriting
-        eyebrow="추천 글"
-        title="먼저 볼 글"
-        description="운영/배포, 장애 대응, 성능, 풀스택, 품질 검증, AI 협업을 보여주는 글을 먼저 모았습니다."
+        eyebrow="기술 글"
+        title="먼저 읽어볼 글"
+        description="서비스 운영 중 마주친 배포, 장애 대응, 성능, 캐시, 테스트 이야기를 정리했습니다."
         className="w-full"
       />
       <div className="w-full">

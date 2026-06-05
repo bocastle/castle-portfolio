@@ -8,11 +8,11 @@ describe("BuildLog", () => {
 
     expect(screen.getByText("브라우저 QA 자동화")).toBeInTheDocument();
     expect(screen.getByText("GA4 이벤트 추적 전환")).toBeInTheDocument();
-    expect(screen.getByText("블로그 추천 글 정리")).toBeInTheDocument();
+    expect(screen.getByText("글 목록 정리")).toBeInTheDocument();
     expect(screen.getByText("배포 검증 흐름 정리")).toBeInTheDocument();
     expect(
       screen.getByText(
-        "운영/배포, 장애 대응, 성능, 풀스택, 품질 검증 글을 먼저 볼 수 있게 목록 구조를 정리했습니다."
+        "최근에 다시 정리한 글이 먼저 보이도록 블로그 목록 흐름을 다듬었습니다."
       )
     ).toBeInTheDocument();
     expect(screen.queryByText("softwiz 로고 리소스 정리")).not.toBeInTheDocument();

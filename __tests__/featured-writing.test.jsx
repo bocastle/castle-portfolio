@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import FeaturedWriting from "../src/components/FeaturedWriting";
 
 describe("FeaturedWriting", () => {
-  it("shows six hiring-focused writing links", () => {
+  it("shows six selected writing links", () => {
     render(<FeaturedWriting />);
 
     const links = screen.getAllByRole("link");
@@ -46,14 +46,14 @@ describe("FeaturedWriting", () => {
   it("can adjust copy for the blog list page", () => {
     render(
       <FeaturedWriting
-        eyebrow="추천 글"
-        title="먼저 볼 글"
-        description="블로그 상단 추천 글 설명"
+        eyebrow="기술 글"
+        title="먼저 읽어볼 글"
+        description="서비스 운영 중 마주친 글 설명"
       />
     );
 
-    expect(screen.getByText("추천 글")).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "먼저 볼 글" })).toBeInTheDocument();
-    expect(screen.getByText("블로그 상단 추천 글 설명")).toBeInTheDocument();
+    expect(screen.getByText("기술 글")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "먼저 읽어볼 글" })).toBeInTheDocument();
+    expect(screen.getByText("서비스 운영 중 마주친 글 설명")).toBeInTheDocument();
   });
 });

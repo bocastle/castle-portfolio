@@ -53,11 +53,11 @@ interface FeaturedWritingProps {
 }
 
 const DEFAULT_DESCRIPTION =
-  "운영/배포, 장애 대응, 성능, 풀스택, 품질 검증, AI 협업을 보여주는 글을 먼저 배치했습니다.";
+  "서비스를 만들고 운영하면서 겪은 문제와 해결 과정을 기록했습니다.";
 
 const FeaturedWriting = ({
   eyebrow = "기술 글",
-  title = "대표 글",
+  title = "최근에 정리한 글",
   description = DEFAULT_DESCRIPTION,
   className = "mx-auto w-full max-w-6xl",
 }: FeaturedWritingProps) => {

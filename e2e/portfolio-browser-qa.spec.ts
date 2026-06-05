@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 test.describe("portfolio browser QA", () => {
-  test("홈 대표 글 6개와 채용 근거 라벨을 확인한다", async ({ page }) => {
+  test("홈 최근 글 6개와 주요 라벨을 확인한다", async ({ page }) => {
     await page.goto("/");
 
     const featuredWritingLinks = [
@@ -81,15 +81,15 @@ test.describe("portfolio browser QA", () => {
     await expect(page.locator('[id="확인한-흐름"]')).toBeVisible();
   });
 
-  test("블로그 목록은 추천 글 다음 전체 글을 보여준다", async ({ page }) => {
+  test("블로그 목록은 먼저 읽어볼 글 다음 전체 글을 보여준다", async ({ page }) => {
     await page.goto("/blog");
 
-    await expect(page.getByRole("heading", { name: "먼저 볼 글" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "먼저 읽어볼 글" })).toBeVisible();
     await expect(
       page.getByRole("link", { name: "CI/CD 파이프라인 운영 흐름 글 보기" })
     ).toHaveAttribute("href", "/blog/logs-cicd-pipeline");
     await expect(page.getByText("전체 글", { exact: true })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "블로그 글" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "글 목록" })).toBeVisible();
     await expect(page.getByText("배포", { exact: true }).first()).toBeVisible();
     await expect(page.getByText("성능", { exact: true }).first()).toBeVisible();
   });
