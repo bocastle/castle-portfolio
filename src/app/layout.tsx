@@ -10,6 +10,9 @@ import Navbar from "../components/Navbar";
 import { getPublicImageUrl } from "../utils/image-url";
 import "./globals.css";
 import ThemeScript from "./ThemeScript";
+
+const SITE_URL = "https://bocelog.vercel.app";
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -22,12 +25,13 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "castle log",
   description: "개발과 일상을 공유 합니다.",
   openGraph: {
     title: `castle log`,
     description: "개발과 일상을 공유 합니다.",
-    url: "https://bocelog.vercel.app",
+    url: SITE_URL,
     siteName: "castle log",
     locale: "ko_KR",
     type: "website",

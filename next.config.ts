@@ -22,18 +22,7 @@ const nextConfig: NextConfig = {
   //   return [{ source: "/", destination: "/workHistory", permanent: true }];
   // },
   webpack: (config) => {
-    config.module.rules.push({
-      test: /\.md/,
-      use: [
-        {
-          loader: "raw-loader",
-          options: {
-            esModule: false,
-          },
-        },
-      ],
-    });
-
+    config.cache = false;
     return config;
   },
 };
