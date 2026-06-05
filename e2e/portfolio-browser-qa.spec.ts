@@ -1,6 +1,41 @@
 import { expect, test } from "@playwright/test";
 
 test.describe("portfolio browser QA", () => {
+  test("홈 대표 글 6개와 채용 근거 라벨을 확인한다", async ({ page }) => {
+    await page.goto("/");
+
+    const featuredWritingLinks = [
+      ["CI/CD 파이프라인 정리", "/blog/logs-cicd-pipeline"],
+      ["외부 서비스 장애 대응 전략 정리", "/blog/logs-external-service-failure"],
+      ["JPA N+1 문제", "/blog/logs-jpa-n-plus-one"],
+      ["Spring Boot와 Next.js 캐시 정리", "/blog/logs-spring-next-cache"],
+      ["테스트하기 쉬운 코드의 조건", "/blog/logs-testable-code"],
+      ["Codex로 포트폴리오 QA 자동화하기", "/blog/github-codex-portfolio-qa"],
+    ];
+
+    for (const [title, href] of featuredWritingLinks) {
+      await expect(
+        page.getByRole("link", { name: `${title} 글 보기` })
+      ).toHaveAttribute("href", href);
+    }
+
+    await expect(
+      page
+        .getByRole("link", { name: "CI/CD 파이프라인 정리 글 보기" })
+        .getByText("운영/배포", { exact: true })
+    ).toBeVisible();
+    await expect(
+      page
+        .getByRole("link", { name: "외부 서비스 장애 대응 전략 정리 글 보기" })
+        .getByText("장애 대응", { exact: true })
+    ).toBeVisible();
+    await expect(
+      page
+        .getByRole("link", { name: "테스트하기 쉬운 코드의 조건 글 보기" })
+        .getByText("품질/테스트", { exact: true })
+    ).toBeVisible();
+  });
+
   test("대표 프로젝트 노출, 이미지 갤러리, 원본 이미지 새 창을 확인한다", async ({
     page,
   }) => {

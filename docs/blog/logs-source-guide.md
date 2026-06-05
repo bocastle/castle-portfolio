@@ -89,3 +89,12 @@ public/images/blog/logs/go.svg
 - DevOps: Zendesk i18n, 테스트하기 쉬운 코드
 - JavaScript: async-mutex
 - Go: goroutine
+
+홈의 `대표 글` 섹션은 이 중 채용 근거가 강한 6개만 먼저 보여준다.
+
+- 운영/배포: CI/CD 파이프라인 정리
+- 장애 대응: 외부 서비스 장애 대응 전략 정리
+- 성능/DB: JPA N+1 문제
+- 풀스택 연결: Spring Boot와 Next.js 캐시 정리
+- 품질/테스트: 테스트하기 쉬운 코드의 조건
+- AI QA: Codex로 포트폴리오 QA 자동화하기
