@@ -119,7 +119,7 @@ const ProjectItem = ({
           ) : null}
           {reviewAvailable ? (
             <span className="rounded-full border border-teal-300 bg-teal-50 px-2.5 py-1 text-teal-700 dark:border-teal-700 dark:bg-teal-950 dark:text-teal-300">
-              코드/구조 설명 가능
+              검증 기록
             </span>
           ) : null}
         </div>
