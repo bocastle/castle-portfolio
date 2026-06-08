@@ -76,3 +76,7 @@ npm.cmd run build
 npm.cmd exec tsc -- --noEmit
 npm.cmd run qa:browser
 ```
+
+## 2026-06-08 Update
+
+상단 글 선별을 다시 보면서 `Codex로 포트폴리오 QA 자동화하기`는 전체 블로그 목록에 유지하고, 상단 6개에서는 `React Query 서버 상태 관리`로 교체했다. 최신 상단 묶음은 운영/배포, 장애 대응, 성능/DB, 프론트 상태, 풀스택, 품질/테스트 흐름이다.

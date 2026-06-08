@@ -99,10 +99,12 @@ public/images/blog/logs/go.svg
 - 운영/배포: CI/CD 파이프라인 운영 흐름
 - 장애 대응: 외부 서비스 장애 대응 전략
 - 성능/DB: JPA N+1 쿼리 성능 개선
+- 프론트 상태: React Query 서버 상태 관리
 - 풀스택: Spring Boot와 Next.js 캐시 전략
 - 품질/테스트: 테스트하기 쉬운 코드의 조건
-- AI QA: Codex로 포트폴리오 QA 자동화하기
 
 2026-06-05에는 `bocastle/logs` 원본 상단 글 5개의 도입부와 섹션명을 개발 블로그 톤으로 정리했다. `Codex로 포트폴리오 QA 자동화하기`는 포트폴리오 내부 Markdown 글이므로 별도 원본 레포 수정 대상이 아니다.
+
+2026-06-08에는 상단 글에서 `Codex로 포트폴리오 QA 자동화하기`를 내리고 `React Query 서버 상태 관리`를 올렸다. AI QA 글은 전체 블로그 목록에는 유지하되, 홈과 `/blog` 상단은 실무형 풀스택 흐름을 먼저 보여주는 구성을 사용한다.
 
 공개 글 품질 검수 결과는 `docs/blog/logs-quality-review.md`에 기록한다.

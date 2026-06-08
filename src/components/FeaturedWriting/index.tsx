@@ -37,11 +37,11 @@ export const featuredWritings = [
       "오래 검증 가능한 구조를 만들기 위한 의존성 분리와 테스트 기준 정리",
   },
   {
-    focus: "AI QA",
-    title: "Codex로 포트폴리오 QA 자동화하기",
-    href: "/blog/github-codex-portfolio-qa",
+    focus: "프론트 상태",
+    title: "React Query 서버 상태 관리",
+    href: "/blog/logs-react-query-server-state",
     description:
-      "포트폴리오 변경 후 클릭 흐름, 모바일 화면, 배포 안정성을 브라우저 QA로 검증한 기록",
+      "서버 상태를 화면 상태와 분리하고 캐시, 재요청, 동기화 흐름을 잡는 기준 정리",
   },
 ];
 

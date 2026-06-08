@@ -15,7 +15,7 @@ describe("FeaturedWriting", () => {
       "/blog/logs-jpa-n-plus-one",
       "/blog/logs-spring-next-cache",
       "/blog/logs-testable-code",
-      "/blog/github-codex-portfolio-qa",
+      "/blog/logs-react-query-server-state",
     ]);
     expect(screen.getByText("CI/CD 파이프라인 운영 흐름")).toBeInTheDocument();
     expect(
@@ -26,21 +26,21 @@ describe("FeaturedWriting", () => {
       screen.getByText("Spring Boot와 Next.js 캐시 전략")
     ).toBeInTheDocument();
     expect(screen.getByText("테스트하기 쉬운 코드의 조건")).toBeInTheDocument();
-    expect(
-      screen.getByText("Codex로 포트폴리오 QA 자동화하기")
-    ).toBeInTheDocument();
+    expect(screen.getByText("React Query 서버 상태 관리")).toBeInTheDocument();
     expect(screen.getByText("운영/배포")).toBeInTheDocument();
     expect(screen.getByText("풀스택")).toBeInTheDocument();
     expect(screen.getByText("품질/테스트")).toBeInTheDocument();
+    expect(screen.getByText("프론트 상태")).toBeInTheDocument();
+    expect(screen.queryByText("AI QA")).not.toBeInTheDocument();
     expect(screen.queryByText("풀스택 연결")).not.toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: "CI/CD 파이프라인 운영 흐름 글 보기" })
     ).toHaveAttribute("href", "/blog/logs-cicd-pipeline");
     expect(
       screen.getByRole("link", {
-        name: "Codex로 포트폴리오 QA 자동화하기 글 보기",
+        name: "React Query 서버 상태 관리 글 보기",
       })
-    ).toHaveAttribute("href", "/blog/github-codex-portfolio-qa");
+    ).toHaveAttribute("href", "/blog/logs-react-query-server-state");
   });
 
   it("can adjust copy for the blog list page", () => {

@@ -10,7 +10,7 @@ test.describe("portfolio browser QA", () => {
       ["JPA N+1 쿼리 성능 개선", "/blog/logs-jpa-n-plus-one"],
       ["Spring Boot와 Next.js 캐시 전략", "/blog/logs-spring-next-cache"],
       ["테스트하기 쉬운 코드의 조건", "/blog/logs-testable-code"],
-      ["Codex로 포트폴리오 QA 자동화하기", "/blog/github-codex-portfolio-qa"],
+      ["React Query 서버 상태 관리", "/blog/logs-react-query-server-state"],
     ];
 
     for (const [title, href] of featuredWritingLinks) {
@@ -38,6 +38,11 @@ test.describe("portfolio browser QA", () => {
       page
         .getByRole("link", { name: "테스트하기 쉬운 코드의 조건 글 보기" })
         .getByText("품질/테스트", { exact: true })
+    ).toBeVisible();
+    await expect(
+      page
+        .getByRole("link", { name: "React Query 서버 상태 관리 글 보기" })
+        .getByText("프론트 상태", { exact: true })
     ).toBeVisible();
   });
 
