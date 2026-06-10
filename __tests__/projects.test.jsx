@@ -14,6 +14,12 @@ describe("Projects", () => {
       screen.getAllByText(/게시글, 미디어, 조직\/사용자, 외부 API 클라이언트/)
         .length
     ).toBeGreaterThan(0);
+    expect(
+      screen.getByText(/관리자 Bearer token 인증과 외부 API Key 인증을 분리/)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/스크린샷과 구조 설명으로 설계 의도를 검증 가능/)
+    ).toBeInTheDocument();
     expect(screen.getByText("AI 협업 기반 포트폴리오 개선")).toBeInTheDocument();
     expect(screen.getAllByText(/개발 프로세스 개선 사례/).length).toBeGreaterThan(0);
     expect(screen.getAllByText("검증 기록").length).toBeGreaterThan(0);

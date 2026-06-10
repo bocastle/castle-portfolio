@@ -43,6 +43,28 @@
 - 조직과 사용자 데이터를 분리해 조직 범위의 관리 흐름을 설명할 수 있게 구성
 - 외부 API 클라이언트는 API Key 발급, 해시 저장, 폐기, 인증 필터 흐름으로 관리
 
+### 권한 흐름 다이어그램
+
+```mermaid
+flowchart LR
+  Admin["관리자"] --> Login["로그인 API"]
+  Login --> Token["Bearer token 발급"]
+  Token --> AdminApi["관리자 보호 API"]
+  AdminApi --> Content["게시글/미디어 관리"]
+  AdminApi --> OrgUser["조직/사용자 관리"]
+
+  Operator["운영자"] --> ClientIssue["외부 API 클라이언트 발급"]
+  ClientIssue --> ApiKey["API Key 생성"]
+  ApiKey --> HashStore["Key 해시 저장"]
+  ExternalClient["외부 연동 클라이언트"] --> ApiFilter["API Key 인증 필터"]
+  ApiFilter --> ClientApi["외부 연동 API"]
+  HashStore --> ApiFilter
+  Operator --> Revoke["API Key 폐기"]
+  Revoke --> ApiFilter
+```
+
+면접에서는 관리자 인증과 외부 클라이언트 인증을 분리했다는 점을 먼저 말합니다. 내부 운영 화면은 Bearer token으로 보호하고, 외부 연동 주체는 API Key 발급/해시 저장/폐기 흐름으로 별도 수명주기를 갖게 했다고 설명하면 됩니다.
+
 ### 데이터 모델 관점
 
 - 게시글: 임시저장, 발행, 제목, SEO, 대표 이미지, 본문 HTML 같은 콘텐츠 운영 필드 중심
@@ -88,6 +110,15 @@
 - 외부 API 클라이언트 관리 화면
 - 프로젝트 카드의 문제, 역할, 설계/구현, 검증, AI 활용 설명
 - Jest, JUnit, 빌드, 브라우저 QA 기준의 검증 흐름
+
+## 검증 범위
+
+| 구분 | 검증 대상 | 면접에서 말할 수 있는 의미 |
+| --- | --- | --- |
+| 단위 테스트 | 화면 렌더링, 프로젝트 카드 문구, 데이터 표시 | 공개 포트폴리오에서 의도한 설명이 깨지지 않게 확인 |
+| Backend 테스트 | 인증, 도메인 로직, API 흐름 | 보호 API와 주요 도메인 동작을 코드 레벨에서 확인 |
+| 빌드 검증 | Next.js, Spring Boot 빌드 | 프론트와 백엔드가 각각 배포 가능한 상태인지 확인 |
+| 화면 QA | 로그인, 게시글/미디어, 조직/사용자, 외부 API 클라이언트 화면 | 실제 운영자가 보는 흐름 기준으로 기능을 점검 |
 
 ## 말하지 않을 것
 

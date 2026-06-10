@@ -52,6 +52,7 @@
 - `src/components/BuildLog/index.tsx`
 - `src/components/FeaturedWriting/index.tsx`
 - `public/resume/kim-bosung.pdf`
+- `docs/interview/castlecms-private-project-brief.md`
 - `__tests__/information.test.jsx`
 - `__tests__/projects.test.jsx`
 - `e2e/portfolio-browser-qa.spec.ts`
@@ -85,28 +86,23 @@
 - in-app Browser 제어용 `node_repl` 도구가 이 세션에 노출되지 않아 실제 화면 검증은 터미널 Playwright로 수행했다.
 - 로컬 production 서버는 확인용으로 `http://127.0.0.1:3000/`에서 실행했다.
 
-## 현재 로컬 주의사항
+## 2026-06-10 이어받기 업데이트
 
-`5c0bb1b` 푸시 후 작업 트리에 기존 `package-lock.json` 변경만 남아 있다.
+- `docs/interview/castlecms-private-project-brief.md`를 추가해 private `castleCms` 프로젝트를 면접에서 설명할 수 있는 구조로 정리했다.
+- 문서에는 문제 의식, Frontend/Backend 구조, 관리자 Bearer token 인증과 외부 API Key 인증 분리, Mermaid 권한 흐름, 검증 범위를 포함했다.
+- `src/components/Projects/data.json`의 `castleCms` 설명을 면접 자료와 맞춰 운영형 CMS 설계/검증 사례로 더 짧게 다듬었다.
+- `__tests__/projects.test.jsx`는 새 카드 문구와 권한 분리 설명을 확인하도록 갱신했다.
 
-변경 내용:
-
-- `fsevents` 항목의 `"dev": true` 한 줄 삭제
-
-이 작업 범위와 무관하므로 커밋에 포함하지 않는다. 사용자가 의도한 install 결과인지 별도로 확인해야 한다.
-
-다음 개발자가 시작할 때 권장 확인:
+현재 로컬 기준으로 `main`은 `origin/main`과 동기화된 상태에서 작업을 시작했다. 다음 개발자가 시작할 때는 아래를 먼저 확인한다.
 
 ```text
 git status -sb
 git pull origin main
 ```
 
-`package-lock.json` 변경은 사용자 설치 작업의 결과일 수 있으므로, 이어받는 개발자는 임의로 되돌리기 전에 사용자에게 확인한다.
-
 ## 다음 단계
 
 1. 실제 배포 후 Vercel 화면에서 홈, PDF CTA, 프로젝트 섹션을 확인한다.
 2. GA4에서 `Resume Click`, `Project Screenshot Select`, `Project Image Open` 이벤트가 들어오는지 확인한다.
 3. `AI 협업 기반 포트폴리오 개선` 프로젝트에는 이후 커밋, QA 로그, 회고 글을 계속 누적한다.
-4. private 프로젝트는 면접에서 말할 수 있는 범위의 구조 설명 자료를 별도 문서로 준비한다.
+4. `castleCms` 면접 자료에는 필요하면 비밀값 없는 API 목록과 요청/응답 예시를 추가한다.
