@@ -15,6 +15,11 @@ const buildLogs = [
       "최근에 다시 정리한 글이 먼저 보이도록 블로그 목록 흐름을 다듬었습니다.",
   },
   {
+    title: "castleCms 면접 자료화",
+    description:
+      "private 프로젝트를 공개 가능한 구조 설명, API 예시, 권한 흐름, 검증 기준 중심으로 정리했습니다.",
+  },
+  {
     title: "배포 검증 흐름 정리",
     description:
       "테스트, 빌드, 타입체크, 브라우저 QA, Vercel 반영 확인을 반복 가능한 절차로 정리했습니다.",

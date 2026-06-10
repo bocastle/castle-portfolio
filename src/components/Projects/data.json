@@ -58,6 +58,16 @@
           "alt": "castleCms 외부 API 클라이언트 관리 화면"
         }
       ],
+      "documentationLinks": [
+        {
+          "label": "면접 설명 자료",
+          "href": "https://github.com/bocastle/castle-portfolio/blob/main/docs/interview/castlecms-private-project-brief.md"
+        },
+        {
+          "label": "API 설명 자료",
+          "href": "https://github.com/bocastle/castle-portfolio/blob/main/docs/interview/castlecms-api-brief.md"
+        }
+      ],
       "repositoryNote": "GitHub private repository. 데모 스크린샷과 화면 흐름을 공개하며, API/권한/데이터 모델/검증 기준 중심으로 설명합니다."
     },
     {

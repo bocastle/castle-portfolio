@@ -9,6 +9,7 @@ describe("BuildLog", () => {
     expect(screen.getByText("브라우저 QA 자동화")).toBeInTheDocument();
     expect(screen.getByText("GA4 이벤트 추적 전환")).toBeInTheDocument();
     expect(screen.getByText("글 목록 정리")).toBeInTheDocument();
+    expect(screen.getByText("castleCms 면접 자료화")).toBeInTheDocument();
     expect(screen.getByText("배포 검증 흐름 정리")).toBeInTheDocument();
     expect(
       screen.getByText(

@@ -89,8 +89,11 @@
 ## 2026-06-10 이어받기 업데이트
 
 - `docs/interview/castlecms-private-project-brief.md`를 추가해 private `castleCms` 프로젝트를 면접에서 설명할 수 있는 구조로 정리했다.
+- `docs/interview/castlecms-api-brief.md`를 추가해 비밀값 없는 API 목록, 요청/응답 예시, 오류 응답 기준, 검증 포인트를 정리했다.
 - 문서에는 문제 의식, Frontend/Backend 구조, 관리자 Bearer token 인증과 외부 API Key 인증 분리, Mermaid 권한 흐름, 검증 범위를 포함했다.
 - `src/components/Projects/data.json`의 `castleCms` 설명을 면접 자료와 맞춰 운영형 CMS 설계/검증 사례로 더 짧게 다듬었다.
+- 프로젝트 카드에 GitHub 문서 링크를 추가해 `castleCms`의 면접 설명 자료와 API 설명 자료를 공개 화면에서 열 수 있게 했다.
+- `BuildLog`에 `castleCms 면접 자료화` 항목을 추가해 요구사항 정리, 문서화, 테스트, 배포 검증 흐름을 포트폴리오 개선 기록으로 누적했다.
 - `__tests__/projects.test.jsx`는 새 카드 문구와 권한 분리 설명을 확인하도록 갱신했다.
 
 현재 로컬 기준으로 `main`은 `origin/main`과 동기화된 상태에서 작업을 시작했다. 다음 개발자가 시작할 때는 아래를 먼저 확인한다.
@@ -105,4 +108,4 @@ git pull origin main
 1. 실제 배포 후 Vercel 화면에서 홈, PDF CTA, 프로젝트 섹션을 확인한다.
 2. GA4에서 `Resume Click`, `Project Screenshot Select`, `Project Image Open` 이벤트가 들어오는지 확인한다.
 3. `AI 협업 기반 포트폴리오 개선` 프로젝트에는 이후 커밋, QA 로그, 회고 글을 계속 누적한다.
-4. `castleCms` 면접 자료에는 필요하면 비밀값 없는 API 목록과 요청/응답 예시를 추가한다.
+4. `Project Documentation Open` 이벤트가 GA4/GTM으로 들어오는지 확인한다.

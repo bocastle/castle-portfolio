@@ -21,6 +21,7 @@ const ProjectItem = ({
   highlights,
   techStack,
   screenshots,
+  documentationLinks = [],
   repositoryNote,
 }: Project) => {
   const initialScreenshot = screenshots[1] ?? screenshots[0];
@@ -123,6 +124,28 @@ const ProjectItem = ({
             </span>
           ) : null}
         </div>
+
+        {documentationLinks.length > 0 ? (
+          <div className="flex flex-wrap gap-2">
+            {documentationLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  trackEvent("Project Documentation Open", {
+                    project: name,
+                    document: link.label,
+                  })
+                }
+                className="rounded-md border border-teal-500 px-3 py-1.5 text-sm font-semibold text-teal-700 transition hover:bg-teal-50 dark:border-teal-500 dark:text-teal-300 dark:hover:bg-teal-950"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        ) : null}
 
         <p className="m-0 text-sm text-gray-500 dark:text-gray-300">
           {repositoryNote}

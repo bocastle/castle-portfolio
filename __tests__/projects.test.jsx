@@ -20,6 +20,16 @@ describe("Projects", () => {
     expect(
       screen.getByText(/스크린샷과 구조 설명으로 설계 의도를 검증 가능/)
     ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "면접 설명 자료" })
+    ).toHaveAttribute(
+      "href",
+      "https://github.com/bocastle/castle-portfolio/blob/main/docs/interview/castlecms-private-project-brief.md"
+    );
+    expect(screen.getByRole("link", { name: "API 설명 자료" })).toHaveAttribute(
+      "href",
+      "https://github.com/bocastle/castle-portfolio/blob/main/docs/interview/castlecms-api-brief.md"
+    );
     expect(screen.getByText("AI 협업 기반 포트폴리오 개선")).toBeInTheDocument();
     expect(screen.getAllByText(/개발 프로세스 개선 사례/).length).toBeGreaterThan(0);
     expect(screen.getAllByText("검증 기록").length).toBeGreaterThan(0);

@@ -3,6 +3,11 @@ export type ProjectScreenshot = {
   alt: string;
 };
 
+export type ProjectDocumentationLink = {
+  label: string;
+  href: string;
+};
+
 export type Project = {
   id: string;
   name: string;
@@ -20,5 +25,6 @@ export type Project = {
   highlights: string[];
   techStack: string[];
   screenshots: ProjectScreenshot[];
+  documentationLinks?: ProjectDocumentationLink[];
   repositoryNote: string;
 };
