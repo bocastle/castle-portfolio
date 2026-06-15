@@ -78,7 +78,7 @@ const FeaturedWriting = ({
             key={writing.href}
             href={writing.href}
             aria-label={`${writing.title} 글 보기`}
-            className="transform-gpu rounded-lg border border-gray-200 bg-white p-4 shadow-sm transition-[border-color,box-shadow,color,transform] duration-200 ease-out hover:-translate-y-2 hover:border-teal-400 hover:text-teal-700 hover:shadow-2xl focus-visible:-translate-y-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white motion-reduce:transition-none dark:border-slate-700 dark:bg-slate-900/70 dark:hover:border-teal-500 dark:hover:text-teal-300 dark:focus-visible:ring-offset-slate-950"
+            className="transform-gpu rounded-lg border border-gray-200 bg-white p-4 shadow-sm transition-[border-color,box-shadow,color,transform] duration-200 ease-out hover:-translate-y-1 hover:border-teal-400 hover:text-teal-700 hover:shadow-lg focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white motion-reduce:transition-none dark:border-slate-700 dark:bg-slate-900/70 dark:hover:border-teal-500 dark:hover:text-teal-300 dark:focus-visible:ring-offset-slate-950"
           >
             <article>
               <span className="mb-3 inline-flex rounded-md border border-teal-500/40 px-2 py-0.5 text-xs font-semibold text-teal-700 dark:text-teal-300">

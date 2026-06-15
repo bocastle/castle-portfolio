@@ -90,10 +90,10 @@ const BlogList = ({ list }: Props) => {
                 title: item.title,
               })
             }
-            className="flex transform-gpu flex-col items-start gap-5 rounded-lg transition-[box-shadow,transform] duration-200 ease-out hover:-translate-y-2 hover:shadow-2xl focus-visible:-translate-y-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white motion-reduce:transition-none dark:focus-visible:ring-offset-slate-950"
+            className="group flex flex-col items-start gap-5 rounded-lg transition-colors duration-200 ease-out hover:text-teal-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white motion-reduce:transition-none dark:hover:text-teal-300 dark:focus-visible:ring-offset-slate-950"
           >
             <div
-              className="w-[476px] h-[270px] relative max-2xl:w-[370px] max-xl:w-80 max-lg:w-96 max-md:w-96 max-md:h-[270px]"
+              className="w-[476px] h-[270px] relative transform-gpu rounded-lg transition-[box-shadow,transform] duration-200 ease-out group-hover:-translate-y-1 group-hover:shadow-lg group-focus-visible:-translate-y-1 group-focus-visible:shadow-lg motion-reduce:transition-none max-2xl:w-[370px] max-xl:w-80 max-lg:w-96 max-md:w-96 max-md:h-[270px]"
               ref={(el) => {
                 if (
                   index ===
@@ -108,7 +108,7 @@ const BlogList = ({ list }: Props) => {
                 src={item.thumbnailUrl}
                 alt="thumbnail"
                 placeholder="blur"
-                className="rounded-lg border-[1px] border-gray-400 border-solid hover:rounded-lg hover:border-[1px] hover:border-gray-400 after:hover:border-solid after:hover:transition-opacity after:hover:opacity-100 after:hover:duration-700 after:hover:ease-in-out"
+                className="rounded-lg border-[1px] border-gray-400 border-solid transition-[border-color,filter] duration-200 ease-out group-hover:border-teal-400 group-hover:brightness-95 dark:group-hover:border-teal-500"
                 blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg==" // 추가
                 fill
               />
@@ -119,7 +119,7 @@ const BlogList = ({ list }: Props) => {
                   {sourceLabel}
                 </span>
               ) : null}
-              <div className="items-start overflow-hidden whitespace-nowrap text-ellipsis text-[24px]">
+              <div className="items-start overflow-hidden whitespace-nowrap text-ellipsis text-[24px] transition-colors duration-200 ease-out group-hover:text-teal-700 dark:group-hover:text-teal-300">
                 {item.title}
               </div>
               <div className="flex flex-col gap-24 items-start text-[14px] text-gray-600 dark:text-indigo-300">

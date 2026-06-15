@@ -38,17 +38,19 @@ const article = {
 };
 
 describe("BlogList", () => {
-  it("adds a visible hover lift treatment to blog cards", () => {
+  it("keeps the card steady while lifting the thumbnail subtly", () => {
     render(<BlogList list={[article]} />);
 
     const cardLink = screen.getByRole("link", {
       name: /CI\/CD 파이프라인 운영 흐름/,
     });
+    const thumbnail = screen.getByAltText("thumbnail");
 
-    expect(cardLink).toHaveClass("transform-gpu");
-    expect(cardLink).toHaveClass("transition-[box-shadow,transform]");
-    expect(cardLink).toHaveClass("hover:-translate-y-2");
-    expect(cardLink).toHaveClass("hover:shadow-2xl");
-    expect(cardLink).toHaveClass("focus-visible:-translate-y-2");
+    expect(cardLink).toHaveClass("group");
+    expect(cardLink).toHaveClass("transition-colors");
+    expect(cardLink).not.toHaveClass("hover:-translate-y-2");
+    expect(cardLink).not.toHaveClass("hover:shadow-2xl");
+    expect(thumbnail.parentElement).toHaveClass("group-hover:-translate-y-1");
+    expect(thumbnail.parentElement).toHaveClass("group-hover:shadow-lg");
   });
 });

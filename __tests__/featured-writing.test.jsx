@@ -41,10 +41,10 @@ describe("FeaturedWriting", () => {
     ).toHaveClass("transform-gpu");
     expect(
       screen.getByRole("link", { name: "CI/CD 파이프라인 운영 흐름 글 보기" })
-    ).toHaveClass("hover:-translate-y-2");
+    ).toHaveClass("hover:-translate-y-1");
     expect(
       screen.getByRole("link", { name: "CI/CD 파이프라인 운영 흐름 글 보기" })
-    ).toHaveClass("hover:shadow-2xl");
+    ).toHaveClass("hover:shadow-lg");
     expect(
       screen.getByRole("link", {
         name: "React Query 서버 상태 관리 글 보기",
