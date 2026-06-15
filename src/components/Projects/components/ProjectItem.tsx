@@ -42,7 +42,7 @@ const ProjectItem = ({
 
   return (
     <article
-      className={`grid gap-6 rounded-lg border border-gray-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900/70 ${
+      className={`grid transform-gpu gap-6 rounded-lg border border-gray-200 bg-white p-5 shadow-sm transition-[border-color,box-shadow,transform] duration-200 ease-out hover:-translate-y-1 hover:border-teal-300 hover:shadow-xl focus-within:-translate-y-1 focus-within:border-teal-300 focus-within:shadow-xl motion-reduce:transform-none motion-reduce:transition-none dark:border-slate-700 dark:bg-slate-900/70 dark:hover:border-teal-600 dark:focus-within:border-teal-600 ${
         hasScreenshots
           ? "md:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)]"
           : "md:grid-cols-1"
