@@ -42,7 +42,7 @@ const ProjectItem = ({
 
   return (
     <article
-      className={`grid transform-gpu gap-6 rounded-lg border border-gray-200 bg-white p-5 shadow-sm transition-[border-color,box-shadow,transform] duration-200 ease-out hover:-translate-y-1 hover:border-teal-300 hover:shadow-xl focus-within:-translate-y-1 focus-within:border-teal-300 focus-within:shadow-xl motion-reduce:transform-none motion-reduce:transition-none dark:border-slate-700 dark:bg-slate-900/70 dark:hover:border-teal-600 dark:focus-within:border-teal-600 ${
+      className={`grid transform-gpu gap-6 rounded-lg border border-gray-200 bg-white p-5 shadow-sm transition-[border-color,box-shadow,transform] duration-200 ease-out hover:-translate-y-2 hover:border-teal-300 hover:shadow-2xl focus-within:-translate-y-2 focus-within:border-teal-300 focus-within:shadow-2xl motion-reduce:transition-none dark:border-slate-700 dark:bg-slate-900/70 dark:hover:border-teal-600 dark:focus-within:border-teal-600 ${
         hasScreenshots
           ? "md:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)]"
           : "md:grid-cols-1"
@@ -166,7 +166,7 @@ const ProjectItem = ({
                   image: selectedScreenshot.alt,
                 })
               }
-              className="group block"
+              className="group block transform-gpu rounded-lg transition-[box-shadow,transform] duration-200 ease-out hover:-translate-y-1 hover:shadow-lg focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white motion-reduce:transition-none dark:focus-visible:ring-offset-slate-950"
             >
               <Image
                 src={selectedScreenshot.src}
@@ -192,7 +192,7 @@ const ProjectItem = ({
                     image: screenshot.alt,
                   });
                 }}
-                className="rounded-md text-left focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-950"
+                className="transform-gpu rounded-md text-left transition-[box-shadow,transform] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 focus:ring-offset-white motion-reduce:transition-none dark:focus:ring-offset-slate-950"
               >
                 <Image
                   src={screenshot.src}
