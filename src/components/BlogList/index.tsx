@@ -90,7 +90,7 @@ const BlogList = ({ list }: Props) => {
                 title: item.title,
               })
             }
-            className="flex flex-col items-start gap-5"
+            className="flex transform-gpu flex-col items-start gap-5 rounded-lg transition-[box-shadow,transform] duration-200 ease-out hover:-translate-y-2 hover:shadow-2xl focus-visible:-translate-y-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white motion-reduce:transition-none dark:focus-visible:ring-offset-slate-950"
           >
             <div
               className="w-[476px] h-[270px] relative max-2xl:w-[370px] max-xl:w-80 max-lg:w-96 max-md:w-96 max-md:h-[270px]"
