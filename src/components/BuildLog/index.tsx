@@ -5,9 +5,14 @@ const buildLogs = [
       "홈, 프로젝트, 블로그, 모바일, 다크모드 흐름을 Playwright 기반 QA로 확인하도록 정리했습니다.",
   },
   {
-    title: "GA4 이벤트 추적 전환",
+    title: "GTM 이벤트 수집 단일화",
     description:
-      "방문 경로와 주요 CTA 클릭 흐름을 확인할 수 있도록 UTM과 GA4/GTM 이벤트 추적을 정리했습니다.",
+      "GA4 직접 태그와 GTM 병행으로 생길 수 있는 중복 집계 위험을 줄이고, 커스텀 이벤트를 dataLayer 단일 경로로 정리했습니다.",
+  },
+  {
+    title: "기술 기록 자동화",
+    description:
+      "Dropbox Markdown 동기화와 GitHub Actions 스케줄 실행, Telegram 알림으로 개인 기술 기록 파이프라인을 자동화했습니다.",
   },
   {
     title: "글 목록 정리",

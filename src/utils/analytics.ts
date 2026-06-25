@@ -7,11 +7,6 @@ const MAX_GA_EVENT_NAME_LENGTH = 40;
 declare global {
   interface Window {
     dataLayer?: unknown[];
-    gtag?: (
-      command: "event",
-      eventName: string,
-      eventParameters?: Record<string, AnalyticsValue>
-    ) => void;
   }
 }
 
@@ -54,11 +49,6 @@ export const trackEvent = (
   const eventName = normalizeEventName(name);
 
   try {
-    if (typeof window.gtag === "function") {
-      window.gtag("event", eventName, normalizedProperties);
-      return;
-    }
-
     window.dataLayer?.push({
       event: eventName,
       original_event_name: name.slice(0, MAX_ANALYTICS_LENGTH),

@@ -111,11 +111,11 @@ git pull origin main
 - `https://bocelog.vercel.app/` 홈은 HTTP 200으로 접근 가능하다.
 - 확인 시점의 공개 홈 HTML에는 `castleCms 면접 자료화`, `API 설명 자료`, `castlecms-api-brief.md`가 아직 포함되지 않았다. Vercel 배포 또는 prerender 반영 지연 가능성이 있으므로 잠시 뒤 다시 확인한다.
 - GA4/GTM 대시보드는 인증이 필요한 영역이라 이 세션에서 직접 수집 여부를 확인하지 못했다.
-- 코드 기준으로 `Project Documentation Open` 이벤트는 `trackEvent`를 통해 `project_documentation_open`으로 정규화되어 `window.gtag` 또는 `dataLayer`에 전달된다.
+- 현재 코드 기준으로 `Project Documentation Open` 이벤트는 `trackEvent`를 통해 `project_documentation_open`으로 정규화되어 GTM `dataLayer`에 전달된다.
 
 ## 다음 단계
 
 1. 실제 배포 후 Vercel 화면에서 홈, PDF CTA, 프로젝트 섹션을 확인한다.
-2. GA4에서 `Resume Click`, `Project Screenshot Select`, `Project Image Open` 이벤트가 들어오는지 확인한다.
+2. GTM Preview 또는 GA4 Realtime에서 `Resume Click`, `Project Screenshot Select`, `Project Image Open` 이벤트가 들어오는지 확인한다.
 3. `AI 협업 기반 포트폴리오 개선` 프로젝트에는 이후 커밋, QA 로그, 회고 글을 계속 누적한다.
-4. `Project Documentation Open` 이벤트가 GA4/GTM으로 들어오는지 확인한다.
+4. `Project Documentation Open` 이벤트가 GTM `dataLayer` 경유로 GA4에 들어오는지 확인한다.

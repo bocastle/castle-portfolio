@@ -71,6 +71,95 @@
       "repositoryNote": "GitHub private repository. 데모 스크린샷과 화면 흐름을 공개하며, API/권한/데이터 모델/검증 기준 중심으로 설명합니다."
     },
     {
+      "id": "dodge-arcade",
+      "name": "Dodge Arcade",
+      "type": "토이 프로젝트 / Three.js + React Three Fiber 3D 웹 게임",
+      "period": "2026.06",
+      "role": "게임 루프, 충돌 판정, 점수/난이도, 3D 비주얼, 모바일 입력, 멀티플레이 룸, 배포 QA",
+      "problem": "가벼운 토이 프로젝트라도 단순 화면 구현에서 끝내지 않고, 실제 브라우저에서 플레이 가능한 3D 인터랙션과 모바일 대응, 반복 플레이 흐름까지 완성도를 끌어올리는 경험이 필요했습니다.",
+      "solution": "Vite, React, TypeScript, Three.js, React Three Fiber 기반으로 회피 게임을 만들고, 점수/최고점/재시작 상태, 위험 웨이브, close-call 보상, shield pickup, Web Audio 효과음, Socket.IO 기반 룸 멀티플레이를 단계적으로 붙였습니다.",
+      "result": "프론트엔드는 Vercel, 멀티플레이 서버는 Render에 배포했고, 데스크톱/모바일 브라우저 QA와 Vitest 기반 게임 로직 테스트로 첫 웹 오픈 후보 수준까지 정리했습니다.",
+      "aiUsage": "Codex를 기능 분해, 테스트 작성, 브라우저 QA 체크리스트, 모바일 레이아웃 회귀 확인에 활용했고 최종 판단은 실제 브라우저 플레이, 빌드, 테스트 결과 기준으로 직접 검증했습니다.",
+      "repoVisibility": "public",
+      "reviewAvailable": true,
+      "summary": "Three.js 기반 3D 회피 게임입니다. 브라우저에서 플레이 가능한 싱글 플레이와 로그인 없는 Socket.IO 멀티플레이 룸을 구현하고, 모바일 화면까지 QA한 토이 프로젝트입니다.",
+      "description": "점수, 난이도, 충돌 판정, 위험 웨이브, shield save, 사운드 토글, 4자리 룸 코드 멀티플레이를 갖춘 웹 게임으로 확장했습니다. 장난스러운 소재를 기술적으로는 게임 루프, 입력, 상태, 네트워크 동기화, 배포 검증 사례로 정리했습니다.",
+      "highlights": [
+        "React Three Fiber 기반 3D 씬에서 플레이어, 카메라, 조명, 바닥, 낙하 장애물, 충돌 판정 구현",
+        "키보드와 모바일 pointer drag 입력을 분리하고, 화면 비율에 따른 카메라 프레이밍과 HUD 레이아웃을 조정",
+        "close-call 콤보, 위험 웨이브, shield pickup/save, 게임오버 리캡으로 반복 플레이 피드백 강화",
+        "Socket.IO 기반 4자리 룸 코드, host start, countdown, survivor list, 결과 화면으로 로그인 없는 멀티플레이 MVP 구성",
+        "Vercel 프론트엔드와 Render 멀티플레이 서버 배포를 분리하고, 서버 장애 시 싱글 플레이는 유지되도록 처리",
+        "Vitest 단위 테스트와 데스크톱/모바일 브라우저 QA로 게임 로직, 레이아웃, 재시작 흐름을 검증"
+      ],
+      "techStack": [
+        "Vite",
+        "React",
+        "TypeScript",
+        "Three.js",
+        "React Three Fiber",
+        "Socket.IO",
+        "Vitest",
+        "Vercel",
+        "Render",
+        "Codex"
+      ],
+      "screenshots": [],
+      "documentationLinks": [
+        {
+          "label": "라이브 데모",
+          "href": "https://poop-dodge-3d.vercel.app/"
+        },
+        {
+          "label": "GitHub 저장소",
+          "href": "https://github.com/bocastle/poop-dodge-3d"
+        }
+      ],
+      "repositoryNote": "Public repository. 현재는 웹 MVP와 배포 URL을 공개하고, 게임 로직 테스트와 브라우저 QA 기록을 함께 남겨 완성 과정을 확인할 수 있게 했습니다."
+    },
+    {
+      "id": "krx-pension-bot",
+      "name": "KRX 수급 텔레그램 봇",
+      "type": "토이 프로젝트 / Go + Telegram Webhook 데이터 리포트 봇",
+      "period": "2026.06",
+      "role": "KRX 데이터 조회, 명령어 파싱, 리포트 생성, 캐시, Telegram webhook, Render 배포, 상태 확인 자동화",
+      "problem": "KRX 투자자별 매매 동향은 웹 화면에서 직접 확인할 수 있지만, 매번 조건을 찾아 들어가고 여러 지표를 비교하는 흐름이 번거롭습니다. 모바일 메신저에서 짧은 명령어로 관심 수급 리포트를 확인할 수 있는 경량 도구가 필요했습니다.",
+      "solution": "Go 단일 HTTP 서버로 Telegram webhook을 받고, KRX 투자자별 수급과 시간외 가격 데이터를 조회해 시장별 순매수/순매도, 종목별 수급, 관심 신호, 오전/오후 실적 리포트를 텍스트로 생성했습니다.",
+      "result": "Render Web Service 배포와 Telegram webhook 설정을 전제로 운영 흐름을 구성하고, 5~30분 메모리 캐시와 GitHub Actions health ping으로 무료 서버 환경의 요청 부담과 sleep 상태를 완화했습니다.",
+      "aiUsage": "Codex를 명령어 체계 정리, 테스트 보강, README/운영 문서 작성, 리포트 문구 점검에 활용했고 최종 판단은 Go 테스트와 실제 Telegram 명령 흐름 기준으로 검증했습니다.",
+      "repoVisibility": "public",
+      "reviewAvailable": true,
+      "summary": "Go 기반 KRX 데이터 리포트 봇입니다. Telegram 명령어로 KRX 투자자별 수급, 거래대금, 시간외 급등, 관심 신호를 조회하고 Render webhook 방식으로 운영할 수 있게 구성했습니다.",
+      "description": "투자 추천이 아니라 공개 KRX 데이터를 텍스트 리포트로 재구성하는 자동화 도구입니다. 명령어 파싱, 외부 데이터 조회, 캐시, 리포트 생성, 배포 상태 확인까지 작은 백엔드 운영 흐름을 한 프로젝트 안에 묶었습니다.",
+      "highlights": [
+        "Telegram webhook 기반 명령어 처리로 연기금등 수급, 거래대금, 시간외 급등, 관심 신호 리포트 제공",
+        "종목 코드, 종목명, 일부 별칭 검색을 지원하고 여러 후보가 있을 때 후보 목록을 반환",
+        "KRX 데이터 지연이나 휴장일에는 최근 조회 가능한 거래일을 자동 탐색해 빈 결과를 줄임",
+        "5~30분 메모리 캐시를 적용해 KRX 요청 부담과 무료 배포 환경의 반복 호출 비용을 완화",
+        "Render Web Service 배포와 GitHub Actions health ping으로 webhook 서버 운영 상태를 주기적으로 확인",
+        "Go 테스트로 명령어 파싱, 리포트 생성, 서버 엔드포인트, Telegram client 흐름을 검증"
+      ],
+      "techStack": [
+        "Go",
+        "Telegram Bot API",
+        "KRX Data",
+        "HTTP Webhook",
+        "Render",
+        "GitHub Actions",
+        "Docker",
+        "Cache",
+        "Codex"
+      ],
+      "screenshots": [],
+      "documentationLinks": [
+        {
+          "label": "KRX 봇 GitHub 저장소",
+          "href": "https://github.com/bocastle/krx-pension-bot"
+        }
+      ],
+      "repositoryNote": "Public repository. 공개 KRX 데이터를 Telegram 리포트로 재구성하는 경량 Go 봇이며, 매매 추천이 아닌 데이터 조회와 운영 자동화 사례로 정리했습니다."
+    },
+    {
       "id": "ai-portfolio-rebuild",
       "name": "AI 협업 기반 포트폴리오 개선",
       "type": "개발 프로세스 개선 사례 / 포트폴리오 리빌드",

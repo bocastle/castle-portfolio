@@ -34,6 +34,24 @@ describe("Projects", () => {
     expect(screen.getAllByText(/개발 프로세스 개선 사례/).length).toBeGreaterThan(0);
     expect(screen.getAllByText("검증 기록").length).toBeGreaterThan(0);
     expect(screen.getByText(/포트폴리오를 운영 가능한 서비스처럼 개선/)).toBeInTheDocument();
+    expect(screen.getByText("Dodge Arcade")).toBeInTheDocument();
+    expect(screen.getByText(/Three\.js 기반 3D 회피 게임/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/싱글 플레이와 로그인 없는 Socket\.IO 멀티플레이 룸/)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "라이브 데모" })
+    ).toHaveAttribute("href", "https://poop-dodge-3d.vercel.app/");
+    expect(
+      screen.getByRole("link", { name: "GitHub 저장소" })
+    ).toHaveAttribute("href", "https://github.com/bocastle/poop-dodge-3d");
+    expect(screen.getByText("KRX 수급 텔레그램 봇")).toBeInTheDocument();
+    expect(screen.getByText(/Go 기반 KRX 데이터 리포트 봇/)).toBeInTheDocument();
+    expect(screen.getByText(/Render webhook 방식으로 운영/)).toBeInTheDocument();
+    expect(screen.getAllByText(/GitHub Actions health ping/).length).toBeGreaterThan(0);
+    expect(
+      screen.getByRole("link", { name: "KRX 봇 GitHub 저장소" })
+    ).toHaveAttribute("href", "https://github.com/bocastle/krx-pension-bot");
     expect(screen.queryByText("코드/구조 설명 가능")).not.toBeInTheDocument();
     expect(screen.queryByText(/설명 가능/)).not.toBeInTheDocument();
     expect(screen.queryByText(/실무 경력/)).not.toBeInTheDocument();

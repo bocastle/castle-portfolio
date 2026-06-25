@@ -1,6 +1,6 @@
 import GoogleAdSenseComponent from "@/components/GoogleAds/components/GoogleAdSenseComponent";
 import CampaignTracker from "@/components/Analytics/CampaignTracker";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
@@ -54,7 +54,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const GTM_ID = process.env.GTM_ID;
-  const GTAG_ID = process.env.GTAG_ID;
   const PID = process.env.PID ?? "";
   const SLOT = process.env.SLOT ?? "";
   return (
@@ -62,7 +61,6 @@ export default function RootLayout({
       <head>
         <GoogleAdSense />
         {GTM_ID ? <GoogleTagManager gtmId={GTM_ID} /> : null}
-        {GTAG_ID ? <GoogleAnalytics gaId={GTAG_ID} /> : null}
         <ThemeScript />
       </head>
 

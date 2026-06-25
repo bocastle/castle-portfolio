@@ -7,7 +7,12 @@ describe("BuildLog", () => {
     render(<BuildLog />);
 
     expect(screen.getByText("브라우저 QA 자동화")).toBeInTheDocument();
-    expect(screen.getByText("GA4 이벤트 추적 전환")).toBeInTheDocument();
+    expect(screen.getByText("GTM 이벤트 수집 단일화")).toBeInTheDocument();
+    expect(screen.getByText(/dataLayer 단일 경로/)).toBeInTheDocument();
+    expect(screen.getByText("기술 기록 자동화")).toBeInTheDocument();
+    expect(
+      screen.getByText(/Dropbox Markdown 동기화와 GitHub Actions 스케줄 실행/)
+    ).toBeInTheDocument();
     expect(screen.getByText("글 목록 정리")).toBeInTheDocument();
     expect(screen.getByText("castleCms 면접 자료화")).toBeInTheDocument();
     expect(screen.getByText("배포 검증 흐름 정리")).toBeInTheDocument();
