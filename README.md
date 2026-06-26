@@ -6,7 +6,7 @@
 2. vercel 자동배포 -> 깃헙 액션으로 변경
 3. 슬랙 webhook 추가
 4. 카테고리 생성
-5. google setting(심사중)
+5. Google Analytics / AdSense 운영 준비(AdSense 사이트 심사중)
 6. git config 테스트
 
 ---
