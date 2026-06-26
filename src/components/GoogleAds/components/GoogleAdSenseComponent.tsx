@@ -27,8 +27,8 @@ const GoogleAdSenseComponent = ({ PID, SLOT }: Props) => {
 
   return (
     <ins
-      className="adsbygoogle flex justify-center"
-      // style={{ display: "block" }}
+      className="adsbygoogle"
+      style={{ display: "block" }}
       data-ad-client={`ca-pub-${PID}`}
       data-ad-slot={SLOT}
       data-ad-format="auto"

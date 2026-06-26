@@ -1,5 +1,6 @@
 import BlogList from "@/components/BlogList";
 import FeaturedWriting from "@/components/FeaturedWriting";
+import BlogAdSenseSlot from "@/components/GoogleAds/BlogAdSenseSlot";
 import { getPageList } from "../api/blog";
 import { ArticleFilterTagList } from "./components/ArticleTagList";
 import { ArticleTagTitle } from "./components/ArticleTagTitle";
@@ -24,6 +25,7 @@ export default async function BlogPage() {
         <ArticleTagTitle />
         <ArticleFilterTagList />
       </div>
+      <BlogAdSenseSlot className="my-2" />
       <BlogList list={List} />
     </div>
   );

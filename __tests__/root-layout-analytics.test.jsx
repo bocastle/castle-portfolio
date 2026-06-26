@@ -111,4 +111,15 @@ describe("RootLayout analytics tags", () => {
     expect(clarityElements).toHaveLength(1);
     expect(clarityElements[0].props.projectId).toBe("clarity123");
   });
+
+  it("does not mount an AdSense display slot on the portfolio root layout", () => {
+    process.env.PID = "5941762046444090";
+    process.env.SLOT = "7537308159";
+
+    const tree = RootLayout({
+      children: <main>content</main>,
+    });
+
+    expect(JSON.stringify(tree)).not.toContain("adsense-slot");
+  });
 });

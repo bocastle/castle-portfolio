@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+ins.adsbygoogle[data-ad-status="unfilled"] {
+  display: none !important;
+}
+
+.blog-ad-slot:has(ins.adsbygoogle[data-ad-status="unfilled"]) {
+  display: none !important;
+}
+
 /* 
 :root {
   --background: #ffffff;

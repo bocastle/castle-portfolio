@@ -1,4 +1,5 @@
 import BlogList from "@/components/BlogList";
+import BlogAdSenseSlot from "@/components/GoogleAds/BlogAdSenseSlot";
 import { getCategoryList } from "../api/blog";
 
 export interface IBlogPagelist {
@@ -11,6 +12,7 @@ export default async function CategoriesPage() {
 
   return (
     <div className="w-3/5 items-start max-lg:w-full max-md:w-full max-sm:w-full flex flex-col md:gap-5 md:my-4 sm:gap-5 max-lg:items-center max-md:items-center max-sm:items-center">
+      <BlogAdSenseSlot className="mb-4" />
       <BlogList list={List} />
     </div>
   );

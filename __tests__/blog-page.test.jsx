@@ -14,6 +14,11 @@ jest.mock("../src/components/BlogList", () => ({
   ),
 }));
 
+jest.mock("../src/components/GoogleAds/BlogAdSenseSlot", () => ({
+  __esModule: true,
+  default: () => <aside data-testid="blog-adsense-slot" />,
+}));
+
 jest.mock("../src/app/(blogLayout)/blog/components/ArticleTagList", () => ({
   ArticleFilterTagList: () => <div data-testid="tag-filter" />,
 }));
@@ -41,6 +46,7 @@ describe("BlogPage", () => {
 
     const featuredHeading = screen.getByRole("heading", { name: "먼저 읽어볼 글" });
     const allArticleHeading = screen.getByRole("heading", { name: "글 목록" });
+    const adSlot = screen.getByTestId("blog-adsense-slot");
     const allArticleList = screen.getByTestId("all-article-list");
 
     expect(screen.getByText("전체 글", { exact: true })).toBeInTheDocument();
@@ -52,6 +58,14 @@ describe("BlogPage", () => {
     ).toBeTruthy();
     expect(
       featuredHeading.compareDocumentPosition(allArticleHeading) &
+        Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy();
+    expect(
+      allArticleHeading.compareDocumentPosition(adSlot) &
+        Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy();
+    expect(
+      adSlot.compareDocumentPosition(allArticleList) &
         Node.DOCUMENT_POSITION_FOLLOWING
     ).toBeTruthy();
   });

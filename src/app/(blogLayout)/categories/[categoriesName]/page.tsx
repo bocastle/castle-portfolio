@@ -1,4 +1,5 @@
 import BlogList from "@/components/BlogList";
+import BlogAdSenseSlot from "@/components/GoogleAds/BlogAdSenseSlot";
 import { getPublicImageUrl } from "@/utils/image-url";
 import { Metadata } from "next";
 import { getArticleCategoryList, getCategoryList } from "../../api/blog";
@@ -44,6 +45,7 @@ export default async function SelectCategoryPage({ params }: Props) {
 
   return (
     <div className="w-3/5 items-start max-md:w-full max-sm:w-full flex flex-col md:gap-5 md:my-4 sm:gap-5 max-lg:items-center max-md:items-center max-sm:items-center">
+      <BlogAdSenseSlot className="mb-4" />
       <BlogList list={List} />
     </div>
   );
