@@ -31,9 +31,10 @@ const ProjectItem = ({
 
   const structuredSections = [
     { label: "문제", content: problem },
-    { label: "내 역할", content: role },
-    { label: "설계/구현", content: solution },
-    { label: "검증/결과", content: result },
+    { label: "설계 판단", content: solution },
+    { label: "구현 범위", content: role },
+    { label: "검증 방식", content: result },
+    { label: "운영/배포 또는 한계", content: repositoryNote },
     { label: "AI 활용", content: aiUsage },
   ].filter((section): section is { label: string; content: string } =>
     Boolean(section.content)
@@ -147,9 +148,6 @@ const ProjectItem = ({
           </div>
         ) : null}
 
-        <p className="m-0 text-sm text-gray-500 dark:text-gray-300">
-          {repositoryNote}
-        </p>
       </div>
 
       {hasScreenshots ? (

@@ -5,7 +5,7 @@ const WorkHistory = () => {
   const WorkHistoryList = data;
 
   return (
-    <section className="w-full">
+    <section id="work-history" className="w-full scroll-mt-24">
       <h2 className="py-1 text-3xl font-semibold md:text-4xl">
         {WorkHistoryList.title}
       </h2>

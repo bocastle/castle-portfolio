@@ -112,6 +112,20 @@ test.describe("portfolio browser QA", () => {
     });
     await mobilePage.goto("/");
     await expect(mobilePage.locator("body")).toContainText("castle");
+    await expect(
+      mobilePage.getByRole("region", { name: "시니어 검증 포인트" })
+    ).toBeVisible();
+    await expect(
+      mobilePage.getByRole("link", {
+        name: /CRM 고객 목록 조회 성능 최적화 증거 보기/,
+      })
+    ).toHaveAttribute("href", "#work-history");
+    await expect(
+      mobilePage.locator("#work-history").getByText(/1\.6s -> 216ms/)
+    ).toBeVisible();
+    await expect(
+      mobilePage.locator("#projects").getByText("Dodge Arcade")
+    ).toBeVisible();
     await expect
       .poll(() =>
         mobilePage.evaluate(

@@ -30,6 +30,7 @@ const WorkHistoryItem = ({
   featured = false,
   techStack = [],
   topHighlights = [],
+  evidencePoints = [],
 }: WorkHistorProps) => {
   const filePath = `./public/markdown/workHistory/${id}.md`;
   const file = stripLeadingHeading(fs.readFileSync(filePath, "utf8"));
@@ -91,6 +92,21 @@ const WorkHistoryItem = ({
               </li>
             ))}
           </ul>
+        ) : null}
+
+        {evidencePoints.length > 0 ? (
+          <dl className="mt-5 grid gap-3 border-l border-teal-300 pl-4 dark:border-teal-700">
+            {evidencePoints.map((point) => (
+              <div key={point.label} className="grid gap-1">
+                <dt className="text-xs font-semibold uppercase text-teal-700 dark:text-teal-300">
+                  {point.label}
+                </dt>
+                <dd className="m-0 text-sm leading-6 text-gray-700 dark:text-gray-200">
+                  {point.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
         ) : null}
 
         {techStack.length > 0 ? (

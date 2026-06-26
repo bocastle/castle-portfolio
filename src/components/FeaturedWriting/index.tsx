@@ -2,6 +2,13 @@ import Link from "next/link";
 
 export const featuredWritings = [
   {
+    focus: "면접 증거",
+    title: "JPA N+1 쿼리 성능 개선",
+    href: "/blog/logs-jpa-n-plus-one",
+    description:
+      "조회 코드가 실제 SQL과 성능 문제로 이어지는 흐름을 추적하고 최적화 기준을 정리",
+  },
+  {
     focus: "운영/배포",
     title: "CI/CD 파이프라인 운영 흐름",
     href: "/blog/logs-cicd-pipeline",
@@ -14,13 +21,6 @@ export const featuredWritings = [
     href: "/blog/logs-external-service-failure",
     description:
       "외부 API 장애가 전체 장애로 번지지 않도록 타임아웃, 재시도, fallback 기준 정리",
-  },
-  {
-    focus: "성능/DB",
-    title: "JPA N+1 쿼리 성능 개선",
-    href: "/blog/logs-jpa-n-plus-one",
-    description:
-      "조회 코드가 실제 SQL과 성능 문제로 이어지는 흐름을 추적하고 최적화 기준을 정리",
   },
   {
     focus: "풀스택",

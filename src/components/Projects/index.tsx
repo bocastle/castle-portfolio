@@ -7,7 +7,7 @@ const Projects = () => {
   const projects = data.projects as Project[];
 
   return (
-    <section className="w-full">
+    <section id="projects" className="w-full scroll-mt-24">
       <p className="m-0 text-sm font-semibold text-teal-700 dark:text-teal-300">
         대표 프로젝트
       </p>

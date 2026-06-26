@@ -9,4 +9,8 @@ export interface WorkHistorProps {
   featured?: boolean;
   techStack?: string[];
   topHighlights?: string[];
+  evidencePoints?: {
+    label: string;
+    value: string;
+  }[];
 }

@@ -37,6 +37,14 @@ describe("Projects", () => {
     expect(screen.getByText("Dodge Arcade")).toBeInTheDocument();
     expect(screen.getByText(/Three\.js 기반 3D 회피 게임/)).toBeInTheDocument();
     expect(
+      screen.getAllByText("설계 판단").length
+    ).toBeGreaterThanOrEqual(3);
+    expect(screen.getAllByText("구현 범위").length).toBeGreaterThanOrEqual(3);
+    expect(screen.getAllByText("검증 방식").length).toBeGreaterThanOrEqual(3);
+    expect(
+      screen.getAllByText(/운영\/배포 또는 한계/).length
+    ).toBeGreaterThanOrEqual(3);
+    expect(
       screen.getByText(/싱글 플레이와 로그인 없는 Socket\.IO 멀티플레이 룸/)
     ).toBeInTheDocument();
     expect(

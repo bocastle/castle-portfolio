@@ -1,5 +1,8 @@
 import GoogleAdSenseComponent from "@/components/GoogleAds/components/GoogleAdSenseComponent";
 import CampaignTracker from "@/components/Analytics/CampaignTracker";
+import ClarityTracker from "@/components/Analytics/ClarityTracker";
+import EngagementTracker from "@/components/Analytics/EngagementTracker";
+import OutboundLinkTracker from "@/components/Analytics/OutboundLinkTracker";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -54,6 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const GTM_ID = process.env.GTM_ID;
+  const CLARITY_PROJECT_ID = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
   const PID = process.env.PID ?? "";
   const SLOT = process.env.SLOT ?? "";
   return (
@@ -72,6 +76,9 @@ export default function RootLayout({
         <SpeedInsights />
         <Analytics />
         <CampaignTracker />
+        <EngagementTracker />
+        <OutboundLinkTracker />
+        <ClarityTracker projectId={CLARITY_PROJECT_ID} />
         {GTM_ID ? (
           <noscript
             dangerouslySetInnerHTML={{

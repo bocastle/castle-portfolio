@@ -19,6 +19,21 @@ describe("Information", () => {
     expect(screen.getByText(/Codex\/Cursor 워크플로우/)).toBeInTheDocument();
     expect(screen.getByText(/운영 이슈 분석/)).toBeInTheDocument();
     expect(screen.getByText("AI 협업 방식")).toBeInTheDocument();
+    expect(screen.getByText("시니어 검증 포인트")).toBeInTheDocument();
+    expect(screen.getByText(/1\.6s -> 216ms/)).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", {
+        name: /CRM 고객 목록 조회 성능 최적화 증거 보기/,
+      })
+    ).toHaveAttribute("href", "#work-history");
+    expect(
+      screen.getByRole("link", {
+        name: /STICPAY E-Wallet 결제수단 도입 증거 보기/,
+      })
+    ).toHaveAttribute("href", "#work-history");
+    expect(
+      screen.getByRole("link", { name: /운영형 CMS 설계 증거 보기/ })
+    ).toHaveAttribute("href", "#projects");
     expect(screen.getByRole("link", { name: /이력서 보기/ })).toHaveAttribute(
       "href",
       "/resume/kim-bosung.pdf"
