@@ -31,12 +31,31 @@ const BlogDetail = ({ content }: Props) => {
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw, [rehypeHighlight, { ignoreMissing: true }]]}
         components={{
-          h1: createHeadingComponent("h1", "text-3xl font-bold"),
-          h2: createHeadingComponent("h2", "text-3xl font-bold", headingSlug),
-          h3: createHeadingComponent("h3", "text-3xl font-bold", headingSlug),
-          h4: createHeadingComponent("h4", "text-3xl font-bold"),
+          h1: createHeadingComponent(
+            "h1",
+            "break-words text-2xl font-bold leading-tight sm:text-3xl"
+          ),
+          h2: createHeadingComponent(
+            "h2",
+            "break-words text-2xl font-bold leading-tight sm:text-3xl",
+            headingSlug
+          ),
+          h3: createHeadingComponent(
+            "h3",
+            "break-words text-xl font-bold leading-tight sm:text-2xl",
+            headingSlug
+          ),
+          h4: createHeadingComponent(
+            "h4",
+            "break-words text-lg font-bold leading-tight sm:text-xl"
+          ),
           // hr: (props) => <hr className="my-4" {...props} />,
-          img: (props) => <img {...props} />,
+          img: (props) => (
+            <img
+              className="my-6 h-auto max-w-full rounded-lg border border-gray-200 dark:border-slate-700"
+              {...props}
+            />
+          ),
           ul: ({ children }) => <ul className="list-disc">{children}</ul>,
           ol: ({ children }) => <ol className="list-decimal">{children}</ol>,
           li: ({ children }) => (
@@ -66,7 +85,12 @@ const BlogDetail = ({ content }: Props) => {
           ),
           p: (props) => <p className="text-lg" {...props} />,
           table: (props) => (
-            <table className="table-auto w-full border-collapse" {...props} />
+            <div className="my-6 w-full overflow-x-auto">
+              <table
+                className="min-w-full table-auto border-collapse"
+                {...props}
+              />
+            </div>
           ),
           td: (props) => (
             <td

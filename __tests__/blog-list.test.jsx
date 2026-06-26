@@ -53,4 +53,28 @@ describe("BlogList", () => {
     expect(thumbnail.parentElement).toHaveClass("group-hover:-translate-y-1");
     expect(thumbnail.parentElement).toHaveClass("group-hover:shadow-lg");
   });
+
+  it("uses fluid card media and wrapping titles on narrow screens", () => {
+    render(
+      <BlogList
+        list={[
+          {
+            ...article,
+            title:
+              "아주 긴 블로그 제목도 모바일 화면에서 카드 폭을 넘기지 않고 자연스럽게 줄바꿈된다",
+          },
+        ]}
+      />
+    );
+
+    const thumbnail = screen.getByAltText("thumbnail");
+    const title = screen.getByText(/아주 긴 블로그 제목/);
+
+    expect(thumbnail.parentElement).toHaveClass("w-full");
+    expect(thumbnail.parentElement).toHaveClass("aspect-[16/9]");
+    expect(thumbnail.parentElement).not.toHaveClass("w-[476px]");
+    expect(thumbnail.parentElement).not.toHaveClass("max-md:w-96");
+    expect(title).toHaveClass("break-words");
+    expect(title).not.toHaveClass("whitespace-nowrap");
+  });
 });

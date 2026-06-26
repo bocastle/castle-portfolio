@@ -179,4 +179,44 @@ test.describe("portfolio browser QA", () => {
 
     await page.close();
   });
+
+  test("모바일 블로그 목록과 상세는 제목과 이미지를 화면 폭 안에 맞춘다", async ({
+    browser,
+  }) => {
+    const page = await browser.newPage({
+      viewport: { width: 390, height: 844 },
+    });
+
+    await page.goto("/blog");
+    await expect(page.getByRole("heading", { name: "글 목록" })).toBeVisible();
+    await expect
+      .poll(() =>
+        page.evaluate(
+          () => document.documentElement.scrollWidth - document.documentElement.clientWidth
+        )
+      )
+      .toBeLessThanOrEqual(1);
+    await expect(
+      page
+        .getByRole("link", { name: "CI/CD 파이프라인 운영 흐름 글 보기" })
+        .first()
+    ).toBeVisible();
+
+    await page.goto("/blog/logs-cicd-pipeline");
+    await expect(
+      page.getByRole("heading", { name: "CI/CD 파이프라인 운영 흐름" })
+    ).toBeVisible();
+    await expect
+      .poll(() =>
+        page.evaluate(
+          () => document.documentElement.scrollWidth - document.documentElement.clientWidth
+        )
+      )
+      .toBeLessThanOrEqual(1);
+    await expect(
+      page.getByRole("img", { name: "CI/CD 파이프라인 운영 흐름" })
+    ).toBeVisible();
+
+    await page.close();
+  });
 });

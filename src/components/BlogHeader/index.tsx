@@ -20,13 +20,15 @@ const BlogHeader = ({ headerItem }: Props) => {
         : undefined;
 
   return (
-    <div className="flex flex-col items-start w-full max-w-4xl max-md:w-max">
+    <div className="flex w-full min-w-0 max-w-4xl flex-col items-start">
       {sourceLabel ? (
         <span className="mb-3 inline-flex rounded-md border border-teal-500/40 px-2 py-0.5 text-xs font-semibold text-teal-700 dark:text-teal-300">
           {sourceLabel}
         </span>
       ) : null}
-      <h1>{headerItem.title}</h1>
+      <h1 className="max-w-full break-words py-0 text-3xl font-semibold leading-tight tracking-normal sm:text-4xl md:text-5xl">
+        {headerItem.title}
+      </h1>
       <span className="mb-6">
         {getYearMonthDay(headerItem.createdAt)}&nbsp;&nbsp;
         {getDistanceFromToday(headerItem.createdAt)}
@@ -41,15 +43,14 @@ const BlogHeader = ({ headerItem }: Props) => {
           </div>
         ))}
       </div>
-      <div className="max-md:w-96">
+      <div className="w-full overflow-hidden rounded-lg">
         <Image
           unoptimized
           src={headerItem.thumbnailUrl}
           alt={headerItem.title}
-          width={0}
-          height={0}
-          // objectFit={"contain"}
-          style={{ width: "100%" }}
+          width={1200}
+          height={675}
+          className="h-auto w-full object-contain"
           priority
         />
       </div>

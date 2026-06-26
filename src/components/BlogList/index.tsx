@@ -70,7 +70,7 @@ const BlogList = ({ list }: Props) => {
   );
 
   return (
-    <div className="grid grid-cols-2 max-xl:grid-cols-2 max-lg:grid-cols-2 max-md:grid-cols-1 max-sm:grid-cols-1 gap-6">
+    <div className="grid w-full min-w-0 grid-cols-1 gap-6 lg:grid-cols-2">
       {filteredArticleList.filteredArticleList.map((item, index) => {
         const sourceLabel =
           item.source === "github"
@@ -90,10 +90,10 @@ const BlogList = ({ list }: Props) => {
                 title: item.title,
               })
             }
-            className="group flex flex-col items-start gap-5 rounded-lg transition-colors duration-200 ease-out hover:text-teal-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white motion-reduce:transition-none dark:hover:text-teal-300 dark:focus-visible:ring-offset-slate-950"
+            className="group flex min-w-0 flex-col items-start gap-5 rounded-lg transition-colors duration-200 ease-out hover:text-teal-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white motion-reduce:transition-none dark:hover:text-teal-300 dark:focus-visible:ring-offset-slate-950"
           >
             <div
-              className="w-[476px] h-[270px] relative transform-gpu rounded-lg transition-[box-shadow,transform] duration-200 ease-out group-hover:-translate-y-1 group-hover:shadow-lg group-focus-visible:-translate-y-1 group-focus-visible:shadow-lg motion-reduce:transition-none max-2xl:w-[370px] max-xl:w-80 max-lg:w-96 max-md:w-96 max-md:h-[270px]"
+              className="relative aspect-[16/9] w-full transform-gpu overflow-hidden rounded-lg transition-[box-shadow,transform] duration-200 ease-out group-hover:-translate-y-1 group-hover:shadow-lg group-focus-visible:-translate-y-1 group-focus-visible:shadow-lg motion-reduce:transition-none"
               ref={(el) => {
                 if (
                   index ===
@@ -108,25 +108,25 @@ const BlogList = ({ list }: Props) => {
                 src={item.thumbnailUrl}
                 alt="thumbnail"
                 placeholder="blur"
-                className="rounded-lg border-[1px] border-gray-400 border-solid transition-[border-color,filter] duration-200 ease-out group-hover:border-teal-400 group-hover:brightness-95 dark:group-hover:border-teal-500"
+                className="rounded-lg border-[1px] border-gray-400 border-solid object-cover transition-[border-color,filter] duration-200 ease-out group-hover:border-teal-400 group-hover:brightness-95 dark:group-hover:border-teal-500"
                 blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg==" // 추가
                 fill
               />
             </div>
-            <div className="gap-4 w-[476px] max-2xl:w-[370px] max-xl:w-80 max-lg:w-96 max-md:w-96">
+            <div className="w-full min-w-0 gap-4">
               {sourceLabel ? (
                 <span className="mb-2 inline-flex rounded-md border border-teal-500/40 px-2 py-0.5 text-xs font-semibold text-teal-700 dark:text-teal-300">
                   {sourceLabel}
                 </span>
               ) : null}
-              <div className="items-start overflow-hidden whitespace-nowrap text-ellipsis text-[24px] transition-colors duration-200 ease-out group-hover:text-teal-700 dark:group-hover:text-teal-300">
+              <div className="items-start break-words text-xl leading-snug transition-colors duration-200 ease-out group-hover:text-teal-700 dark:group-hover:text-teal-300 sm:text-2xl">
                 {item.title}
               </div>
-              <div className="flex flex-col gap-24 items-start text-[14px] text-gray-600 dark:text-indigo-300">
+              <div className="mt-2 flex flex-col items-start text-[14px] text-gray-600 dark:text-indigo-300">
                 {getYearMonthDay(item.createdAt)}&nbsp;&nbsp;
                 {getDistanceFromToday(item.createdAt)}
               </div>
-              <div className="flex gap-3 pt-2 items-start">
+              <div className="flex flex-wrap gap-3 pt-2 items-start">
                 {item.tagList.map((tag) => (
                   <div
                     key={tag.id}
