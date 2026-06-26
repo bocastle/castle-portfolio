@@ -51,10 +51,17 @@ test.describe("portfolio browser QA", () => {
   }) => {
     await page.goto("/");
 
-    await expect(page.getByRole("heading", { name: "castleCms" })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "castleCms", exact: true })
+    ).toBeVisible();
     await expect(page.getByRole("heading", { name: "AI 협업 기반 포트폴리오 개선" })).toBeVisible();
 
-    const projectArticle = page.locator("article").filter({ hasText: "castleCms" }).first();
+    const projectArticle = page
+      .locator("article")
+      .filter({
+        has: page.getByRole("heading", { name: "castleCms", exact: true }),
+      })
+      .first();
     const mainImageLink = projectArticle
       .locator('a[target="_blank"][href*="/images/projects/castlecms/"]')
       .first();
@@ -105,6 +112,13 @@ test.describe("portfolio browser QA", () => {
     });
     await mobilePage.goto("/");
     await expect(mobilePage.locator("body")).toContainText("castle");
+    await expect
+      .poll(() =>
+        mobilePage.evaluate(
+          () => document.documentElement.scrollWidth - document.documentElement.clientWidth
+        )
+      )
+      .toBeLessThanOrEqual(1);
     await mobilePage.screenshot({
       fullPage: true,
       path: testInfo.outputPath("home-mobile.png"),
@@ -127,5 +141,42 @@ test.describe("portfolio browser QA", () => {
       path: testInfo.outputPath("home-dark.png"),
     });
     await darkPage.close();
+  });
+
+  test("모바일 메뉴는 alert 없이 실제 링크 메뉴를 연다", async ({ browser }) => {
+    const page = await browser.newPage({
+      viewport: { width: 390, height: 844 },
+    });
+    const dialogs: string[] = [];
+    page.on("dialog", async (dialog) => {
+      dialogs.push(dialog.message());
+      await dialog.dismiss();
+    });
+
+    await page.goto("/");
+    await page.getByRole("button", { name: "모바일 메뉴 열기" }).click();
+
+    const mobileMenu = page.getByRole("navigation", { name: "모바일 메뉴" });
+    await expect(mobileMenu).toBeVisible();
+    await expect(
+      page.getByRole("button", { name: "모바일 메뉴 닫기" })
+    ).toHaveAttribute("aria-expanded", "true");
+    await expect(mobileMenu.getByRole("link", { name: "Blog" })).toHaveAttribute(
+      "href",
+      "/blog"
+    );
+    await expect(
+      mobileMenu.getByRole("link", { name: "WorkHistory" })
+    ).toHaveAttribute("href", "/workHistory");
+    await expect
+      .poll(() =>
+        page.evaluate(
+          () => document.documentElement.scrollWidth - document.documentElement.clientWidth
+        )
+      )
+      .toBeLessThanOrEqual(1);
+    expect(dialogs).toEqual([]);
+
+    await page.close();
   });
 });
