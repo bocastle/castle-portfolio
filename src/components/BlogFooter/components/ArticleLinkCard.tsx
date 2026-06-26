@@ -12,13 +12,13 @@ const ArticleLinkCard = ({
   //   console.log("articleLinkerData", articleLinkerData);
 
   return (
-    <Link href={`/blog/${articleLinkerData.pageId}`}>
+    <Link className="block min-w-0" href={`/blog/${articleLinkerData.pageId}`}>
       <div
-        className={`w-full flex bg-slate-800 p-4 rounded justify-start h-[106px] items-center gap-4 ${
+        className={`flex min-h-[106px] w-full items-center justify-start gap-4 rounded bg-slate-800 p-4 ${
           articleLinkerDataType === "prev" ? "flex-row" : "flex-row-reverse"
         }`}
       >
-        <div>
+        <div className="shrink-0">
           {articleLinkerDataType === "next" && (
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
               <g fill="none" fillRule="nonzero">
@@ -42,7 +42,7 @@ const ArticleLinkCard = ({
             </svg>
           )}
         </div>
-        <div className="flex flex-col overflow-hidden gap-1">
+        <div className="flex min-w-0 flex-1 flex-col gap-1">
           <span
             className={`${
               articleLinkerDataType === "prev" ? "text-left" : "text-right"
@@ -53,7 +53,7 @@ const ArticleLinkCard = ({
           <span
             className={`${
               articleLinkerDataType === "prev" ? "text-left" : "text-right"
-            } text-lg font-semibold text-white`}
+            } whitespace-normal break-words text-base font-semibold leading-snug text-white sm:text-lg`}
           >
             {articleLinkerData.title}
           </span>

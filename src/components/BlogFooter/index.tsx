@@ -10,7 +10,10 @@ interface Props {
 
 const BlogFooter = ({ footerItem }: Props) => {
   return (
-    <section className="grid grid-cols-2 w-full max-w-4xl gap-3">
+    <nav
+      aria-label="이전/다음 게시글"
+      className="grid w-full max-w-4xl grid-cols-1 gap-3 md:grid-cols-2"
+    >
       {footerItem.prevArticle ? (
         <ArticleLinkCard
           articleLinkerDataType="prev"
@@ -27,7 +30,7 @@ const BlogFooter = ({ footerItem }: Props) => {
       ) : (
         <div />
       )}
-    </section>
+    </nav>
   );
 };
 

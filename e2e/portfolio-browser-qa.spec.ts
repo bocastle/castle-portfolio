@@ -216,6 +216,10 @@ test.describe("portfolio browser QA", () => {
     await expect(
       page.getByRole("img", { name: "CI/CD 파이프라인 운영 흐름" })
     ).toBeVisible();
+    await expect(
+      page.getByRole("navigation", { name: "이전/다음 게시글" })
+    ).toBeVisible();
+    await expect(page.getByText(/다음\s*게시글/)).toBeVisible();
 
     await page.close();
   });
