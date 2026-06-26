@@ -35,9 +35,11 @@ const GoogleAdSenseComponent = ({ PID, SLOT }: Props) => {
       const adStatus = slot.getAttribute("data-ad-status");
       const isProcessed = slot.getAttribute("data-adsbygoogle-status") === "done";
       const hasRenderedFrame = slot.querySelectorAll("iframe").length > 0;
+      const nextIsEmpty =
+        adStatus === "unfilled" || (isProcessed && !hasRenderedFrame);
 
-      setIsEmptySlot(
-        adStatus === "unfilled" || (isProcessed && !hasRenderedFrame)
+      setIsEmptySlot((current) =>
+        current === nextIsEmpty ? current : nextIsEmpty
       );
     };
 
@@ -48,11 +50,21 @@ const GoogleAdSenseComponent = ({ PID, SLOT }: Props) => {
       subtree: true,
     });
 
-    const timeoutId = window.setTimeout(syncEmptyState, 4000);
+    syncEmptyState();
+
+    let checkCount = 0;
+    const intervalId = window.setInterval(() => {
+      syncEmptyState();
+      checkCount += 1;
+
+      if (checkCount >= 30) {
+        window.clearInterval(intervalId);
+      }
+    }, 500);
 
     return () => {
       observer.disconnect();
-      window.clearTimeout(timeoutId);
+      window.clearInterval(intervalId);
     };
   }, []);
 
