@@ -28,4 +28,22 @@ describe("trackEvent", () => {
       },
     ]);
   });
+
+  it("initializes the GTM dataLayer before pushing custom events", () => {
+    trackEvent("Campaign Visit", {
+      utm_source: "resume",
+      utm_medium: "pdf",
+      path: "/",
+    });
+
+    expect(window.dataLayer).toEqual([
+      {
+        event: "campaign_visit",
+        original_event_name: "Campaign Visit",
+        utm_source: "resume",
+        utm_medium: "pdf",
+        path: "/",
+      },
+    ]);
+  });
 });

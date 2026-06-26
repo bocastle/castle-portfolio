@@ -49,7 +49,8 @@ export const trackEvent = (
   const eventName = normalizeEventName(name);
 
   try {
-    window.dataLayer?.push({
+    window.dataLayer = window.dataLayer ?? [];
+    window.dataLayer.push({
       event: eventName,
       original_event_name: name.slice(0, MAX_ANALYTICS_LENGTH),
       ...normalizedProperties,
