@@ -20,11 +20,6 @@ const FALLBACK_THUMBNAIL_URL = "/images/blog/logs/backend.svg";
 
 const getStableThumbnailSrc = (src: string) => {
   if (!src || src === "기본 이미지 url") return FALLBACK_THUMBNAIL_URL;
-
-  if (src.includes("prod-files-secure.s3")) {
-    return FALLBACK_THUMBNAIL_URL;
-  }
-
   return src;
 };
 
@@ -32,7 +27,35 @@ const BlogThumbnail = ({ src }: { src: string }) => {
   const [thumbnailSrc, setThumbnailSrc] = useState(getStableThumbnailSrc(src));
 
   useEffect(() => {
-    setThumbnailSrc(getStableThumbnailSrc(src));
+    const nextSrc = getStableThumbnailSrc(src);
+
+    setThumbnailSrc(nextSrc);
+
+    if (nextSrc === FALLBACK_THUMBNAIL_URL) return;
+
+    let cancelled = false;
+    const probe = new window.Image();
+    const timeoutId = window.setTimeout(() => {
+      if (!cancelled && nextSrc.includes("prod-files-secure.s3")) {
+        setThumbnailSrc(FALLBACK_THUMBNAIL_URL);
+      }
+    }, 5000);
+
+    probe.onload = () => {
+      window.clearTimeout(timeoutId);
+    };
+    probe.onerror = () => {
+      window.clearTimeout(timeoutId);
+      if (!cancelled) {
+        setThumbnailSrc(FALLBACK_THUMBNAIL_URL);
+      }
+    };
+    probe.src = nextSrc;
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timeoutId);
+    };
   }, [src]);
 
   return (
