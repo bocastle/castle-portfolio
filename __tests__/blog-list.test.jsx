@@ -97,4 +97,23 @@ describe("BlogList", () => {
 
     expect(thumbnail).toHaveAttribute("src", "/images/blog/logs/backend.svg");
   });
+
+  it("uses a local thumbnail immediately for expiring Notion file URLs", () => {
+    render(
+      <BlogList
+        list={[
+          {
+            ...article,
+            thumbnailUrl:
+              "https://prod-files-secure.s3.us-west-2.amazonaws.com/notion-expiring.png",
+          },
+        ]}
+      />
+    );
+
+    expect(screen.getByAltText("thumbnail")).toHaveAttribute(
+      "src",
+      "/images/blog/logs/backend.svg"
+    );
+  });
 });

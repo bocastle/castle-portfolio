@@ -18,13 +18,21 @@ interface Props {
 
 const FALLBACK_THUMBNAIL_URL = "/images/blog/logs/backend.svg";
 
+const getStableThumbnailSrc = (src: string) => {
+  if (!src || src === "기본 이미지 url") return FALLBACK_THUMBNAIL_URL;
+
+  if (src.includes("prod-files-secure.s3")) {
+    return FALLBACK_THUMBNAIL_URL;
+  }
+
+  return src;
+};
+
 const BlogThumbnail = ({ src }: { src: string }) => {
-  const [thumbnailSrc, setThumbnailSrc] = useState(
-    src || FALLBACK_THUMBNAIL_URL
-  );
+  const [thumbnailSrc, setThumbnailSrc] = useState(getStableThumbnailSrc(src));
 
   useEffect(() => {
-    setThumbnailSrc(src || FALLBACK_THUMBNAIL_URL);
+    setThumbnailSrc(getStableThumbnailSrc(src));
   }, [src]);
 
   return (
