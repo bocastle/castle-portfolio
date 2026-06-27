@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import BlogList from "../src/components/BlogList";
 
 jest.mock("next/image", () => function ImageMock(props) {
@@ -76,5 +76,25 @@ describe("BlogList", () => {
     expect(thumbnail.parentElement).not.toHaveClass("max-md:w-96");
     expect(title).toHaveClass("break-words");
     expect(title).not.toHaveClass("whitespace-nowrap");
+  });
+
+  it("falls back to a local thumbnail when an external thumbnail fails", () => {
+    render(
+      <BlogList
+        list={[
+          {
+            ...article,
+            thumbnailUrl:
+              "https://prod-files-secure.s3.us-west-2.amazonaws.com/expired.png",
+          },
+        ]}
+      />
+    );
+
+    const thumbnail = screen.getByAltText("thumbnail");
+
+    fireEvent.error(thumbnail);
+
+    expect(thumbnail).toHaveAttribute("src", "/images/blog/logs/backend.svg");
   });
 });

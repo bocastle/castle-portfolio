@@ -10,11 +10,41 @@ import { getBlogTagLabel } from "@/utils/blog-labels";
 import { getDistanceFromToday, getYearMonthDay } from "@/utils/date";
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useMemo, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 interface Props {
   list: AllArticle[];
 }
+
+const FALLBACK_THUMBNAIL_URL = "/images/blog/logs/backend.svg";
+
+const BlogThumbnail = ({ src }: { src: string }) => {
+  const [thumbnailSrc, setThumbnailSrc] = useState(
+    src || FALLBACK_THUMBNAIL_URL
+  );
+
+  useEffect(() => {
+    setThumbnailSrc(src || FALLBACK_THUMBNAIL_URL);
+  }, [src]);
+
+  return (
+    <Image
+      unoptimized
+      loading="lazy"
+      src={thumbnailSrc}
+      alt="thumbnail"
+      placeholder="blur"
+      onError={() => {
+        if (thumbnailSrc !== FALLBACK_THUMBNAIL_URL) {
+          setThumbnailSrc(FALLBACK_THUMBNAIL_URL);
+        }
+      }}
+      className="rounded-lg border-[1px] border-gray-400 border-solid object-cover transition-[border-color,filter] duration-200 ease-out group-hover:border-teal-400 group-hover:brightness-95 dark:group-hover:border-teal-500"
+      blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+      fill
+    />
+  );
+};
 
 const BlogList = ({ list }: Props) => {
   // console.log("BlogList::", list);
@@ -102,16 +132,7 @@ const BlogList = ({ list }: Props) => {
                   lastItemRef(el);
               }}
             >
-              <Image
-                unoptimized
-                loading="lazy"
-                src={item.thumbnailUrl}
-                alt="thumbnail"
-                placeholder="blur"
-                className="rounded-lg border-[1px] border-gray-400 border-solid object-cover transition-[border-color,filter] duration-200 ease-out group-hover:border-teal-400 group-hover:brightness-95 dark:group-hover:border-teal-500"
-                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg==" // 추가
-                fill
-              />
+              <BlogThumbnail src={item.thumbnailUrl} />
             </div>
             <div className="w-full min-w-0 gap-4">
               {sourceLabel ? (
