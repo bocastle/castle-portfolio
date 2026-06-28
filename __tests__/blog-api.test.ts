@@ -154,4 +154,23 @@ describe("blog api facade", () => {
       {}
     );
   });
+
+  it("applies generated thumbnails to GitHub Markdown facade data", async () => {
+    const blogApi = await import("../src/app/(blogLayout)/api/blog");
+
+    const pageList = await blogApi.getPageList();
+    const fullstackArticle = pageList.find(
+      (article) => article.pageId === "github-fullstack-service-ops"
+    );
+
+    expect(fullstackArticle?.thumbnailUrl).toBe(
+      "/images/blog/generated/github-fullstack-service-ops.webp"
+    );
+    await expect(
+      blogApi.fetchArticlePageHeaderData("github-fullstack-service-ops")
+    ).resolves.toMatchObject({
+      thumbnailUrl: "/images/blog/generated/github-fullstack-service-ops.webp",
+      blurDataUrl: "/images/blog/generated/github-fullstack-service-ops.webp",
+    });
+  });
 });
