@@ -1,4 +1,3 @@
-import { GoogleAdSense } from "@/components/GoogleAds/GoogleAdSense";
 import { Metadata } from "next";
 import { getPublicImageUrl } from "../../utils/image-url";
 import { getArticleCategoryList } from "./api/blog";
@@ -34,7 +33,6 @@ export default async function BlogLayout({
   const articleCategoryList = await getArticleCategoryList();
   return (
     <>
-      <GoogleAdSense />
       <div
         className="items-start mx-auto p-8 flex gap-28 my-4 mb-20 md:gap-10 md:my-4 sm:gap-5 max-lg:items-center max-md:items-center max-sm:items-center"
         id={"blog_layout_container"}

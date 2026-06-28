@@ -3,6 +3,7 @@ import RootLayout from "../src/app/layout";
 import ClarityTracker from "../src/components/Analytics/ClarityTracker";
 import EngagementTracker from "../src/components/Analytics/EngagementTracker";
 import OutboundLinkTracker from "../src/components/Analytics/OutboundLinkTracker";
+import { GoogleAdSense } from "../src/components/GoogleAds/GoogleAdSense";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 jest.mock("@next/third-parties/google", () => ({
@@ -121,5 +122,15 @@ describe("RootLayout analytics tags", () => {
     });
 
     expect(JSON.stringify(tree)).not.toContain("adsense-slot");
+  });
+
+  it("mounts the AdSense script at the site root so every page can be reviewed", () => {
+    process.env.PID = "5941762046444090";
+
+    const tree = RootLayout({
+      children: <main>content</main>,
+    });
+
+    expect(collectElementsByType(tree, GoogleAdSense)).toHaveLength(1);
   });
 });

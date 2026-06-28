@@ -2,6 +2,7 @@ import CampaignTracker from "@/components/Analytics/CampaignTracker";
 import ClarityTracker from "@/components/Analytics/ClarityTracker";
 import EngagementTracker from "@/components/Analytics/EngagementTracker";
 import OutboundLinkTracker from "@/components/Analytics/OutboundLinkTracker";
+import { GoogleAdSense } from "@/components/GoogleAds/GoogleAdSense";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -60,6 +61,7 @@ export default function RootLayout({
     <html lang="ko" suppressHydrationWarning>
       <head>
         {GTM_ID ? <GoogleTagManager gtmId={GTM_ID} /> : null}
+        <GoogleAdSense />
         <ThemeScript />
       </head>
 
