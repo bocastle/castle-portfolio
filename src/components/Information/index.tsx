@@ -26,7 +26,7 @@ const proofPoints = [
   },
 ];
 
-const seniorProofPoints = [
+const workHighlights = [
   {
     title: "CRM 고객 목록 조회 성능 최적화",
     metric: "1.6s -> 216ms",
@@ -45,7 +45,7 @@ const seniorProofPoints = [
     title: "운영형 CMS 설계",
     metric: "인증/권한/API Key 검증",
     description:
-      "관리자 Bearer token, 외부 API Key, 조직/사용자 관리, 화면 QA까지 개인 프로젝트의 검증 기준으로 정리했습니다.",
+      "관리자 Bearer token, 외부 API Key, 조직/사용자 관리, 화면 QA까지 개인 프로젝트의 구현 기준으로 정리했습니다.",
     href: "#projects",
   },
 ];
@@ -180,26 +180,23 @@ const Information = () => {
         </aside>
       </div>
 
-      <section
-        aria-label="시니어 검증 포인트"
-        className="grid gap-4"
-      >
+      <section aria-label="최근 작업 하이라이트" className="grid gap-4">
         <div>
           <p className="m-0 text-sm font-semibold text-teal-700 dark:text-teal-300">
-            이력서 검증
+            성과 요약
           </p>
           <h2 className="py-1 text-2xl font-semibold md:text-3xl">
-            시니어 검증 포인트
+            최근 작업 하이라이트
           </h2>
         </div>
         <div className="grid gap-3 md:grid-cols-3">
-          {seniorProofPoints.map((point) => (
+          {workHighlights.map((point) => (
             <a
               key={point.title}
               href={point.href}
-              aria-label={`${point.title} 증거 보기`}
+              aria-label={`${point.title} 자세히 보기`}
               onClick={() =>
-                trackEvent("Senior Proof Click", {
+                trackEvent("Work Highlight Click", {
                   title: point.title,
                   target: point.href,
                 })

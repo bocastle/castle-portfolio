@@ -26,7 +26,7 @@ describe("WorkHistory", () => {
     expect(screen.queryByText("Recent Work Evidence")).not.toBeInTheDocument();
   });
 
-  it("소프트위즈 경력은 시니어 면접관이 확인할 문제, 판단, 결과, 리스크 관리 근거를 보여준다", () => {
+  it("소프트위즈 경력은 문제, 판단, 결과, 리스크 관리 근거를 보여준다", () => {
     render(<WorkHistory />);
 
     expect(screen.getByText("실무 문제")).toBeInTheDocument();
