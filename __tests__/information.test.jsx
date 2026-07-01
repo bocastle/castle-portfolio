@@ -19,7 +19,7 @@ describe("Information", () => {
     expect(screen.getByText(/Codex\/Cursor 워크플로우/)).toBeInTheDocument();
     expect(screen.getByText(/운영 이슈 분석/)).toBeInTheDocument();
     expect(screen.getByText("AI 협업 방식")).toBeInTheDocument();
-    expect(screen.getByText("최근 작업 하이라이트")).toBeInTheDocument();
+    expect(screen.getByText("최근 작업")).toBeInTheDocument();
     expect(screen.getByText(/1\.6s -> 216ms/)).toBeInTheDocument();
     expect(
       screen.getByRole("link", {

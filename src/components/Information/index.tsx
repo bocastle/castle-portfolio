@@ -26,7 +26,7 @@ const proofPoints = [
   },
 ];
 
-const workHighlights = [
+const workItems = [
   {
     title: "CRM 고객 목록 조회 성능 최적화",
     metric: "1.6s -> 216ms",
@@ -180,23 +180,23 @@ const Information = () => {
         </aside>
       </div>
 
-      <section aria-label="최근 작업 하이라이트" className="grid gap-4">
+      <section aria-label="최근 작업" className="grid gap-4">
         <div>
           <p className="m-0 text-sm font-semibold text-teal-700 dark:text-teal-300">
-            성과 요약
+            작업 요약
           </p>
           <h2 className="py-1 text-2xl font-semibold md:text-3xl">
-            최근 작업 하이라이트
+            최근 작업
           </h2>
         </div>
         <div className="grid gap-3 md:grid-cols-3">
-          {workHighlights.map((point) => (
+          {workItems.map((point) => (
             <a
               key={point.title}
               href={point.href}
               aria-label={`${point.title} 자세히 보기`}
               onClick={() =>
-                trackEvent("Work Highlight Click", {
+                trackEvent("Work Item Click", {
                   title: point.title,
                   target: point.href,
                 })
