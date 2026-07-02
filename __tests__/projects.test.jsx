@@ -30,6 +30,28 @@ describe("Projects", () => {
       "href",
       "https://github.com/bocastle/castle-portfolio/blob/main/docs/interview/castlecms-api-brief.md"
     );
+    expect(screen.getByText("Paperbox")).toBeInTheDocument();
+    expect(
+      screen.getByText(/SwiftUI macOS 앱 \+ Vite 브라우저 문서 패킷 도구/)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/macOS 앱으로 먼저 검증한 뒤, 설치 장벽을 줄이기 위해 브라우저 버전까지 확장/)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/서버 업로드 없이 사용자의 기기 안에서 처리/)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Paperbox Browser MVP를 만들어 설치 없이 문서 패킷/)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "브라우저 데모" })
+    ).toHaveAttribute("href", "https://paperbox-browser.vercel.app/");
+    expect(
+      screen.getByRole("link", { name: "macOS 앱 저장소" })
+    ).toHaveAttribute("href", "https://github.com/bocastle/paperbox");
+    expect(
+      screen.getByRole("link", { name: "브라우저 버전 저장소" })
+    ).toHaveAttribute("href", "https://github.com/bocastle/paperbox-browser");
     expect(screen.getByText("AI 협업 기반 포트폴리오 개선")).toBeInTheDocument();
     expect(screen.getAllByText(/개발 프로세스 개선 사례/).length).toBeGreaterThan(0);
     expect(screen.getAllByText("검증 기록").length).toBeGreaterThan(0);
