@@ -18,7 +18,7 @@ describe("Projects", () => {
       screen.getByText(/관리자 Bearer token 인증과 외부 API Key 인증을 분리/)
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/스크린샷과 구조 설명으로 설계 의도를 검증 가능/)
+      screen.getByText(/공개 자료에서는 스크린샷과 구조 설명으로 설계 의도를 검증 가능/)
     ).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: "프로젝트 요약" })

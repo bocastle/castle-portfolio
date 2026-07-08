@@ -3,7 +3,7 @@
 ## 세 줄 요약
 
 - `castleCms` API는 관리자 보호 API와 외부 클라이언트 API를 분리해 인증 주체와 수명주기를 다르게 설명합니다.
-- 이 문서는 private 저장소의 실제 비밀값 없이 주요 리소스, 요청/응답 형태, 검증 포인트만 공개 가능한 수준으로 정리합니다.
+- 이 문서는 비공개 저장소의 실제 비밀값 없이 주요 리소스, 요청/응답 형태, 검증 포인트만 공개 가능한 수준으로 정리합니다.
 - API 개수보다 운영자가 어떤 흐름으로 데이터를 관리하고 외부 연동 주체가 어떻게 인증되는지를 중심으로 설명합니다.
 
 ## API 설계 관점
@@ -37,7 +37,7 @@ POST /api/admin/auth/login
 Content-Type: application/json
 
 {
-  "email": "admin@example.com",
+  "loginId": "admin-user",
   "password": "********"
 }
 ```
@@ -47,7 +47,6 @@ Content-Type: application/json
   "accessToken": "jwt-access-token",
   "admin": {
     "id": 1,
-    "email": "admin@example.com",
     "role": "OWNER"
   }
 }
