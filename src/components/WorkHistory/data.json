@@ -94,31 +94,31 @@
       "position": "웹팀 과장",
       "period": ["2025.02", "재직 중"],
       "imgSrc": "/images/work-history/softwiz-logo.png",
-      "summary": "Go 기반 CRM 멀티 모듈에서 결제수단, 정산, 조회 성능 최적화, 보안, 다국어 관리, 배포 자동화까지 운영 흐름을 연결해 개발했습니다.",
-      "domain": "CRM / 결제 / 정산 / 관리자 포털",
+      "summary": "CRM, Gateway, Client API, Client Portal, Office Portal 등 여러 서비스 모듈을 오가며 결제 연동, CRM 성능 개선, 배포 자동화, 보안 검증, 운영 이슈 대응을 수행했습니다.",
+      "domain": "CRM / Gateway / 결제 / 운영 포털",
       "featured": true,
       "techStack": ["Go", "Gin", "MySQL", "MariaDB", "Redis", "JavaScript", "Jenkins", "Bash", "Codex", "Cursor"],
       "topHighlights": [
-        "STICPAY E-Wallet 신규 결제수단 도입: DB, gateway, clientapi, clientportal, officeportal 흐름 설계와 구현",
-        "Cellxpert 파트너 정산 수동 실행 안정화: 권한, PRD 제한, readiness check, 중복 실행 방지 적용",
-        "관리자 포털 고객 목록 조회 성능 최적화: 병목 분석과 페이지 기반 조회 구조 개선으로 초 단위 응답을 200ms대까지 단축"
+        "STICPAY E-Wallet 결제수단 도입: Gateway, Client API, Client Portal, Office Portal 승인/상태조회 흐름 설계와 구현",
+        "CRM 고객 목록 조회 성능 최적화: 병목 분석과 페이지 기반 조회 구조 개선으로 초 단위 응답을 200ms대까지 단축",
+        "Jenkins 배포 자동화, Gateway 배포 검증, 권한/보안 검증, 운영 이슈 분석과 문서화 수행"
       ],
       "evidencePoints": [
         {
-          "label": "실무 문제",
-          "value": "고객 목록 기본 조회에서 로그인 이력, 거래 이력, 계좌 정보 선계산 병목으로 초 단위 응답이 발생했습니다."
+          "label": "서비스 범위",
+          "value": "CRM, Gateway, Client API, Client Portal, Office Portal 등 여러 서비스 모듈의 API, DB, 화면 흐름을 함께 다뤘습니다."
         },
         {
-          "label": "설계 판단",
-          "value": "전체 이력 선계산 대신 페이지 대상 고객 선조회 후 부가 정보 조회 방식으로 조회 범위를 줄였습니다."
+          "label": "운영 기여",
+          "value": "결제 연동, 정산 수동 실행 안정화, CRM 성능 개선, 보안 검증, 배포 자동화, 운영 이슈 대응을 수행했습니다."
         },
         {
           "label": "검증 결과",
           "value": "기본 목록 조회 기준 DB 실행 시간을 약 1.6s -> 216ms 수준으로 단축하고 Go 테스트와 회귀 테스트를 추가했습니다."
         },
         {
-          "label": "운영 리스크 관리",
-          "value": "검색/필터/정렬은 legacy query 유지로 운영 영향 범위를 줄였습니다."
+          "label": "리스크 관리",
+          "value": "검색/필터/정렬은 기존 쿼리 흐름을 유지하고, 배포 전 readiness check와 런타임 검증으로 운영 영향 범위를 줄였습니다."
         }
       ]
     }

@@ -26,24 +26,36 @@ describe("WorkHistory", () => {
     expect(screen.queryByText("Recent Work Evidence")).not.toBeInTheDocument();
   });
 
-  it("소프트위즈 경력은 문제, 판단, 결과, 리스크 관리 근거를 보여준다", () => {
+  it("소프트위즈 경력은 백엔드, 운영, 인프라 기여를 보여준다", () => {
     render(<WorkHistory />);
 
-    expect(screen.getByText("실무 문제")).toBeInTheDocument();
+    expect(screen.getByText("서비스 범위")).toBeInTheDocument();
     expect(
-      screen.getAllByText(/로그인 이력, 거래 이력, 계좌 정보 선계산 병목/)
+      screen.getAllByText(
+        /CRM, Gateway, Client API, Client Portal, Office Portal/
+      )
         .length
     ).toBeGreaterThan(0);
-    expect(screen.getByText("설계 판단")).toBeInTheDocument();
+    expect(screen.getByText("운영 기여")).toBeInTheDocument();
     expect(
-      screen.getAllByText(/페이지 대상 고객 선조회 후 부가 정보 조회/)
+      screen.getAllByText(/결제 연동, 정산 수동 실행 안정화, CRM 성능 개선/)
+        .length
+    ).toBeGreaterThan(0);
+    expect(
+      screen.getAllByText(/Jenkins 배포 자동화, Gateway 배포 검증/)
         .length
     ).toBeGreaterThan(0);
     expect(screen.getByText("검증 결과")).toBeInTheDocument();
     expect(screen.getByText(/1\.6s -> 216ms/)).toBeInTheDocument();
-    expect(screen.getByText("운영 리스크 관리")).toBeInTheDocument();
+    expect(screen.getByText("리스크 관리")).toBeInTheDocument();
     expect(
-      screen.getByText(/검색\/필터\/정렬은 legacy query 유지/)
-    ).toBeInTheDocument();
+      screen.getAllByText(/검색\/필터\/정렬.*기존 쿼리 흐름/)
+        .length
+    ).toBeGreaterThan(0);
+    expect(screen.queryByText(/커밋\s*[0-9]/)).not.toBeInTheDocument();
+    expect(
+      screen.getAllByText(/외부 데이터 수신, 토큰 재발급 실패/)
+        .length
+    ).toBeGreaterThan(0);
   });
 });
