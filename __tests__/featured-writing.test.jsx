@@ -27,7 +27,7 @@ describe("FeaturedWriting", () => {
     ).toBeInTheDocument();
     expect(screen.getByText("테스트하기 쉬운 코드의 조건")).toBeInTheDocument();
     expect(screen.getByText("React Query 서버 상태 관리")).toBeInTheDocument();
-    expect(screen.getByText("면접 증거")).toBeInTheDocument();
+    expect(screen.getByText("성능 사례")).toBeInTheDocument();
     expect(screen.getByText("운영/배포")).toBeInTheDocument();
     expect(screen.getByText("풀스택")).toBeInTheDocument();
     expect(screen.getByText("품질/테스트")).toBeInTheDocument();

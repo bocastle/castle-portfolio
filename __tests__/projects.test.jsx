@@ -21,14 +21,14 @@ describe("Projects", () => {
       screen.getByText(/스크린샷과 구조 설명으로 설계 의도를 검증 가능/)
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: "면접 설명 자료" })
+      screen.getByRole("link", { name: "프로젝트 요약" })
     ).toHaveAttribute(
       "href",
-      "https://github.com/bocastle/castle-portfolio/blob/main/docs/interview/castlecms-private-project-brief.md"
+      "https://github.com/bocastle/castle-portfolio/blob/main/docs/project-briefs/castlecms-project-brief.md"
     );
-    expect(screen.getByRole("link", { name: "API 설명 자료" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "API 설계 요약" })).toHaveAttribute(
       "href",
-      "https://github.com/bocastle/castle-portfolio/blob/main/docs/interview/castlecms-api-brief.md"
+      "https://github.com/bocastle/castle-portfolio/blob/main/docs/project-briefs/castlecms-api-brief.md"
     );
     expect(screen.getByText("Paperbox")).toBeInTheDocument();
     expect(

@@ -20,7 +20,7 @@ const buildLogs = [
       "최근에 다시 정리한 글이 먼저 보이도록 블로그 목록 흐름을 다듬었습니다.",
   },
   {
-    title: "castleCms 면접 자료화",
+    title: "castleCms 자료 정리",
     description:
       "private 프로젝트를 공개 가능한 구조 설명, API 예시, 권한 흐름, 검증 기준 중심으로 정리했습니다.",
   },

@@ -14,7 +14,7 @@ describe("BuildLog", () => {
       screen.getByText(/Dropbox Markdown 동기화와 GitHub Actions 스케줄 실행/)
     ).toBeInTheDocument();
     expect(screen.getByText("글 목록 정리")).toBeInTheDocument();
-    expect(screen.getByText("castleCms 면접 자료화")).toBeInTheDocument();
+    expect(screen.getByText("castleCms 자료 정리")).toBeInTheDocument();
     expect(screen.getByText("배포 검증 흐름 정리")).toBeInTheDocument();
     expect(
       screen.getByText(

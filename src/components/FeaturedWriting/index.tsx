@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const featuredWritings = [
   {
-    focus: "면접 증거",
+    focus: "성능 사례",
     title: "JPA N+1 쿼리 성능 개선",
     href: "/blog/logs-jpa-n-plus-one",
     description:
