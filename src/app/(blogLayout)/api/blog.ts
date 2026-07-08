@@ -2,10 +2,6 @@ import * as githubLogsBlogSource from "./github-logs";
 import * as githubMarkdownBlogSource from "./github-markdown";
 import * as notionBlogSource from "./notion";
 import {
-  withGeneratedBlogThumbnail,
-  withGeneratedBlogThumbnailForPageId,
-} from "./blog-thumbnails";
-import {
   AllArticle,
   ArticleCategoryProps,
   ArticlePageFooterData,
@@ -93,7 +89,7 @@ export const getPageList = async (): Promise<AllArticle[]> => {
     ...withSource(notionPageList, "notion"),
     ...withSource(githubPageList, "github"),
     ...withSource(githubLogsPageList, "github"),
-  ]).map(withGeneratedBlogThumbnail);
+  ]);
 };
 
 export const getCategoryList = async ({
@@ -122,7 +118,7 @@ export const getCategoryList = async ({
     ...withSource(notionCategoryList, "notion"),
     ...withSource(githubCategoryList, "github"),
     ...withSource(githubLogsCategoryList, "github"),
-  ]).map(withGeneratedBlogThumbnail);
+  ]);
 
   if (!categoryName) {
     return mergedList;
@@ -184,17 +180,11 @@ export const getArticleTagList = async (): Promise<BlogTag[]> => {
 
 export const getArticlePageHeaderData = async (pageId: string) => {
   if (githubLogsBlogSource.isGitHubLogsPageId(pageId)) {
-    return withGeneratedBlogThumbnailForPageId(
-      pageId,
-      await githubLogsBlogSource.getArticlePageHeaderData(pageId)
-    );
+    return githubLogsBlogSource.getArticlePageHeaderData(pageId);
   }
 
   if (githubMarkdownBlogSource.isGitHubMarkdownPageId(pageId)) {
-    return withGeneratedBlogThumbnailForPageId(
-      pageId,
-      await githubMarkdownBlogSource.getArticlePageHeaderData(pageId)
-    );
+    return githubMarkdownBlogSource.getArticlePageHeaderData(pageId);
   }
 
   const header = await safeRead(
@@ -202,25 +192,19 @@ export const getArticlePageHeaderData = async (pageId: string) => {
     fallbackArticleHeader(),
     "Failed to fetch Notion article header from blog facade"
   );
-  return withGeneratedBlogThumbnailForPageId(pageId, {
+  return {
     ...header,
     source: header.source ?? "notion",
-  });
+  };
 };
 
 export const fetchArticlePageHeaderData = async (pageId: string) => {
   if (githubLogsBlogSource.isGitHubLogsPageId(pageId)) {
-    return withGeneratedBlogThumbnailForPageId(
-      pageId,
-      await githubLogsBlogSource.fetchArticlePageHeaderData(pageId)
-    );
+    return githubLogsBlogSource.fetchArticlePageHeaderData(pageId);
   }
 
   if (githubMarkdownBlogSource.isGitHubMarkdownPageId(pageId)) {
-    return withGeneratedBlogThumbnailForPageId(
-      pageId,
-      await githubMarkdownBlogSource.fetchArticlePageHeaderData(pageId)
-    );
+    return githubMarkdownBlogSource.fetchArticlePageHeaderData(pageId);
   }
 
   const header = await safeRead(
@@ -228,10 +212,10 @@ export const fetchArticlePageHeaderData = async (pageId: string) => {
     fallbackArticleHeader(),
     "Failed to fetch Notion article header from blog facade"
   );
-  return withGeneratedBlogThumbnailForPageId(pageId, {
+  return {
     ...header,
     source: header.source ?? "notion",
-  });
+  };
 };
 
 export const fetchArticlePageContent = async (pageId: string) => {
