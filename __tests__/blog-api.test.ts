@@ -155,7 +155,7 @@ describe("blog api facade", () => {
     );
   });
 
-  it("keeps source thumbnails for GitHub Markdown facade data", async () => {
+  it("applies generated thumbnails to GitHub Markdown facade data", async () => {
     const blogApi = await import("../src/app/(blogLayout)/api/blog");
 
     const pageList = await blogApi.getPageList();
@@ -164,12 +164,13 @@ describe("blog api facade", () => {
     );
 
     expect(fullstackArticle?.thumbnailUrl).toBe(
-      "/images/projects/castlecms/external-api-clients.png"
+      "/images/blog/generated/github-fullstack-service-ops.webp"
     );
     await expect(
       blogApi.fetchArticlePageHeaderData("github-fullstack-service-ops")
     ).resolves.toMatchObject({
-      thumbnailUrl: "/images/projects/castlecms/external-api-clients.png",
+      thumbnailUrl: "/images/blog/generated/github-fullstack-service-ops.webp",
+      blurDataUrl: "/images/blog/generated/github-fullstack-service-ops.webp",
     });
   });
 });
