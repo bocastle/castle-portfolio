@@ -11,7 +11,6 @@
       "solution": "Next.js 관리자 화면과 Spring Boot API를 기준으로 게시글/미디어 운영, 조직/사용자 관리, 관리자 Bearer token 인증, API Key 기반 외부 클라이언트 발급/폐기 흐름을 하나의 CMS 구조로 묶었습니다.",
       "result": "로그인, 게시글/미디어 관리, 조직/사용자 관리, 외부 API 클라이언트 관리 화면을 공개하고, Jest/JUnit/빌드와 브라우저 QA 기준으로 화면, API, 권한 흐름을 검증했습니다.",
       "aiUsage": "Cursor와 Codex는 요구사항 쪼개기, 코드 분석, 반복 구현, 테스트 보강에 활용했고 최종 판단은 API 계약, 권한 흐름, 빌드/테스트, 화면 QA 기준으로 직접 검증했습니다.",
-      "repoVisibility": "private",
       "reviewAvailable": true,
       "summary": "Next.js와 Spring Boot로 만든 운영형 풀스택 CMS입니다. 게시글, 미디어, 조직/사용자, 외부 API 클라이언트를 관리하며 관리자 인증과 API Key 기반 연동 수명주기를 설계했습니다.",
       "description": "화면부터 만들기보다 요구사항, API 계약, 권한 흐름, 데이터 모델, 테스트 기준을 함께 잡았습니다. 공개 자료에서는 스크린샷과 구조 설명으로 설계 의도를 검증 가능하게 정리했습니다.",
@@ -68,7 +67,7 @@
           "href": "https://github.com/bocastle/castle-portfolio/blob/main/docs/project-briefs/castlecms-api-brief.md"
         }
       ],
-      "repositoryNote": "소스 저장소는 비공개로 관리합니다. 데모 스크린샷과 화면 흐름을 공개하며, API/권한/데이터 모델/검증 기준 중심으로 설명합니다."
+      "repositoryNote": "데모 스크린샷과 화면 흐름을 공개하며, API/권한/데이터 모델/검증 기준 중심으로 설명합니다."
     },
     {
       "id": "paperbox",
@@ -132,7 +131,7 @@
       "role": "게임 루프, 충돌 판정, 점수/난이도, 3D 비주얼, 모바일 입력, 멀티플레이 룸, 배포 QA",
       "problem": "가벼운 토이 프로젝트라도 단순 화면 구현에서 끝내지 않고, 실제 브라우저에서 플레이 가능한 3D 인터랙션과 모바일 대응, 반복 플레이 흐름까지 완성도를 끌어올리는 경험이 필요했습니다.",
       "solution": "Vite, React, TypeScript, Three.js, React Three Fiber 기반으로 회피 게임을 만들고, 점수/최고점/재시작 상태, 위험 웨이브, close-call 보상, shield pickup, Web Audio 효과음, Socket.IO 기반 룸 멀티플레이를 단계적으로 붙였습니다.",
-      "result": "프론트엔드는 Vercel, 멀티플레이 서버는 Render에 배포했고, 데스크톱/모바일 브라우저 QA와 Vitest 기반 게임 로직 테스트로 첫 웹 오픈 후보 수준까지 정리했습니다.",
+      "result": "프론트엔드는 Vercel, 멀티플레이 서버는 Render에 배포했고, 데스크톱/모바일 브라우저 QA와 Vitest 기반 게임 로직 테스트로 공개 배포 수준까지 정리했습니다.",
       "aiUsage": "Codex를 기능 분해, 테스트 작성, 브라우저 QA 체크리스트, 모바일 레이아웃 회귀 확인에 활용했고 최종 판단은 실제 브라우저 플레이, 빌드, 테스트 결과 기준으로 직접 검증했습니다.",
       "repoVisibility": "public",
       "reviewAvailable": true,
@@ -226,10 +225,10 @@
       "repoVisibility": "public",
       "reviewAvailable": true,
       "summary": "AI 도구를 구현 대체가 아니라 요구사항 정리, UI 개선, 분석 이벤트 전환, 브라우저 QA, 배포 검증을 가속하는 협업 도구로 사용한 포트폴리오 개선 프로젝트입니다.",
-      "description": "Vercel Analytics 유료 제한을 확인하고 GA4/GTM 이벤트 구조로 전환했으며, 이력서 CTA, GitHub Markdown 블로그 연동, 프로젝트 이미지 갤러리까지 작업 흐름을 정리했습니다.",
+      "description": "분석 도구의 제약을 검토해 GA4/GTM 이벤트 구조로 전환했으며, 이력서 CTA, GitHub Markdown 블로그 연동, 프로젝트 이미지 갤러리까지 작업 흐름을 정리했습니다.",
       "highlights": [
         "채용자 관점에서 Hero, 경력, 대표 프로젝트, 기술 글, AI 활용 증거의 우선순위를 재정렬",
-        "Vercel Analytics 유료 제한을 확인하고 GA4/GTM 기반 이벤트 추적 구조로 전환",
+        "분석 도구의 제약을 검토하고 GA4/GTM 기반 이벤트 추적 구조로 전환",
         "개인 프로젝트 이미지 갤러리, 블로그 TOC, GitHub Markdown 글 연동을 추가하고 브라우저 QA로 클릭 흐름 검증",
         "이력서 PDF 공개 CTA와 클릭 추적 이벤트를 설계해 채용 유입 행동을 확인할 수 있게 구성",
         "작업마다 커밋, 테스트 결과, 공개 배포 확인 결과를 남겨 변경 흐름을 추적할 수 있게 정리"

@@ -113,15 +113,15 @@ test.describe("portfolio browser QA", () => {
     await mobilePage.goto("/");
     await expect(mobilePage.locator("body")).toContainText("castle");
     await expect(
-      mobilePage.getByRole("region", { name: "시니어 검증 포인트" })
+      mobilePage.getByRole("region", { name: "최근 작업" })
     ).toBeVisible();
     await expect(
       mobilePage.getByRole("link", {
-        name: /CRM 고객 목록 조회 성능 최적화 증거 보기/,
+        name: /CRM 고객 목록 조회 성능 최적화 자세히 보기/,
       })
     ).toHaveAttribute("href", "#work-history");
     await expect(
-      mobilePage.locator("#work-history").getByText(/1\.6s -> 216ms/)
+      mobilePage.locator("#work-history").getByText(/약 1\.6초에서 200ms대/)
     ).toBeVisible();
     await expect(
       mobilePage.locator("#projects").getByText("Dodge Arcade")

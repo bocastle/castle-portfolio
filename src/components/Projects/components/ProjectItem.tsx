@@ -114,7 +114,7 @@ const ProjectItem = ({
         </ul>
 
         <div className="flex flex-wrap gap-2 text-xs font-semibold">
-          {repoVisibility ? (
+          {repoVisibility === "public" ? (
             <span className="rounded-full border border-gray-300 px-2.5 py-1 text-gray-600 dark:border-slate-600 dark:text-gray-300">
               Repository: {repoVisibility}
             </span>

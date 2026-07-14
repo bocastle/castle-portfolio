@@ -29,16 +29,16 @@ const proofPoints = [
 const workItems = [
   {
     title: "CRM 고객 목록 조회 성능 최적화",
-    metric: "1.6s -> 216ms",
+    metric: "1.6s -> 200ms대",
     description:
       "EXPLAIN ANALYZE로 로그인/거래/계좌 이력 선계산 병목을 확인하고 페이지 대상 고객 선조회 구조로 개선했습니다.",
     href: "#work-history",
   },
   {
-    title: "STICPAY E-Wallet 결제수단 도입",
+    title: "외부 결제 연동과 운영 안정화",
     metric: "API/DB/포털 흐름 연결",
     description:
-      "DB taxonomy, gateway, Client API, Client Portal, Office Portal 승인/상태조회 흐름을 함께 구현했습니다.",
+      "여러 서비스 모듈의 입출금·콜백·상태 처리 흐름을 연결하고 운영 검증을 보강했습니다.",
     href: "#work-history",
   },
   {

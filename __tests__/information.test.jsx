@@ -20,7 +20,7 @@ describe("Information", () => {
     expect(screen.getByText(/운영 이슈 분석/)).toBeInTheDocument();
     expect(screen.getByText("AI 협업 방식")).toBeInTheDocument();
     expect(screen.getByText("최근 작업")).toBeInTheDocument();
-    expect(screen.getByText(/1\.6s -> 216ms/)).toBeInTheDocument();
+    expect(screen.getByText(/1\.6s -> 200ms대/)).toBeInTheDocument();
     expect(
       screen.getByRole("link", {
         name: /CRM 고객 목록 조회 성능 최적화 자세히 보기/,
@@ -28,7 +28,7 @@ describe("Information", () => {
     ).toHaveAttribute("href", "#work-history");
     expect(
       screen.getByRole("link", {
-        name: /STICPAY E-Wallet 결제수단 도입 자세히 보기/,
+        name: /외부 결제 연동과 운영 안정화 자세히 보기/,
       })
     ).toHaveAttribute("href", "#work-history");
     expect(
