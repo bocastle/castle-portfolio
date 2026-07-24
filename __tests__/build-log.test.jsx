@@ -25,5 +25,6 @@ describe("BuildLog", () => {
     expect(screen.queryByText("이직용 정보 구조 재설계")).not.toBeInTheDocument();
     expect(screen.queryByText("핸드오프 문서화")).not.toBeInTheDocument();
     expect(screen.queryByText(/풀스택 연결/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/private 프로젝트/)).not.toBeInTheDocument();
   });
 });

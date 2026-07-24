@@ -86,5 +86,6 @@ describe("Projects", () => {
     expect(screen.queryByText(/설명 가능/)).not.toBeInTheDocument();
     expect(screen.queryByText(/실무 경력/)).not.toBeInTheDocument();
     expect(screen.queryByText(/이직용 제품/)).not.toBeInTheDocument();
+    expect(screen.queryByText("Repository: private")).not.toBeInTheDocument();
   });
 });

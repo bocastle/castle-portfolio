@@ -11,9 +11,9 @@ test("GitHub logs JPA post renders with TOC", async ({ page }) => {
   ).toBeVisible();
   await expect(page.getByRole("navigation", { name: "글 목차" })).toBeVisible();
 
-  await page.getByRole("link", { name: "1. N+1 문제란" }).click();
+  await page.getByRole("link", { name: "1. N+1을 의심하는 순간" }).click();
 
   await expect
     .poll(() => decodeURIComponent(new URL(page.url()).hash))
-    .toBe("#1-n1-문제란");
+    .toBe("#1-n1을-의심하는-순간");
 });

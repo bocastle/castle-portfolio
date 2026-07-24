@@ -21,4 +21,23 @@ describe("public documentation copy", () => {
     expect(combinedCopy).not.toMatch(/AI가 전체 프로젝트/);
     expect(combinedCopy).not.toMatch(/코드 공개가 불가능/);
   });
+
+  it("keeps Softwiz copy outcome-focused and free from provider or internal auth details", () => {
+    const workHistoryCopy = [
+      "src/components/WorkHistory/data.json",
+      "public/markdown/workHistory/7.md",
+      "src/components/Information/index.tsx",
+    ].map(readProjectFile);
+
+    const combinedCopy = workHistoryCopy.join("\n");
+
+    expect(combinedCopy).toMatch(/재직 중/);
+    expect(combinedCopy).toMatch(/외부 결제 연동/);
+    expect(combinedCopy).not.toMatch(/STICPAY/);
+    expect(combinedCopy).not.toMatch(/Help2Pay/);
+    expect(combinedCopy).not.toMatch(/2FA/);
+    expect(combinedCopy).not.toMatch(/비밀번호 재설정/);
+    expect(combinedCopy).not.toMatch(/DB taxonomy/);
+    expect(combinedCopy).not.toMatch(/퇴사/);
+  });
 });
