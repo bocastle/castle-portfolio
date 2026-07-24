@@ -31,7 +31,7 @@ describe("public documentation copy", () => {
 
     const combinedCopy = workHistoryCopy.join("\n");
 
-    expect(combinedCopy).toMatch(/재직 중/);
+    expect(combinedCopy).toMatch(/2026\.07/);
     expect(combinedCopy).toMatch(/외부 결제 연동/);
     expect(combinedCopy).not.toMatch(/STICPAY/);
     expect(combinedCopy).not.toMatch(/Help2Pay/);
