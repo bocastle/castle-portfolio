@@ -25,7 +25,7 @@ describe("public documentation copy", () => {
   it("keeps Softwiz copy outcome-focused and free from provider or internal auth details", () => {
     const workHistoryCopy = [
       "src/components/WorkHistory/data.json",
-      "public/markdown/workHistory/7.md",
+      "content/workHistory/7.md",
       "src/components/Information/index.tsx",
     ].map(readProjectFile);
 

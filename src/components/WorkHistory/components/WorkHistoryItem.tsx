@@ -32,7 +32,8 @@ const WorkHistoryItem = ({
   topHighlights = [],
   evidencePoints = [],
 }: WorkHistorProps) => {
-  const filePath = `./public/markdown/workHistory/${id}.md`;
+  // content/ 는 public/ 밖이라 HTTP로 직접 노출되지 않는다. 서버에서 fs로만 읽는다.
+  const filePath = `./content/workHistory/${id}.md`;
   const file = stripLeadingHeading(fs.readFileSync(filePath, "utf8"));
   const careerBadge = featured
     ? period[1] === "재직 중"
