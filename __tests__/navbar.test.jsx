@@ -42,9 +42,10 @@ describe("Navbar", () => {
       "href",
       "/blog"
     );
+    // 당분간 블로그만 운영 (2026-07-25). WorkHistory 메뉴는 노출되지 않는다.
     expect(
-      within(mobileMenu).getByRole("link", { name: "WorkHistory" })
-    ).toHaveAttribute("href", "/workHistory");
+      within(mobileMenu).queryByRole("link", { name: "WorkHistory" })
+    ).not.toBeInTheDocument();
 
     alertSpy.mockRestore();
   });

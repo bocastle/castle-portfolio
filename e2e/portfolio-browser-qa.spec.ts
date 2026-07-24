@@ -46,7 +46,9 @@ test.describe("portfolio browser QA", () => {
     ).toBeVisible();
   });
 
-  test("대표 프로젝트 노출, 이미지 갤러리, 원본 이미지 새 창을 확인한다", async ({
+  // 당분간 블로그만 운영 (2026-07-25). 홈에서 프로젝트 섹션이 숨겨진다.
+  // SHOW_PORTFOLIO 복구 시 skip을 해제한다.
+  test.skip("대표 프로젝트 노출, 이미지 갤러리, 원본 이미지 새 창을 확인한다", async ({
     page,
   }) => {
     await page.goto("/");
@@ -179,9 +181,10 @@ test.describe("portfolio browser QA", () => {
       "href",
       "/blog"
     );
+    // 당분간 블로그만 운영 (2026-07-25). WorkHistory 메뉴는 노출되지 않는다.
     await expect(
       mobileMenu.getByRole("link", { name: "WorkHistory" })
-    ).toHaveAttribute("href", "/workHistory");
+    ).toHaveCount(0);
     await expect
       .poll(() =>
         page.evaluate(
