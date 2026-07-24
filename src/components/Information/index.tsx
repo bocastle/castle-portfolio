@@ -101,20 +101,6 @@ const Information = () => {
             </ul>
             <div className="mt-1 flex flex-wrap items-center justify-center gap-3 md:justify-start">
               <a
-                href="/resume/kim-bosung.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() =>
-                  trackEvent("Resume Click", {
-                    location: "home_profile",
-                  })
-                }
-                className="inline-flex min-h-10 items-center gap-2 rounded-full border border-teal-500 bg-teal-600 px-4 text-sm font-semibold text-white transition-colors hover:bg-teal-700 dark:border-teal-400 dark:bg-teal-500 dark:text-slate-950 dark:hover:bg-teal-400"
-              >
-                <span aria-hidden="true">PDF</span>
-                <span>이력서 보기</span>
-              </a>
-              <a
                 href="mailto:bocastle1213@gmail.com"
                 onClick={() =>
                   trackEvent("Contact Click", {

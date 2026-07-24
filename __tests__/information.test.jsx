@@ -34,10 +34,9 @@ describe("Information", () => {
     expect(
       screen.getByRole("link", { name: /운영형 CMS 설계 자세히 보기/ })
     ).toHaveAttribute("href", "#projects");
-    expect(screen.getByRole("link", { name: /이력서 보기/ })).toHaveAttribute(
-      "href",
-      "/resume/kim-bosung.pdf"
-    );
+    expect(
+      screen.queryByRole("link", { name: /이력서 보기/ })
+    ).not.toBeInTheDocument();
     expect(screen.getByText("채용 요약")).toBeInTheDocument();
   });
 });
