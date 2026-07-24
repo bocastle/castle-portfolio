@@ -14,7 +14,9 @@ jest.mock("../src/components/Projects", () => function ProjectsMock() {
   return <section>castleCms</section>;
 });
 
-describe("WorkHistoryPage", () => {
+// 당분간 블로그만 운영 (2026-07-25). /workHistory는 /blog로 리다이렉트되어
+// 아래 렌더 기반 테스트는 성립하지 않는다. SHOW_PORTFOLIO 복구 시 skip을 해제한다.
+describe.skip("WorkHistoryPage", () => {
   it("경력 페이지에서도 개인 프로젝트 탭으로 전환한다", () => {
     render(<WorkHistoryPage />);
 
