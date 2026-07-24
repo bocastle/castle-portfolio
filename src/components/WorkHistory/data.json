@@ -92,7 +92,7 @@
       "id": 7,
       "name": "소프트위즈",
       "position": "웹팀 과장",
-      "period": ["2025.02", "재직 중"],
+      "period": ["2025.02", "2026.07"],
       "imgSrc": "/images/work-history/softwiz-logo.png",
       "summary": "CRM, Gateway, Client API, Client Portal, Office Portal 등 여러 서비스 모듈을 오가며 결제 연동, CRM 성능 개선, 배포 자동화, 보안 검증, 운영 이슈 대응을 수행했습니다.",
       "domain": "CRM / Gateway / 결제 / 운영 포털",
