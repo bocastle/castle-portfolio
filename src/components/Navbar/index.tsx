@@ -29,7 +29,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur dark:border-slate-800 dark:bg-slate-950/95">
+    <header className="sticky top-0 z-50 w-full border-b border-rule bg-paper backdrop-blur">
       <div className="mx-auto flex h-20 w-full items-center justify-between gap-4 px-8">
         <Link
           className="italic text-xl font-black"
@@ -98,7 +98,7 @@ const Navbar = () => {
         <nav
           id="mobile-navigation"
           aria-label="모바일 메뉴"
-          className="border-t border-gray-200 bg-white dark:border-slate-800 dark:bg-slate-950 md:hidden"
+          className="border-t border-rule bg-paper md:hidden"
         >
           <div className="mx-auto flex w-full flex-col gap-1 px-8 py-3">
             <div className="flex items-center justify-end py-2">
@@ -112,7 +112,7 @@ const Navbar = () => {
                   key={item.key}
                   href={item.href}
                   onClick={() => handleNavClick(item.name, item.href)}
-                  className={`border-t border-gray-200 py-3 text-base font-semibold dark:border-slate-800 ${
+                  className={`border-t border-rule py-3 text-base font-semibold ${
                     isUnderlined
                       ? "text-teal-700 underline decoration-solid underline-offset-4 dark:text-teal-300"
                       : "text-slate-900 dark:text-white"

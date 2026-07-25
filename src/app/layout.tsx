@@ -7,6 +7,7 @@ import { GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
+import { IBM_Plex_Sans_KR } from "next/font/google";
 import localFont from "next/font/local";
 import Navbar from "../components/Navbar";
 import { getPublicImageUrl } from "../utils/image-url";
@@ -15,10 +16,14 @@ import ThemeScript from "./ThemeScript";
 
 const SITE_URL = "https://bocelog.vercel.app";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+// 본문·제목: 한글과 라틴을 한 가족으로 다루는 IBM Plex Sans KR.
+// 숫자·메타데이터: 이미 리포에 있는 Geist Mono(추가 다운로드 없음).
+const plexSansKR = IBM_Plex_Sans_KR({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  variable: "--font-sans-kr",
+  display: "swap",
+  fallback: ["Apple SD Gothic Neo", "Malgun Gothic", "sans-serif"],
 });
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
@@ -66,7 +71,7 @@ export default function RootLayout({
       </head>
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${plexSansKR.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar />
         {children}

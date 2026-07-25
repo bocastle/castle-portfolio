@@ -73,13 +73,13 @@ const BlogDetail = ({ content }: Props) => {
           ),
           pre: (props) => (
             <pre
-              className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 my-3 rounded overflow-x-auto"
+              className="bg-[color-mix(in_srgb,var(--ink)_5%,transparent)] text-ink my-3 rounded overflow-x-auto"
               {...props}
             />
           ),
           code: (props) => (
             <code
-              className="text-sm font-mono bg-gray-100 dark:bg-gray-900 text-teal-700 dark:text-teal-200 rounded"
+              className="text-sm font-mono bg-[color-mix(in_srgb,var(--ink)_7%,transparent)] text-ink rounded"
               {...props}
             />
           ),

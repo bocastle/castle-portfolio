@@ -65,13 +65,13 @@ const FeaturedWriting = ({
 }: FeaturedWritingProps) => {
   return (
     <section className={className}>
-      <p className="m-0 text-sm font-semibold text-teal-700 dark:text-teal-300">
+      <p className="m-0 font-mono text-xs uppercase tracking-widest text-signal">
         {eyebrow}
       </p>
       <h2 className="py-1 text-3xl font-semibold md:text-4xl">
         {title}
       </h2>
-      <p className="mt-2 max-w-3xl text-base leading-7 text-gray-600 dark:text-gray-300">
+      <p className="mt-2 max-w-3xl text-base leading-7 text-muted">
         {description}
       </p>
       <div className="mt-6 grid gap-3 md:grid-cols-2">
@@ -84,11 +84,11 @@ const FeaturedWriting = ({
               key={writing.href}
               href={writing.href}
               aria-label={`${writing.title} 글 보기`}
-              className="group transform-gpu overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-[border-color,box-shadow,color,transform] duration-200 ease-out hover:-translate-y-1 hover:border-teal-400 hover:text-teal-700 hover:shadow-lg focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white motion-reduce:transition-none dark:border-slate-700 dark:bg-slate-900/70 dark:hover:border-teal-500 dark:hover:text-teal-300 dark:focus-visible:ring-offset-slate-950"
+              className="group transform-gpu overflow-hidden rounded-lg border border-rule transition-[border-color,color] duration-200 ease-out hover:border-signal hover:text-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal focus-visible:ring-offset-2 focus-visible:ring-offset-paper motion-reduce:transition-none"
             >
               <article>
                 {thumbnailUrl ? (
-                  <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-100 dark:bg-slate-800">
+                  <div className="relative aspect-[16/9] w-full overflow-hidden bg-[color-mix(in_srgb,var(--ink)_6%,transparent)]">
                     <Image
                       unoptimized
                       fill
@@ -100,11 +100,11 @@ const FeaturedWriting = ({
                   </div>
                 ) : null}
                 <div className="p-4">
-                  <span className="mb-3 inline-flex rounded-md border border-teal-500/40 px-2 py-0.5 text-xs font-semibold text-teal-700 dark:text-teal-300">
+                  <span className="mb-3 inline-flex rounded-md border border-rule px-2 py-0.5 font-mono text-[0.7rem] uppercase tracking-wider text-muted">
                     {writing.focus}
                   </span>
                   <h3 className="py-0 text-lg font-semibold">{writing.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">
+                  <p className="mt-2 text-sm leading-6 text-muted">
                     {writing.description}
                   </p>
                 </div>

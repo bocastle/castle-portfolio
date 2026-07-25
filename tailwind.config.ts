@@ -12,6 +12,15 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        paper: "var(--paper)",
+        ink: "var(--ink)",
+        muted: "var(--muted)",
+        rule: "var(--rule)",
+        signal: "var(--signal)",
+      },
+      fontFamily: {
+        sans: ["var(--font-sans-kr)", "Apple SD Gothic Neo", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
       },
       screens: {
         tablet: "640px",
