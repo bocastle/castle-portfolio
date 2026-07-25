@@ -2,6 +2,7 @@ import { ScrollProgress } from "@/components/ScrollProgressbar";
 import BlogAdSenseSlot from "@/components/GoogleAds/BlogAdSenseSlot";
 import type { Metadata } from "next";
 import { fetchArticlePageContent, getArticlePageHeaderData } from "../../api/blog";
+import BlogDiagram from "@/components/BlogDiagram";
 import { BlogTocSidebar } from "@/components/BlogDetail";
 import PageContent from "./components/PageContent";
 import PageFooter from "./components/PageFooter";
@@ -49,6 +50,7 @@ export default async function ArticleDetailPage({ params }: Props) {
       <ScrollProgress />
       <div className="flex w-full min-w-0 max-w-4xl flex-col items-start md:gap-5 sm:gap-5 max-lg:items-center max-md:items-center max-sm:items-center">
         <PageHeader pageId={pageId} />
+        <BlogDiagram pageId={pageId} />
         <PageContent content={content} />
         <BlogAdSenseSlot className="my-8" />
         <PageFooter pageId={pageId} />
