@@ -21,7 +21,7 @@ const BlogHeader = ({ headerItem }: Props) => {
   return (
     <div className="flex w-full min-w-0 max-w-4xl flex-col items-start">
       {sourceLabel ? (
-        <span className="mb-3 inline-flex rounded-md border border-teal-500/40 px-2 py-0.5 text-xs font-semibold text-teal-700 dark:text-teal-300">
+        <span className="mb-3 inline-flex font-mono text-[0.7rem] uppercase tracking-[0.12em] text-muted">
           {sourceLabel}
         </span>
       ) : null}

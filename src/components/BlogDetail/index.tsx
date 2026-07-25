@@ -52,7 +52,7 @@ const BlogDetail = ({ content }: Props) => {
           // hr: (props) => <hr className="my-4" {...props} />,
           img: (props) => (
             <img
-              className="my-6 h-auto max-w-full rounded-lg border border-gray-200 dark:border-slate-700"
+              className="my-6 h-auto max-w-full rounded border border-rule"
               {...props}
             />
           ),
@@ -65,7 +65,7 @@ const BlogDetail = ({ content }: Props) => {
           ),
           a: (props) => (
             <a
-              className="text-blue-600 dark:text-sky-300 underline"
+              className="text-signal underline underline-offset-[3px]"
               target="_blank"
               rel="noopener noreferrer"
               {...props}
@@ -94,19 +94,19 @@ const BlogDetail = ({ content }: Props) => {
           ),
           td: (props) => (
             <td
-              className="border border-gray-300 dark:border-slate-600 p-2"
+              className="border border-rule p-2"
               {...props}
             />
           ),
           th: (props) => (
             <th
-              className="border border-gray-300 dark:border-slate-600 p-2"
+              className="border border-rule p-2"
               {...props}
             />
           ),
           blockquote: (props) => (
             <blockquote
-              className="border-l-4 border-gray-300 dark:border-slate-500 bg-gray-100 dark:bg-slate-800 text-gray-800 dark:text-gray-100 py-3 pl-4 pr-3 rounded-r"
+              className="border-l-2 border-rule text-muted py-1 pl-5 pr-3"
               {...props}
             />
           ),
@@ -144,8 +144,8 @@ const BlogTableOfContents = ({
       aria-label="글 목차"
       className={
         variant === "sidebar"
-          ? "max-h-[calc(100vh-8rem)] overflow-y-auto rounded-lg border border-gray-200 bg-gray-50/95 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900/95"
-          : "mb-10 rounded-lg border border-gray-200 bg-gray-50 p-5 dark:border-slate-700 dark:bg-slate-900"
+          ? "max-h-[calc(100vh-8rem)] overflow-y-auto border-l border-rule pl-5"
+          : "mb-10 border-l border-rule pl-5"
       }
     >
       <h2
@@ -161,7 +161,7 @@ const BlogTableOfContents = ({
         {items.map((item) => (
           <li key={item.id} className={item.depth === 3 ? "pl-4" : ""}>
             <a
-              className="block text-sm leading-6 text-gray-700 underline-offset-4 hover:text-teal-700 hover:underline dark:text-gray-200 dark:hover:text-teal-300"
+              className="block text-sm leading-6 text-muted underline-offset-4 transition-colors hover:text-signal hover:underline"
               href={`#${item.id}`}
             >
               {item.title}
