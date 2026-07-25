@@ -12,11 +12,8 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const pageId = (await params).pageId;
-  const {
-    title: articleTitle,
-    description,
-    thumbnailUrl,
-  } = await getArticlePageHeaderData(pageId);
+  const { title: articleTitle, description } =
+    await getArticlePageHeaderData(pageId);
   const title = `${articleTitle} | castle log`;
 
   return {
@@ -29,9 +26,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       locale: "ko_KR",
       type: "website",
       url: "https://bocelog.vercel.app/blog/" + pageId,
-      images: {
-        url: thumbnailUrl,
-      },
+      // images는 지정하지 않는다. 같은 폴더의 opengraph-image.tsx가 생성한
+      // 타이포그래피 커버가 자동으로 쓰인다.
     },
     verification: {
       google: `${process.env.GOOGLE_SITE_VERIFICATION_KEY}`,
