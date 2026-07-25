@@ -1,5 +1,3 @@
-import { getGeneratedBlogThumbnailUrl } from "@/app/(blogLayout)/api/blog-thumbnails";
-import Image from "next/image";
 import Link from "next/link";
 
 export const featuredWritings = [
@@ -74,44 +72,27 @@ const FeaturedWriting = ({
       <p className="mt-2 max-w-3xl text-base leading-7 text-muted">
         {description}
       </p>
-      <div className="mt-6 grid gap-3 md:grid-cols-2">
-        {featuredWritings.map((writing) => {
-          const pageId = writing.href.replace("/blog/", "");
-          const thumbnailUrl = getGeneratedBlogThumbnailUrl(pageId);
-
-          return (
-            <Link
-              key={writing.href}
-              href={writing.href}
-              aria-label={`${writing.title} 글 보기`}
-              className="group transform-gpu overflow-hidden rounded-lg border border-rule transition-[border-color,color] duration-200 ease-out hover:border-signal hover:text-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal focus-visible:ring-offset-2 focus-visible:ring-offset-paper motion-reduce:transition-none"
-            >
-              <article>
-                {thumbnailUrl ? (
-                  <div className="relative aspect-[16/9] w-full overflow-hidden bg-[color-mix(in_srgb,var(--ink)_6%,transparent)]">
-                    <Image
-                      unoptimized
-                      fill
-                      loading="lazy"
-                      src={thumbnailUrl}
-                      alt=""
-                      className="object-cover transition-[filter] duration-200 ease-out group-hover:brightness-95"
-                    />
-                  </div>
-                ) : null}
-                <div className="p-4">
-                  <span className="mb-3 inline-flex rounded-md border border-rule px-2 py-0.5 font-mono text-[0.7rem] uppercase tracking-wider text-muted">
-                    {writing.focus}
-                  </span>
-                  <h3 className="py-0 text-lg font-semibold">{writing.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted">
-                    {writing.description}
-                  </p>
-                </div>
-              </article>
-            </Link>
-          );
-        })}
+      <div className="mt-8 border-t border-rule">
+        {featuredWritings.map((writing) => (
+          <Link
+            key={writing.href}
+            href={writing.href}
+            aria-label={`${writing.title} 글 보기`}
+            className="group block border-b border-rule py-6 transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal motion-reduce:transition-none"
+          >
+            <article>
+              <span className="font-mono text-[0.7rem] uppercase tracking-[0.12em] text-muted">
+                {writing.focus}
+              </span>
+              <h3 className="mt-2 py-0 text-[1.375rem] font-semibold leading-snug tracking-[-0.01em] transition-colors duration-200 ease-out group-hover:text-signal motion-reduce:transition-none">
+                {writing.title}
+              </h3>
+              <p className="mt-2 max-w-2xl text-[0.95rem] leading-7 text-muted">
+                {writing.description}
+              </p>
+            </article>
+          </Link>
+        ))}
       </div>
     </section>
   );

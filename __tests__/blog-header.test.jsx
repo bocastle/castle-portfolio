@@ -26,18 +26,19 @@ const headerItem = {
 };
 
 describe("BlogHeader", () => {
-  it("keeps title and thumbnail fluid on mobile widths", () => {
+  it("제목이 좁은 화면에서도 줄바꿈되며 폭을 채운다", () => {
     render(<BlogHeader headerItem={headerItem} />);
 
     const title = screen.getByRole("heading", { name: headerItem.title });
-    const image = screen.getByAltText(headerItem.title);
 
     expect(title).toHaveClass("break-words");
-    expect(title).toHaveClass("text-3xl");
-    expect(title).toHaveClass("md:text-5xl");
     expect(title.parentElement).toHaveClass("w-full");
     expect(title.parentElement).not.toHaveClass("max-md:w-max");
-    expect(image.parentElement).toHaveClass("w-full");
-    expect(image.parentElement).not.toHaveClass("max-md:w-96");
+  });
+
+  it("상세 상단에 히어로 썸네일을 노출하지 않는다", () => {
+    render(<BlogHeader headerItem={headerItem} />);
+
+    expect(screen.queryByRole("img")).not.toBeInTheDocument();
   });
 });

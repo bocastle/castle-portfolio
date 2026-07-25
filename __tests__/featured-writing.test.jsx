@@ -37,13 +37,13 @@ describe("FeaturedWriting", () => {
     expect(
       screen.getByRole("link", { name: "CI/CD 파이프라인 운영 흐름 글 보기" })
     ).toHaveAttribute("href", "/blog/logs-cicd-pipeline");
-    // 카드 들어올림/그림자 대신 괘선과 색으로만 hover를 표현한다.
+    // 카드 그리드가 아니라 괘선으로 구분된 행으로 보여준다.
+    expect(
+      screen.getByRole("link", { name: "CI/CD 파이프라인 운영 흐름 글 보기" })
+    ).toHaveClass("border-b");
     expect(
       screen.getByRole("link", { name: "CI/CD 파이프라인 운영 흐름 글 보기" })
     ).toHaveClass("border-rule");
-    expect(
-      screen.getByRole("link", { name: "CI/CD 파이프라인 운영 흐름 글 보기" })
-    ).toHaveClass("hover:border-signal");
     expect(
       screen.getByRole("link", { name: "CI/CD 파이프라인 운영 흐름 글 보기" })
     ).not.toHaveClass("hover:shadow-lg");

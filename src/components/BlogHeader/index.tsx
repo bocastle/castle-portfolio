@@ -4,7 +4,6 @@ import { ArticlePageHeaderDataWithBlur } from "@/app/(blogLayout)/api/types";
 import { getBlogTagLabel } from "@/utils/blog-labels";
 import { getDistanceFromToday, getYearMonthDay } from "@/utils/date";
 import "highlight.js/styles/base16/dracula.min.css";
-import Image from "next/image";
 
 interface Props {
   headerItem: ArticlePageHeaderDataWithBlur;
@@ -37,22 +36,11 @@ const BlogHeader = ({ headerItem }: Props) => {
         {headerItem.tagList.map((tag) => (
           <div
             key={tag.id}
-            className="cursor-default text-[16px] leading-5 font-medium bg-gray-400/30 dark:bg-sky-400/10 rounded-full py-1 px-3 flex items-center "
+            className="cursor-default font-mono text-[0.7rem] uppercase tracking-[0.12em] text-muted"
           >
             {getBlogTagLabel(tag.name)}
           </div>
         ))}
-      </div>
-      <div className="w-full overflow-hidden rounded-lg">
-        <Image
-          unoptimized
-          src={headerItem.thumbnailUrl}
-          alt={headerItem.title}
-          width={1200}
-          height={675}
-          className="h-auto w-full object-contain"
-          priority
-        />
       </div>
     </div>
   );
