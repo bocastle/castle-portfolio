@@ -5,10 +5,12 @@ import { SHOW_PORTFOLIO } from "@/constants/feature-flags";
 import { getPageList } from "./(blogLayout)/api/blog";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // 당분간 블로그만 운영 (2026-07-25). SHOW_PORTFOLIO 복구 시 /workHistory가 다시 포함된다.
+  // 당분간 블로그만 운영 (2026-07-25).
+  // 블로그 전용일 때 "/"는 /blog로 리다이렉트되므로 sitemap에서 제외한다.
+  // SHOW_PORTFOLIO 복구 시 홈("")과 /workHistory가 다시 포함된다.
   const staticRoutes = SHOW_PORTFOLIO
     ? ["", "/blog", "/workHistory"]
-    : ["", "/blog"];
+    : ["/blog"];
   const routes: MetadataRoute.Sitemap = staticRoutes.map(
     (route) => ({
       url: `${URL}${route}`,
