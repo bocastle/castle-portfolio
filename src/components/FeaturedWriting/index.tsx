@@ -1,3 +1,5 @@
+import { getGeneratedBlogThumbnailUrl } from "@/app/(blogLayout)/api/blog-thumbnails";
+import Image from "next/image";
 import Link from "next/link";
 
 export const featuredWritings = [
@@ -73,24 +75,43 @@ const FeaturedWriting = ({
         {description}
       </p>
       <div className="mt-6 grid gap-3 md:grid-cols-2">
-        {featuredWritings.map((writing) => (
-          <Link
-            key={writing.href}
-            href={writing.href}
-            aria-label={`${writing.title} 글 보기`}
-            className="transform-gpu rounded-lg border border-gray-200 bg-white p-4 shadow-sm transition-[border-color,box-shadow,color,transform] duration-200 ease-out hover:-translate-y-1 hover:border-teal-400 hover:text-teal-700 hover:shadow-lg focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white motion-reduce:transition-none dark:border-slate-700 dark:bg-slate-900/70 dark:hover:border-teal-500 dark:hover:text-teal-300 dark:focus-visible:ring-offset-slate-950"
-          >
-            <article>
-              <span className="mb-3 inline-flex rounded-md border border-teal-500/40 px-2 py-0.5 text-xs font-semibold text-teal-700 dark:text-teal-300">
-                {writing.focus}
-              </span>
-              <h3 className="py-0 text-lg font-semibold">{writing.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">
-                {writing.description}
-              </p>
-            </article>
-          </Link>
-        ))}
+        {featuredWritings.map((writing) => {
+          const pageId = writing.href.replace("/blog/", "");
+          const thumbnailUrl = getGeneratedBlogThumbnailUrl(pageId);
+
+          return (
+            <Link
+              key={writing.href}
+              href={writing.href}
+              aria-label={`${writing.title} 글 보기`}
+              className="group transform-gpu overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-[border-color,box-shadow,color,transform] duration-200 ease-out hover:-translate-y-1 hover:border-teal-400 hover:text-teal-700 hover:shadow-lg focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white motion-reduce:transition-none dark:border-slate-700 dark:bg-slate-900/70 dark:hover:border-teal-500 dark:hover:text-teal-300 dark:focus-visible:ring-offset-slate-950"
+            >
+              <article>
+                {thumbnailUrl ? (
+                  <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-100 dark:bg-slate-800">
+                    <Image
+                      unoptimized
+                      fill
+                      loading="lazy"
+                      src={thumbnailUrl}
+                      alt=""
+                      className="object-cover transition-[filter] duration-200 ease-out group-hover:brightness-95"
+                    />
+                  </div>
+                ) : null}
+                <div className="p-4">
+                  <span className="mb-3 inline-flex rounded-md border border-teal-500/40 px-2 py-0.5 text-xs font-semibold text-teal-700 dark:text-teal-300">
+                    {writing.focus}
+                  </span>
+                  <h3 className="py-0 text-lg font-semibold">{writing.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">
+                    {writing.description}
+                  </p>
+                </div>
+              </article>
+            </Link>
+          );
+        })}
       </div>
     </section>
   );
