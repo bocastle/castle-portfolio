@@ -11,7 +11,7 @@ export default async function CategoriesPage() {
   const List = await getCategoryList({ categoryName: "" });
 
   return (
-    <div className="flex-1 min-w-0 max-w-5xl items-start max-lg:w-full max-md:w-full max-sm:w-full flex flex-col md:gap-5 md:my-4 sm:gap-5 max-lg:items-center max-md:items-center max-sm:items-center">
+    <div className="flex-1 min-w-0 items-start max-lg:w-full max-md:w-full max-sm:w-full flex flex-col md:gap-5 md:my-4 sm:gap-5 max-lg:items-center max-md:items-center max-sm:items-center">
       <BlogAdSenseSlot className="mb-4" />
       <BlogList list={List} />
     </div>
