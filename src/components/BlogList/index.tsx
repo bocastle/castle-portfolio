@@ -1,5 +1,6 @@
 "use client";
 
+import { getBlogTakeaway } from "@/app/(blogLayout)/api/blog-takeaways";
 import { AllArticle } from "@/app/(blogLayout)/api/types";
 import {
   loadMoreArticle,
@@ -73,6 +74,7 @@ const BlogList = ({ list }: Props) => {
       {filteredArticleList.filteredArticleList.map((item, index) => {
         const isLast =
           index === filteredArticleList.filteredArticleList.length - 1;
+        const takeaway = getBlogTakeaway(item.pageId);
 
         return (
           <Link
@@ -103,6 +105,11 @@ const BlogList = ({ list }: Props) => {
             <h3 className="mt-2 break-words py-0 text-[1.375rem] font-semibold leading-snug tracking-[-0.01em] transition-colors duration-200 ease-out group-hover:text-signal motion-reduce:transition-none">
               {item.title}
             </h3>
+            {takeaway ? (
+              <p className="mt-2 max-w-2xl text-[0.95rem] leading-7 text-muted">
+                {takeaway}
+              </p>
+            ) : null}
             {item.tagList.length > 1 ? (
               <div className="mt-2 flex flex-wrap gap-x-3 font-mono text-[0.7rem] text-muted">
                 {item.tagList.slice(1).map((tag) => (

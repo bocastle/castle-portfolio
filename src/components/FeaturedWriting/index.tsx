@@ -1,3 +1,4 @@
+import { getBlogTakeaway } from "@/app/(blogLayout)/api/blog-takeaways";
 import Link from "next/link";
 
 export const featuredWritings = [
@@ -73,26 +74,32 @@ const FeaturedWriting = ({
         {description}
       </p>
       <div className="mt-8 border-t border-rule">
-        {featuredWritings.map((writing) => (
-          <Link
-            key={writing.href}
-            href={writing.href}
-            aria-label={`${writing.title} 글 보기`}
-            className="group block border-b border-rule py-6 transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal motion-reduce:transition-none"
-          >
-            <article>
-              <span className="font-mono text-[0.7rem] uppercase tracking-[0.12em] text-muted">
-                {writing.focus}
-              </span>
-              <h3 className="mt-2 py-0 text-[1.375rem] font-semibold leading-snug tracking-[-0.01em] transition-colors duration-200 ease-out group-hover:text-signal motion-reduce:transition-none">
-                {writing.title}
-              </h3>
-              <p className="mt-2 max-w-2xl text-[0.95rem] leading-7 text-muted">
-                {writing.description}
-              </p>
-            </article>
-          </Link>
-        ))}
+        {featuredWritings.map((writing) => {
+          const pageId = writing.href.replace("/blog/", "");
+          // 결론 한 줄이 있으면 그것을, 없으면 기존 설명을 쓴다.
+          const summary = getBlogTakeaway(pageId) ?? writing.description;
+
+          return (
+            <Link
+              key={writing.href}
+              href={writing.href}
+              aria-label={`${writing.title} 글 보기`}
+              className="group block border-b border-rule py-6 transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal motion-reduce:transition-none"
+            >
+              <article>
+                <span className="font-mono text-[0.7rem] uppercase tracking-[0.12em] text-muted">
+                  {writing.focus}
+                </span>
+                <h3 className="mt-2 py-0 text-[1.375rem] font-semibold leading-snug tracking-[-0.01em] transition-colors duration-200 ease-out group-hover:text-signal motion-reduce:transition-none">
+                  {writing.title}
+                </h3>
+                <p className="mt-2 max-w-2xl text-[0.95rem] leading-7 text-muted">
+                  {summary}
+                </p>
+              </article>
+            </Link>
+          );
+        })}
       </div>
     </section>
   );

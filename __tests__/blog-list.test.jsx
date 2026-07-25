@@ -51,6 +51,24 @@ describe("BlogList", () => {
     expect(screen.queryByRole("img")).not.toBeInTheDocument();
   });
 
+  it("제목 아래에 그 글의 결론 한 줄을 보여준다", () => {
+    render(<BlogList list={[article]} />);
+
+    expect(
+      screen.getByText(/되돌아갈 기준을 남긴다/)
+    ).toBeInTheDocument();
+  });
+
+  it("결론이 없는 글은 결론 줄을 생략한다", () => {
+    render(
+      <BlogList
+        list={[{ ...article, pageId: "unknown-post", tagList: [] }]}
+      />
+    );
+
+    expect(screen.queryByText(/되돌아갈 기준을 남긴다/)).not.toBeInTheDocument();
+  });
+
   it("첫 태그와 날짜를 메타 줄에 두고 나머지 태그는 아래에 둔다", () => {
     render(<BlogList list={[article]} />);
 
