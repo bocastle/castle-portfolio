@@ -1,7 +1,5 @@
 import { Metadata } from "next";
 import { getPublicImageUrl } from "../../utils/image-url";
-import { getArticleCategoryList } from "./api/blog";
-import { ArticleCategory } from "./components/ArticleCategory";
 export const metadata: Metadata = {
   title: "castle log",
   description: "개발과 일상을 공유 합니다.",
@@ -30,16 +28,17 @@ export default async function BlogLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const articleCategoryList = await getArticleCategoryList();
   return (
     <>
+      {/*
+        좌측 카테고리 사이드바를 걷어냈다. 문서사이트처럼 보이게 만드는 뼈대였고,
+        카테고리는 /categories와 상단 링크로 접근한다.
+        id는 무한스크롤 IntersectionObserver의 root라 유지한다.
+      */}
       <div
-        className="items-start mx-auto p-8 flex gap-28 my-4 mb-20 md:gap-10 md:my-4 sm:gap-5 max-lg:items-center max-md:items-center max-sm:items-center"
+        className="mx-auto mb-20 flex w-full max-w-7xl flex-col items-center px-6 py-10 sm:px-8"
         id={"blog_layout_container"}
       >
-        <div className="w-1/5 items-center max-lg:hidden max-md:hidden max-sm:hidden">
-          <ArticleCategory list={articleCategoryList} />
-        </div>
         {children}
       </div>
     </>

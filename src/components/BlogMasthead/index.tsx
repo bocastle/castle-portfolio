@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface Props {
   /** 공개된 글 수. 목록 데이터에서 넘겨받는다. */
   postCount: number;
@@ -20,8 +22,14 @@ const BlogMasthead = ({ postCount }: Props) => {
         글마다 결론 한 줄을 남깁니다.
       </h1>
       <div className="mt-7 flex flex-wrap items-baseline gap-x-6 gap-y-2 font-mono text-[0.7rem] uppercase tracking-[0.12em] text-muted">
-        <span>백엔드 · 프론트엔드 · DevOps</span>
         <span>글 {postCount}개</span>
+        {/* 사이드바를 걷어낸 뒤 카테고리로 들어가는 유일한 입구다. */}
+        <Link
+          href="/categories"
+          className="underline decoration-rule underline-offset-4 transition-colors hover:text-signal"
+        >
+          카테고리 전체
+        </Link>
       </div>
     </header>
   );
