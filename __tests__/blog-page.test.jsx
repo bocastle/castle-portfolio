@@ -5,6 +5,7 @@ import { getPageList } from "../src/app/(blogLayout)/api/blog";
 
 jest.mock("../src/app/(blogLayout)/api/blog", () => ({
   getPageList: jest.fn(),
+  getArticleCategoryList: jest.fn().mockResolvedValue([]),
 }));
 
 jest.mock("../src/components/BlogList", () => ({

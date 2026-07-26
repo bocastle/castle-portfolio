@@ -2,7 +2,8 @@ import BlogList from "@/components/BlogList";
 import BlogMasthead from "@/components/BlogMasthead";
 import FeaturedWriting from "@/components/FeaturedWriting";
 import BlogAdSenseSlot from "@/components/GoogleAds/BlogAdSenseSlot";
-import { getPageList } from "../api/blog";
+import { getArticleCategoryList, getPageList } from "../api/blog";
+import { ArticleCategory } from "../components/ArticleCategory";
 import { ArticleFilterTagList } from "./components/ArticleTagList";
 import { ArticleTagTitle } from "./components/ArticleTagTitle";
 
@@ -12,11 +13,15 @@ export interface IBlogPagelist {
   created_time: string;
 }
 export default async function BlogPage() {
-  const List = await getPageList();
+  const [List, categoryList] = await Promise.all([
+    getPageList(),
+    getArticleCategoryList(),
+  ]);
 
   return (
     <div className="mx-auto w-full max-w-3xl items-start max-lg:w-full max-md:w-full max-sm:w-full flex flex-col gap-10 md:my-4 max-lg:items-center max-md:items-center max-sm:items-center">
       <BlogMasthead postCount={List.length} />
+      <ArticleCategory list={categoryList} />
       <FeaturedWriting
         eyebrow="기술 글"
         title="먼저 읽어볼 글"
