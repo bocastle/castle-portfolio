@@ -1,3 +1,4 @@
+import { getBlogQuestion } from "@/app/(blogLayout)/api/blog-questions";
 import { getBlogTakeaway } from "@/app/(blogLayout)/api/blog-takeaways";
 import Link from "next/link";
 
@@ -78,6 +79,7 @@ const FeaturedWriting = ({
           const pageId = writing.href.replace("/blog/", "");
           // 결론 한 줄이 있으면 그것을, 없으면 기존 설명을 쓴다.
           const summary = getBlogTakeaway(pageId) ?? writing.description;
+          const question = getBlogQuestion(pageId);
 
           return (
             <Link
@@ -87,15 +89,22 @@ const FeaturedWriting = ({
               className="group block border-b border-rule py-6 transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal motion-reduce:transition-none"
             >
               <article>
-                <span className="font-mono text-[0.7rem] uppercase tracking-[0.12em] text-muted">
-                  {writing.focus}
-                </span>
-                <h3 className="mt-2 py-0 text-[1.375rem] font-semibold leading-snug tracking-[-0.01em] transition-colors duration-200 ease-out group-hover:text-signal motion-reduce:transition-none">
-                  {writing.title}
+                {/* 질문을 앞에 세운다. 없으면 제목이 그 자리를 대신한다. */}
+                <h3 className="py-0 text-[1.375rem] font-semibold leading-snug tracking-[-0.01em] transition-colors duration-200 ease-out group-hover:text-signal motion-reduce:transition-none">
+                  {question ?? writing.title}
                 </h3>
-                <p className="mt-2 max-w-2xl text-[0.95rem] leading-7 text-muted">
+                <p className="mt-2.5 max-w-2xl text-[0.95rem] leading-7 text-muted">
                   {summary}
                 </p>
+                <div className="mt-3.5 flex flex-wrap items-baseline gap-x-2 gap-y-1 font-mono text-[0.7rem] uppercase tracking-[0.12em] text-muted">
+                  {question ? (
+                    <>
+                      <span className="normal-case">{writing.title}</span>
+                      <span aria-hidden="true">·</span>
+                    </>
+                  ) : null}
+                  <span>{writing.focus}</span>
+                </div>
               </article>
             </Link>
           );

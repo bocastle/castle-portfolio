@@ -1,5 +1,6 @@
 "use client";
 
+import { getBlogQuestion } from "@/app/(blogLayout)/api/blog-questions";
 import { getBlogTakeaway } from "@/app/(blogLayout)/api/blog-takeaways";
 import { AllArticle } from "@/app/(blogLayout)/api/types";
 import {
@@ -8,7 +9,7 @@ import {
 } from "@/store/article-filter.store";
 import { trackEvent } from "@/utils/analytics";
 import { getBlogTagLabel } from "@/utils/blog-labels";
-import { getDistanceFromToday, getYearMonthDay } from "@/utils/date";
+import { getYearMonthDay } from "@/utils/date";
 import Link from "next/link";
 import { useCallback, useMemo, useRef } from "react";
 
@@ -75,10 +76,12 @@ const BlogList = ({ list }: Props) => {
         const isLast =
           index === filteredArticleList.filteredArticleList.length - 1;
         const takeaway = getBlogTakeaway(item.pageId);
+        const question = getBlogQuestion(item.pageId);
 
         return (
           <Link
             href={`/blog/${item.pageId}`}
+            aria-label={`${item.title} 글 보기`}
             key={item.pageId}
             ref={(el) => {
               if (isLast) lastItemRef(el);
@@ -90,33 +93,32 @@ const BlogList = ({ list }: Props) => {
                 title: item.title,
               })
             }
-            className="group block min-w-0 border-b border-rule py-6 transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal motion-reduce:transition-none"
+            className="group block min-w-0 border-b border-rule py-7 transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal motion-reduce:transition-none"
           >
-            <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 font-mono text-[0.7rem] uppercase tracking-[0.12em] text-muted">
-              <span>
-                {item.tagList.length > 0
-                  ? getBlogTagLabel(item.tagList[0].name)
-                  : ""}
-              </span>
-              <span>
-                {getYearMonthDay(item.createdAt)} · {getDistanceFromToday(item.createdAt)}
-              </span>
-            </div>
-            <h3 className="mt-2 break-words py-0 text-[1.375rem] font-semibold leading-snug tracking-[-0.01em] transition-colors duration-200 ease-out group-hover:text-signal motion-reduce:transition-none">
-              {item.title}
+            {/* 질문을 앞에 세운다. 없으면 제목이 그 자리를 대신한다. */}
+            <h3 className="break-words py-0 text-[1.375rem] font-semibold leading-snug tracking-[-0.01em] transition-colors duration-200 ease-out group-hover:text-signal motion-reduce:transition-none">
+              {question ?? item.title}
             </h3>
             {takeaway ? (
-              <p className="mt-2 max-w-2xl text-[0.95rem] leading-7 text-muted">
+              <p className="mt-2.5 max-w-2xl text-[0.95rem] leading-7 text-muted">
                 {takeaway}
               </p>
             ) : null}
-            {item.tagList.length > 1 ? (
-              <div className="mt-2 flex flex-wrap gap-x-3 font-mono text-[0.7rem] text-muted">
-                {item.tagList.slice(1).map((tag) => (
-                  <span key={tag.id}>{getBlogTagLabel(tag.name)}</span>
-                ))}
-              </div>
-            ) : null}
+            <div className="mt-3.5 flex flex-wrap items-baseline gap-x-2 gap-y-1 font-mono text-[0.7rem] uppercase tracking-[0.12em] text-muted">
+              {question ? (
+                <>
+                  <span className="normal-case">{item.title}</span>
+                  <span aria-hidden="true">·</span>
+                </>
+              ) : null}
+              {item.tagList.length > 0 ? (
+                <>
+                  <span>{getBlogTagLabel(item.tagList[0].name)}</span>
+                  <span aria-hidden="true">·</span>
+                </>
+              ) : null}
+              <span>{getYearMonthDay(item.createdAt)}</span>
+            </div>
           </Link>
         );
       })}

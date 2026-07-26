@@ -69,11 +69,24 @@ describe("BlogList", () => {
     expect(screen.queryByText(/되돌아갈 기준을 남긴다/)).not.toBeInTheDocument();
   });
 
-  it("첫 태그와 날짜를 메타 줄에 두고 나머지 태그는 아래에 둔다", () => {
+  it("질문을 앞에 세우고 제목·태그·날짜는 메타 줄로 내린다", () => {
     render(<BlogList list={[article]} />);
 
+    // 큰 활자 자리는 질문이 차지한다.
+    expect(
+      screen.getByRole("heading", { name: "파이프라인 단계를 왜 나누나" })
+    ).toBeInTheDocument();
+    // 제목은 메타 줄에 남는다(제목 자체가 사라지지는 않는다).
+    expect(screen.getByText("CI/CD 파이프라인 운영 흐름")).toBeInTheDocument();
     expect(screen.getByText("CI/CD")).toBeInTheDocument();
-    expect(screen.getByText("배포")).toBeInTheDocument();
     expect(screen.getByText(/2026/)).toBeInTheDocument();
+  });
+
+  it("질문이 없는 글은 제목이 큰 활자 자리를 대신한다", () => {
+    render(<BlogList list={[{ ...article, pageId: "unknown-post" }]} />);
+
+    expect(
+      screen.getByRole("heading", { name: "CI/CD 파이프라인 운영 흐름" })
+    ).toBeInTheDocument();
   });
 });
