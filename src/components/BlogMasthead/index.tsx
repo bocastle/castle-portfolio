@@ -30,7 +30,7 @@ const BlogMasthead = ({ postCount }: Props) => {
         {/* 사이드바를 걷어낸 뒤 카테고리로 들어가는 유일한 입구다. */}
         <Link
           href="/categories"
-          className="underline decoration-rule underline-offset-4 transition-colors hover:text-signal"
+          className="inline-flex min-h-[36px] items-center underline decoration-rule underline-offset-4 transition-colors hover:text-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal"
         >
           카테고리 전체
         </Link>
