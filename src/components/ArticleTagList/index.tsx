@@ -39,7 +39,7 @@ const ArticleTagList = ({ articleTagInfo }: Props) => {
       type="button"
       aria-pressed={isSelected}
       onClick={onToggleFilter}
-      className={`rounded-sm border px-2.5 py-1 font-mono text-[0.7rem] uppercase tracking-[0.1em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal ${
+      className={`inline-flex min-h-[36px] items-center rounded-sm border px-3 py-1 font-mono text-[0.7rem] uppercase tracking-[0.1em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal ${
         isSelected
           ? "border-signal text-signal"
           : "border-rule text-muted hover:border-signal hover:text-signal"

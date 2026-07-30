@@ -34,7 +34,7 @@ const TagFilterBar = ({ tagList }: Props) => {
           type="button"
           aria-expanded={expanded}
           onClick={() => setExpanded((prev) => !prev)}
-          className="rounded-sm px-2.5 py-1 font-mono text-[0.7rem] uppercase tracking-[0.1em] text-muted underline decoration-rule underline-offset-4 transition-colors hover:text-signal hover:decoration-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal"
+          className="inline-flex min-h-[36px] items-center rounded-sm px-3 py-1 font-mono text-[0.7rem] uppercase tracking-[0.1em] text-muted underline decoration-rule underline-offset-4 transition-colors hover:text-signal hover:decoration-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal"
         >
           {expanded ? "접기" : `+${restCount}개 더`}
         </button>

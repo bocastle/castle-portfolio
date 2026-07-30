@@ -16,7 +16,7 @@ interface Props {
  */
 export const ArticleCategory = ({ list }: Props) => {
   const linkClass =
-    "font-mono text-[0.7rem] uppercase tracking-[0.12em] text-muted underline decoration-transparent underline-offset-4 transition-colors hover:text-signal hover:decoration-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal";
+    "inline-flex min-h-[36px] items-center font-mono text-[0.7rem] uppercase tracking-[0.12em] text-muted underline decoration-transparent underline-offset-4 transition-colors hover:text-signal hover:decoration-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal";
 
   return (
     <nav
