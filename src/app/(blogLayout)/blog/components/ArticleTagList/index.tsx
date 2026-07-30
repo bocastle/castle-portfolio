@@ -5,7 +5,7 @@ export const ArticleFilterTagList = async () => {
   const articleTagList = await getArticleTagList();
 
   return (
-    <div className="flex flex-wrap gap-4 relative py-3 px-3 items-start max-md:flex-wrap">
+    <div className="flex w-full flex-wrap items-start gap-x-2 gap-y-2 pt-4">
       {articleTagList.map((tag) => (
         <ArticleTagList key={tag.id} articleTagInfo={tag} />
       ))}

@@ -15,8 +15,6 @@ interface Props {
 
 const ArticleTagList = ({ articleTagInfo }: Props) => {
   const { filterBlogTagList } = useArticleFilterStore();
-  // console.log("articleTagInfo::", articleTagInfo);
-  // console.log("filterBlogTagList::", filterBlogTagList);
 
   const isSelected = filterBlogTagList.some(
     ({ name }) => articleTagInfo.name === name
@@ -35,27 +33,21 @@ const ArticleTagList = ({ articleTagInfo }: Props) => {
     return addFilterBlogTag(articleTagInfo);
   };
 
-  //가독성이 너무 안좋은데...
-  if (isSelected) {
-    return (
-      <div
-        onClick={onToggleFilter}
-        className={`w-fit h-auto text-ellipsis cursor-pointer text-[16px] leading-5 font-medium text-stone-950 rounded-xl py-1 px-3 flex items-center bg-stone-400 hover:bg-stone-400 dark:bg-stone-50 dark:hover:bg-stone-100`}
-      >
-        {label}
-      </div>
-    );
-  }
-  if (!isSelected) {
-    return (
-      <div
-        onClick={onToggleFilter}
-        className={`w-fit h-auto text-ellipsis cursor-pointer text-[16px] leading-5 font-medium text-gray-800 dark:text-sky-100 rounded-xl py-1 px-3 flex items-center hover:bg-stone-400 dark:hover:bg-sky-400/20 bg-gray-400/30 dark:bg-sky-400/10`}
-      >
-        {label}
-      </div>
-    );
-  }
+  // 알약 대신 괘선 한 겹. 선택된 것만 signal로 채워 어떤 필터가 걸렸는지 한눈에 보이게 한다.
+  return (
+    <button
+      type="button"
+      aria-pressed={isSelected}
+      onClick={onToggleFilter}
+      className={`rounded-sm border px-2.5 py-1 font-mono text-[0.7rem] uppercase tracking-[0.1em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal ${
+        isSelected
+          ? "border-signal text-signal"
+          : "border-rule text-muted hover:border-signal hover:text-signal"
+      }`}
+    >
+      {label}
+    </button>
+  );
 };
 
 export default ArticleTagList;
