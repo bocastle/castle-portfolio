@@ -32,7 +32,7 @@ const Navbar = () => {
     <header className="sticky top-0 z-50 w-full border-b border-rule bg-paper backdrop-blur">
       <div className="mx-auto flex h-20 w-full items-center justify-between gap-4 px-8">
         <Link
-          className="italic text-xl font-black"
+          className="font-mono text-base font-semibold tracking-tight sm:text-lg"
           href="/"
           onClick={() => handleNavClick("castle.log", "/")}
         >
@@ -41,7 +41,7 @@ const Navbar = () => {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center p-0 text-slate-900 transition-colors hover:text-teal-700 dark:text-white dark:hover:text-teal-300 md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center p-0 text-ink transition-colors hover:text-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal md:hidden"
           aria-controls="mobile-navigation"
           aria-expanded={isMobileMenuOpen}
           aria-label={isMobileMenuOpen ? "모바일 메뉴 닫기" : "모바일 메뉴 열기"}
@@ -81,7 +81,7 @@ const Navbar = () => {
                 key={item.key}
                 href={item.href}
                 onClick={() => handleNavClick(item.name, item.href)}
-                className={`italic text-2xl font-semibold ${
+                className={`inline-flex min-h-[36px] items-center font-mono text-xs uppercase tracking-[0.14em] ${
                   isUnderlined
                     ? "underline decoration-solid underline-offset-8"
                     : ""
@@ -114,8 +114,8 @@ const Navbar = () => {
                   onClick={() => handleNavClick(item.name, item.href)}
                   className={`border-t border-rule py-3 text-base font-semibold ${
                     isUnderlined
-                      ? "text-teal-700 underline decoration-solid underline-offset-4 dark:text-teal-300"
-                      : "text-slate-900 dark:text-white"
+                      ? "text-signal underline decoration-solid underline-offset-4"
+                      : "text-ink"
                   }`}
                 >
                   {item.name}

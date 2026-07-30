@@ -1,4 +1,5 @@
 import BlogList from "@/components/BlogList";
+import CategoryHeader from "@/components/CategoryHeader";
 import BlogAdSenseSlot from "@/components/GoogleAds/BlogAdSenseSlot";
 import { getCategoryList } from "../api/blog";
 
@@ -12,6 +13,7 @@ export default async function CategoriesPage() {
 
   return (
     <div className="mx-auto w-full max-w-4xl items-start max-lg:w-full max-md:w-full max-sm:w-full flex flex-col md:gap-5 md:my-4 sm:gap-5 max-lg:items-center max-md:items-center max-sm:items-center">
+      <CategoryHeader postCount={List.length} />
       <BlogAdSenseSlot className="mb-4" />
       <BlogList list={List} />
     </div>
