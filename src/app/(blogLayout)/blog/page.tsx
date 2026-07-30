@@ -19,7 +19,7 @@ export default async function BlogPage() {
   ]);
 
   return (
-    <div className="mx-auto w-full max-w-3xl items-start max-lg:w-full max-md:w-full max-sm:w-full flex flex-col gap-10 md:my-4 max-lg:items-center max-md:items-center max-sm:items-center">
+    <div className="mx-auto w-full max-w-4xl items-start max-lg:w-full max-md:w-full max-sm:w-full flex flex-col gap-10 md:my-4 max-lg:items-center max-md:items-center max-sm:items-center">
       <BlogMasthead postCount={List.length} />
       <ArticleCategory list={categoryList} />
       <FeaturedWriting

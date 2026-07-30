@@ -44,7 +44,7 @@ export default async function SelectCategoryPage({ params }: Props) {
   const List = await getCategoryList({ categoryName: categoryName });
 
   return (
-    <div className="mx-auto w-full max-w-3xl items-start max-md:w-full max-sm:w-full flex flex-col md:gap-5 md:my-4 sm:gap-5 max-lg:items-center max-md:items-center max-sm:items-center">
+    <div className="mx-auto w-full max-w-4xl items-start max-md:w-full max-sm:w-full flex flex-col md:gap-5 md:my-4 sm:gap-5 max-lg:items-center max-md:items-center max-sm:items-center">
       <BlogAdSenseSlot className="mb-4" />
       <BlogList list={List} />
     </div>
