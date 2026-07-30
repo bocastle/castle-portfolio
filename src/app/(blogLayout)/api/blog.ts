@@ -1,3 +1,4 @@
+import { filterListableArticles } from "./blog-visibility";
 import * as githubLogsBlogSource from "./github-logs";
 import * as githubMarkdownBlogSource from "./github-markdown";
 import * as notionBlogSource from "./notion";
@@ -89,11 +90,13 @@ export const getPageList = async (): Promise<AllArticle[]> => {
       ),
     ]);
 
-  return sortArticleList([
-    ...withSource(notionPageList, "notion"),
-    ...withSource(githubPageList, "github"),
-    ...withSource(githubLogsPageList, "github"),
-  ]).map(withGeneratedBlogThumbnail);
+  return filterListableArticles(
+    sortArticleList([
+      ...withSource(notionPageList, "notion"),
+      ...withSource(githubPageList, "github"),
+      ...withSource(githubLogsPageList, "github"),
+    ])
+  ).map(withGeneratedBlogThumbnail);
 };
 
 export const getCategoryList = async ({
@@ -118,11 +121,13 @@ export const getCategoryList = async ({
       ),
     ]);
 
-  const mergedList = sortArticleList([
-    ...withSource(notionCategoryList, "notion"),
-    ...withSource(githubCategoryList, "github"),
-    ...withSource(githubLogsCategoryList, "github"),
-  ]).map(withGeneratedBlogThumbnail);
+  const mergedList = filterListableArticles(
+    sortArticleList([
+      ...withSource(notionCategoryList, "notion"),
+      ...withSource(githubCategoryList, "github"),
+      ...withSource(githubLogsCategoryList, "github"),
+    ])
+  ).map(withGeneratedBlogThumbnail);
 
   if (!categoryName) {
     return mergedList;
