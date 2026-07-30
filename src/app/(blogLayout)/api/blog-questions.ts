@@ -32,6 +32,20 @@ const BLOG_QUESTIONS = {
   "logs-goroutine": "Go는 동시 실행을 어떤 단위로 다루나",
   "github-fullstack-service-ops": "화면부터 배포까지 하나로 어떻게 다루나",
   "github-codex-portfolio-qa": "변경 후 QA를 어떻게 반복 가능하게 만드나",
+
+  // Notion 글. 회고·문제 모음처럼 질문 하나로 요약되지 않는 글은 제목을 그대로 둔다.
+  "1765abe4-94ef-8041-b60c-cbda9f251b31":
+    "함수와 함수 호출은 무엇이 다른가",
+  "1765abe4-94ef-80b7-b1af-f25ff39a3b50":
+    "자바스크립트는 함수 호출을 어떻게 처리하나",
+  "1805abe4-94ef-8088-a93f-e87389c97fbc": "유사 배열을 배열로 어떻게 바꾸나",
+  "1815abe4-94ef-80e7-a19f-ef7aa12ca5e6": "Next.js에 테스트를 어떻게 붙이나",
+  "1985abe4-94ef-8049-9dba-f304a6b14d9f": "다크모드에서 깜빡임이 왜 생기나",
+  "1ac5abe4-94ef-80c5-81cb-c236d3d60daa":
+    "git 계정 설정을 어떻게 확인하고 바꾸나",
+  "1815abe4-94ef-8047-b85c-d9fb97129717": "서드파티 스크립트를 어떻게 넣나",
+  "1965abe4-94ef-80da-86a8-cd236f0e31c9":
+    "Expo에서 네이티브 폴더를 어떻게 만드나",
 } as const;
 
 export type BlogQuestionPageId = keyof typeof BLOG_QUESTIONS;
